@@ -1,14 +1,9 @@
+import Article from "../component/UI/Article";
 import Section from "../component/UI/Section";
-import styled from "styled-components";
-
-const StyledHeader = styled.h2`
-  color: #ca4766;
-`;
 
 function CoreValues() {
   return (
-    <article>
-      <StyledHeader>OUR CORE VALUES</StyledHeader>
+    <Article header="OUR CORE VALUES">
       <Section
         header="QUALITY"
         paragraph="We strive to be the best quality home care. This is accomplished by hiring, training, and retaining highly qualified caregivers."
@@ -23,7 +18,7 @@ function CoreValues() {
         header="INTEGRITY"
         paragraph="We will maintain the utmost respect and honestly with our clients, employees, and community."
       />
-    </article>
+    </Article>
   );
 }
 

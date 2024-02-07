@@ -1,11 +1,13 @@
 // import logo from "./logo.svg";
 import "./App.css";
 import CoreValues from "./pages/CoreValues";
+import Services from "./pages/Services";
 
 function App() {
   return (
     <main>
       <CoreValues />
+      <Services />
     </main>
     // <div className="App">
     //   <header className="App-header">
