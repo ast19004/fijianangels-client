@@ -1,20 +1,31 @@
 import styled from "styled-components";
 
 const StyledHeader = styled.h3`
-  color: #ca4766;
+  color: ${(props) => (props.headerColor ? props.headerColor : "#ca4766")};
   display: ${(props) => (!props.displayBlock ? "inline" : "block")};
 `;
 const StyledParagraph = styled.p`
-  color: #066988;
+  color: ${(props) =>
+    props.paragraphColor ? props.paragraphColor : "#066988"};
   display: inline;
 `;
 
 function Section(props) {
   return (
     <section>
-      <StyledHeader>{props.header}</StyledHeader>
+      <StyledHeader
+        headerColor={props.headerColor}
+        displayBlock={props.displayBlock}
+      >
+        {props.header}
+      </StyledHeader>
       &nbsp;
-      <StyledParagraph>{props.paragraph}</StyledParagraph>
+      <StyledParagraph
+        paragraphColor={props.paragraphColor}
+        displayBlock={props.displayBlock}
+      >
+        {props.paragraph}
+      </StyledParagraph>
     </section>
   );
 }
