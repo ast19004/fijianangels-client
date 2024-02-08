@@ -1,5 +1,6 @@
 // import logo from "./logo.svg";
 import "./App.css";
+import Contact from "./pages/Contact";
 import CoreValues from "./pages/CoreValues";
 import Pricing from "./pages/Pricing";
 import Services from "./pages/Services";
@@ -11,6 +12,7 @@ function App() {
         <CoreValues />
         <Services />
         <Pricing />
+        <Contact />
       </main>
     </div>
   );

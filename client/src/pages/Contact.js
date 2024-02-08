@@ -1,15 +1,42 @@
-import { Box } from "@mui/material";
 import Section from "../component/UI/Section";
+import Article from "../component/UI/Article";
+import { Button } from "@mui/material";
 
 function Contact() {
   return (
-    <Box>
+    <Article header="Contact">
       <Section
-        blockSection="true"
-        header="CONTACT"
-        paragraph="Office # 510-612-7595"
+        displayBlock
+        header=""
+        multiParagraph={[
+          "Office # 510-612-7595",
+          "510-812-9475",
+          "650-518-0532",
+          "724-434-4646",
+        ]}
       />
-    </Box>
+      <Section
+        displayBlock
+        header="HOURS OF OPERATION"
+        multiParagraph={[
+          "Monday-Friday",
+          "9:00am-7:00pm",
+          "SERVING EAST BAY, SAN FRANCISCO, SAN MATEO, PALO ALTO AND MARIN COUNTY",
+        ]}
+      />
+      <Button
+        style={{
+          borderColor: "#CA4766",
+          color: "#CA4766",
+          backgroundColor: "rgba(6,105,136, .2)",
+          padding: "12px 36px",
+          fontSize: "18px",
+        }}
+        variant="outlined"
+      >
+        SEND CAREGIVER REVIEW
+      </Button>
+    </Article>
   );
 }
 
