@@ -9,7 +9,7 @@ const StyledHeader = styled.h3`
 const StyledParagraph = styled.p`
   color: ${(props) =>
     props.paragraphColor ? props.paragraphColor : "#066988"};
-  display: inline;
+  display: ${(props) => (!props.displayBlock ? "inline" : "block")};
 `;
 
 function Section(props) {
@@ -22,13 +22,26 @@ function Section(props) {
       >
         {props.header}
       </StyledHeader>
-      &nbsp;
-      <StyledParagraph
-        paragraphColor={props.paragraphColor}
-        displayBlock={props.displayBlock}
-      >
-        {props.paragraph}
-      </StyledParagraph>
+      {props.multiParagraph ? (
+        props.multiParagraph.map((paragraph) => (
+          <StyledParagraph
+            paragraphColor={props.paragraphColor}
+            displayBlock={props.displayBlock}
+          >
+            {paragraph}
+          </StyledParagraph>
+        ))
+      ) : (
+        <>
+          &nbsp;
+          <StyledParagraph
+            paragraphColor={props.paragraphColor}
+            displayBlock={props.displayBlock}
+          >
+            {props.paragraph}
+          </StyledParagraph>
+        </>
+      )}
     </section>
   );
 }
