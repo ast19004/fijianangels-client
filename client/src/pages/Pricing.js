@@ -17,6 +17,7 @@ function Pricing() {
       <Section
         header="$35/HR for"
         headerColor="#066988"
+        headerFontWeight="normal"
         paragraph="anything from 8hours-12hours"
         paragraphColor="#ca4766"
       />

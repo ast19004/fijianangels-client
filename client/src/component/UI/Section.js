@@ -3,6 +3,8 @@ import styled from "styled-components";
 const StyledHeader = styled.h3`
   color: ${(props) => (props.headerColor ? props.headerColor : "#ca4766")};
   display: ${(props) => (!props.displayBlock ? "inline" : "block")};
+  font-weight: ${(props) =>
+    props.headerFontWeight ? props.headerFontWeight : "bold"};
 `;
 const StyledParagraph = styled.p`
   color: ${(props) =>
@@ -16,6 +18,7 @@ function Section(props) {
       <StyledHeader
         headerColor={props.headerColor}
         displayBlock={props.displayBlock}
+        headerFontWeight={props.headerFontWeight}
       >
         {props.header}
       </StyledHeader>
