@@ -19,7 +19,7 @@ function Staff(props) {
       <Typography variant="h2" color="#ca4766">
         MEET OUR STAFF
       </Typography>
-      <Grid container spacing={2}>
+      <Grid container spacing={5}>
         {staffMembers.map((member) => (
           <Grid item>
             <StaffThumbnail
