@@ -21,9 +21,8 @@ function Staff(props) {
       </Typography>
       <Grid container spacing={5}>
         {staffMembers.map((member) => (
-          <Grid item>
+          <Grid item key={member.staffMember}>
             <StaffThumbnail
-              key={member.staffMember}
               image={member.image}
               staffMember={member.staffMember}
             />

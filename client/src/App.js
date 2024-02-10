@@ -1,5 +1,7 @@
 // import logo from "./logo.svg";
+import { Box } from "@mui/material";
 import "./App.css";
+import Footer from "./component/Layout/Footer";
 import Contact from "./pages/Contact";
 import CoreValues from "./pages/CoreValues";
 import Pricing from "./pages/Pricing";
@@ -16,6 +18,8 @@ function App() {
         <Pricing />
         <Contact />
       </main>
+      <Box sx={{ height: "50px" }} />
+      <Footer />
     </div>
   );
 }
