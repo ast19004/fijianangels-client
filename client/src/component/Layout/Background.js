@@ -1,10 +1,10 @@
 import { useInView } from "react-intersection-observer";
 import { Transition } from "react-transition-group";
 
-import flowerLogo from "../flowerLogo.svg";
+import flowerLogo from "../../flowerLogo.svg";
 import { Box } from "@mui/material";
 
-function Home() {
+function Background() {
   const homeBackgroundStyles = {
     background:
       "linear-gradient(#fff 25%, rgba(5,150,254, 0.77) , rgb(3,51,66) 95%)",
@@ -57,4 +57,4 @@ function Home() {
   );
 }
 
-export default Home;
+export default Background;

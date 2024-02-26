@@ -7,13 +7,13 @@ import Pricing from "./pages/Pricing";
 import Services from "./pages/Services";
 import Staff from "./pages/Staff";
 import Header from "./component/Layout/Header";
-import Home from "./pages/Home";
+import Background from "./component/Layout/Background";
 
 function App() {
   return (
     <div className="App">
       <Header />
-      <Home />
+      <Background />
       <main>
         <CoreValues />
         <Staff />
