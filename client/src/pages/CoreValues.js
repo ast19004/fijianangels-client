@@ -3,7 +3,7 @@ import Section from "../component/UI/Section";
 
 function CoreValues() {
   return (
-    <Article header="OUR CORE VALUES">
+    <Article header="OUR CORE VALUES" id="corevalues">
       <Section
         header="QUALITY"
         paragraph="We strive to be the best quality home care. This is accomplished by hiring, training, and retaining highly qualified caregivers."

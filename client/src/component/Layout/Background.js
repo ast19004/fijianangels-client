@@ -7,11 +7,11 @@ import { Box } from "@mui/material";
 function Background() {
   const homeBackgroundStyles = {
     background:
-      "linear-gradient(#fff 25%, rgba(5,150,254, 0.77) , rgb(3,51,66) 95%)",
-    height: "57vw",
+      "linear-gradient(#fff 25%, rgba(5,150,254, 0.77) , rgb(3,51,66) 90%)",
+    height: "92vh",
     width: "100vw",
-    position: "absolute",
-    top: "70px",
+    position: "relative",
+    top: "0px",
     right: "0px",
     zIndex: "-2",
   };
@@ -19,14 +19,34 @@ function Background() {
   const { ref, inView, entry } = useInView({
     threshold: 1,
   });
+
+  const transitionStyles = {
+    entering: { opacity: 1 },
+    entered: { opacity: 1 },
+    exiting: { opacity: 0 },
+    exited: { opacity: 0 },
+  };
+
   return (
     <>
+      <Transition in={!inView} timeout={1000}>
+        {(state) => (
+          <Box
+            ref={ref}
+            sx={{
+              ...homeBackgroundStyles,
+              transition: "opacity 0.75s ease-in-out",
+              opacity: state === "entered" ? 1 : 0,
+            }}
+          ></Box>
+        )}
+      </Transition>
       <Box
         sx={{
-          height: "60vw",
+          height: "75vh",
           width: "100vw",
-          position: "sticky",
-          top: "0px",
+          position: "absolute",
+          top: "70px",
           right: "0px",
           zIndex: "-1",
           display: "flex",
@@ -41,18 +61,6 @@ function Background() {
           alt="flower logo"
         />
       </Box>
-      <Transition in={inView}>
-        {(state) => (
-          <Box
-            ref={ref}
-            sx={{
-              ...homeBackgroundStyles,
-              transition: "opacity 0.75s ease-in-out",
-              opacity: state === "entered" ? 1 : 0,
-            }}
-          ></Box>
-        )}
-      </Transition>
     </>
   );
 }

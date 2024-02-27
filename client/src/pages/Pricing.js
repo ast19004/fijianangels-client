@@ -8,7 +8,7 @@ const StyledParagraph = styled.p`
 
 function Pricing() {
   return (
-    <Article header="Pricing">
+    <Article header="Pricing" id="prices">
       <Section
         header="HOURLY RATE"
         paragraph="$35/HR with MINIMUM OF 5 consecutive hours."

@@ -4,7 +4,7 @@ import { Button } from "@mui/material";
 
 function Contact() {
   return (
-    <Article header="Contact">
+    <Article header="Contact" id="contact">
       <Section
         displayBlock
         header=""

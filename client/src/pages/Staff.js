@@ -15,7 +15,7 @@ function Staff(props) {
     },
   ];
   return (
-    <Box>
+    <Box id="staff">
       <Typography variant="h2" color="#ca4766">
         MEET OUR STAFF
       </Typography>

@@ -1,3 +1,11 @@
+/* --- Classes --- */
+.App {
+  position: relative;
+  top: 0;
+  left: 0;
+}
+
+/* --- Html Elements--- */
 body {
   margin-bottom: 50px;
 }

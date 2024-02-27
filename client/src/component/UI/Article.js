@@ -6,7 +6,7 @@ const StyledHeader = styled.h2`
 
 function Article(props) {
   return (
-    <article>
+    <article id={props.id}>
       <StyledHeader>{props.header}</StyledHeader>
       {props.children}
     </article>

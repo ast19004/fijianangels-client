@@ -3,7 +3,7 @@ import Section from "../component/UI/Section";
 
 function Services() {
   return (
-    <Article header="Services">
+    <Article header="Services" id="services">
       <Section
         header="Companion Care"
         paragraph="A less-intensive, non-medical form of home care. Allow your loved ones to live an independent life with fulfillment and joy; while having peace-of-mind when you cannot be there."

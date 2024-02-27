@@ -11,6 +11,7 @@ import {
   Stack,
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
+import AnchorLink from "react-anchor-link-smooth-scroll";
 
 function Header() {
   const [open, setOpen] = React.useState(false);
@@ -88,11 +89,27 @@ function Header() {
                     aria-labelledby="composition-button"
                     onKeyDown={handleListKeyDown}
                   >
-                    <MenuItem onClick={handleClose}>About</MenuItem>
-                    <MenuItem onClick={handleClose}>Services</MenuItem>
-                    <MenuItem onClick={handleClose}>Prices</MenuItem>
+                    <MenuItem onClick={handleClose}>
+                      <AnchorLink offset="60" href="#staff">
+                        About
+                      </AnchorLink>
+                    </MenuItem>
+                    <MenuItem onClick={handleClose}>
+                      <AnchorLink offset="60" href="#services">
+                        Services
+                      </AnchorLink>
+                    </MenuItem>
+                    <MenuItem onClick={handleClose}>
+                      <AnchorLink offset="60" href="#prices">
+                        Prices
+                      </AnchorLink>
+                    </MenuItem>
                     <MenuItem onClick={handleClose}>Forms</MenuItem>
-                    <MenuItem onClick={handleClose}>Contact</MenuItem>
+                    <MenuItem onClick={handleClose}>
+                      <AnchorLink offset="60" href="#contact">
+                        Contact
+                      </AnchorLink>
+                    </MenuItem>
                   </MenuList>
                 </ClickAwayListener>
               </Paper>
