@@ -4,6 +4,10 @@
   top: 0;
   left: 0;
 }
+.anchorLink {
+  text-decoration: none;
+  color: #066988;
+}
 
 /* --- Html Elements--- */
 body {

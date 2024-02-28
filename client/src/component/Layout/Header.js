@@ -96,22 +96,38 @@ function Header() {
                     onKeyDown={handleListKeyDown}
                   >
                     <MenuItem onClick={handleClose}>
-                      <AnchorLink offset="60" href="#staff">
+                      <AnchorLink
+                        offset="60"
+                        href="#staff"
+                        className="anchorLink"
+                      >
                         About
                       </AnchorLink>
                     </MenuItem>
                     <MenuItem onClick={handleClose}>
-                      <AnchorLink offset="60" href="#services">
+                      <AnchorLink
+                        offset="60"
+                        href="#services"
+                        className="anchorLink"
+                      >
                         Services
                       </AnchorLink>
                     </MenuItem>
                     <MenuItem onClick={handleClose}>
-                      <AnchorLink offset="60" href="#prices">
+                      <AnchorLink
+                        offset="60"
+                        href="#prices"
+                        className="anchorLink"
+                      >
                         Prices
                       </AnchorLink>
                     </MenuItem>
                     <MenuItem onClick={handleClose}>
-                      <AnchorLink offset="60" href="#contact">
+                      <AnchorLink
+                        offset="60"
+                        href="#contact"
+                        className="anchorLink"
+                      >
                         Contact
                       </AnchorLink>
                     </MenuItem>
@@ -127,7 +143,7 @@ function Header() {
                       <MenuList
                         sx={{ display: subMenuOpen ? "block" : "none" }}
                       >
-                        <MenuItem onClick={handleClose}>Client</MenuItem>
+                        <MenuItem onClick={handleClose}>Client (New)</MenuItem>
                         <MenuItem onClick={handleClose}>Employee</MenuItem>
                       </MenuList>
                     </MenuItem>
