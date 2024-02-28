@@ -14,6 +14,7 @@ function Contact() {
           "650-518-0532",
           "724-434-4646",
         ]}
+        lineHeight={1.2}
       />
       <Section
         displayBlock
@@ -23,6 +24,7 @@ function Contact() {
           "9:00am-7:00pm",
           "SERVING EAST BAY, SAN FRANCISCO, SAN MATEO, PALO ALTO AND MARIN COUNTY",
         ]}
+        lineHeight={1.2}
       />
       <Button
         style={{
@@ -31,6 +33,7 @@ function Contact() {
           backgroundColor: "rgba(6,105,136, .2)",
           padding: "12px 36px",
           fontSize: "18px",
+          margin: "3% 0",
         }}
         variant="outlined"
       >

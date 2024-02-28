@@ -15,6 +15,7 @@ import AnchorLink from "react-anchor-link-smooth-scroll";
 
 function Header() {
   const [open, setOpen] = React.useState(false);
+  const [subMenuOpen, setSubMenuOpen] = React.useState(false);
   const anchorRef = React.useRef(null);
 
   const handleToggle = () => {
@@ -38,6 +39,10 @@ function Header() {
     }
   }
 
+  function handleToggleFormSubMenu(event) {
+    setSubMenuOpen((prevState) => !prevState);
+  }
+
   // return focus to the button when we transitioned from !open -> open
   const prevOpen = React.useRef(open);
   React.useEffect(() => {
@@ -47,6 +52,7 @@ function Header() {
 
     prevOpen.current = open;
   }, [open]);
+
   return (
     <header>
       <Stack direction="row" spacing={2}>
@@ -104,11 +110,26 @@ function Header() {
                         Prices
                       </AnchorLink>
                     </MenuItem>
-                    <MenuItem onClick={handleClose}>Forms</MenuItem>
                     <MenuItem onClick={handleClose}>
                       <AnchorLink offset="60" href="#contact">
                         Contact
                       </AnchorLink>
+                    </MenuItem>
+                    <MenuItem
+                      onClick={handleToggleFormSubMenu}
+                      sx={{
+                        display: "flex",
+                        flexDirection: "column",
+                        alignItems: "start",
+                      }}
+                    >
+                      Forms
+                      <MenuList
+                        sx={{ display: subMenuOpen ? "block" : "none" }}
+                      >
+                        <MenuItem onClick={handleClose}>Client</MenuItem>
+                        <MenuItem onClick={handleClose}>Employee</MenuItem>
+                      </MenuList>
                     </MenuItem>
                   </MenuList>
                 </ClickAwayListener>

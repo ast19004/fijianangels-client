@@ -1,3 +1,4 @@
+import { Box } from "@mui/material";
 import styled from "styled-components";
 
 const StyledHeader = styled.h2`
@@ -6,10 +7,10 @@ const StyledHeader = styled.h2`
 
 function Article(props) {
   return (
-    <article id={props.id}>
+    <Box component="article" id={props.id} sx={{ margin: "10% 0" }}>
       <StyledHeader>{props.header}</StyledHeader>
       {props.children}
-    </article>
+    </Box>
   );
 }
 

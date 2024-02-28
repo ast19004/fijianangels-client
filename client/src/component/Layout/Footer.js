@@ -3,7 +3,7 @@ import { Link, Typography } from "@mui/material";
 function Footer() {
   return (
     <footer>
-      <Link href="#" variant="h3" underline="none">
+      <Link href="#contact" variant="h3" underline="none">
         <Typography component="p" variant="h6" color="white">
           FIJIAN ANGELS HOMECARE
         </Typography>

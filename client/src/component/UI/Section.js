@@ -1,3 +1,4 @@
+import { Box } from "@mui/material";
 import styled from "styled-components";
 
 const StyledHeader = styled.h3`
@@ -7,14 +8,14 @@ const StyledHeader = styled.h3`
     props.headerFontWeight ? props.headerFontWeight : "bold"};
 `;
 const StyledParagraph = styled.p`
-  color: ${(props) =>
-    props.paragraphColor ? props.paragraphColor : "#066988"};
+  line-height: ${(props) => props.lineHeight || 1.7};
+  color: ${(props) => props.paragraphColor || "#066988"};
   display: ${(props) => (!props.displayBlock ? "inline" : "block")};
 `;
 
 function Section(props) {
   return (
-    <section>
+    <Box component="section" sx={{ margin: "10px 0" }}>
       <StyledHeader
         headerColor={props.headerColor}
         displayBlock={props.displayBlock}
@@ -25,6 +26,7 @@ function Section(props) {
       {props.multiParagraph ? (
         props.multiParagraph.map((paragraph) => (
           <StyledParagraph
+            lineHeight={props.lineHeight}
             paragraphColor={props.paragraphColor}
             displayBlock={props.displayBlock}
           >
@@ -42,7 +44,7 @@ function Section(props) {
           </StyledParagraph>
         </>
       )}
-    </section>
+    </Box>
   );
 }
 
