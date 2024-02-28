@@ -63,6 +63,7 @@ function Header() {
           aria-expanded={open ? "true" : undefined}
           aria-haspopup="true"
           onClick={handleToggle}
+          onMouseEnter={() => setOpen(true)}
           edge="start"
           color="inherit"
           aria-label="menu"
@@ -72,6 +73,7 @@ function Header() {
         </IconButton>
         <Popper
           open={open}
+          onMouseLeave={() => setOpen(false)}
           anchorEl={anchorRef.current}
           role={undefined}
           placement="bottom-start"
@@ -82,8 +84,11 @@ function Header() {
             <Grow
               {...TransitionProps}
               style={{
+                display: "flex",
+                justifyContent: "center",
                 transformOrigin:
                   placement === "bottom-start" ? "left top" : "left bottom",
+                minWidth: "145px",
               }}
             >
               <Paper elevation={24} variant="outlined" square={false}>
@@ -133,6 +138,8 @@ function Header() {
                     </MenuItem>
                     <MenuItem
                       onClick={handleToggleFormSubMenu}
+                      onMouseEnter={() => setSubMenuOpen(true)}
+                      onMouseLeave={() => setSubMenuOpen(false)}
                       sx={{
                         display: "flex",
                         flexDirection: "column",
