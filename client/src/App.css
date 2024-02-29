@@ -8,6 +8,9 @@
   text-decoration: none;
   color: #066988;
 }
+.subMenuItem {
+  font-size: 0.9rem !important;
+}
 
 /* --- Html Elements--- */
 body {

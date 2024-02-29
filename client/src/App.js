@@ -8,6 +8,7 @@ import Services from "./pages/Services";
 import Staff from "./pages/Staff";
 import Header from "./component/Layout/Header";
 import Background from "./component/Layout/Background";
+import EmploymentForm from "./component/UI/Forms/EmploymentForm";
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
       </main>
       <Box sx={{ height: "50px" }} />
       <Footer />
+      <EmploymentForm></EmploymentForm>
     </div>
   );
 }
