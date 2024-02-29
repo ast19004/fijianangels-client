@@ -11,7 +11,8 @@ import {
   Stack,
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
-import AnchorLink from "react-anchor-link-smooth-scroll";
+
+import CustomAnchorLink from "../UI/CustomAnchorLink";
 
 function Header() {
   const [open, setOpen] = React.useState(false);
@@ -101,41 +102,22 @@ function Header() {
                     onKeyDown={handleListKeyDown}
                   >
                     <MenuItem onClick={handleClose}>
-                      <AnchorLink
-                        offset="60"
-                        href="#staff"
-                        className="anchorLink"
-                      >
-                        About
-                      </AnchorLink>
+                      <CustomAnchorLink href="#staff">About</CustomAnchorLink>
                     </MenuItem>
                     <MenuItem onClick={handleClose}>
-                      <AnchorLink
-                        offset="60"
-                        href="#services"
-                        className="anchorLink"
-                      >
+                      <CustomAnchorLink href="#services">
                         Services
-                      </AnchorLink>
+                      </CustomAnchorLink>
                     </MenuItem>
                     <MenuItem onClick={handleClose}>
-                      <AnchorLink
-                        offset="60"
-                        href="#prices"
-                        className="anchorLink"
-                      >
-                        Prices
-                      </AnchorLink>
+                      <CustomAnchorLink href="#prices">Prices</CustomAnchorLink>
                     </MenuItem>
                     <MenuItem onClick={handleClose}>
-                      <AnchorLink
-                        offset="60"
-                        href="#contact"
-                        className="anchorLink"
-                      >
+                      <CustomAnchorLink href="#contact">
                         Contact
-                      </AnchorLink>
+                      </CustomAnchorLink>
                     </MenuItem>
+
                     <MenuItem
                       onClick={handleToggleFormSubMenu}
                       onMouseEnter={() => setSubMenuOpen(true)}
@@ -150,8 +132,12 @@ function Header() {
                       <MenuList
                         sx={{ display: subMenuOpen ? "block" : "none" }}
                       >
-                        <MenuItem onClick={handleClose}>Client (New)</MenuItem>
-                        <MenuItem onClick={handleClose}>Employee</MenuItem>
+                        <MenuItem className="subMenuItem" onClick={handleClose}>
+                          Client (New)
+                        </MenuItem>
+                        <MenuItem className="subMenuItem" onClick={handleClose}>
+                          Employee
+                        </MenuItem>
                       </MenuList>
                     </MenuItem>
                   </MenuList>
