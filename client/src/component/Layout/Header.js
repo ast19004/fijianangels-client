@@ -13,11 +13,14 @@ import {
 import MenuIcon from "@mui/icons-material/Menu";
 
 import CustomAnchorLink from "../UI/CustomAnchorLink";
+import { useNavigate } from "react-router-dom";
 
 function Header() {
   const [open, setOpen] = React.useState(false);
   const [subMenuOpen, setSubMenuOpen] = React.useState(false);
   const anchorRef = React.useRef(null);
+
+  const navigate = useNavigate();
 
   const handleToggle = () => {
     setOpen((prevOpen) => !prevOpen);
@@ -42,6 +45,12 @@ function Header() {
 
   function handleToggleFormSubMenu(event) {
     setSubMenuOpen((prevState) => !prevState);
+  }
+
+  function handleEmployeeForm(event) {
+    event.preventDefault();
+    navigate("/employment-form");
+    handleClose(event);
   }
 
   // return focus to the button when we transitioned from !open -> open
@@ -135,7 +144,10 @@ function Header() {
                         <MenuItem className="subMenuItem" onClick={handleClose}>
                           Client (New)
                         </MenuItem>
-                        <MenuItem className="subMenuItem" onClick={handleClose}>
+                        <MenuItem
+                          className="subMenuItem"
+                          onClick={handleEmployeeForm}
+                        >
                           Employee
                         </MenuItem>
                       </MenuList>
