@@ -46,11 +46,17 @@ function Header() {
   function handleToggleFormSubMenu(event) {
     setSubMenuOpen((prevState) => !prevState);
   }
-
-  function handleEmployeeForm(event) {
+  function handleLink(event, link) {
     event.preventDefault();
-    navigate("/employment-form");
-    handleClose(event);
+    navigate(link);
+    handleClose();
+  }
+  function handleEmployeeForm(event) {
+    handleLink(event, "/employment-form");
+  }
+
+  function handleRequestForm(event) {
+    handleLink(event, "/homecare-request-form");
   }
 
   // return focus to the button when we transitioned from !open -> open
@@ -141,7 +147,10 @@ function Header() {
                       <MenuList
                         sx={{ display: subMenuOpen ? "block" : "none" }}
                       >
-                        <MenuItem className="subMenuItem" onClick={handleClose}>
+                        <MenuItem
+                          className="subMenuItem"
+                          onClick={handleRequestForm}
+                        >
                           Client (New)
                         </MenuItem>
                         <MenuItem
