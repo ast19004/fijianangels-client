@@ -49,7 +49,7 @@ function Header() {
   function handleLink(event, link) {
     event.preventDefault();
     navigate(link);
-    handleClose();
+    handleClose(event);
   }
   function handleEmployeeForm(event) {
     handleLink(event, "/employment-form");
