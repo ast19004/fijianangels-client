@@ -1,83 +1,35 @@
-import {
-  TextField,
-  Radio,
-  FormLabel,
-  FormControl,
-  RadioGroup,
-  FormControlLabel,
-} from "@mui/material";
+import { TextField, FormLabel, FormControl } from "@mui/material";
+import FormTextInput from "../Inputs/FormTextInput";
+import FormRadioInput from "../Inputs/FormRadioInput";
 
 const EducationInfo = (props) => {
+  const educationTypes = [
+    { abr: "high-school", label: "High School" },
+    { abr: "college", label: "College" },
+    { abr: "other-education", label: "Other Education" },
+  ];
   return (
     <fieldset>
       <legend>Education</legend>
-      <fieldset>
-        <legend>High School</legend>
-        <FormControl>
-          <FormLabel htmlFor="high-school-address">Address:</FormLabel>
-          <TextField id="high-school-address" type="text" />
-        </FormControl>
-        <FormControl>
-          <FormLabel htmlFor="hs-attendance">Dates:</FormLabel>
-          <TextField id="hs-start-date" type="date" /> to
-          <TextField id="hs-end-date" type="date" />
-        </FormControl>
-        <FormControl>
-          <FormLabel htmlFor="hs-graduate">Did you graduate?</FormLabel>
-          <RadioGroup id="hs-graduate">
-            <FormControlLabel value="yes" control={<Radio />} label="Yes" />
-            <FormControlLabel value="no" control={<Radio />} label="No" />
-          </RadioGroup>
-        </FormControl>
-      </fieldset>
-
-      <fieldset>
-        <legend>College:</legend>
-        <FormControl>
-          <FormLabel htmlFor="college-address">Address:</FormLabel>
-          <TextField id="college-address" type="text" />
-        </FormControl>
-        <FormControl>
-          <FormLabel htmlFor="college-attendance">Dates:</FormLabel>
-          <TextField id="hs-start-date" type="date" /> to
-          <TextField id="hs-end-date" type="date" />
-        </FormControl>
-        <FormControl>
-          <FormLabel htmlFor="college-graduate">Did you graduate?</FormLabel>
-          <RadioGroup id="college-graduate">
-            <FormControlLabel value="yes" control={<Radio />} label="Yes" />
-            <FormControlLabel value="no" control={<Radio />} label="No" />
-          </RadioGroup>
-        </FormControl>
-        <FormControl>
-          <FormLabel htmlFor="college-degree">Degree</FormLabel>
-          <TextField id="college-degree" type="text" />
-        </FormControl>
-      </fieldset>
-
-      <fieldset>
-        <legend>Other Education:</legend>
-        <FormControl>
-          <FormLabel htmlFor="other-education-address">Address:</FormLabel>
-          <TextField id="other-education-address" type="text" />
-        </FormControl>
-        <FormControl>
-          <FormLabel htmlFor="other-education-attendance">Dates:</FormLabel>
-          <TextField id="hs-start-date" type="date" /> to
-          <TextField id="hs-end-date" type="date" />
-        </FormControl>
-        <FormControl>
-          <FormLabel htmlFor="graduate">Did you graduate?</FormLabel>
-          <RadioGroup id="graduate">
-            <FormControlLabel value="yes" control={<Radio />} label="Yes" />
-            <FormControlLabel value="no" control={<Radio />} label="No" />
-          </RadioGroup>
-        </FormControl>
-        <FormControl>
-          <FormLabel htmlFor="other-education-degree">Degree</FormLabel>
-          <TextField id="other-education-degree" type="text" />
-        </FormControl>
-      </fieldset>
+      {educationTypes.map((type) => (
+        <fieldset>
+          <legend>{type.label}</legend>
+          <FormTextInput id={`${type.abr}-address`} label={"Address:"} />
+          <FormControl>
+            <FormLabel htmlFor={`${type.abr}-attendance`}>Dates:</FormLabel>
+            <TextField id={`${type.abr}-start-date`} type="date" /> to
+            <TextField id={`${type.abr}-end-date`} type="date" />
+          </FormControl>
+          <FormRadioInput
+            id={`${type.abr}-graduate`}
+            label="Did you graduate?"
+            radiocontrols={[
+              { value: "yes", label: "Yes" },
+              { value: "no", label: "No" },
+            ]}
+          />
+        </fieldset>
+      ))}
     </fieldset>
   );
 };

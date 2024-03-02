@@ -1,0 +1,14 @@
+import FormInput from "./FormInput";
+
+const FormEmailInput = (props) => {
+  return (
+    <FormInput
+      id={props.id}
+      htmlFor={props.id}
+      label={props.label}
+      type="email"
+    />
+  );
+};
+
+export default FormEmailInput;

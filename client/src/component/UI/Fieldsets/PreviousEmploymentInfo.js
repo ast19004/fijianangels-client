@@ -1,87 +1,37 @@
-import {
-  TextField,
-  FormLabel,
-  FormControl,
-  FormControlLabel,
-  RadioGroup,
-  Radio,
-} from "@mui/material";
+import { TextField, FormLabel, FormControl } from "@mui/material";
+
+import FormTextInput from "../Inputs/FormTextInput";
+import FormPhoneInput from "../Inputs/FormPhoneInput";
+import FormRadioInput from "../Inputs/FormRadioInput";
 
 const PreviousEmploymentInfo = (props) => {
   return (
     <fieldset>
       <legend>Previous Employment</legend>
-      <FormControl>
-        <FormLabel htmlFor="company1-name">Company</FormLabel>
+      <FormTextInput id="company1-name" label="Company" />
+      <FormPhoneInput id="company1-phone" label="Phone:" />
 
-        <TextField id="company1-name" type="text" />
-      </FormControl>
-      <FormControl>
-        <FormLabel htmlFor="company1-phone">Company:</FormLabel>
-
-        <TextField id="company1-phone" type="tel" />
-      </FormControl>
-
-      <FormControl>
-        <FormLabel htmlFor="company1-address">Address:</FormLabel>
-
-        <TextField id="company1-address" type="text" />
-      </FormControl>
-
-      <FormControl>
-        <FormLabel htmlFor="company1-supervisor">Supervisor:</FormLabel>
-
-        <TextField id="company1-supervisor" type="text" />
-      </FormControl>
-
-      <FormControl>
-        <FormLabel htmlFor="company1-job-title">Job Title:</FormLabel>
-
-        <TextField id="company1-job-title" type="text" />
-      </FormControl>
-
-      <FormControl>
-        <FormLabel htmlFor="company1-start-salary">Starting Salary:</FormLabel>
-
-        <TextField id="company1-start-salary" type="text" />
-      </FormControl>
-
-      <FormControl>
-        <FormLabel htmlFor="company1-end-salary">Ending Salary:</FormLabel>
-
-        <TextField id="company1-end-salary" type="text" />
-      </FormControl>
-
-      <FormControl>
-        <FormLabel htmlFor="company1-responsibilities">
-          Responsibilities:
-        </FormLabel>
-
-        <TextField id="company1-responsibilities" type="text" />
-      </FormControl>
+      <FormTextInput id="company1-address" label="Address" />
+      <FormTextInput id="company1-supervisor" label="Supervisor:" />
+      <FormTextInput id="company1-job-title" label="Job Title:" />
+      <FormTextInput id="company1-end-salary" label="Ending Salary:" />
+      <FormTextInput id="company1-responsibilities" label="Responsibilities:" />
 
       <FormControl>
         <FormLabel htmlFor="company1-duration">Dates:</FormLabel>
         <TextField id="company1-start-date" type="date" /> to
         <TextField id="company1-end-date" type="date" />
       </FormControl>
+      <FormTextInput id="company1-leaving-reason" label="Reason for Leaving:" />
 
-      <FormControl>
-        <FormLabel htmlFor="company1-leaving-reason">
-          Reason for Leaving
-        </FormLabel>
-        <TextField id="company1-leaving-reason" type="text" />
-      </FormControl>
-
-      <FormControl>
-        <FormLabel htmlFor="company1-reference">
-          May we contact your previous supervisor for a reference?
-        </FormLabel>
-        <RadioGroup id="company1-reference">
-          <FormControlLabel value="yes" control={<Radio />} label="Yes" />
-          <FormControlLabel value="no" control={<Radio />} label="No" />
-        </RadioGroup>
-      </FormControl>
+      <FormRadioInput
+        id="company1-reference"
+        label="May we contact your previous supervisor for a reference?"
+        radiocontrols={[
+          { value: "yes", label: "Yes" },
+          { value: "no", label: "No" },
+        ]}
+      />
     </fieldset>
   );
 };

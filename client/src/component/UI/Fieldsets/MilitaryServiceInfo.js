@@ -1,40 +1,23 @@
 import { TextField, FormLabel, FormControl } from "@mui/material";
+import FormTextInput from "../Inputs/FormTextInput";
 
 const MilitaryServiceInfo = (props) => {
   return (
     <fieldset>
       <legend>Military Service</legend>
-      <FormControl>
-        <FormLabel htmlFor="branch">Branch</FormLabel>
-
-        <TextField id="branch" type="text" />
-      </FormControl>
+      <FormTextInput id="branch" text="Branch" />
 
       <FormControl>
         <FormLabel htmlFor="duration">Dates:</FormLabel>
         <TextField id="start-date" type="date" /> to
         <TextField id="end-date" type="date" />
       </FormControl>
-
-      <FormControl>
-        <FormLabel htmlFor="rank">Rank at Discharge</FormLabel>
-
-        <TextField id="rank" type="text" />
-      </FormControl>
-
-      <FormControl>
-        <FormLabel htmlFor="discharge-type">Type of Discharge:</FormLabel>
-
-        <TextField id="discharge-type" type="text" />
-      </FormControl>
-
-      <FormControl>
-        <FormLabel htmlFor="discharge-explanation">
-          If other than honorable, explain:
-        </FormLabel>
-
-        <TextField id="discharge-explanation" type="text" />
-      </FormControl>
+      <FormTextInput id="rank" label="Rank at Discharge" />
+      <FormTextInput id="discharge-type" label="Type of Discharge:" />
+      <FormTextInput
+        id="discharge-explanation"
+        label="If other than honorable, explain:"
+      />
     </fieldset>
   );
 };

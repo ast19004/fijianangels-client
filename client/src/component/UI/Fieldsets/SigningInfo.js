@@ -1,11 +1,5 @@
-import {
-  TextField,
-  FormLabel,
-  FormControl,
-  FormControlLabel,
-  RadioGroup,
-  Radio,
-} from "@mui/material";
+import { TextField, FormLabel, FormControl } from "@mui/material";
+import FormTextInput from "../Inputs/FormTextInput";
 
 const SigningInfo = (props) => {
   return (
@@ -20,11 +14,7 @@ const SigningInfo = (props) => {
         misleading information in my application or interview may result in my
         release.
       </p>
-      <FormControl>
-        <FormLabel htmlFor="signature">Signature</FormLabel>
-
-        <TextField id="signature" type="text" />
-      </FormControl>
+      <FormTextInput id="signature" label="Signature" />
       <FormControl>
         <FormLabel htmlFor="signature-date">Date</FormLabel>
 
