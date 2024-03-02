@@ -4,14 +4,15 @@ import FormTextInput from "../Inputs/FormTextInput";
 import FormPhoneInput from "../Inputs/FormPhoneInput";
 import FormRadioInput from "../Inputs/FormRadioInput";
 
+import Address from "../InputGroups/Address";
+
 const PreviousEmploymentInfo = (props) => {
   return (
     <fieldset>
       <legend>Previous Employment</legend>
       <FormTextInput id="company1-name" label="Company" />
       <FormPhoneInput id="company1-phone" label="Phone:" />
-
-      <FormTextInput id="company1-address" label="Address" />
+      <Address id="company1-address" />
       <FormTextInput id="company1-supervisor" label="Supervisor:" />
       <FormTextInput id="company1-job-title" label="Job Title:" />
       <FormTextInput id="company1-end-salary" label="Ending Salary:" />

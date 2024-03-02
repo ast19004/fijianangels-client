@@ -2,33 +2,19 @@ import { TextField, FormLabel, FormControl } from "@mui/material";
 
 import FormTextInput from "../Inputs/FormTextInput";
 import FormNumInput from "../Inputs/FormNumInput";
-import FormPhoneInput from "../Inputs/FormNumInput";
-import FormEmailInput from "../Inputs/FormEmailInput";
 import FormRadioInput from "../Inputs/FormRadioInput";
+
+import Address from "../InputGroups/Address";
+import FullName from "../InputGroups/FullName";
+import Contact from "../InputGroups/Contact";
 
 const ApplicantInfo = (props) => {
   return (
     <fieldset>
       <legend>Applicant Information</legend>
-      <fieldset>
-        <legend>Full Name:</legend>
-        <FormTextInput id="first-name" label="First:" />
-        <FormTextInput id="middle-initial" label="M.I." />
-        <FormTextInput id="last-name" label="Last:" />
-      </fieldset>
-      <fieldset>
-        <legend>Address:</legend>
-        <FormTextInput id="street" label="Street Address" />
-        <FormNumInput id="unit/apt-number" label="Apartment/Unit #" />
-        <FormTextInput id="city" label="City" />
-        <FormTextInput id="state" label="State" />
-        <FormNumInput id="zipcode" label="ZIP Code" />
-      </fieldset>
-      <fieldset>
-        <legend>Contact</legend>
-        <FormPhoneInput id="phone" label="Phone" />
-        <FormEmailInput id="email" label="Email" />
-      </fieldset>
+      <FullName />
+      <Address />
+      <Contact />
       <fieldset>
         <legend>Employment Details:</legend>
         <FormNumInput id="ssn" label="Social Security Number:" />

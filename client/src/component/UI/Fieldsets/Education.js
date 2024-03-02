@@ -1,6 +1,7 @@
 import { TextField, FormLabel, FormControl } from "@mui/material";
 import FormTextInput from "../Inputs/FormTextInput";
 import FormRadioInput from "../Inputs/FormRadioInput";
+import Address from "../InputGroups/Address";
 
 const EducationInfo = (props) => {
   const educationTypes = [
@@ -14,7 +15,8 @@ const EducationInfo = (props) => {
       {educationTypes.map((type) => (
         <fieldset>
           <legend>{type.label}</legend>
-          <FormTextInput id={`${type.abr}-address`} label={"Address:"} />
+          <FormTextInput id={type.abr} label={type.label} />
+          <Address id={`${type.abr}-address`} />
           <FormControl>
             <FormLabel htmlFor={`${type.abr}-attendance`}>Dates:</FormLabel>
             <TextField id={`${type.abr}-start-date`} type="date" /> to
