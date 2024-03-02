@@ -7,6 +7,7 @@ import {
 } from "@mui/material";
 
 const FormRadioInput = (props) => {
+  //If no controls are provided a basic "Yes" or "No" radio selection is given
   const controls = props.radiocontrols || [
     { value: "yes", label: "Yes" },
     { value: "no", label: "No" },

@@ -27,10 +27,6 @@ const PreviousEmploymentInfo = (props) => {
       <FormRadioInput
         id="company1-reference"
         label="May we contact your previous supervisor for a reference?"
-        radiocontrols={[
-          { value: "yes", label: "Yes" },
-          { value: "no", label: "No" },
-        ]}
       />
     </fieldset>
   );

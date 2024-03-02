@@ -23,10 +23,6 @@ const EducationInfo = (props) => {
           <FormRadioInput
             id={`${type.abr}-graduate`}
             label="Did you graduate?"
-            radiocontrols={[
-              { value: "yes", label: "Yes" },
-              { value: "no", label: "No" },
-            ]}
           />
         </fieldset>
       ))}
