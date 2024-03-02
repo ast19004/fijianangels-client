@@ -37,27 +37,15 @@ const ApplicantInfo = (props) => {
         <FormTextInput id="salary" label="Desired Salary:" />
         <FormRadioInput
           id="is-us-citizen"
-          label="            Are you a citizen of the United States?:"
-          radiocontrols={[
-            { label: "Yes", value: "yes" },
-            { label: "No", value: "no" },
-          ]}
+          label="Are you a citizen of the United States?:"
         />
         <FormRadioInput
           id="is-authorized"
           label="If no, are you authorized to work in the U.S.?:"
-          radiocontrols={[
-            { label: "Yes", value: "yes" },
-            { label: "No", value: "no" },
-          ]}
         />
         <FormRadioInput
           id="is-previous-employee"
           label="Have you ever worked for this company?:"
-          radiocontrols={[
-            { label: "Yes", value: "yes" },
-            { label: "No", value: "no" },
-          ]}
         />
         <FormControl>
           <FormLabel htmlFor="prev-employment-date">If yes, when?</FormLabel>
@@ -67,10 +55,6 @@ const ApplicantInfo = (props) => {
         <FormRadioInput
           id="is-convicted-felon"
           label="Have you ever been convicted of a felony?"
-          radiocontrols={[
-            { label: "Yes", value: "yes" },
-            { label: "No", value: "no" },
-          ]}
         />
         <FormTextInput id="felony-explanation" label="If yes, explain:" />
       </fieldset>

@@ -7,11 +7,15 @@ import {
 } from "@mui/material";
 
 const FormRadioInput = (props) => {
+  const controls = props.radiocontrols || [
+    { value: "yes", label: "Yes" },
+    { value: "no", label: "No" },
+  ];
   return (
     <FormControl>
       <FormLabel htmlFor={props.id}>{props.label}</FormLabel>
       <RadioGroup id={props.id}>
-        {props.radiocontrols.map((control) => (
+        {controls.map((control) => (
           <FormControlLabel
             value={control.value}
             control={<Radio />}
