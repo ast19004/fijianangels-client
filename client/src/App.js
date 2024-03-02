@@ -9,6 +9,7 @@ import Staff from "./pages/Staff";
 import Header from "./component/Layout/Header";
 import Background from "./component/Layout/Background";
 import EmploymentForm from "./component/UI/Forms/EmploymentForm";
+import HomecareRequestForm from "./component/UI/Forms/HomecareRequestForm";
 
 import { Routes, Route, BrowserRouter } from "react-router-dom";
 
@@ -21,6 +22,11 @@ function App() {
         <main>
           <Routes>
             <Route exact path="/employment-form" element={<EmploymentForm />} />
+            <Route
+              exact
+              path="/homecare-request-form"
+              element={<HomecareRequestForm />}
+            />
             <Route
               exact
               path="/"
