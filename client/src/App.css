@@ -8,8 +8,15 @@
   text-decoration: none;
   color: #066988;
 }
+.menuItem a {
+  padding: 10px 15px !important;
+}
+#nav-menu .menuItem:last-child {
+  padding: 10px 0 0px 30px;
+}
 .subMenuItem {
   font-size: 0.9rem !important;
+  padding: 15px !important;
 }
 
 /* --- Html Elements--- */

@@ -16,12 +16,12 @@ function StaffThumbnail(props) {
         alt={props.name}
         height="200px"
       />
-      <CardContent>
+      <CardContent sx={{ padding: "10px 16px 0 16px " }}>
         <Typography variant="body2" color="#066988">
           {props.staffMember}
         </Typography>
       </CardContent>
-      <CardActions>
+      <CardActions sx={{ padding: "0 8px" }}>
         <Button>client reviews</Button>
         {/* TODO: Look into ExpandMore https://mui.com/material-ui/react-card/ */}
       </CardActions>

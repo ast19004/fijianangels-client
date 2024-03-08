@@ -12,7 +12,7 @@ import {
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 
-import CustomAnchorLink from "../UI/CustomAnchorLink";
+import AnchorLink from "../UI/AnchorLink";
 import { useNavigate } from "react-router-dom";
 
 function Header() {
@@ -71,11 +71,11 @@ function Header() {
 
   return (
     <header>
-      <Stack direction="row" spacing={2}>
+      <Stack direction="row" spacing={0}>
         <IconButton
           ref={anchorRef}
-          id="composition-button"
-          aria-controls={open ? "composition-menu" : undefined}
+          id="nav-button"
+          aria-controls={open ? "nav-menu" : undefined}
           aria-expanded={open ? "true" : undefined}
           aria-haspopup="true"
           onClick={handleToggle}
@@ -91,7 +91,7 @@ function Header() {
           open={open}
           onMouseLeave={() => setOpen(false)}
           anchorEl={anchorRef.current}
-          role={undefined}
+          role="navigation"
           placement="bottom-start"
           transition
           disablePortal
@@ -100,40 +100,38 @@ function Header() {
             <Grow
               {...TransitionProps}
               style={{
-                display: "flex",
-                justifyContent: "center",
                 transformOrigin:
                   placement === "bottom-start" ? "left top" : "left bottom",
-                minWidth: "145px",
               }}
             >
               <Paper elevation={24} variant="outlined" square={false}>
                 <ClickAwayListener onClickAway={handleClose}>
                   <MenuList
-                    sx={{ color: "#066988" }}
+                    sx={{
+                      color: "#066988",
+                      display: "flex",
+                      flexDirection: "column",
+                    }}
                     autoFocusItem={open}
-                    id="composition-menu"
-                    aria-labelledby="composition-button"
+                    id="nav-menu"
+                    aria-labelledby="nav-button"
                     onKeyDown={handleListKeyDown}
                   >
-                    <MenuItem onClick={handleClose}>
-                      <CustomAnchorLink href="#staff">About</CustomAnchorLink>
+                    <MenuItem className="menuItem" onClick={handleClose}>
+                      <AnchorLink href="#staff">About</AnchorLink>
                     </MenuItem>
-                    <MenuItem onClick={handleClose}>
-                      <CustomAnchorLink href="#services">
-                        Services
-                      </CustomAnchorLink>
+                    <MenuItem className="menuItem" onClick={handleClose}>
+                      <AnchorLink href="#services">Services</AnchorLink>
                     </MenuItem>
-                    <MenuItem onClick={handleClose}>
-                      <CustomAnchorLink href="#prices">Prices</CustomAnchorLink>
+                    <MenuItem className="menuItem" onClick={handleClose}>
+                      <AnchorLink href="#prices">Prices</AnchorLink>
                     </MenuItem>
-                    <MenuItem onClick={handleClose}>
-                      <CustomAnchorLink href="#contact">
-                        Contact
-                      </CustomAnchorLink>
+                    <MenuItem className="menuItem" onClick={handleClose}>
+                      <AnchorLink href="#contact">Contact</AnchorLink>
                     </MenuItem>
 
                     <MenuItem
+                      className="menuItem"
                       onClick={handleToggleFormSubMenu}
                       onMouseEnter={() => setSubMenuOpen(true)}
                       onMouseLeave={() => setSubMenuOpen(false)}
@@ -145,6 +143,7 @@ function Header() {
                     >
                       Forms
                       <MenuList
+                        id="subMenu"
                         sx={{ display: subMenuOpen ? "block" : "none" }}
                       >
                         <MenuItem
