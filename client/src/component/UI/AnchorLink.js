@@ -3,11 +3,12 @@ import { Box } from "@mui/material";
 const AnchorLink = (props) => {
   const offset = props.offset || 60;
   const targetAnchor = document.querySelector(props.href);
-  const elementPosition = targetAnchor.getBoundingClientRect().top;
-  const offsetPosition = elementPosition + window.scrollY - offset;
 
   const handleClick = (e) => {
     e.preventDefault();
+    if (!targetAnchor) return;
+    const elementPosition = targetAnchor.getBoundingClientRect().top;
+    const offsetPosition = elementPosition + window.scrollY - offset;
     window.scrollTo({ top: offsetPosition, behavior: "smooth" });
   };
   return (
