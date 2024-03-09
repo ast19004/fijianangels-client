@@ -1,4 +1,5 @@
 import Select from "react-select";
+import FormInput from "./FormInput";
 
 const options = [
   { value: "companion-care", label: "Companion Care" },
@@ -18,12 +19,23 @@ const options = [
   // Add more options as needed
 ];
 
-const SelectServices = (props) => {
+const FormSelectServices = (props) => {
   const handleSelectionChange = (selectedOptions) => {
     // Handle selected options
     console.log(selectedOptions);
   };
-  return <Select options={options} isMulti onChange={handleSelectionChange} />;
+  const label = props.label || "Services Needed";
+
+  return (
+    <FormInput id="select-services" label={label}>
+      <Select
+        id="select-services"
+        options={options}
+        isMulti
+        onChange={handleSelectionChange}
+      />
+    </FormInput>
+  );
 };
 
-export default SelectServices;
+export default FormSelectServices;

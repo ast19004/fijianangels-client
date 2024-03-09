@@ -1,21 +1,34 @@
-import { Box, Typography } from "@mui/material";
+import {
+  Box,
+  Typography,
+  FormControl,
+  FormLabel,
+  TextField,
+} from "@mui/material";
 
 import FullName from "../InputGroups/FullName";
 import Contact from "../InputGroups/Contact";
-import FormTextInput from "../Inputs/FormTextInput";
-import SelectServices from "../Inputs/SelectServices";
+import FormTextareaInput from "../Inputs/FormTextareaInput";
+import FormSelectServices from "../Inputs/FormSelectServices";
 
-const HomecareRequestForm = (props) => {
+const CaregiverReviewForm = (props) => {
   return (
     <Box component="form" sx={props.sx}>
-      <Typography component="h2">Homecare Service Inquiry Form</Typography>
-      <FullName />
+      <Typography component="h2" variant="h2">
+        Caregiver Review
+      </Typography>
+      <FullName legend="Your Name" />
       <Contact />
-      <SelectServices />
-
-      <FormTextInput id="extra-info" label="Comments/ Additional Information" />
+      <FullName legend="Caregiver Name" />
+      <FormSelectServices label="Services Provided" />
+      <FormControl>
+        <FormLabel htmlFor="company1-duration">Care Dates:</FormLabel>
+        <TextField id="start-date" type="date" /> to
+        <TextField id="end-date" type="date" />
+      </FormControl>
+      <FormTextareaInput id="review-text" label="Caregiver Review" />
     </Box>
   );
 };
 
-export default HomecareRequestForm;
+export default CaregiverReviewForm;

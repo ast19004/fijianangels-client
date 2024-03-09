@@ -12,6 +12,7 @@ import EmploymentForm from "./component/UI/Forms/EmploymentForm";
 import HomecareRequestForm from "./component/UI/Forms/HomecareRequestForm";
 
 import { Routes, Route, BrowserRouter } from "react-router-dom";
+import CaregiverReviewForm from "./component/UI/Forms/CaregiverReviewForm";
 
 function App() {
   return (
@@ -26,6 +27,11 @@ function App() {
               exact
               path="/homecare-request-form"
               element={<HomecareRequestForm />}
+            />
+            <Route
+              exact
+              path="/caregiver-review-form"
+              element={<CaregiverReviewForm />}
             />
             <Route
               exact

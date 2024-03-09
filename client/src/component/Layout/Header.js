@@ -59,6 +59,10 @@ function Header() {
     handleLink(event, "/homecare-request-form");
   }
 
+  function handleReviewForm(event) {
+    handleLink(event, "/caregiver-review-form");
+  }
+
   // return focus to the button when we transitioned from !open -> open
   const prevOpen = React.useRef(open);
   React.useEffect(() => {
@@ -157,6 +161,12 @@ function Header() {
                           onClick={handleEmployeeForm}
                         >
                           Employee
+                        </MenuItem>
+                        <MenuItem
+                          className="subMenuItem"
+                          onClick={handleReviewForm}
+                        >
+                          Review Caregiver
                         </MenuItem>
                       </MenuList>
                     </MenuItem>

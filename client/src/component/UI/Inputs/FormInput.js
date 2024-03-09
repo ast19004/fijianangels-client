@@ -4,7 +4,7 @@ const FormInput = (props) => {
   return (
     <FormControl>
       <FormLabel htmlFor={props.id}>{props.label}</FormLabel>
-      <TextField id={props.id} type={props.type} />
+      {props.children || <TextField id={props.id} type={props.type} />}
     </FormControl>
   );
 };
