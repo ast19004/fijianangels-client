@@ -154,19 +154,19 @@ function Header() {
                           className="subMenuItem"
                           onClick={handleRequestForm}
                         >
-                          Client (New)
-                        </MenuItem>
-                        <MenuItem
-                          className="subMenuItem"
-                          onClick={handleEmployeeForm}
-                        >
-                          Employee
+                          Request Care
                         </MenuItem>
                         <MenuItem
                           className="subMenuItem"
                           onClick={handleReviewForm}
                         >
-                          Review Caregiver
+                          Caregiver Review
+                        </MenuItem>
+                        <MenuItem
+                          className="subMenuItem"
+                          onClick={handleEmployeeForm}
+                        >
+                          Become Caregiver
                         </MenuItem>
                       </MenuList>
                     </MenuItem>
