@@ -6,6 +6,7 @@ function Contact() {
   return (
     <Article header="Contact" id="contact">
       <Section
+        id="section-phone"
         displayBlock
         header=""
         multiParagraph={[
@@ -17,6 +18,7 @@ function Contact() {
         lineHeight={1.2}
       />
       <Section
+        id="section-hours"
         displayBlock
         header="HOURS OF OPERATION"
         multiParagraph={[

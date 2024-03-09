@@ -10,11 +10,17 @@ function Pricing() {
   return (
     <Article header="Pricing" id="prices">
       <Section
+        id="section-rate_hourly"
         header="HOURLY RATE"
         paragraph="$35/HR with MINIMUM OF 5 consecutive hours."
       />
-      <Section header="24 Hour Care" paragraph="$20/HR-$25/HR" />
       <Section
+        id="section-rate_daily"
+        header="24 Hour Care"
+        paragraph="$20/HR-$25/HR"
+      />
+      <Section
+        id="section-rate_8+"
         header="$35/HR for"
         headerColor="#066988"
         headerFontWeight="normal"

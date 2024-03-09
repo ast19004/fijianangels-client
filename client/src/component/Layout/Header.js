@@ -1,7 +1,6 @@
 import * as React from "react";
 import {
   IconButton,
-  Typography,
   Grow,
   Paper,
   Popper,

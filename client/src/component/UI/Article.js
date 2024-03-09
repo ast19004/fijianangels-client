@@ -7,7 +7,12 @@ const StyledHeader = styled.h2`
 
 function Article(props) {
   return (
-    <Box component="article" id={props.id} sx={{ margin: "10% 0" }}>
+    <Box
+      component="article"
+      id={props.id}
+      key={props.id}
+      sx={{ margin: "10% 0" }}
+    >
       <StyledHeader>{props.header}</StyledHeader>
       {props.children}
     </Box>
