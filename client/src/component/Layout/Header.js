@@ -13,14 +13,11 @@ import {
 import MenuIcon from "@mui/icons-material/Menu";
 
 import AnchorLink from "../UI/AnchorLink";
-import { useNavigate } from "react-router-dom";
 
 function Header() {
   const [open, setOpen] = React.useState(false);
   const [subMenuOpen, setSubMenuOpen] = React.useState(false);
   const anchorRef = React.useRef(null);
-
-  const navigate = useNavigate();
 
   const handleToggle = () => {
     setOpen((prevOpen) => !prevOpen);
@@ -48,7 +45,7 @@ function Header() {
   }
   function handleLink(event, link) {
     event.preventDefault();
-    navigate(link);
+    window.open(link, "_blank");
     handleClose(event);
   }
   function handleEmployeeForm(event) {

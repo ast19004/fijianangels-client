@@ -5,11 +5,9 @@ const StyledHeader = (props) => {
     <Box
       component="h3"
       sx={{
-        color: `${(props) =>
-          props.headerColor ? props.headerColor : "#ca4766"}`,
-        display: `${(props) => (!props.displayBlock ? "inline" : "block")}`,
-        fontWeight: `${(props) =>
-          props.headerFontWeight ? props.headerFontWeight : "bold"}`,
+        color: props.headerColor || "#ca4766",
+        display: !props.displayBlock ? "inline" : "block",
+        fontWeight: props.headerFontWeight || "bold",
       }}
     >
       {props.children}
