@@ -19,35 +19,47 @@ function App() {
     <div className="App">
       <BrowserRouter>
         <Header />
-        <Background />
-        <main>
-          <Routes>
-            <Route exact path="/employment-form" element={<EmploymentForm />} />
-            <Route
-              exact
-              path="/homecare-request-form"
-              element={<HomecareRequestForm />}
-            />
-            <Route
-              exact
-              path="/caregiver-review-form"
-              element={<CaregiverReviewForm />}
-            />
-            <Route
-              exact
-              path="/"
-              element={
-                <>
+        <Routes>
+          <Route
+            exact
+            path="/employment-form"
+            element={
+              <main>
+                <EmploymentForm />
+              </main>
+            }
+          />
+          <Route
+            exact
+            path="/homecare-request-form"
+            element={<HomecareRequestForm />}
+          />
+          <Route
+            exact
+            path="/caregiver-review-form"
+            element={
+              <main>
+                <CaregiverReviewForm />
+              </main>
+            }
+          />
+          <Route
+            exact
+            path="/"
+            element={
+              <>
+                <Background />
+                <main>
                   <CoreValues />
                   <Staff />
                   <Services />
                   <Pricing />
                   <Contact />
-                </>
-              }
-            />
-          </Routes>
-        </main>
+                </main>
+              </>
+            }
+          />
+        </Routes>
         <Box sx={{ height: "50px" }} />
         <Footer />
       </BrowserRouter>
