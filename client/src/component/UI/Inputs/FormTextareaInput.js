@@ -2,7 +2,7 @@ import FormInput from "./FormInput";
 
 const FormTextareaInput = (props) => {
   const exampleText =
-    props.exampletext || "My experience with this caregiver was...";
+    props.exampleText || "My experience with this caregiver was...";
   return (
     <FormInput id={props.id} label={props.label}>
       <textarea

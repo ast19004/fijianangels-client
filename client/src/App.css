@@ -19,6 +19,14 @@
   padding: 15px !important;
 }
 
+/* --- Overridden Component Classes --- */
+.css-1fdsijx-ValueContainer {
+  padding: 16px 50px !important;
+}
+.MuiFormControl-root {
+  width: 96%;
+}
+
 /* --- Html Elements--- */
 body {
   margin-bottom: 50px;
