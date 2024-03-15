@@ -7,14 +7,22 @@ import { useEffect, useState } from "react";
 const Address = (props) => {
   const [address, setAddress] = useState({});
 
-  const handleInputChange = (e) => {
-    console.log("Handle Input Called");
-    setAddress({ ...address, [e.target.name]: e.target.value });
-    console.log("Address Set");
+  const handleInputChange = (name, value) => {
+    setAddress((prevAddress) => ({ ...prevAddress, [name]: value }));
   };
 
   useEffect(() => {
-    props.onChange({ address: address });
+    if (!props.onChange) {
+      return;
+    }
+    props.onChange("address", address);
+  }, [address]);
+
+  useEffect(() => {
+    if (!props.onChange) {
+      return;
+    }
+    props.onChange("address", address);
   }, [address]);
 
   return (

@@ -7,8 +7,16 @@ import FormRadioInput from "../Inputs/FormRadioInput";
 import Address from "../InputGroups/Address";
 import FullName from "../InputGroups/FullName";
 import Contact from "../InputGroups/Contact";
+import { useState } from "react";
 
 const ApplicantInfo = (props) => {
+  const [applicantInfo, setApplicantInfo] = useState();
+  const handleChange = (name, value) => {
+    setApplicantInfo((prevApplicantData) => ({
+      ...prevApplicantData,
+      [name]: value,
+    }));
+  };
   return (
     <fieldset>
       <legend>Applicant Information</legend>
