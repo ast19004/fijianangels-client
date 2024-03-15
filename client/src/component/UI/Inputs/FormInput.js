@@ -1,10 +1,30 @@
 import { TextField, FormLabel, FormControl } from "@mui/material";
+import { useEffect, useState } from "react";
 
 const FormInput = (props) => {
+  const [inputValue, setInputValue] = useState("");
+  const handleInputChange = (event) => {
+    setInputValue(event.target.value);
+  };
+  useEffect(() => {
+    if (!props.onChange) {
+      return;
+    }
+    props.onChange(props.name, inputValue);
+  }, [inputValue]);
+
   return (
     <FormControl sx={{ margin: "1rem", backgroundColor: "white" }}>
       <FormLabel htmlFor={props.id}>{props.label}</FormLabel>
-      {props.children || <TextField id={props.id} type={props.type} />}
+      {props.children || (
+        <TextField
+          id={props.id}
+          name={props.name || props.id}
+          type={props.type}
+          value={inputValue}
+          onChange={handleInputChange}
+        />
+      )}
     </FormControl>
   );
 };

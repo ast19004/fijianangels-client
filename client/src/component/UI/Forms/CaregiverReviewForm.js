@@ -1,10 +1,4 @@
-import {
-  Box,
-  Typography,
-  FormControl,
-  FormLabel,
-  TextField,
-} from "@mui/material";
+import { FormControl, FormLabel, TextField } from "@mui/material";
 
 import FullName from "../InputGroups/FullName";
 import Contact from "../InputGroups/Contact";

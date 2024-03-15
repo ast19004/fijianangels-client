@@ -1,5 +1,6 @@
 import Select from "react-select";
 import FormInput from "./FormInput";
+import { useEffect, useState } from "react";
 
 const options = [
   { value: "companion-care", label: "Companion Care" },
@@ -20,16 +21,26 @@ const options = [
 ];
 
 const FormSelectServices = (props) => {
+  const label = props.label || "Services Needed";
+
+  const [selectOptions, setSelectOptions] = useState([]);
   const handleSelectionChange = (selectedOptions) => {
     // Handle selected options
-    console.log(selectedOptions);
+    setSelectOptions(selectedOptions.map((item) => item.label));
   };
-  const label = props.label || "Services Needed";
+
+  useEffect(() => {
+    if (!props.onChange) {
+      return;
+    }
+    props.onChange("services", selectOptions);
+  }, [selectOptions]);
 
   return (
     <FormInput id="select-services" label={label}>
       <Select
         id="select-services"
+        name="services"
         options={options}
         isMulti
         onChange={handleSelectionChange}

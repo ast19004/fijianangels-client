@@ -7,6 +7,7 @@
 .anchorLink {
   text-decoration: none;
   color: #066988;
+  cursor: pointer;
 }
 .menuItem a {
   padding: 10px 15px !important;

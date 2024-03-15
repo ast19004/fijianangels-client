@@ -18,11 +18,7 @@ const AnchorLink = (props) => {
     window.scrollTo({ top: offsetPosition, behavior: "smooth" });
   };
   return (
-    <Box
-      component="a"
-      className={props.className + "anchorLink" || "anchorLink"}
-      onClick={handleClick}
-    >
+    <Box component="a" className="anchorLink" onClick={handleClick}>
       {props.children}
     </Box>
   );
