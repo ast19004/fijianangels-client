@@ -1,4 +1,7 @@
+import { useState } from "react";
 import { TextField, FormLabel, FormControl } from "@mui/material";
+
+import { useUpdatedFormData } from "../../util/formdata";
 
 import FormTextInput from "../Inputs/FormTextInput";
 import FormNumInput from "../Inputs/FormNumInput";
@@ -7,7 +10,6 @@ import FormRadioInput from "../Inputs/FormRadioInput";
 import Address from "../InputGroups/Address";
 import FullName from "../InputGroups/FullName";
 import Contact from "../InputGroups/Contact";
-import { useEffect, useState } from "react";
 
 const ApplicantInfo = (props) => {
   const [applicantInfo, setApplicantInfo] = useState();
@@ -17,13 +19,8 @@ const ApplicantInfo = (props) => {
       [name]: value,
     }));
   };
+  useUpdatedFormData("applicantData", applicantInfo, props.onChange);
 
-  useEffect(() => {
-    if (!props.onChange) {
-      return;
-    }
-    props.onChange("applicantData", applicantInfo);
-  }, [applicantInfo]);
   return (
     <fieldset>
       <legend>Applicant Information</legend>

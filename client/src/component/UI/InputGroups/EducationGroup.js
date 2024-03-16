@@ -1,8 +1,9 @@
+import { useState } from "react";
 import { Box, FormControl, FormLabel, TextField } from "@mui/material";
 import FormTextInput from "../Inputs/FormTextInput";
 import FormRadioInput from "../Inputs/FormRadioInput";
 import Address from "./Address";
-import { useEffect, useState } from "react";
+import { useUpdatedFormData } from "../../util/formdata";
 
 const EducationGroup = (props) => {
   const [educationInfo, setEducationInfo] = useState({});
@@ -12,13 +13,7 @@ const EducationGroup = (props) => {
       [name]: value,
     }));
   };
-
-  useEffect(() => {
-    if (!props.onChange) {
-      return;
-    }
-    props.onChange(props.type.abr, educationInfo);
-  }, [educationInfo]);
+  useUpdatedFormData(props.type.abr, educationInfo, props.onChange);
   return (
     <Box component="fieldset">
       <legend>{props.type.label}</legend>

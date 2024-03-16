@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { TextField, FormLabel, FormControl, Box } from "@mui/material";
 
 import FormTextInput from "../Inputs/FormTextInput";
@@ -5,7 +6,7 @@ import FormPhoneInput from "../Inputs/FormPhoneInput";
 import FormRadioInput from "../Inputs/FormRadioInput";
 
 import Address from "../InputGroups/Address";
-import { useEffect, useState } from "react";
+import { useUpdatedFormData } from "../../util/formdata";
 
 const EmploymentGroup = (props) => {
   const [employment, setEmployment] = useState({});
@@ -14,12 +15,7 @@ const EmploymentGroup = (props) => {
     setEmployment((prevEmployment) => ({ ...prevEmployment, [name]: value }));
   };
 
-  useEffect(() => {
-    if (!props.onChange) {
-      return;
-    }
-    props.onChange(`job#${props.num}`, employment);
-  }, [employment]);
+  useUpdatedFormData(`job#${props.num}`, employment, props.onChange);
 
   return (
     <Box component="fieldset">

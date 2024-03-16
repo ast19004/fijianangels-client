@@ -1,5 +1,6 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import EducationGroup from "../InputGroups/EducationGroup";
+import { useUpdatedFormData } from "../../util/formdata";
 
 const EducationInfo = (props) => {
   const educationTypes = [
@@ -15,12 +16,7 @@ const EducationInfo = (props) => {
       [name]: value,
     }));
   };
-  useEffect(() => {
-    if (!props.onChange) {
-      return;
-    }
-    props.onChange("education", educationInfo);
-  }, [educationInfo]);
+  useUpdatedFormData("education", educationInfo, props.onChange);
   return (
     <fieldset>
       <legend>Education</legend>

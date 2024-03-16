@@ -1,6 +1,7 @@
-import { TextField, FormLabel, FormControl, Box } from "@mui/material";
+import { Box } from "@mui/material";
 import FormTextInput from "../Inputs/FormTextInput";
-import { useEffect, useState } from "react";
+import { useState } from "react";
+import { useUpdatedFormData } from "../../util/formdata";
 
 const SigningInfo = (props) => {
   const [signature, setSignature] = useState({});
@@ -8,13 +9,8 @@ const SigningInfo = (props) => {
   const handleInputChange = (name, value) => {
     setSignature((prevSig) => ({ ...prevSig, [name]: value }));
   };
+  useUpdatedFormData("signed", signature, props.onChange);
 
-  useEffect(() => {
-    if (!props.onChange) {
-      return;
-    }
-    props.onChange("signed", signature);
-  }, [signature]);
   return (
     <Box component="fieldset">
       <legend>Disclaimer and Signature</legend>

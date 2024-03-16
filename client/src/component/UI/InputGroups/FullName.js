@@ -1,7 +1,8 @@
+import { useState } from "react";
 import { Box } from "@mui/material";
 
+import { useUpdatedFormData } from "../../util/formdata";
 import FormTextInput from "../Inputs/FormTextInput";
-import { useEffect, useState } from "react";
 
 const FullName = (props) => {
   const legend = props.legend || "Full Name:";
@@ -10,13 +11,7 @@ const FullName = (props) => {
   const handleChange = (name, value) => {
     setNameData((prevNameData) => ({ ...prevNameData, [name]: value }));
   };
-
-  useEffect(() => {
-    if (!props.onChange) {
-      return;
-    }
-    props.onChange("fullName", nameData);
-  }, [nameData]);
+  useUpdatedFormData("fullName", nameData, props.onChange);
 
   return (
     <Box component="fieldset" id={props.id} sx={props.sx}>

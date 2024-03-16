@@ -1,8 +1,9 @@
+import { useState } from "react";
 import { Box } from "@mui/material";
 
 import FormPhoneInput from "../Inputs/FormNumInput";
 import FormEmailInput from "../Inputs/FormEmailInput";
-import { useEffect, useState } from "react";
+import { useUpdatedFormData } from "../../util/formdata";
 
 const Contact = (props) => {
   const [contactData, setContactData] = useState([]);
@@ -14,12 +15,7 @@ const Contact = (props) => {
     }));
   };
 
-  useEffect(() => {
-    if (!props.onChange) {
-      return;
-    }
-    props.onChange("contact", contactData);
-  }, [contactData]);
+  useUpdatedFormData("contact", contactData, props.onChange);
 
   return (
     <Box component="fieldset" id={props.id} sx={props.sx}>

@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Button } from "@mui/material";
 
 import Form from "../Forms/Form";
@@ -12,13 +12,6 @@ import SigningInfo from "../Fieldsets/SigningInfo";
 const EmploymentForm = (props) => {
   const [formData, setFormData] = useState({});
 
-  // const useFormData = (data) => {
-  //   return useEffect(
-  //     () => setFormData((prevFormData) => ({ ...prevFormData, data })),
-  //     [data]
-  //   );
-  // };
-
   const handleChange = (name, value) => {
     setFormData((prevFormData) => ({ ...prevFormData, [name]: value }));
   };
@@ -31,11 +24,11 @@ const EmploymentForm = (props) => {
 
   return (
     <Form title="Employment Application">
-      {/* <ApplicantInfo onChange={handleChange} />
+      <ApplicantInfo onChange={handleChange} />
       <EducationInfo onChange={handleChange} />
-      <ReferencesInfo onChange={handleChange} /> */}
-      {/* <PreviousEmploymentInfo onChange={handleChange} /> */}
-      {/* <MilitaryServiceInfo onChange={handleChange} /> */}
+      <ReferencesInfo onChange={handleChange} />
+      <PreviousEmploymentInfo onChange={handleChange} />
+      <MilitaryServiceInfo onChange={handleChange} />
       <SigningInfo onChange={handleChange} />
       <Button
         type="submit"

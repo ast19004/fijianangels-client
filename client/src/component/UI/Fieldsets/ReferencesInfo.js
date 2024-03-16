@@ -1,6 +1,7 @@
 import { Box } from "@mui/material";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import ReferenceGroup from "../InputGroups/ReferenceGroup";
+import { useUpdatedFormData } from "../../util/formdata";
 
 const ReferencesInfo = (props) => {
   const [references, setReferences] = useState({});
@@ -8,13 +9,8 @@ const ReferencesInfo = (props) => {
   const handleInputChange = (name, value) => {
     setReferences((prevRef) => ({ ...prevRef, [name]: value }));
   };
+  useUpdatedFormData("references", references, props.onChange);
 
-  useEffect(() => {
-    if (!props.onChange) {
-      return;
-    }
-    props.onChange("references", references);
-  }, [references]);
   return (
     <Box component="fieldset">
       <legend>References:</legend>

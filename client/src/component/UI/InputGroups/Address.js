@@ -1,8 +1,9 @@
+import { useState } from "react";
 import { Box } from "@mui/material";
 
 import FormTextInput from "../Inputs/FormTextInput";
 import FormNumInput from "../Inputs/FormNumInput";
-import { useEffect, useState } from "react";
+import { useUpdatedFormData } from "../../util/formdata";
 
 const Address = (props) => {
   const [address, setAddress] = useState({});
@@ -10,20 +11,7 @@ const Address = (props) => {
   const handleInputChange = (name, value) => {
     setAddress((prevAddress) => ({ ...prevAddress, [name]: value }));
   };
-
-  useEffect(() => {
-    if (!props.onChange) {
-      return;
-    }
-    props.onChange("address", address);
-  }, [address]);
-
-  useEffect(() => {
-    if (!props.onChange) {
-      return;
-    }
-    props.onChange("address", address);
-  }, [address]);
+  useUpdatedFormData("address", address, props.onChange);
 
   return (
     <Box component="fieldset" id={props.id} sx={props.sx}>

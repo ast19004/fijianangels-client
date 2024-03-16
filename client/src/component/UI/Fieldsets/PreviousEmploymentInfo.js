@@ -1,5 +1,6 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import EmploymentGroup from "../InputGroups/EmploymentGroup";
+import { useUpdatedFormData } from "../../util/formdata";
 
 const PreviousEmploymentInfo = (props) => {
   const [employmentHistory, setEmploymentHistory] = useState({});
@@ -8,12 +9,7 @@ const PreviousEmploymentInfo = (props) => {
     setEmploymentHistory((prevHistory) => ({ ...prevHistory, [name]: value }));
   };
 
-  useEffect(() => {
-    if (!props.onChange) {
-      return;
-    }
-    props.onChange("employment", employmentHistory);
-  }, [employmentHistory]);
+  useUpdatedFormData("employment", employmentHistory, props.onChange);
 
   return <EmploymentGroup num={1} onChange={handleInputChange} />;
 };
