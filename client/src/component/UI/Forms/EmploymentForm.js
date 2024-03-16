@@ -34,9 +34,9 @@ const EmploymentForm = (props) => {
       {/* <ApplicantInfo onChange={handleChange} />
       <EducationInfo onChange={handleChange} />
       <ReferencesInfo onChange={handleChange} /> */}
-      <PreviousEmploymentInfo onChange={handleChange} />
-      {/* <MilitaryServiceInfo />
-      <SigningInfo /> */}
+      {/* <PreviousEmploymentInfo onChange={handleChange} /> */}
+      <MilitaryServiceInfo onChange={handleChange} />
+      {/* <SigningInfo />  */}
       <Button
         type="submit"
         variant="contained"
