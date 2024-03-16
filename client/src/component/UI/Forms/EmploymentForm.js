@@ -31,13 +31,12 @@ const EmploymentForm = (props) => {
 
   return (
     <Form title="Employment Application">
-      <ApplicantInfo onChange={handleChange} />
+      {/* <ApplicantInfo onChange={handleChange} />
       <EducationInfo onChange={handleChange} />
-      <ReferencesInfo onChange={handleChange} />
-      {/* <PreviousEmploymentInfo />
-      <MilitaryServiceInfo />
-      <SigningInfo />    */}
-
+      <ReferencesInfo onChange={handleChange} /> */}
+      <PreviousEmploymentInfo onChange={handleChange} />
+      {/* <MilitaryServiceInfo />
+      <SigningInfo /> */}
       <Button
         type="submit"
         variant="contained"
