@@ -1,43 +1,28 @@
-import { TextField, FormLabel, FormControl } from "@mui/material";
+import { Box } from "@mui/material";
+import { useEffect, useState } from "react";
+import ReferenceGroup from "../InputGroups/ReferenceGroup";
 
-const ReferencesInfo = () => {
+const ReferencesInfo = (props) => {
+  const [references, setReferences] = useState({});
+
+  const handleInputChange = (name, value) => {
+    setReferences((prevRef) => ({ ...prevRef, [name]: value }));
+  };
+
+  useEffect(() => {
+    if (!props.onChange) {
+      return;
+    }
+    props.onChange("references", references);
+  }, [references]);
   return (
-    <fieldset>
+    <Box component="fieldset">
       <legend>References:</legend>
       <p>Please list three professional references.</p>
       {["1", "2", "3"].map((num) => (
-        <fieldset>
-          <legend>Reference #{num}</legend>
-          <FormControl>
-            <FormLabel htmlFor={`ref${num}-full-name`}>Full Name</FormLabel>
-
-            <TextField id={`ref${num}-full-name`} type="text" />
-          </FormControl>
-          <FormControl>
-            <FormLabel htmlFor={`ref${num}-relationship`}>
-              Relationship:
-            </FormLabel>
-
-            <TextField id={`ref${num}-relationship`} type="text" />
-          </FormControl>
-          <FormControl>
-            <FormLabel htmlFor={`ref${num}-company`}>Company:</FormLabel>
-
-            <TextField id={`ref${num}-company`} type="text" />
-          </FormControl>
-
-          <FormControl>
-            <FormLabel htmlFor={`ref${num}-address`}>Address:</FormLabel>
-            <TextField id={`ref${num}-address`} type="text" />
-          </FormControl>
-          <FormControl>
-            <FormLabel htmlFor={`ref${num}-phone`}>Phone:</FormLabel>
-
-            <TextField id={`ref${num}-phone`} type="tel" />
-          </FormControl>
-        </fieldset>
+        <ReferenceGroup num={num} onChange={handleInputChange} key={num} />
       ))}
-    </fieldset>
+    </Box>
   );
 };
 

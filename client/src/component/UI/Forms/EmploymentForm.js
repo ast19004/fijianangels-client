@@ -33,10 +33,10 @@ const EmploymentForm = (props) => {
     <Form title="Employment Application">
       <ApplicantInfo onChange={handleChange} />
       <EducationInfo onChange={handleChange} />
-      {/* <ReferencesInfo />
-      <PreviousEmploymentInfo />
+      <ReferencesInfo onChange={handleChange} />
+      {/* <PreviousEmploymentInfo />
       <MilitaryServiceInfo />
-      <SigningInfo />   */}
+      <SigningInfo />    */}
 
       <Button
         type="submit"
