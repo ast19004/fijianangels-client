@@ -1,7 +1,5 @@
-import { TextField, FormLabel, FormControl } from "@mui/material";
-import FormTextInput from "../Inputs/FormTextInput";
-import FormRadioInput from "../Inputs/FormRadioInput";
-import Address from "../InputGroups/Address";
+import { useEffect, useState } from "react";
+import EducationGroup from "../InputGroups/EducationGroup";
 
 const EducationInfo = (props) => {
   const educationTypes = [
@@ -9,24 +7,25 @@ const EducationInfo = (props) => {
     { abr: "college", label: "College" },
     { abr: "other-education", label: "Other Education" },
   ];
+
+  const [educationInfo, setEducationInfo] = useState();
+  const handleChange = (name, value) => {
+    setEducationInfo((prevEducationInfo) => ({
+      ...prevEducationInfo,
+      [name]: value,
+    }));
+  };
+  useEffect(() => {
+    if (!props.onChange) {
+      return;
+    }
+    props.onChange("education", educationInfo);
+  }, [educationInfo]);
   return (
     <fieldset>
       <legend>Education</legend>
       {educationTypes.map((type) => (
-        <fieldset>
-          <legend>{type.label}</legend>
-          <FormTextInput id={type.abr} label={type.label} />
-          <Address id={`${type.abr}-address`} />
-          <FormControl>
-            <FormLabel htmlFor={`${type.abr}-attendance`}>Dates:</FormLabel>
-            <TextField id={`${type.abr}-start-date`} type="date" /> to
-            <TextField id={`${type.abr}-end-date`} type="date" />
-          </FormControl>
-          <FormRadioInput
-            id={`${type.abr}-graduate`}
-            label="Did you graduate?"
-          />
-        </fieldset>
+        <EducationGroup type={type} key={type.abr} onChange={handleChange} />
       ))}
     </fieldset>
   );

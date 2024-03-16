@@ -1,4 +1,5 @@
-import { Button, Typography } from "@mui/material";
+import { useEffect, useState } from "react";
+import { Button } from "@mui/material";
 
 import Form from "../Forms/Form";
 import ApplicantInfo from "../Fieldsets/ApplicantInfo";
@@ -7,16 +8,6 @@ import ReferencesInfo from "../Fieldsets/ReferencesInfo";
 import PreviousEmploymentInfo from "../Fieldsets/PreviousEmploymentInfo";
 import MilitaryServiceInfo from "../Fieldsets/MilitaryServiceInfo";
 import SigningInfo from "../Fieldsets/SigningInfo";
-import { useEffect, useState } from "react";
-import FormInput from "../Inputs/FormInput";
-import FormSelectServices from "../Inputs/FormSelectServices";
-import FormTextInput from "../Inputs/FormTextInput";
-import FormEmailInput from "../Inputs/FormEmailInput";
-import FormPhoneInput from "../Inputs/FormPhoneInput";
-import FormNumInput from "../Inputs/FormNumInput";
-import FormTextareaInput from "../Inputs/FormTextareaInput";
-import FormRadioInput from "../Inputs/FormRadioInput";
-import Address from "../InputGroups/Address";
 
 const EmploymentForm = (props) => {
   const [formData, setFormData] = useState({});
@@ -39,14 +30,13 @@ const EmploymentForm = (props) => {
   };
 
   return (
-    <Form title=" Employment Application">
-      <Address onChange={handleChange} />
-      {/* <ApplicantInfo /> */}
-      {/* <EducationInfo />
-      <ReferencesInfo />
+    <Form title="Employment Application">
+      <ApplicantInfo onChange={handleChange} />
+      <EducationInfo onChange={handleChange} />
+      {/* <ReferencesInfo />
       <PreviousEmploymentInfo />
       <MilitaryServiceInfo />
-      <SigningInfo />  */}
+      <SigningInfo />   */}
 
       <Button
         type="submit"
