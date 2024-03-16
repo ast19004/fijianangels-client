@@ -8,3 +8,10 @@ export const useUpdatedFormData = (dataName, data, updateFunc) => {
     updateFunc(dataName, data);
   }, [data]);
 };
+
+export const updateInput = (name, value, setState) => {
+  setState((prevData) => ({
+    ...prevData,
+    [name]: value,
+  }));
+};

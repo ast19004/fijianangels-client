@@ -1,13 +1,13 @@
 import { Box } from "@mui/material";
 import FormTextInput from "../Inputs/FormTextInput";
 import { useState } from "react";
-import { useUpdatedFormData } from "../../util/formdata";
+import { useUpdatedFormData, updateInput } from "../../util/formdata";
 
 const SigningInfo = (props) => {
   const [signature, setSignature] = useState({});
 
   const handleInputChange = (name, value) => {
-    setSignature((prevSig) => ({ ...prevSig, [name]: value }));
+    updateInput(name, value, setSignature);
   };
   useUpdatedFormData("signed", signature, props.onChange);
 

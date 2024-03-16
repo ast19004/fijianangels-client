@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { TextField, FormLabel, FormControl } from "@mui/material";
 
-import { useUpdatedFormData } from "../../util/formdata";
+import { useUpdatedFormData, updateInput } from "../../util/formdata";
 
 import FormTextInput from "../Inputs/FormTextInput";
 import FormNumInput from "../Inputs/FormNumInput";
@@ -13,11 +13,14 @@ import Contact from "../InputGroups/Contact";
 
 const ApplicantInfo = (props) => {
   const [applicantInfo, setApplicantInfo] = useState();
+  // const handleChange = (name, value) => {
+  //   setApplicantInfo((prevApplicantData) => ({
+  //     ...prevApplicantData,
+  //     [name]: value,
+  //   }));
+  // };
   const handleChange = (name, value) => {
-    setApplicantInfo((prevApplicantData) => ({
-      ...prevApplicantData,
-      [name]: value,
-    }));
+    updateInput(name, value, setApplicantInfo);
   };
   useUpdatedFormData("applicantData", applicantInfo, props.onChange);
 

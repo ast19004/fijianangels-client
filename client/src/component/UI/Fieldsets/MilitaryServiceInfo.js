@@ -1,13 +1,13 @@
 import { TextField, FormLabel, FormControl, Box } from "@mui/material";
 import FormTextInput from "../Inputs/FormTextInput";
 import { useState } from "react";
-import { useUpdatedFormData } from "../../util/formdata";
+import { useUpdatedFormData, updateInput } from "../../util/formdata";
 
 const MilitaryServiceInfo = (props) => {
   const [service, setService] = useState({});
 
   const handleInputChange = (name, value) => {
-    setService((prevServiceInfo) => ({ ...prevServiceInfo, [name]: value }));
+    updateInput(name, value, setService);
   };
   useUpdatedFormData("military", service, props.onChange);
 

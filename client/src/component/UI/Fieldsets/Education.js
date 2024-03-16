@@ -1,6 +1,6 @@
 import { useState } from "react";
 import EducationGroup from "../InputGroups/EducationGroup";
-import { useUpdatedFormData } from "../../util/formdata";
+import { useUpdatedFormData, updateInput } from "../../util/formdata";
 
 const EducationInfo = (props) => {
   const educationTypes = [
@@ -11,10 +11,7 @@ const EducationInfo = (props) => {
 
   const [educationInfo, setEducationInfo] = useState();
   const handleChange = (name, value) => {
-    setEducationInfo((prevEducationInfo) => ({
-      ...prevEducationInfo,
-      [name]: value,
-    }));
+    updateInput(name, value, setEducationInfo);
   };
   useUpdatedFormData("education", educationInfo, props.onChange);
   return (
