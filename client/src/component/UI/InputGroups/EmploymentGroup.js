@@ -6,13 +6,13 @@ import FormPhoneInput from "../Inputs/FormPhoneInput";
 import FormRadioInput from "../Inputs/FormRadioInput";
 
 import Address from "../InputGroups/Address";
-import { useUpdatedFormData } from "../../util/formdata";
+import { useUpdatedFormData, updateInput } from "../../../util/formdata";
 
 const EmploymentGroup = (props) => {
   const [employment, setEmployment] = useState({});
 
   const handleInputChange = (name, value) => {
-    setEmployment((prevEmployment) => ({ ...prevEmployment, [name]: value }));
+    updateInput(name, value, setEmployment);
   };
 
   useUpdatedFormData(`job#${props.num}`, employment, props.onChange);

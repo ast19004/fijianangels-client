@@ -3,15 +3,12 @@ import { Box, FormControl, FormLabel, TextField } from "@mui/material";
 import FormTextInput from "../Inputs/FormTextInput";
 import FormRadioInput from "../Inputs/FormRadioInput";
 import Address from "./Address";
-import { useUpdatedFormData } from "../../util/formdata";
+import { useUpdatedFormData, updateInput } from "../../../util/formdata";
 
 const EducationGroup = (props) => {
   const [educationInfo, setEducationInfo] = useState({});
   const handleInputChange = (name, value) => {
-    setEducationInfo((prevEducationInfo) => ({
-      ...prevEducationInfo,
-      [name]: value,
-    }));
+    updateInput(name, value, setEducationInfo);
   };
   useUpdatedFormData(props.type.abr, educationInfo, props.onChange);
   return (

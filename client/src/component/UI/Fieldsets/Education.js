@@ -1,6 +1,6 @@
 import { useState } from "react";
 import EducationGroup from "../InputGroups/EducationGroup";
-import { useUpdatedFormData, updateInput } from "../../util/formdata";
+import { useUpdatedFormData, updateInput } from "../../../util/formdata";
 
 const EducationInfo = (props) => {
   const educationTypes = [

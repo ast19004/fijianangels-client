@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Box } from "@mui/material";
 
-import { useUpdatedFormData } from "../../util/formdata";
+import { updateInput, useUpdatedFormData } from "../../../util/formdata";
 import FormTextInput from "../Inputs/FormTextInput";
 
 const FullName = (props) => {
@@ -9,7 +9,7 @@ const FullName = (props) => {
   const [nameData, setNameData] = useState([]);
 
   const handleChange = (name, value) => {
-    setNameData((prevNameData) => ({ ...prevNameData, [name]: value }));
+    updateInput(name, value, setNameData);
   };
   useUpdatedFormData("fullName", nameData, props.onChange);
 

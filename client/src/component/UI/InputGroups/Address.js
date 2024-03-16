@@ -3,13 +3,13 @@ import { Box } from "@mui/material";
 
 import FormTextInput from "../Inputs/FormTextInput";
 import FormNumInput from "../Inputs/FormNumInput";
-import { useUpdatedFormData } from "../../util/formdata";
+import { useUpdatedFormData, updateInput } from "../../../util/formdata";
 
 const Address = (props) => {
   const [address, setAddress] = useState({});
 
   const handleInputChange = (name, value) => {
-    setAddress((prevAddress) => ({ ...prevAddress, [name]: value }));
+    updateInput(name, value, setAddress);
   };
   useUpdatedFormData("address", address, props.onChange);
 

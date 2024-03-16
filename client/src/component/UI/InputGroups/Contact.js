@@ -3,16 +3,13 @@ import { Box } from "@mui/material";
 
 import FormPhoneInput from "../Inputs/FormNumInput";
 import FormEmailInput from "../Inputs/FormEmailInput";
-import { useUpdatedFormData } from "../../util/formdata";
+import { updateInput, useUpdatedFormData } from "../../../util/formdata";
 
 const Contact = (props) => {
   const [contactData, setContactData] = useState([]);
 
   const handleChange = (name, value) => {
-    setContactData((prevContactData) => ({
-      ...prevContactData,
-      [name]: value,
-    }));
+    updateInput(name, value, setContactData);
   };
 
   useUpdatedFormData("contact", contactData, props.onChange);

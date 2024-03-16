@@ -1,6 +1,6 @@
 import { useState } from "react";
 import EmploymentGroup from "../InputGroups/EmploymentGroup";
-import { useUpdatedFormData, updateInput } from "../../util/formdata";
+import { useUpdatedFormData, updateInput } from "../../../util/formdata";
 
 const PreviousEmploymentInfo = (props) => {
   const [employmentHistory, setEmploymentHistory] = useState({});
