@@ -1,17 +1,18 @@
 import { Box, Grid, Typography } from "@mui/material";
 import StaffThumbnail from "../component/UI/StaffThumbnail";
 
+import staff1 from "../assests/images/staff1-400px.jpg";
+import staff2 from "../assests/images/staff2-400px.jpg";
+
 function Staff(props) {
   const staffMembers = [
     {
       staffMember: "Ana Colata",
-      image:
-        "https://fastly.picsum.photos/id/25/200/300.jpg?hmac=ScdLbPfGd_kI3MUHvJUb12Fsg1meDQEaHY_mM613BVM",
+      image: staff1,
     },
     {
       staffMember: "Kyle Colata",
-      image:
-        "https://fastly.picsum.photos/id/25/200/300.jpg?hmac=ScdLbPfGd_kI3MUHvJUb12Fsg1meDQEaHY_mM613BVM",
+      image: staff2,
     },
   ];
   return (

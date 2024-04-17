@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { Button } from "@mui/material";
 
+import { convertFormToPDF } from "../../../util/formdata";
+
 import Form from "../Forms/Form";
 import ApplicantInfo from "../Fieldsets/ApplicantInfo";
 import EducationInfo from "../Fieldsets/Education";
@@ -10,6 +12,7 @@ import MilitaryServiceInfo from "../Fieldsets/MilitaryServiceInfo";
 import SigningInfo from "../Fieldsets/SigningInfo";
 
 const EmploymentForm = (props) => {
+  const formId = "employmentForm";
   const [formData, setFormData] = useState({});
 
   const handleChange = (name, value) => {
@@ -23,7 +26,7 @@ const EmploymentForm = (props) => {
   };
 
   return (
-    <Form title="Employment Application">
+    <Form title="Employment Application" id={formId}>
       <ApplicantInfo onChange={handleChange} />
       <EducationInfo onChange={handleChange} />
       <ReferencesInfo onChange={handleChange} />

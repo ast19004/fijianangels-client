@@ -9,12 +9,13 @@ import {
 
 function StaffThumbnail(props) {
   return (
-    <Card sx={{ minWidth: "220px" }}>
+    <Card sx={{ minWidth: "300px" }}>
       <CardMedia
+        sx={{ objectFit: "cover", objectPosition: "0% 0%" }}
         component="img"
         image={props.image}
         alt={props.name}
-        height="200px"
+        height="300px"
       />
       <CardContent sx={{ padding: "10px 16px 0 16px " }}>
         <Typography variant="body2" color="#066988">

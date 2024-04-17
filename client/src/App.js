@@ -32,7 +32,11 @@ function App() {
           <Route
             exact
             path="/homecare-request-form"
-            element={<HomecareRequestForm />}
+            element={
+              <main>
+                <HomecareRequestForm />
+              </main>
+            }
           />
           <Route
             exact
@@ -60,7 +64,7 @@ function App() {
             }
           />
         </Routes>
-        <Box sx={{ height: "50px" }} />
+        <Box className="spacingBlock" sx={{ height: "50px" }} />
         <Footer />
       </BrowserRouter>
     </div>

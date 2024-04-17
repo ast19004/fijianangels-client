@@ -18,6 +18,8 @@ const FormInput = (props) => {
       <FormLabel htmlFor={props.id}>{props.label}</FormLabel>
       {props.children || (
         <TextField
+          required
+          helperText="Some important text"
           id={props.id}
           name={props.name || props.id}
           type={props.type}

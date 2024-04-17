@@ -13,8 +13,9 @@ function Section(props) {
         {props.header}
       </StyledHeader>
       {props.multiParagraph ? (
-        props.multiParagraph.map((paragraph) => (
+        props.multiParagraph.map((paragraph, index) => (
           <StyledParagraph
+            key={index}
             lineHeight={props.lineHeight}
             paragraphColor={props.paragraphColor}
             displayBlock={props.displayBlock}
