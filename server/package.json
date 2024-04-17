@@ -1,0 +1,15 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "fijian angels server",
+  "main": "index.js",
+  "scripts": {
+    "test": "inside server for fijian angels homecare",
+    "start": "nodemon index.js"
+  },
+  "author": "Anna Astle",
+  "license": "ISC",
+  "dependencies": {
+    "nodemon": "^3.1.0"
+  }
+}
