@@ -23,7 +23,7 @@ const Address = (props) => {
         onChange={handleInputChange}
       />
       <FormTextInput
-        id="unit/apt-number"
+        id="unit_apt"
         label="Apartment/Unit #"
         value={address["unit/apt-number"]}
         onChange={handleInputChange}

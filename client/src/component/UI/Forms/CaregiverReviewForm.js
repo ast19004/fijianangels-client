@@ -5,10 +5,12 @@ import Contact from "../InputGroups/Contact";
 import Form from "../Forms/Form";
 import FormTextareaInput from "../Inputs/FormTextareaInput";
 import FormSelectServices from "../Inputs/FormSelectServices";
+import ProgressBar from "../ProgressBar";
 
 const CaregiverReviewForm = (props) => {
   return (
     <Form title="Caregiver Review">
+      <ProgressBar value={0.5} />
       <FullName legend="Your Name" abr="user" />
       <Contact />
       <FullName legend="Caregiver Name" abr="caregiver" />

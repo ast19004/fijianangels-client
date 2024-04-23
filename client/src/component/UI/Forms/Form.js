@@ -1,4 +1,4 @@
-import { Box, Typography } from "@mui/material";
+import { Box, Typography, Button } from "@mui/material";
 
 const Form = (props) => {
   return (
@@ -15,6 +15,7 @@ const Form = (props) => {
         {props.title.toUpperCase()}
       </Typography>
       {props.children}
+      <Button>Submit</Button>
     </Box>
   );
 };

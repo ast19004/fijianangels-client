@@ -10,6 +10,7 @@ import ReferencesInfo from "../Fieldsets/ReferencesInfo";
 import PreviousEmploymentInfo from "../Fieldsets/PreviousEmploymentInfo";
 import MilitaryServiceInfo from "../Fieldsets/MilitaryServiceInfo";
 import SigningInfo from "../Fieldsets/SigningInfo";
+import ProgressBar from "../ProgressBar";
 
 const EmploymentForm = (props) => {
   const formId = "employmentForm";
@@ -27,6 +28,7 @@ const EmploymentForm = (props) => {
 
   return (
     <Form title="Employment Application" id={formId}>
+      <ProgressBar value={0.5} />
       <ApplicantInfo onChange={handleChange} />
       <EducationInfo onChange={handleChange} />
       <ReferencesInfo onChange={handleChange} />

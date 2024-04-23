@@ -4,9 +4,9 @@ import { useUpdatedFormData, updateInput } from "../../../util/formdata";
 
 const EducationInfo = (props) => {
   const educationTypes = [
-    { abr: "high-school", label: "High School" },
+    { abr: "high_school", label: "High School" },
     { abr: "college", label: "College" },
-    { abr: "other-education", label: "Other Education" },
+    { abr: "other", label: "Other Education" },
   ];
 
   const [educationInfo, setEducationInfo] = useState();

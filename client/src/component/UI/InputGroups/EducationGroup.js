@@ -19,23 +19,23 @@ const EducationGroup = (props) => {
         label={props.type.label}
         onChange={handleInputChange}
       />
-      <Address id={`${props.type.abr}-address`} onChange={handleInputChange} />
+      <Address id={`${props.type.abr}_address`} onChange={handleInputChange} />
       <FormControl>
-        <FormLabel htmlFor={`${props.type.abr}-attendance`}>Dates:</FormLabel>
+        <FormLabel htmlFor={`${props.type.abr}_attendance`}>Dates:</FormLabel>
         <TextField
-          id={`${props.type.abr}-start-date`}
+          id={`${props.type.abr}_start_date`}
           type="date"
           onChange={handleInputChange}
         />{" "}
         to
         <TextField
-          id={`${props.type.abr}-end-date`}
+          id={`${props.type.abr}_end_date`}
           type="date"
           onChange={handleInputChange}
         />
       </FormControl>
       <FormRadioInput
-        id={`${props.type.abr}-graduate`}
+        id={`is_${props.type.abr}_graduate`}
         label="Did you graduate?"
         onChange={handleInputChange}
       />
