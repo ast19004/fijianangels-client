@@ -6,7 +6,7 @@ const ProgressBar = (props) => {
   const [progressWidth, setProgressWidth] = useState();
   const barWidth = 350;
   const barHeight = 16;
-  const barColor = "#066988";
+  const barColor = "rgba(62, 152, 180, 0.9)";
 
   useEffect(() => {
     setProgressWidth(barWidth * props.value);
