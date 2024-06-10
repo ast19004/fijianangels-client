@@ -33,7 +33,7 @@ const FormRadioInput = (props) => {
           <FormControlLabel
             key={control.value}
             value={control.value}
-            control={<Radio />}
+            control={<Radio required />}
             label={control.label}
           />
         ))}

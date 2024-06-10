@@ -18,12 +18,12 @@ const FormInput = (props) => {
       <FormLabel htmlFor={props.id}>{props.label}</FormLabel>
       {props.children || (
         <TextField
-          required
+          required={props.required}
           helperText="Some important text"
           id={props.id}
           name={props.name || props.id}
           type={props.type}
-          value={inputValue}
+          value={props.value}
           onChange={handleInputChange}
         />
       )}

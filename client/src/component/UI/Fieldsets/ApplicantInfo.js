@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { TextField, FormLabel, FormControl } from "@mui/material";
 
 import { useUpdatedFormData, updateInput } from "../../../util/formdata";
@@ -23,6 +23,7 @@ const ApplicantInfo = (props) => {
     updateInput(name, value, setApplicantInfo);
   };
   useUpdatedFormData("applicantData", applicantInfo, props.onChange);
+  useEffect(() => console.log(props.data), [props.data]);
 
   return (
     <fieldset>

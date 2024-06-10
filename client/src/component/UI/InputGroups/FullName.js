@@ -8,9 +8,9 @@ const FullName = (props) => {
   const legend = props.legend || "Full Name:";
   const [nameData, setNameData] = useState([]);
 
-  const first = props.abr + "_first_name" || "first_name";
-  const middle = props.abr + "_middle_name" || "middle_name";
-  const last = props.abr + "_last_name" || "last_name";
+  const first = props.abr ? props.abr + "_first_name" : "first_name";
+  const middle = props.abr ? props.abr + "_middle_name" : "middle_name";
+  const last = props.abr ? props.abr + "_last_name" : "last_name";
 
   const handleChange = (name, value) => {
     updateInput(name, value, setNameData);

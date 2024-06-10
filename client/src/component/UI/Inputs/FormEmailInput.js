@@ -9,6 +9,7 @@ const FormEmailInput = (props) => {
       label={props.label}
       type="email"
       onChange={props.onChange}
+      required={true}
     />
   );
 };

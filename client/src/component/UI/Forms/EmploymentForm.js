@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { Button } from "@mui/material";
 
 import { convertFormToPDF } from "../../../util/formdata";
 
@@ -27,22 +26,14 @@ const EmploymentForm = (props) => {
   };
 
   return (
-    <Form title="Employment Application" id={formId}>
+    <Form title="Employment Application" id={formId} submit progressButtons>
       <ProgressBar value={0.5} />
-      <ApplicantInfo onChange={handleChange} />
+      <ApplicantInfo onChange={handleChange} data={formData.applicantData} />
       <EducationInfo onChange={handleChange} />
       <ReferencesInfo onChange={handleChange} />
       <PreviousEmploymentInfo onChange={handleChange} />
       <MilitaryServiceInfo onChange={handleChange} />
       <SigningInfo onChange={handleChange} />
-      <Button
-        type="submit"
-        variant="contained"
-        color="primary"
-        onClick={onSubmit}
-      >
-        Submit
-      </Button>
     </Form>
   );
 };

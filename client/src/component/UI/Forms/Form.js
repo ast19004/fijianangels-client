@@ -1,6 +1,19 @@
 import { Box, Typography, Button } from "@mui/material";
+import { useEffect, useState } from "react";
 
 const Form = (props) => {
+  const [formData, setFormData] = useState({});
+
+  useEffect(() => {
+    setFormData(props.formData);
+  }, [props.formData]);
+
+  const onSubmit = (event) => {
+    event.preventDefault();
+    console.log(JSON.stringify(formData));
+    // Handle form submission data here
+  };
+
   return (
     <Box
       component="form"
@@ -15,7 +28,17 @@ const Form = (props) => {
         {props.title.toUpperCase()}
       </Typography>
       {props.children}
-      <Button>Submit</Button>
+      {props.submit && (
+        <Button
+          disabled={props.submitDisabled}
+          type="submit"
+          variant="contained"
+          color="primary"
+          onClick={onSubmit}
+        >
+          Submit
+        </Button>
+      )}
     </Box>
   );
 };
