@@ -9,12 +9,12 @@ const FormTextareaInput = (props) => {
   const handleInputChange = (event) => {
     setInputValue(event.target.value);
   };
-  useEffect(() => {
-    if (!props.onChange) {
-      return;
-    }
-    props.onChange(props.name, inputValue);
-  }, [inputValue, props.onChange]);
+  // useEffect(() => {
+  //   if (!props.onChange) {
+  //     return;
+  //   }
+  //   props.onChange(props.name, inputValue);
+  // }, [inputValue, props.onChange]);
   return (
     <FormInput id={props.id} label={props.label}>
       <textarea

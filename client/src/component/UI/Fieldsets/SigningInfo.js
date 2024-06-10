@@ -1,15 +1,15 @@
 import { Box } from "@mui/material";
 import FormTextInput from "../Inputs/FormTextInput";
 import { useState } from "react";
-import { useUpdatedFormData, updateInput } from "../../../util/formdata";
+// import { useUpdatedFormData, updateInput } from "../../../util/formdata";
 
 const SigningInfo = (props) => {
   const [signature, setSignature] = useState({});
 
-  const handleInputChange = (name, value) => {
-    updateInput(name, value, setSignature);
-  };
-  useUpdatedFormData("signed", signature, props.onChange);
+  // const handleInputChange = (name, value) => {
+  //   updateInput(name, value, setSignature);
+  // };
+  // useUpdatedFormData("signed", signature, props.onChange);
 
   return (
     <Box component="fieldset">
@@ -23,16 +23,8 @@ const SigningInfo = (props) => {
         misleading information in my application or interview may result in my
         release.
       </p>
-      <FormTextInput
-        id="signature"
-        label="Signature"
-        onChange={handleInputChange}
-      />
-      <FormTextInput
-        id="signature-date"
-        label="Date"
-        onChange={handleInputChange}
-      />
+      <FormTextInput id="signature" label="Signature" />
+      <FormTextInput id="signature-date" label="Date" />
     </Box>
   );
 };

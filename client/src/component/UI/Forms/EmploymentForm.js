@@ -2,6 +2,7 @@ import { useState } from "react";
 
 import { convertFormToPDF } from "../../../util/formdata";
 
+import { EmploymentFormContextProvider } from "../../../store/employment-form-context";
 import Form from "../Forms/Form";
 import ApplicantInfo from "../Fieldsets/ApplicantInfo";
 import EducationInfo from "../Fieldsets/Education";
@@ -13,28 +14,31 @@ import ProgressBar from "../ProgressBar";
 
 const EmploymentForm = (props) => {
   const formId = "employmentForm";
-  const [formData, setFormData] = useState({});
+  // const [formData, setFormData] = useState({});
 
-  const handleChange = (name, value) => {
-    setFormData((prevFormData) => ({ ...prevFormData, [name]: value }));
-  };
+  // const handleChange = (name, value) => {
+  //   setFormData((prevFormData) => ({ ...prevFormData, [name]: value }));
+  // };
 
   const onSubmit = (event) => {
     event.preventDefault();
-    console.log(JSON.stringify(formData));
+    // console.log(JSON.stringify(formData));
     // Handle form submission data here
   };
 
   return (
-    <Form title="Employment Application" id={formId} submit progressButtons>
-      <ProgressBar value={0.5} />
-      <ApplicantInfo onChange={handleChange} data={formData.applicantData} />
-      <EducationInfo onChange={handleChange} />
-      <ReferencesInfo onChange={handleChange} />
-      <PreviousEmploymentInfo onChange={handleChange} />
-      <MilitaryServiceInfo onChange={handleChange} />
-      <SigningInfo onChange={handleChange} />
-    </Form>
+    <EmploymentFormContextProvider>
+      <Form title="Employment Application" id={formId} submit progressButtons>
+        <ProgressBar value={0.5} />
+        <ApplicantInfo />
+        {/* data={formData} */}
+        <EducationInfo />
+        <ReferencesInfo />
+        <PreviousEmploymentInfo />
+        <MilitaryServiceInfo />
+        <SigningInfo />
+      </Form>
+    </EmploymentFormContextProvider>
   );
 };
 

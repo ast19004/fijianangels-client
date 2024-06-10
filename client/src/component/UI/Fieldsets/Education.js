@@ -9,16 +9,16 @@ const EducationInfo = (props) => {
     { abr: "other", label: "Other Education" },
   ];
 
-  const [educationInfo, setEducationInfo] = useState();
-  const handleChange = (name, value) => {
-    updateInput(name, value, setEducationInfo);
-  };
-  useUpdatedFormData("education", educationInfo, props.onChange);
+  // const [educationInfo, setEducationInfo] = useState();
+  // const handleChange = (name, value) => {
+  //   updateInput(name, value, setEducationInfo);
+  // };
+  // useUpdatedFormData("education", educationInfo, props.onChange);
   return (
     <fieldset>
       <legend>Education</legend>
       {educationTypes.map((type) => (
-        <EducationGroup type={type} key={type.abr} onChange={handleChange} />
+        <EducationGroup type={type} key={type.abr} />
       ))}
     </fieldset>
   );

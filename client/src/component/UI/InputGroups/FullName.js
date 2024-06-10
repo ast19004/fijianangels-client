@@ -1,10 +1,14 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { Box } from "@mui/material";
+
+import EmploymentFormContext from "../../../store/employment-form-context";
 
 import { updateInput, useUpdatedFormData } from "../../../util/formdata";
 import FormTextInput from "../Inputs/FormTextInput";
 
 const FullName = (props) => {
+  const employmentCtx = useContext(EmploymentFormContext);
+
   const legend = props.legend || "Full Name:";
   const [nameData, setNameData] = useState([]);
 
@@ -14,8 +18,9 @@ const FullName = (props) => {
 
   const handleChange = (name, value) => {
     updateInput(name, value, setNameData);
+    employmentCtx.updateApplicant(name, value);
   };
-  useUpdatedFormData("fullName", nameData, props.onChange);
+  // useUpdatedFormData("fullName", nameData, props.onChange);
 
   return (
     <Box component="fieldset" id={props.id} sx={props.sx}>
