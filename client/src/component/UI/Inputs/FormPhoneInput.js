@@ -7,7 +7,7 @@ const FormPhoneInput = (props) => {
       name={props.name || props.id}
       htmlFor={props.id}
       label={props.label}
-      // onChange={props.onChange}
+      onChange={props.onChange || (() => {})}
       type="tel"
     />
   );

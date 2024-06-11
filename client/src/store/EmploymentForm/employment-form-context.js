@@ -1,8 +1,16 @@
 import React, { useState } from "react";
-import { updateInput } from "../util/formdata";
+import { updateInput } from "../../util/formdata";
 
 const EmploymentFormContext = React.createContext({
-  applicantInput: {},
+  applicantInput: {
+    fullName: {
+      first: "",
+      middle: "",
+      last: "",
+    },
+    address: {},
+    contact: {},
+  },
   educationInput: {},
   referencesInput: {},
   previousEmploymentInput: {},
@@ -18,7 +26,15 @@ const EmploymentFormContext = React.createContext({
 });
 
 export const EmploymentFormContextProvider = (props) => {
-  const [applicant, setApplicant] = useState({});
+  const [applicant, setApplicant] = useState({
+    fullName: {
+      first: "",
+      middle: "",
+      last: "",
+    },
+    address: {},
+    contact: {},
+  });
   const [education, setEducation] = useState({});
   const [references, setReferences] = useState({});
   const [previousEmployment, setPreviousEmployment] = useState({});

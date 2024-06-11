@@ -6,12 +6,12 @@ const FormInput = (props) => {
   const handleInputChange = (event) => {
     setInputValue(event.target.value);
   };
-  // useEffect(() => {
-  //   if (!props.onChange) {
-  //     return;
-  //   }
-  //   props.onChange(props.name, inputValue);
-  // }, [inputValue]);
+  useEffect(() => {
+    if (!props.onChange) {
+      return;
+    }
+    props.onChange(props.name, inputValue);
+  }, [inputValue]);
 
   return (
     <FormControl sx={{ margin: "1rem", backgroundColor: "white" }}>

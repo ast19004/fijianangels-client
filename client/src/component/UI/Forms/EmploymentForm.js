@@ -2,7 +2,8 @@ import { useState } from "react";
 
 import { convertFormToPDF } from "../../../util/formdata";
 
-import { EmploymentFormContextProvider } from "../../../store/employment-form-context";
+import { EmploymentFormContextProvider } from "../../../store/EmploymentForm/employment-form-context";
+import { ApplicantContextProvider } from "../../../store/EmploymentForm/applicant-context";
 import Form from "../Forms/Form";
 import ApplicantInfo from "../Fieldsets/ApplicantInfo";
 import EducationInfo from "../Fieldsets/Education";
@@ -27,18 +28,20 @@ const EmploymentForm = (props) => {
   };
 
   return (
-    <EmploymentFormContextProvider>
-      <Form title="Employment Application" id={formId} submit progressButtons>
-        <ProgressBar value={0.5} />
+    // <EmploymentFormContextProvider>
+    <Form title="Employment Application" id={formId} submit progressButtons>
+      <ProgressBar value={0.5} />
+      <ApplicantContextProvider>
         <ApplicantInfo />
-        {/* data={formData} */}
-        <EducationInfo />
-        <ReferencesInfo />
-        <PreviousEmploymentInfo />
-        <MilitaryServiceInfo />
-        <SigningInfo />
-      </Form>
-    </EmploymentFormContextProvider>
+      </ApplicantContextProvider>
+      {/* data={formData} */}
+      <EducationInfo />
+      <ReferencesInfo />
+      <PreviousEmploymentInfo />
+      <MilitaryServiceInfo />
+      <SigningInfo />
+    </Form>
+    // </EmploymentFormContextProvider>
   );
 };
 

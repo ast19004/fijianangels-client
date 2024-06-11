@@ -3,14 +3,14 @@ import { Box } from "@mui/material";
 
 import FormTextInput from "../Inputs/FormTextInput";
 import FormNumInput from "../Inputs/FormNumInput";
-// import { useUpdatedFormData, updateInput } from "../../../util/formdata";
+import { updateInput } from "../../../util/formdata";
 
 const Address = (props) => {
   const [address, setAddress] = useState({});
 
-  // const handleInputChange = (name, value) => {
-  //   updateInput(name, value, setAddress);
-  // };
+  const handleInputChange = (name, value) => {
+    updateInput(name, value, setAddress);
+  };
   // useUpdatedFormData("address", address, props.onChange);
 
   return (
@@ -20,17 +20,23 @@ const Address = (props) => {
         id="street"
         label="Street Address"
         // value={address.street}
+        onChange={handleInputChange}
       />
       <FormTextInput
         id="unit_apt"
         label="Apartment/Unit #"
         // value={address["unit/apt-number"]}
+        onChange={handleInputChange}
       />
-      <FormTextInput id="city" label="City" />
+      <FormTextInput id="city" label="City" onChange={handleInputChange} />
       {/* value={address.city} */}
-      <FormTextInput id="state" label="State" />
+      <FormTextInput id="state" label="State" onChange={handleInputChange} />
       {/* value={address.state} */}
-      <FormNumInput id="zipcode" label="ZIP Code" />
+      <FormNumInput
+        id="zipcode"
+        label="ZIP Code"
+        onChange={handleInputChange}
+      />
       {/* value={address.zipcode} */}
     </Box>
   );
