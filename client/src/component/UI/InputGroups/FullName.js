@@ -1,12 +1,10 @@
-import { useContext, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { Box } from "@mui/material";
 
-import EmploymentFormContext from "../../../store/EmploymentForm/employment-form-context";
 import { updateInput } from "../../../util/formdata";
 import FormTextInput from "../Inputs/FormTextInput";
 
 const FullName = (props) => {
-  const employmentCtx = useContext(EmploymentFormContext);
   const legend = props.legend || "Full Name:";
   const [nameData, setNameData] = useState({});
 
@@ -18,10 +16,7 @@ const FullName = (props) => {
     updateInput(name, value, setNameData);
   };
 
-  useEffect(
-    () => employmentCtx.updateApplicant("fullName", nameData),
-    [nameData]
-  );
+  useEffect(() => props.update("fullName", nameData), [nameData]);
 
   return (
     <Box component="fieldset" id={props.id} sx={props.sx}>
@@ -30,19 +25,19 @@ const FullName = (props) => {
         id={first}
         label="First:"
         onChange={handleChange}
-        value={employmentCtx.applicantInput.fullName.first}
+        value={props.fullName.first}
       />
       <FormTextInput
         id={middle}
         label="M.I."
         onChange={handleChange}
-        value={employmentCtx.applicantInput.fullName.middle}
+        value={props.fullName.middle}
       />
       <FormTextInput
         id={last}
         label="Last:"
         onChange={handleChange}
-        value={employmentCtx.applicantInput.fullName.last}
+        value={props.fullName.last}
       />
     </Box>
   );

@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import { updateInput } from "../../util/formdata";
-import ApplicantInfo from "../../component/UI/Fieldsets/ApplicantInfo";
 
-const ApplicantContext = React.createContext({
+export const ApplicantContext = React.createContext({
   applicantInput: {
     fullName: {
       first: "",
@@ -39,5 +38,3 @@ export const ApplicantContextProvider = (props) => {
     </ApplicantContext.Provider>
   );
 };
-
-export default ApplicantContext;

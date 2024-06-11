@@ -2,7 +2,6 @@ import { useState } from "react";
 
 import { convertFormToPDF } from "../../../util/formdata";
 
-import { EmploymentFormContextProvider } from "../../../store/EmploymentForm/employment-form-context";
 import { ApplicantContextProvider } from "../../../store/EmploymentForm/applicant-context";
 import Form from "../Forms/Form";
 import ApplicantInfo from "../Fieldsets/ApplicantInfo";
