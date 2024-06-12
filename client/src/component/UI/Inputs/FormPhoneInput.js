@@ -9,6 +9,7 @@ const FormPhoneInput = (props) => {
       label={props.label}
       onChange={props.onChange || (() => {})}
       type="tel"
+      value={props.value}
     />
   );
 };

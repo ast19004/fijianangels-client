@@ -9,6 +9,7 @@ const FormTextInput = (props) => {
       label={props.label}
       onChange={props.onChange || (() => {})}
       type="text"
+      value={props.value}
     />
   );
 };
