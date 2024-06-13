@@ -1,6 +1,8 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import ProgressBar from "../ProgressBar";
 import Form from "./Form";
+
+import { smoothScrollToTop } from "../../../util/scroll";
 
 const MultiStepForm = (props) => {
   //This component wraps a form component to provide it with the ability to be broken up into steps
@@ -14,11 +16,13 @@ const MultiStepForm = (props) => {
     if (progress !== steps) {
       setProgress((prev) => prev + 1);
     }
+    smoothScrollToTop();
   };
   const back = () => {
     if (progress !== 1) {
       setProgress((prev) => prev - 1);
     }
+    smoothScrollToTop();
   };
 
   return (
@@ -31,7 +35,7 @@ const MultiStepForm = (props) => {
       onNext={next}
       onPrev={back}
     >
-      <ProgressBar value={progress} />
+      <ProgressBar steps={steps} currentStep={progress} />
       {props.children.filter(
         //   since progress begins with one step,
         //   filter index, which starts @ 0 must add 1 to compare the two
