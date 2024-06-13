@@ -2,15 +2,21 @@ import { useEffect, useState } from "react";
 import { Box } from "@mui/material";
 
 const ProgressBar = (props) => {
-  // props.value of 1 is equal to 100% of barWidth
-  const [progressWidth, setProgressWidth] = useState();
   const barWidth = 350;
   const barHeight = 16;
   const barColor = "rgba(62, 152, 180, 0.9)";
+  const segmentWidth = Math.floor(barWidth / props.steps);
+  const [progressWidth, setProgressWidth] = useState(segmentWidth);
 
   useEffect(() => {
-    setProgressWidth(barWidth * props.value);
-  }, [props.value]);
+    if (props.currentStep === 1) {
+      setProgressWidth(segmentWidth);
+    } else if (props.currentStep === props.steps) {
+      setProgressWidth(barWidth);
+    } else {
+      setProgressWidth(segmentWidth * props.currentStep);
+    }
+  }, [props.steps, props.currentStep, segmentWidth, progressWidth]);
 
   return (
     <Box
@@ -27,7 +33,8 @@ const ProgressBar = (props) => {
           width: `${progressWidth}px`,
           height: `${barHeight}px`,
           backgroundColor: barColor,
-          borderRadius: props.value !== 1 ? "10px 0 0 10px" : "10px",
+          borderRadius:
+            props.currentStep !== props.steps ? "10px 0 0 10px" : "10px",
         }}
       />
     </Box>
