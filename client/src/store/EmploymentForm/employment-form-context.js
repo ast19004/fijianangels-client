@@ -2,23 +2,23 @@ import React, { useState } from "react";
 import { updateInput } from "../../util/formdata";
 
 const EmploymentFormContext = React.createContext({
-  applicantInput: {
-    fullName: {
-      first: "",
-      middle: "",
-      last: "",
-    },
-    address: {},
-    contact: {},
-  },
-  educationInput: {},
+  // applicantInput: {
+  //   fullName: {
+  //     first: "",
+  //     middle: "",
+  //     last: "",
+  //   },
+  //   address: {},
+  //   contact: {},
+  // },
+  // educationInput: {},
   referencesInput: {},
   previousEmploymentInput: {},
   militaryServiceData: {},
   signature: {},
 
-  updateApplicant: (name, value) => {},
-  updateEducation: (name, value) => {},
+  // updateApplicant: (name, value) => {},
+  // updateEducation: (name, value) => {},
   updateReferences: (name, value) => {},
   updatePreviousEmployment: (name, value) => {},
   updateMilitaryService: (name, value) => {},
@@ -26,16 +26,16 @@ const EmploymentFormContext = React.createContext({
 });
 
 export const EmploymentFormContextProvider = (props) => {
-  const [applicant, setApplicant] = useState({
-    fullName: {
-      first: "",
-      middle: "",
-      last: "",
-    },
-    address: {},
-    contact: {},
-  });
-  const [education, setEducation] = useState({});
+  // const [applicant, setApplicant] = useState({
+  //   fullName: {
+  //     first: "",
+  //     middle: "",
+  //     last: "",
+  //   },
+  //   address: {},
+  //   contact: {},
+  // });
+  // const [education, setEducation] = useState({});
   const [references, setReferences] = useState({});
   const [previousEmployment, setPreviousEmployment] = useState({});
   const [militaryService, setMilitaryService] = useState({});
@@ -44,20 +44,20 @@ export const EmploymentFormContextProvider = (props) => {
   return (
     <EmploymentFormContext.Provider
       value={{
-        applicantInput: applicant,
-        educationInput: education,
+        // applicantInput: applicant,
+        // educationInput: education,
         referencesInput: references,
         previousEmploymentInput: previousEmployment,
         militaryServiceData: militaryService,
         signature: signature,
 
-        updateApplicant: (name, value) => {
-          updateInput(name, value, setApplicant);
-          console.log(applicant);
-        },
-        updateEducation: (name, value) => {
-          updateInput(name, value, setEducation);
-        },
+        // updateApplicant: (name, value) => {
+        //   updateInput(name, value, setApplicant);
+        //   console.log(applicant);
+        // },
+        // updateEducation: (name, value) => {
+        //   updateInput(name, value, setEducation);
+        // },
         updateReferences: (name, value) => {
           updateInput(name, value, setReferences);
         },

@@ -4,33 +4,57 @@ import { updateInput } from "../../util/formdata";
 export const ApplicantContext = React.createContext({
   applicantInput: {
     fullName: {
-      first: "",
-      middle: "",
-      last: "",
+      first_name: "",
+      middle_name: "",
+      last_name: "",
     },
-    address: {},
+    address: {
+      street: "",
+      unit_apt: "",
+      city: "",
+      state: "",
+      zipcode: "",
+    },
     contact: {},
   },
   updateApplicant: (name, value) => {},
+  updateFullName: (value) => {},
+  updateAddress: (value) => {},
+  updateContact: (value) => {},
 });
 
 export const ApplicantContextProvider = (props) => {
+  const updateApplicant = (name, value) => {
+    updateInput(name, value, setApplicant);
+    console.log(applicant);
+  };
   const [applicant, setApplicant] = useState({
     fullName: {
-      first: "",
-      middle: "",
-      last: "",
+      first_name: "",
+      middle_name: "",
+      last_name: "",
     },
-    address: {},
+    address: {
+      street: "",
+      unit_apt: "",
+      city: "",
+      state: "",
+      zipcode: "",
+    },
     contact: {},
   });
   return (
     <ApplicantContext.Provider
       value={{
         applicantInput: applicant,
-        updateApplicant: (name, value) => {
-          updateInput(name, value, setApplicant);
-          console.log(applicant);
+        updateFullName: (value) => {
+          updateApplicant("fullName", value);
+        },
+        updateAddress: (value) => {
+          updateApplicant("address", value);
+        },
+        updateContact: (value) => {
+          updateApplicant("contact", value);
         },
       }}
     >

@@ -6,7 +6,7 @@ import FormTextInput from "../Inputs/FormTextInput";
 
 const FullName = (props) => {
   const legend = props.legend || "Full Name:";
-  const [nameData, setNameData] = useState({});
+  const [nameData, setNameData] = useState(props.fullName);
 
   const first = props.abr ? props.abr + "_first_name" : "first_name";
   const middle = props.abr ? props.abr + "_middle_name" : "middle_name";
@@ -16,28 +16,31 @@ const FullName = (props) => {
     updateInput(name, value, setNameData);
   };
 
-  useEffect(() => props.update("fullName", nameData), [nameData]);
+  useEffect(() => props.updateFullName(nameData), [nameData]);
 
   return (
     <Box component="fieldset" id={props.id} sx={props.sx}>
       <legend>{legend}</legend>
       <FormTextInput
         id={first}
+        name="first_name"
         label="First:"
         onChange={handleChange}
-        value={props.fullName.first}
+        value={nameData.first_name}
       />
       <FormTextInput
         id={middle}
+        name="middle_name"
         label="M.I."
         onChange={handleChange}
-        value={props.fullName.middle}
+        value={nameData.middle_name}
       />
       <FormTextInput
         id={last}
+        name="last_name"
         label="Last:"
         onChange={handleChange}
-        value={props.fullName.last}
+        value={nameData.last_name}
       />
     </Box>
   );

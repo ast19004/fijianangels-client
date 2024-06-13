@@ -15,7 +15,7 @@ const EducationGroup = (props) => {
     <Box component="fieldset">
       <legend>{props.type.label}</legend>
       <FormTextInput id={props.type.abr} label={props.type.label} />
-      <Address id={`${props.type.abr}_address`} />
+      {/* TODO Uncomment this once Address component fixed<Address id={`${props.type.abr}_address`} />  */}
       <FormControl>
         <FormLabel htmlFor={`${props.type.abr}_attendance`}>Dates:</FormLabel>
         <TextField id={`${props.type.abr}_start_date`} type="date" /> to

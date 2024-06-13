@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Box } from "@mui/material";
 
 import FormTextInput from "../Inputs/FormTextInput";
@@ -6,12 +6,12 @@ import FormNumInput from "../Inputs/FormNumInput";
 import { updateInput } from "../../../util/formdata";
 
 const Address = (props) => {
-  const [address, setAddress] = useState({});
+  const [address, setAddress] = useState(props.address);
 
   const handleInputChange = (name, value) => {
     updateInput(name, value, setAddress);
   };
-  // useUpdatedFormData("address", address, props.onChange);
+  useEffect(() => props.updateAddress(address), [address]);
 
   return (
     <Box component="fieldset" id={props.id} sx={props.sx}>
@@ -19,25 +19,33 @@ const Address = (props) => {
       <FormTextInput
         id="street"
         label="Street Address"
-        // value={address.street}
+        value={address.street}
         onChange={handleInputChange}
       />
       <FormTextInput
         id="unit_apt"
         label="Apartment/Unit #"
-        // value={address["unit/apt-number"]}
+        value={address["unit_apt"]}
         onChange={handleInputChange}
       />
-      <FormTextInput id="city" label="City" onChange={handleInputChange} />
-      {/* value={address.city} */}
-      <FormTextInput id="state" label="State" onChange={handleInputChange} />
-      {/* value={address.state} */}
+      <FormTextInput
+        id="city"
+        label="City"
+        onChange={handleInputChange}
+        value={address.city}
+      />
+      <FormTextInput
+        id="state"
+        label="State"
+        onChange={handleInputChange}
+        value={address.state}
+      />
       <FormNumInput
         id="zipcode"
         label="ZIP Code"
         onChange={handleInputChange}
+        value={address.zipcode}
       />
-      {/* value={address.zipcode} */}
     </Box>
   );
 };

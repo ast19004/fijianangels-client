@@ -1,5 +1,3 @@
-import { useState } from "react";
-
 import { convertFormToPDF } from "../../../util/formdata";
 
 import { ApplicantContextProvider } from "../../../store/EmploymentForm/applicant-context";
@@ -27,7 +25,6 @@ const EmploymentForm = (props) => {
   };
 
   return (
-    // <EmploymentFormContextProvider>
     <Form title="Employment Application" id={formId} submit progressButtons>
       <ProgressBar value={0.5} />
       <ApplicantContextProvider>
@@ -40,7 +37,6 @@ const EmploymentForm = (props) => {
       <MilitaryServiceInfo />
       <SigningInfo />
     </Form>
-    // </EmploymentFormContextProvider>
   );
 };
 

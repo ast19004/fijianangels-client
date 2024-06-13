@@ -1,4 +1,3 @@
-// import { useUpdatedFormData, updateInput } from "../../../util/formdata";
 import { ApplicantContext } from "../../../store/EmploymentForm/applicant-context";
 import Address from "../InputGroups/Address";
 import FullName from "../InputGroups/FullName";
@@ -20,16 +19,16 @@ const ApplicantInfo = (props) => {
   // useUpdatedFormData("applicantData", applicantInfo, props.onChange);
   // useEffect(() => console.log(props.data), [props.data]);
   const applicantCtx = useContext(ApplicantContext);
+  const { updateFullName, updateAddress, updateContact } = applicantCtx;
+  const applicant = applicantCtx.applicantInput;
 
+  //TODO: form input should be sent to context when next button is pressed and not before?
   return (
     <fieldset>
       <legend>Applicant Information</legend>
-      <FullName
-        update={applicantCtx.updateApplicant}
-        fullName={applicantCtx.applicantInput.fullName}
-      />
-      <Address />
-      <Contact />
+      <FullName updateFullName={updateFullName} fullName={applicant.fullName} />
+      <Address updateAddress={updateAddress} address={applicant.address} />
+      <Contact updateContact={updateContact} contact={applicant.contact} />
       <EmploymentEligibility />
     </fieldset>
   );
