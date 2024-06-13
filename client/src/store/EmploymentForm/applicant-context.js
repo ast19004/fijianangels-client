@@ -15,7 +15,7 @@ export const ApplicantContext = React.createContext({
       state: "",
       zipcode: "",
     },
-    contact: {},
+    contact: { contact_phone: "", contact_email: "" },
   },
   updateApplicant: (name, value) => {},
   updateFullName: (value) => {},
@@ -41,7 +41,10 @@ export const ApplicantContextProvider = (props) => {
       state: "",
       zipcode: "",
     },
-    contact: {},
+    contact: {
+      contact_phone: "",
+      contact_email: "",
+    },
   });
   return (
     <ApplicantContext.Provider
