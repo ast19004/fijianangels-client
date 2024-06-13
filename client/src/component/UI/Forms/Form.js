@@ -1,4 +1,4 @@
-import { Box, Typography, Button } from "@mui/material";
+import { Box, Typography, Button, ButtonGroup } from "@mui/material";
 import { useEffect, useState } from "react";
 
 const Form = (props) => {
@@ -28,17 +28,48 @@ const Form = (props) => {
         {props.title.toUpperCase()}
       </Typography>
       {props.children}
-      {props.submit && (
-        <Button
-          disabled={props.submitDisabled}
-          type="submit"
-          variant="contained"
-          color="primary"
-          onClick={onSubmit}
-        >
-          Submit
-        </Button>
-      )}
+      <ButtonGroup
+        sx={{ display: "flex", justifyContent: "center", marginTop: "16px" }}
+      >
+        {props.multiStep && (
+          <>
+            {props.hasPrevStep && (
+              <Button
+                type="button"
+                variant="contained"
+                color="primary"
+                onClick={props.onPrev}
+                sx={{ marginRight: "32px" }}
+              >
+                Back
+              </Button>
+            )}
+            {props.hasNextStep && (
+              <Button
+                type="button"
+                variant="contained"
+                color="primary"
+                onClick={props.onNext}
+                sx={{ marginRight: "32px" }}
+              >
+                Next
+              </Button>
+            )}
+          </>
+        )}
+        {!props.multiStep ||
+          (!props.hasNextStep && (
+            <Button
+              disabled={props.submitDisabled}
+              type="submit"
+              variant="contained"
+              color="primary"
+              onClick={props.onSubmit || onSubmit}
+            >
+              Submit
+            </Button>
+          ))}
+      </ButtonGroup>
     </Box>
   );
 };

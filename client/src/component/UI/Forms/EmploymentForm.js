@@ -1,14 +1,13 @@
 import { convertFormToPDF } from "../../../util/formdata";
 
 import { ApplicantContextProvider } from "../../../store/EmploymentForm/applicant-context";
-import Form from "../Forms/Form";
 import ApplicantInfo from "../Fieldsets/ApplicantInfo";
 import EducationInfo from "../Fieldsets/Education";
 import ReferencesInfo from "../Fieldsets/ReferencesInfo";
 import PreviousEmploymentInfo from "../Fieldsets/PreviousEmploymentInfo";
 import MilitaryServiceInfo from "../Fieldsets/MilitaryServiceInfo";
 import SigningInfo from "../Fieldsets/SigningInfo";
-import ProgressBar from "../ProgressBar";
+import MultiStepForm from "./MultiStepForm";
 
 const EmploymentForm = (props) => {
   const formId = "employmentForm";
@@ -25,18 +24,16 @@ const EmploymentForm = (props) => {
   };
 
   return (
-    <Form title="Employment Application" id={formId} submit progressButtons>
-      <ProgressBar value={0.5} />
+    <MultiStepForm title="Employment Application" id={formId}>
       <ApplicantContextProvider>
         <ApplicantInfo />
       </ApplicantContextProvider>
-      {/* data={formData} */}
       <EducationInfo />
       <ReferencesInfo />
       <PreviousEmploymentInfo />
       <MilitaryServiceInfo />
       <SigningInfo />
-    </Form>
+    </MultiStepForm>
   );
 };
 
