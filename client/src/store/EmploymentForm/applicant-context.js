@@ -16,11 +16,24 @@ export const ApplicantContext = React.createContext({
       zipcode: "",
     },
     contact: { contact_phone: "", contact_email: "" },
+    eligibility: {
+      ssn: "",
+      position: "",
+      availability: "",
+      salary: "",
+      is_us_citizen: "",
+      is_authorized: "",
+      is_previous_employee: "",
+      prev_employment_date: "",
+      is_convicted_felon: "",
+      felony_explanation: "",
+    },
   },
   updateApplicant: (name, value) => {},
   updateFullName: (value) => {},
   updateAddress: (value) => {},
   updateContact: (value) => {},
+  updateEligibility: (value) => {},
 });
 
 export const ApplicantContextProvider = (props) => {
@@ -45,6 +58,18 @@ export const ApplicantContextProvider = (props) => {
       contact_phone: "",
       contact_email: "",
     },
+    eligibility: {
+      ssn: "",
+      position: "",
+      availability: "",
+      salary: "",
+      is_us_citizen: "",
+      is_authorized: "",
+      is_previous_employee: "",
+      prev_employment_date: "",
+      is_convicted_felon: "",
+      felony_explanation: "",
+    },
   });
   return (
     <ApplicantContext.Provider
@@ -58,6 +83,9 @@ export const ApplicantContextProvider = (props) => {
         },
         updateContact: (value) => {
           updateApplicant("contact", value);
+        },
+        updateEligibility: (value) => {
+          updateApplicant("eligibility", value);
         },
       }}
     >

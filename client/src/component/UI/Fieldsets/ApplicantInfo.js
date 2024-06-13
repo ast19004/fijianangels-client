@@ -19,7 +19,8 @@ const ApplicantInfo = (props) => {
   // useUpdatedFormData("applicantData", applicantInfo, props.onChange);
   // useEffect(() => console.log(props.data), [props.data]);
   const applicantCtx = useContext(ApplicantContext);
-  const { updateFullName, updateAddress, updateContact } = applicantCtx;
+  const { updateFullName, updateAddress, updateContact, updateEligibility } =
+    applicantCtx;
   const applicant = applicantCtx.applicantInput;
 
   //TODO: form input should be sent to context when next button is pressed and not before?
@@ -29,7 +30,10 @@ const ApplicantInfo = (props) => {
       <FullName updateFullName={updateFullName} fullName={applicant.fullName} />
       <Address updateAddress={updateAddress} address={applicant.address} />
       <Contact updateContact={updateContact} contact={applicant.contact} />
-      <EmploymentEligibility />
+      <EmploymentEligibility
+        updateEligibility={updateEligibility}
+        eligibility={applicant.eligibility}
+      />
     </fieldset>
   );
 };

@@ -14,7 +14,6 @@ const Contact = (props) => {
   useEffect(() => {
     props.updateContact(contactData);
   }, [contactData]);
-  // useUpdatedFormData("contact", contactData, props.onChange);
 
   return (
     <Box component="fieldset" id={props.id} sx={props.sx}>

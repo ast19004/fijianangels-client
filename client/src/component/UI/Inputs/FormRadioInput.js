@@ -13,14 +13,11 @@ const FormRadioInput = (props) => {
     { value: "yes", label: "Yes" },
     { value: "no", label: "No" },
   ];
-  const [radioValue, setRadioValue] = useState();
+  const [radioValue, setRadioValue] = useState(props.value || "");
   const handleInputChange = (event) => {
     setRadioValue(event.target.value);
   };
 
-  // useEffect(() => {
-  //   props.onChange(props.id, radioValue);
-  // }, [radioValue]);
   return (
     <FormControl>
       <FormLabel htmlFor={props.id}>{props.label}</FormLabel>
@@ -28,6 +25,7 @@ const FormRadioInput = (props) => {
         id={props.id}
         name={props.name || props.id}
         onChange={handleInputChange}
+        value={radioValue}
       >
         {controls.map((control) => (
           <FormControlLabel
