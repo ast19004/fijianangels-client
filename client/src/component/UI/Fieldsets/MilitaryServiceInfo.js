@@ -1,6 +1,7 @@
 import { TextField, FormLabel, FormControl, Box } from "@mui/material";
 import FormTextInput from "../Inputs/FormTextInput";
 import { useState } from "react";
+import CustomFieldset from "./styles/CustomFieldset";
 // import { useUpdatedFormData, updateInput } from "../../../util/formdata";
 
 const MilitaryServiceInfo = (props) => {
@@ -12,7 +13,7 @@ const MilitaryServiceInfo = (props) => {
   // useUpdatedFormData("military", service, props.onChange);
 
   return (
-    <Box component="fieldset">
+    <CustomFieldset>
       <legend>Military Service</legend>
       <FormTextInput id="branch" label="Branch" />
 
@@ -27,7 +28,7 @@ const MilitaryServiceInfo = (props) => {
         id="discharge-explanation"
         label="If other than honorable, explain:"
       />
-    </Box>
+    </CustomFieldset>
   );
 };
 

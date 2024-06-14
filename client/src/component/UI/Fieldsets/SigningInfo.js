@@ -1,6 +1,7 @@
 import { Box } from "@mui/material";
 import FormTextInput from "../Inputs/FormTextInput";
 import { useState } from "react";
+import CustomFieldset from "./styles/CustomFieldset";
 // import { useUpdatedFormData, updateInput } from "../../../util/formdata";
 
 const SigningInfo = (props) => {
@@ -12,7 +13,7 @@ const SigningInfo = (props) => {
   // useUpdatedFormData("signed", signature, props.onChange);
 
   return (
-    <Box component="fieldset">
+    <CustomFieldset>
       <legend>Disclaimer and Signature</legend>
       <p>
         I certify that my answers are true and complete to the best of my
@@ -25,7 +26,7 @@ const SigningInfo = (props) => {
       </p>
       <FormTextInput id="signature" label="Signature" />
       <FormTextInput id="signature-date" label="Date" />
-    </Box>
+    </CustomFieldset>
   );
 };
 

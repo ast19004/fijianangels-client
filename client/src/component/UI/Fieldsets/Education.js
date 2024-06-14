@@ -1,6 +1,7 @@
 import { useState } from "react";
 import EducationGroup from "../InputGroups/EducationGroup";
 import { useUpdatedFormData, updateInput } from "../../../util/formdata";
+import CustomFieldset from "./styles/CustomFieldset";
 
 const EducationInfo = (props) => {
   const educationTypes = [
@@ -15,12 +16,12 @@ const EducationInfo = (props) => {
   // };
   // useUpdatedFormData("education", educationInfo, props.onChange);
   return (
-    <fieldset>
+    <CustomFieldset>
       <legend>Education</legend>
       {educationTypes.map((type) => (
         <EducationGroup type={type} key={type.abr} />
       ))}
-    </fieldset>
+    </CustomFieldset>
   );
 };
 

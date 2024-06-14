@@ -4,6 +4,7 @@ import FullName from "../InputGroups/FullName";
 import Contact from "../InputGroups/Contact";
 import EmploymentEligibility from "../Fieldsets/EmploymentEligibilty";
 import { useContext } from "react";
+import CustomFieldset from "./styles/CustomFieldset";
 
 const ApplicantInfo = (props) => {
   // const [applicantInfo, setApplicantInfo] = useState();
@@ -25,7 +26,7 @@ const ApplicantInfo = (props) => {
 
   //TODO: form input should be sent to context when next button is pressed and not before?
   return (
-    <fieldset>
+    <CustomFieldset>
       <legend>Applicant Information</legend>
       <FullName updateFullName={updateFullName} fullName={applicant.fullName} />
       <Address updateAddress={updateAddress} address={applicant.address} />
@@ -34,7 +35,7 @@ const ApplicantInfo = (props) => {
         updateEligibility={updateEligibility}
         eligibility={applicant.eligibility}
       />
-    </fieldset>
+    </CustomFieldset>
   );
 };
 

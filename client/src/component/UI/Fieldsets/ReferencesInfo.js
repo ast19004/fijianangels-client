@@ -1,6 +1,7 @@
 import { Box } from "@mui/material";
 import { useState } from "react";
 import ReferenceGroup from "../InputGroups/ReferenceGroup";
+import CustomFieldset from "./styles/CustomFieldset";
 // import { useUpdatedFormData, updateInput } from "../../../util/formdata";
 
 const ReferencesInfo = (props) => {
@@ -12,13 +13,13 @@ const ReferencesInfo = (props) => {
   // useUpdatedFormData("references", references, props.onChange);
 
   return (
-    <Box component="fieldset">
+    <CustomFieldset>
       <legend>References:</legend>
       <p>Please list three professional references.</p>
       {["1", "2", "3"].map((num) => (
         <ReferenceGroup num={num} key={num} />
       ))}
-    </Box>
+    </CustomFieldset>
   );
 };
 
