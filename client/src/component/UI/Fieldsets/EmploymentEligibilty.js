@@ -4,7 +4,6 @@ import FormTextInput from "../Inputs/FormTextInput";
 import FormRadioInput from "../Inputs/FormRadioInput";
 import { useEffect, useState } from "react";
 import { updateInput } from "../../../util/formdata";
-import CustomFieldset from "./styles/CustomFieldset";
 
 const EmploymentEligibility = (props) => {
   const [eligibilityData, setEligibilityData] = useState(props.eligibility);
@@ -18,7 +17,7 @@ const EmploymentEligibility = (props) => {
   }, [eligibilityData]);
 
   return (
-    <CustomFieldset>
+    <fieldset>
       <legend>Employment Details:</legend>
       <FormNumInput
         id="ssn"
@@ -79,7 +78,7 @@ const EmploymentEligibility = (props) => {
         onChange={handleChange}
         value={eligibilityData.felony_explanation}
       />
-    </CustomFieldset>
+    </fieldset>
   );
 };
 
