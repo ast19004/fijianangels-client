@@ -6,7 +6,7 @@ import FormPhoneInput from "../Inputs/FormPhoneInput";
 import FormRadioInput from "../Inputs/FormRadioInput";
 
 import Address from "../InputGroups/Address";
-// import { useUpdatedFormData, updateInput } from "../../../util/formdata";
+// import { useUpdateFormData, updateInput } from "../../../util/formdata";
 
 const EmploymentGroup = (props) => {
   const [employment, setEmployment] = useState({});

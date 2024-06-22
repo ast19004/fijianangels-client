@@ -2,7 +2,7 @@ import { Box } from "@mui/material";
 import { useState } from "react";
 import ReferenceGroup from "../InputGroups/ReferenceGroup";
 import CustomFieldset from "./styles/CustomFieldset";
-// import { useUpdatedFormData, updateInput } from "../../../util/formdata";
+// import { useUpdateFormData, updateInput } from "../../../util/formdata";
 
 const ReferencesInfo = (props) => {
   const [references, setReferences] = useState({});

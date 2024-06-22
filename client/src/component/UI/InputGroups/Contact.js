@@ -1,9 +1,9 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Box } from "@mui/material";
 
 import FormPhoneInput from "../Inputs/FormNumInput";
 import FormEmailInput from "../Inputs/FormEmailInput";
-import { updateInput } from "../../../util/formdata";
+import { updateInput, useUpdateFormData } from "../../../util/formdata";
 
 const Contact = (props) => {
   const [contactData, setContactData] = useState(props.contact);
@@ -11,15 +11,14 @@ const Contact = (props) => {
   const handleChange = (name, value) => {
     updateInput(name, value, setContactData);
   };
-  useEffect(() => {
-    props.updateContact(contactData);
-  }, [contactData]);
+  //Send data up to parent component
+  useUpdateFormData("contact", contactData, props.onChange);
 
   return (
     <Box component="fieldset" id={props.id} sx={props.sx}>
       <legend>Contact</legend>
       <FormPhoneInput
-        id="contact_phone"
+        id="{contact_phone}"
         label="Phone"
         value={contactData.contact_phone}
         onChange={handleChange}

@@ -3,37 +3,37 @@ import Address from "../InputGroups/Address";
 import FullName from "../InputGroups/FullName";
 import Contact from "../InputGroups/Contact";
 import EmploymentEligibility from "../Fieldsets/EmploymentEligibilty";
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
+import { updateInput } from "../../../util/formdata";
 import CustomFieldset from "./styles/CustomFieldset";
 
 const ApplicantInfo = (props) => {
-  // const [applicantInfo, setApplicantInfo] = useState();
-  // const handleChange = (name, value) => {
-  //   setApplicantInfo((prevApplicantData) => ({
-  //     ...prevApplicantData,
-  //     [name]: value,
-  //   }));
-  // };
-  // const handleChange = (name, value) => {
-  //   updateInput(name, value, setApplicantInfo);
-  // };
-  // useUpdatedFormData("applicantData", applicantInfo, props.onChange);
-  // useEffect(() => console.log(props.data), [props.data]);
   const applicantCtx = useContext(ApplicantContext);
-  const { updateFullName, updateAddress, updateContact, updateEligibility } =
-    applicantCtx;
-  const applicant = applicantCtx.applicantInput;
+  const [applicant, setApplicant] = useState(applicantCtx.applicant);
 
-  //TODO: form input should be sent to context when next button is pressed and not before?
+  const handleInputChange = (dataName, data) => {
+    updateInput(dataName, data, setApplicant);
+  };
+
+  useEffect(() => {
+    console.log(applicant);
+  }, [applicant]);
+
+  // If used in a MultiStepForm this component will be
+  // wrapped in a FormStep that takes a context and this component.
+  // The FormStep component provides the useSaveStep to save the current step's state before moving onto the next formStep
+  props.useSaveState &&
+    props.useSaveState(applicant, applicantCtx.updateApplicant);
+
   return (
     <CustomFieldset>
       <legend>Applicant Information</legend>
-      <FullName updateFullName={updateFullName} fullName={applicant.fullName} />
-      <Address updateAddress={updateAddress} address={applicant.address} />
-      <Contact updateContact={updateContact} contact={applicant.contact} />
+      <FullName fullName={applicant.fullName} onChange={handleInputChange} />
+      <Address address={applicant.address} onChange={handleInputChange} />
+      <Contact contact={applicant.contact} onChange={handleInputChange} />
       <EmploymentEligibility
-        updateEligibility={updateEligibility}
         eligibility={applicant.eligibility}
+        onChange={handleInputChange}
       />
     </CustomFieldset>
   );

@@ -1,46 +1,44 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import ProgressBar from "../ProgressBar";
 import Form from "./Form";
 
-import { smoothScrollToTop } from "../../../util/scroll";
+import EnhanceChildren from "../../../util/EnhanceChildren";
 
 const MultiStepForm = (props) => {
   //This component wraps a form component to provide it with the ability to be broken up into steps
-  const steps = props.children.length;
+  const [currentStep, setCurrentStep] = useState();
 
-  const [progress, setProgress] = useState(1);
-  const hasPrevStep = progress !== 1;
-  const hasNextStep = progress !== steps;
+  const [stepState, setStepState] = useState();
 
-  const next = () => {
-    if (progress !== steps) {
-      setProgress((prev) => prev + 1);
-    }
-    smoothScrollToTop();
+  //Set the state of the current form step
+  const handleStepState = (value) => {
+    setStepState(value);
   };
-  const back = () => {
-    if (progress !== 1) {
-      setProgress((prev) => prev - 1);
-    }
-    smoothScrollToTop();
-  };
+
+  //Only display the current step of the form
+  useEffect(() => {
+    const child = props.children.filter(
+      //   since progress begins with one step,
+      //   filter index, which starts @ 0 must add 1 to compare the two
+      (formStep, index) => props.progress === index + 1
+    );
+    setCurrentStep(child);
+  }, [props.children, props.progress]);
 
   return (
     <Form
       title={props.title}
       id={props.id}
       multiStep={true}
-      hasNextStep={hasNextStep}
-      hasPrevStep={hasPrevStep}
-      onNext={next}
-      onPrev={back}
+      hasPrevStep={props.hasPrevStep}
+      hasNextStep={props.hasNextStep}
+      onNext={props.onNext}
+      onPrev={props.onBack}
     >
-      <ProgressBar steps={steps} currentStep={progress} />
-      {props.children.filter(
-        //   since progress begins with one step,
-        //   filter index, which starts @ 0 must add 1 to compare the two
-        (formStep, index) => progress === index + 1
-      )}
+      <ProgressBar steps={props.steps} currentStep={props.progress} />
+      <EnhanceChildren progress={props.progress} saveState={handleStepState}>
+        {currentStep}
+      </EnhanceChildren>
     </Form>
   );
 };

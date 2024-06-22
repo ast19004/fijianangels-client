@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { updateInput } from "../../util/formdata";
 
 const EmploymentFormContext = React.createContext({
-  // applicantInput: {
+  // applicant: {
   //   fullName: {
   //     first: "",
   //     middle: "",
@@ -44,7 +44,7 @@ export const EmploymentFormContextProvider = (props) => {
   return (
     <EmploymentFormContext.Provider
       value={{
-        // applicantInput: applicant,
+        // applicant: applicant,
         // educationInput: education,
         referencesInput: references,
         previousEmploymentInput: previousEmployment,

@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 
-export const useUpdatedFormData = (dataName, data, updateFunc) => {
+export const useUpdateFormData = (dataName, data, updateFunc) => {
   return useEffect(() => {
     if (!updateFunc) {
       return;
@@ -14,6 +14,10 @@ export const updateInput = (name, value, setState) => {
     ...prevData,
     [name]: value,
   }));
+};
+
+export const saveState = (dataValue, saveFunc) => {
+  saveFunc(dataValue);
 };
 
 export const convertFromToPDF = (formData) => {};

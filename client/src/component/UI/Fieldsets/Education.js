@@ -1,6 +1,6 @@
 import { useState } from "react";
 import EducationGroup from "../InputGroups/EducationGroup";
-import { useUpdatedFormData, updateInput } from "../../../util/formdata";
+import { useUpdateFormData, updateInput } from "../../../util/formdata";
 import CustomFieldset from "./styles/CustomFieldset";
 
 const EducationInfo = (props) => {
@@ -14,7 +14,7 @@ const EducationInfo = (props) => {
   // const handleChange = (name, value) => {
   //   updateInput(name, value, setEducationInfo);
   // };
-  // useUpdatedFormData("education", educationInfo, props.onChange);
+  // useUpdateFormData("education", educationInfo, props.onChange);
   return (
     <CustomFieldset>
       <legend>Education</legend>

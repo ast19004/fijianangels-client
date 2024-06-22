@@ -2,8 +2,8 @@ import { FormControl, FormLabel, TextField } from "@mui/material";
 import FormNumInput from "../Inputs/FormNumInput";
 import FormTextInput from "../Inputs/FormTextInput";
 import FormRadioInput from "../Inputs/FormRadioInput";
-import { useEffect, useState } from "react";
-import { updateInput } from "../../../util/formdata";
+import { useState } from "react";
+import { updateInput, useUpdateFormData } from "../../../util/formdata";
 
 const EmploymentEligibility = (props) => {
   const [eligibilityData, setEligibilityData] = useState(props.eligibility);
@@ -12,10 +12,10 @@ const EmploymentEligibility = (props) => {
     updateInput(name, value, setEligibilityData);
   };
 
-  useEffect(() => {
-    props.updateEligibility(eligibilityData);
-  }, [eligibilityData]);
-
+  // useEffect(() => {
+  // props.updateEligibility(eligibilityData);
+  // }, [eligibilityData]);
+  useUpdateFormData("eligibility", eligibilityData, props.onChange);
   return (
     <fieldset>
       <legend>Employment Details:</legend>

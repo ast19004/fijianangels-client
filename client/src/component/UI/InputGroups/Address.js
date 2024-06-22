@@ -1,9 +1,9 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Box } from "@mui/material";
 
 import FormTextInput from "../Inputs/FormTextInput";
 import FormNumInput from "../Inputs/FormNumInput";
-import { updateInput } from "../../../util/formdata";
+import { updateInput, useUpdateFormData } from "../../../util/formdata";
 
 const Address = (props) => {
   const [address, setAddress] = useState(props.address);
@@ -11,8 +11,9 @@ const Address = (props) => {
   const handleInputChange = (name, value) => {
     updateInput(name, value, setAddress);
   };
-  useEffect(() => props.updateAddress(address), [address]);
 
+  //Send data up to parent component
+  useUpdateFormData("address", address, props.onChange);
   return (
     <Box component="fieldset" id={props.id} sx={props.sx}>
       <legend>Address:</legend>

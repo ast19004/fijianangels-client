@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Box } from "@mui/material";
 import FormTextInput from "../Inputs/FormTextInput";
-import { useUpdatedFormData, updateInput } from "../../../util/formdata";
+import { useUpdateFormData, updateInput } from "../../../util/formdata";
 
 const ReferenceGroup = (props) => {
   const [reference, setReference] = useState({});
@@ -9,7 +9,7 @@ const ReferenceGroup = (props) => {
   const handleInputChange = (name, value) => {
     updateInput(name, value, setReference);
   };
-  useUpdatedFormData(`ref#${props.num}`, reference, props.onChange);
+  useUpdateFormData(`ref#${props.num}`, reference, props.onChange);
 
   return (
     <Box component="fieldset">

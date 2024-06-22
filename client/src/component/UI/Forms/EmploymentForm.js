@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 import { convertFormToPDF } from "../../../util/formdata";
 
 import { ApplicantContextProvider } from "../../../store/EmploymentForm/applicant-context";
@@ -9,12 +11,36 @@ import MilitaryServiceInfo from "../Fieldsets/MilitaryServiceInfo";
 import SigningInfo from "../Fieldsets/SigningInfo";
 import MultiStepForm from "./MultiStepForm";
 
+import { smoothScrollToTop } from "../../../util/scroll";
+
+import FormStep from "./FormStep.js";
+
 const EmploymentForm = (props) => {
   const formId = "employmentForm";
-  // const [formData, setFormData] = useState({});
+  //Get steps by calling this function in multiform child component
+  const steps = 6;
+  const [progress, setProgress] = useState(1);
+  const hasPrevStep = progress !== 1;
+  const hasNextStep = progress !== steps;
 
-  // const handleChange = (name, value) => {
-  //   setFormData((prevFormData) => ({ ...prevFormData, [name]: value }));
+  const handleNext = () => {
+    //If not last step set progress to next step
+    if (progress !== steps) {
+      //Set progress to next formStep
+      setProgress((prev) => prev + 1);
+    }
+    smoothScrollToTop();
+  };
+  const handleBack = () => {
+    if (progress !== 1) {
+      // Save the state of the current step
+      setProgress((prev) => prev - 1);
+    }
+    smoothScrollToTop();
+  };
+
+  // const isStateSaved = (bool) => {
+  //   bool === true && setSaveState(false);
   // };
 
   const onSubmit = (event) => {
@@ -24,15 +50,40 @@ const EmploymentForm = (props) => {
   };
 
   return (
-    <MultiStepForm title="Employment Application" id={formId}>
-      <ApplicantContextProvider>
-        <ApplicantInfo />
-      </ApplicantContextProvider>
-      <EducationInfo />
-      <ReferencesInfo />
-      <PreviousEmploymentInfo />
-      <MilitaryServiceInfo />
-      <SigningInfo />
+    <MultiStepForm
+      title="Employment Application"
+      id={formId}
+      steps={steps}
+      progress={progress}
+      hasPrevStep={hasPrevStep}
+      hasNextStep={hasNextStep}
+      onNext={handleNext}
+      onBack={handleBack}
+    >
+      <FormStep
+        parentComponent={ApplicantContextProvider}
+        childComponent={ApplicantInfo}
+      />
+      <FormStep
+        parentComponent={ApplicantContextProvider}
+        childComponent={EducationInfo}
+      />
+      <FormStep
+        parentComponent={ApplicantContextProvider}
+        childComponent={ReferencesInfo}
+      />
+      <FormStep
+        parentComponent={ApplicantContextProvider}
+        childComponent={PreviousEmploymentInfo}
+      />
+      <FormStep
+        parentComponent={ApplicantContextProvider}
+        childComponent={MilitaryServiceInfo}
+      />
+      <FormStep
+        parentComponent={ApplicantContextProvider}
+        childComponent={SigningInfo}
+      />
     </MultiStepForm>
   );
 };

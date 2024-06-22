@@ -1,8 +1,7 @@
 import React, { useState } from "react";
-import { updateInput } from "../../util/formdata";
 
 export const ApplicantContext = React.createContext({
-  applicantInput: {
+  applicant: {
     fullName: {
       first_name: "",
       middle_name: "",
@@ -29,17 +28,17 @@ export const ApplicantContext = React.createContext({
       felony_explanation: "",
     },
   },
-  updateApplicant: (name, value) => {},
-  updateFullName: (value) => {},
-  updateAddress: (value) => {},
-  updateContact: (value) => {},
-  updateEligibility: (value) => {},
+  updateApplicant: (value) => {},
 });
 
 export const ApplicantContextProvider = (props) => {
-  const updateApplicant = (name, value) => {
-    updateInput(name, value, setApplicant);
-    console.log(applicant);
+  const updateApplicant = (value) => {
+    console.log("applicant: ", applicant);
+    console.log("value: ", value);
+    const updateApplicant = { ...applicant, ...value };
+    console.log("updated applicant: ", updateApplicant);
+    setApplicant(updateApplicant);
+    console.log("newApplicant", applicant);
   };
   const [applicant, setApplicant] = useState({
     fullName: {
@@ -74,19 +73,8 @@ export const ApplicantContextProvider = (props) => {
   return (
     <ApplicantContext.Provider
       value={{
-        applicantInput: applicant,
-        updateFullName: (value) => {
-          updateApplicant("fullName", value);
-        },
-        updateAddress: (value) => {
-          updateApplicant("address", value);
-        },
-        updateContact: (value) => {
-          updateApplicant("contact", value);
-        },
-        updateEligibility: (value) => {
-          updateApplicant("eligibility", value);
-        },
+        applicant: applicant,
+        updateApplicant: updateApplicant,
       }}
     >
       {props.children}
