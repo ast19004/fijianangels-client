@@ -8,6 +8,7 @@ const FormEmailInput = (props) => {
       htmlFor={props.id}
       label={props.label}
       type="email"
+      value={props.value}
       onChange={props.onChange || (() => {})}
       required={true}
     />

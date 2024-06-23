@@ -2,19 +2,26 @@ import { FormControl, FormLabel, TextField } from "@mui/material";
 import FormNumInput from "../Inputs/FormNumInput";
 import FormTextInput from "../Inputs/FormTextInput";
 import FormRadioInput from "../Inputs/FormRadioInput";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { updateInput, useUpdateFormData } from "../../../util/formdata";
 
 const EmploymentEligibility = (props) => {
   const [eligibilityData, setEligibilityData] = useState(props.eligibility);
 
+  //Any eligibility data passed over from parent component
+  //is used to set values initially for eligibility inputs
+  //and as the parent changes
+  useEffect(() => {
+    setEligibilityData(props.eligibility);
+  }, [props.eligibility]);
+
+  //As input values change save them in address state
   const handleChange = (name, value) => {
     updateInput(name, value, setEligibilityData);
   };
 
-  // useEffect(() => {
-  // props.updateEligibility(eligibilityData);
-  // }, [eligibilityData]);
+  //Send input value changes to parent component
+  // to be saved in a state for this input group
   useUpdateFormData("eligibility", eligibilityData, props.onChange);
   return (
     <fieldset>
@@ -25,7 +32,11 @@ const EmploymentEligibility = (props) => {
         onChange={handleChange}
         value={eligibilityData.ssn}
       />
-      <FormTextInput id="position" label="Position" />
+      <FormTextInput
+        id="position"
+        label="Position"
+        value={eligibilityData.position}
+      />
       <FormTextInput
         id="availability"
         label="Date Available:"

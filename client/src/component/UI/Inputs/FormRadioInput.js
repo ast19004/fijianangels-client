@@ -5,7 +5,7 @@ import {
   RadioGroup,
   Radio,
 } from "@mui/material";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const FormRadioInput = (props) => {
   //If no controls are provided a basic "Yes" or "No" radio selection is given
@@ -14,6 +14,14 @@ const FormRadioInput = (props) => {
     { value: "no", label: "No" },
   ];
   const [radioValue, setRadioValue] = useState(props.value || "");
+
+  //Any radio value passed over from parent component
+  //is used to set value initially for radio input
+  //and as the parent changes
+  useEffect(() => {
+    setRadioValue(props.value);
+  }, [props.value]);
+
   const handleInputChange = (event) => {
     setRadioValue(event.target.value);
   };

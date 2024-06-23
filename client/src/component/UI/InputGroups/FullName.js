@@ -8,6 +8,13 @@ const FullName = (props) => {
   const legend = props.legend || "Full Name:";
   const [nameData, setNameData] = useState(props.fullName);
 
+  //Any name data passed over from parent component
+  //is used to set values initially for fullName inputs
+  //and as the parent changes
+  useEffect(() => {
+    setNameData(props.fullName);
+  }, [props.fullName]);
+
   useEffect(() => {
     console.log("Full Name input: ", nameData);
   }, [nameData]);
@@ -16,10 +23,12 @@ const FullName = (props) => {
   const middle = props.abr ? props.abr + "_middle_name" : "middle_name";
   const last = props.abr ? props.abr + "_last_name" : "last_name";
 
+  //As input values change save them in nameData state
   const handleChange = (name, value) => {
     updateInput(name, value, setNameData);
   };
-  //Send data up to parent component
+  //Send input value changes to parent component
+  // to be saved in a state for this input group
   useUpdateFormData("fullName", nameData, props.onChange);
 
   return (

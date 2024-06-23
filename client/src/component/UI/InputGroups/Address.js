@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Box } from "@mui/material";
 
 import FormTextInput from "../Inputs/FormTextInput";
@@ -8,11 +8,20 @@ import { updateInput, useUpdateFormData } from "../../../util/formdata";
 const Address = (props) => {
   const [address, setAddress] = useState(props.address);
 
+  //Any address data passed over from parent component
+  //is used to set values initially for address inputs
+  //and as the parent changes
+  useEffect(() => {
+    setAddress(props.address);
+  }, [props.address]);
+
+  //As input values change save them in address state
   const handleInputChange = (name, value) => {
     updateInput(name, value, setAddress);
   };
 
-  //Send data up to parent component
+  //Send input value changes to parent component
+  // to be saved in a state for this input group
   useUpdateFormData("address", address, props.onChange);
   return (
     <Box component="fieldset" id={props.id} sx={props.sx}>
