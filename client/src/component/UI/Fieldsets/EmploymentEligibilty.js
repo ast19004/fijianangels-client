@@ -4,6 +4,7 @@ import FormTextInput from "../Inputs/FormTextInput";
 import FormRadioInput from "../Inputs/FormRadioInput";
 import { useEffect, useState } from "react";
 import { updateInput, useUpdateFormData } from "../../../util/formdata";
+import FormDateInput from "../Inputs/FormDateInput";
 
 const EmploymentEligibility = (props) => {
   const [eligibilityData, setEligibilityData] = useState(props.eligibility);
@@ -35,9 +36,10 @@ const EmploymentEligibility = (props) => {
       <FormTextInput
         id="position"
         label="Position"
+        onChange={handleChange}
         value={eligibilityData.position}
       />
-      <FormTextInput
+      <FormDateInput
         id="availability"
         label="Date Available:"
         onChange={handleChange}
@@ -67,16 +69,14 @@ const EmploymentEligibility = (props) => {
         onChange={handleChange}
         value={eligibilityData.is_previous_employee}
       />
-      <FormControl>
-        <FormLabel htmlFor="prev_employment_date">If yes, when?</FormLabel>
+      <FormDateInput
+        id="prev_employment_date"
+        htmlFor="prev_employment_date"
+        label="If yes, when?"
+        onChange={handleChange}
+        value={eligibilityData.prev_employment_date}
+      />
 
-        <TextField
-          id="prev_employment_date"
-          type="date"
-          onChange={handleChange}
-          value={eligibilityData.prev_employment_date}
-        />
-      </FormControl>
       <FormRadioInput
         id="is_convicted_felon"
         label="Have you ever been convicted of a felony?"
