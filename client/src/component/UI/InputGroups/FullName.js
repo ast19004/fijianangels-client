@@ -10,10 +10,9 @@ const FullName = (props) => {
 
   //Any name data passed over from parent component
   //is used to set values initially for fullName inputs
-  //and as the parent changes
   useEffect(() => {
     setNameData(props.fullName);
-  }, [props.fullName]);
+  }, []);
 
   useEffect(() => {
     console.log("Full Name input: ", nameData);

@@ -10,10 +10,9 @@ const Contact = (props) => {
 
   //Any address data passed over from parent component
   //is used to set values initially for address inputs
-  //and as the parent changes
   useEffect(() => {
     setContactData(props.contact);
-  }, [props.contact]);
+  }, []);
 
   //As input values change save them in contactData state
   const handleChange = (name, value) => {

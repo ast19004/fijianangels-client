@@ -7,9 +7,10 @@ const FormTextInput = (props) => {
       name={props.name || props.id}
       htmlFor={props.id}
       label={props.label}
-      onChange={props.onChange || (() => {})}
       type="text"
       value={props.value}
+      onChange={props.onChange || (() => {})}
+      required={true}
     />
   );
 };

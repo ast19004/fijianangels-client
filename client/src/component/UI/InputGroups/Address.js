@@ -10,10 +10,9 @@ const Address = (props) => {
 
   //Any address data passed over from parent component
   //is used to set values initially for address inputs
-  //and as the parent changes
   useEffect(() => {
     setAddress(props.address);
-  }, [props.address]);
+  }, []);
 
   //As input values change save them in address state
   const handleInputChange = (name, value) => {

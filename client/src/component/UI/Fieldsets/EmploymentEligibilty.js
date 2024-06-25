@@ -1,4 +1,3 @@
-import { FormControl, FormLabel, TextField } from "@mui/material";
 import FormNumInput from "../Inputs/FormNumInput";
 import FormTextInput from "../Inputs/FormTextInput";
 import FormRadioInput from "../Inputs/FormRadioInput";
@@ -14,7 +13,7 @@ const EmploymentEligibility = (props) => {
   //and as the parent changes
   useEffect(() => {
     setEligibilityData(props.eligibility);
-  }, [props.eligibility]);
+  }, []);
 
   //As input values change save them in address state
   const handleChange = (name, value) => {
@@ -41,6 +40,7 @@ const EmploymentEligibility = (props) => {
       />
       <FormDateInput
         id="availability"
+        htmlFor="availability"
         label="Date Available:"
         onChange={handleChange}
         value={eligibilityData.availability}
