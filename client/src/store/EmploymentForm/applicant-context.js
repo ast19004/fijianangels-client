@@ -40,6 +40,7 @@ export const ApplicantContextProvider = (props) => {
     console.log("updated applicant: ", updateApplicant);
   };
   const [applicant, setApplicant] = useState({
+    application_date: "",
     fullName: {
       first_name: "",
       middle_name: "",
