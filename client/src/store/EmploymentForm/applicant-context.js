@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { getTodaysDate } from "../../util/Date";
 
 export const ApplicantContext = React.createContext({
   applicant: {
@@ -40,7 +41,7 @@ export const ApplicantContextProvider = (props) => {
     console.log("updated applicant: ", updateApplicant);
   };
   const [applicant, setApplicant] = useState({
-    application_date: "",
+    application_date: getTodaysDate(),
     fullName: {
       first_name: "",
       middle_name: "",

@@ -1,8 +1,8 @@
 import { useEffect } from "react";
 
-export const useUpdateFormData = (dataName, data, updateFunc) => {
+export const useUpdateFormData = (dataName, data, updateFunc, errors) => {
   return useEffect(() => {
-    if (!updateFunc) {
+    if (!updateFunc || errors) {
       return;
     }
     updateFunc(dataName, data);

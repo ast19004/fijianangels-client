@@ -10,6 +10,7 @@ const FormPhoneInput = (props) => {
       onChange={props.onChange || (() => {})}
       type="num"
       value={props.value}
+      inputProps={props.inputProps}
     />
   );
 };

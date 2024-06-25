@@ -11,6 +11,7 @@ import FormDateInput from "../Inputs/FormDateInput";
 const ApplicantInfo = (props) => {
   const applicantCtx = useContext(ApplicantContext);
   const [applicant, setApplicant] = useState(applicantCtx.applicant);
+  const [errors, setErrors] = useState("");
 
   //Any eligibility data passed over from parent component
   //is used to set values initially for eligibility inputs
@@ -31,7 +32,7 @@ const ApplicantInfo = (props) => {
   // wrapped in a FormStep that takes a context and this component.
   // The FormStep component provides the useSaveStep to save the current step's state before moving onto the next formStep
   props.useSaveState &&
-    props.useSaveState(applicant, applicantCtx.updateApplicant);
+    props.useSaveState(applicant, applicantCtx.updateApplicant, errors);
 
   return (
     <CustomFieldset>
@@ -42,6 +43,7 @@ const ApplicantInfo = (props) => {
         label="Application Date:"
         onChange={handleInputChange}
         value={applicant.application_date}
+        inputProps={{ readOnly: true }}
       />
       <FullName fullName={applicant.fullName} onChange={handleInputChange} />
       <Address address={applicant.address} onChange={handleInputChange} />

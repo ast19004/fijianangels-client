@@ -10,7 +10,8 @@ const FormEmailInput = (props) => {
       type="email"
       value={props.value}
       onChange={props.onChange || (() => {})}
-      required={true}
+      required
+      inputProps={props.inputProps}
     />
   );
 };

@@ -11,6 +11,7 @@ const FormDateInput = (props) => {
       value={props.value}
       onChange={props.onChange || (() => {})}
       required={true}
+      inputProps={props.inputProps}
     />
   );
 };

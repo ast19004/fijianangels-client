@@ -16,7 +16,7 @@ const FormTextareaInput = (props) => {
   //   props.onChange(props.name, inputValue);
   // }, [inputValue, props.onChange]);
   return (
-    <FormInput id={props.id} label={props.label}>
+    <FormInput id={props.id} label={props.label} inputProps={props.inputProps}>
       <textarea
         id={props.id}
         name={props.name || props.id}

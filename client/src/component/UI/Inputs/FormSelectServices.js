@@ -37,7 +37,7 @@ const FormSelectServices = (props) => {
   }, [selectOptions]);
 
   return (
-    <FormInput id="select-services" label={label}>
+    <FormInput id="select-services" label={label} inputProps={props.inputProps}>
       <Select
         id="select-services"
         name="services"
