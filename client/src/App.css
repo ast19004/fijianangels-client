@@ -32,6 +32,10 @@
 .MuiFormControl-root {
   width: 96%;
 }
+.MuiFormHelperText-root {
+  color: red !important;
+  font-size: 1rem !important;
+}
 
 /* --- Html Elements--- */
 body {

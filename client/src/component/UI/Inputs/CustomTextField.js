@@ -12,6 +12,8 @@ const CustomTextField = (props) => {
       type={props.type}
       value={props.value}
       onChange={props.onChange}
+      onBlur={props.onBlur}
+      onFocus={props.onFocus}
       inputProps={props.inputProps}
     />
   );

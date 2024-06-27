@@ -24,7 +24,9 @@ const FullName = (props) => {
 
   //As input values change save them in nameData state
   const handleChange = (name, value) => {
-    updateInput(name, value, setNameData);
+    if (name) {
+      updateInput(name, value, setNameData);
+    }
   };
   //Send input value changes to parent component
   // to be saved in a state for this input group

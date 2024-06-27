@@ -5,8 +5,15 @@ import CustomTextField from "../Inputs/CustomTextField";
 
 const FormInput = (props) => {
   const [inputValue, setInputValue] = useState("");
+  const [errMsg, setErrMsg] = useState([""]);
+
   const handleInputChange = (event) => {
     setInputValue(event.target.value);
+  };
+  const handleValidation = (event) => {
+    //pass the input valid to the parent and recieve error messages if input is not valid;
+    setErrMsg(props.errors ? props.errors : []);
+    !errMsg && setInputValue(event.target.value);
   };
   useEffect(() => {
     if (!props.onChange) {
@@ -20,12 +27,14 @@ const FormInput = (props) => {
       <FormLabel htmlFor={props.id}>{props.label}</FormLabel>
       {props.children || (
         <CustomTextField
-          helperText="Some important text"
+          helperText={errMsg[0]}
           id={props.id}
           name={props.name || props.id}
           type={props.type}
           value={props.value}
+          onFocus={props.onFocus}
           onChange={handleInputChange}
+          onBlur={handleValidation}
           inputProps={props.inputProps}
         />
       )}

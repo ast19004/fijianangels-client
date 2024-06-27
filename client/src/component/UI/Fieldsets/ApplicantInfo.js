@@ -11,7 +11,48 @@ import FormDateInput from "../Inputs/FormDateInput";
 const ApplicantInfo = (props) => {
   const applicantCtx = useContext(ApplicantContext);
   const [applicant, setApplicant] = useState(applicantCtx.applicant);
+  const [isInputValid, setIsInputValid] = useState(true);
   const [errors, setErrors] = useState("");
+
+  const checkIsEmpty = (inputs, name) => {
+    if (!inputs[name]) {
+      setIsInputValid(false);
+      setErrors((prev) => {
+        return { [name]: "Cannot be empty" };
+      });
+      return isInputValid;
+    }
+  };
+
+  // //Check validity of this component's inputs
+  // const handleValidation = () => {
+  //   const formFields = { ...applicant };
+  //   //FullName
+  //   checkIsEmpty(formFields.fullName, "first_name");
+  //   checkIsEmpty(formFields.fullName, "last_name");
+
+  //   //Address
+  //   checkIsEmpty(formFields.address, "street");
+  //   checkIsEmpty(formFields.address, "city");
+  //   checkIsEmpty(formFields.address, "state");
+  //   checkIsEmpty(formFields.address, "state");
+  //   checkIsEmpty(formFields.address, "zipcode");
+
+  //   //Eligibility
+  //   checkIsEmpty(formFields.eligibility, "ssn");
+  //   checkIsEmpty(formFields.eligibility, "position");
+  //   checkIsEmpty(formFields.eligibility, "availability");
+  //   checkIsEmpty(formFields.eligibility, "salary");
+  //   checkIsEmpty(formFields.eligibility, "is_us_citizen");
+  //   checkIsEmpty(formFields.eligibility, "is_authorized");
+  //   checkIsEmpty(formFields.eligibility, "is_previous_employee");
+  //   // checkIsEmpty(formFields.eligibility, 'prev_employment_date');
+  //   checkIsEmpty(formFields.eligibility, "is_convicted_felon");
+  //   // checkIsEmpty(formFields.eligibility, 'felony_explanation');
+
+  //   console.log(isInputValid);
+  //   console.log(JSON.stringify(errors));
+  // };
 
   //Any eligibility data passed over from parent component
   //is used to set values initially for eligibility inputs
@@ -21,6 +62,7 @@ const ApplicantInfo = (props) => {
   }, []);
 
   const handleInputChange = (dataName, data) => {
+    // handleValidation();
     updateInput(dataName, data, setApplicant);
   };
 
