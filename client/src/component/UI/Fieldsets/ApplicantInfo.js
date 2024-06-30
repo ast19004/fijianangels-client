@@ -1,10 +1,10 @@
+import { useContext, useEffect, useState } from "react";
+import { updateInput } from "../../../util/formdata";
 import { ApplicantContext } from "../../../store/EmploymentForm/applicant-context";
 import Address from "../InputGroups/Address";
 import FullName from "../InputGroups/FullName";
 import Contact from "../InputGroups/Contact";
 import EmploymentEligibility from "../Fieldsets/EmploymentEligibilty";
-import { useContext, useEffect, useState } from "react";
-import { updateInput } from "../../../util/formdata";
 import CustomFieldset from "./styles/CustomFieldset";
 import FormDateInput from "../Inputs/FormDateInput";
 
@@ -23,36 +23,6 @@ const ApplicantInfo = (props) => {
       return isInputValid;
     }
   };
-
-  // //Check validity of this component's inputs
-  // const handleValidation = () => {
-  //   const formFields = { ...applicant };
-  //   //FullName
-  //   checkIsEmpty(formFields.fullName, "first_name");
-  //   checkIsEmpty(formFields.fullName, "last_name");
-
-  //   //Address
-  //   checkIsEmpty(formFields.address, "street");
-  //   checkIsEmpty(formFields.address, "city");
-  //   checkIsEmpty(formFields.address, "state");
-  //   checkIsEmpty(formFields.address, "state");
-  //   checkIsEmpty(formFields.address, "zipcode");
-
-  //   //Eligibility
-  //   checkIsEmpty(formFields.eligibility, "ssn");
-  //   checkIsEmpty(formFields.eligibility, "position");
-  //   checkIsEmpty(formFields.eligibility, "availability");
-  //   checkIsEmpty(formFields.eligibility, "salary");
-  //   checkIsEmpty(formFields.eligibility, "is_us_citizen");
-  //   checkIsEmpty(formFields.eligibility, "is_authorized");
-  //   checkIsEmpty(formFields.eligibility, "is_previous_employee");
-  //   // checkIsEmpty(formFields.eligibility, 'prev_employment_date');
-  //   checkIsEmpty(formFields.eligibility, "is_convicted_felon");
-  //   // checkIsEmpty(formFields.eligibility, 'felony_explanation');
-
-  //   console.log(isInputValid);
-  //   console.log(JSON.stringify(errors));
-  // };
 
   //Any eligibility data passed over from parent component
   //is used to set values initially for eligibility inputs

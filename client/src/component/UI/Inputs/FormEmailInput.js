@@ -5,12 +5,13 @@ import { isEmail, isEmpty } from "validator";
 const FormEmailInput = (props) => {
   const [errors, setErrors] = useState([]);
   const handleValidation = (e) => {
+    //TODO: add a way to verify email exists
+    //If isEmail & isNotEmpty set errors to empty []
+    isEmail(e.target.value) && !isEmpty(e.target.value) && setErrors([]);
     !isEmail(e.target.value) &&
       setErrors((prevErrors) => [...prevErrors, "Not a valid email"]);
     isEmpty(e.target.value) &&
       setErrors((prevErrors) => [...prevErrors, "Cannot be Empty"]);
-    //If isEmail & isNotEmpty set errors to empty []
-    isEmail(e.target.value) && !isEmpty(e.target.value) && setErrors([]);
   };
   return (
     <FormInput

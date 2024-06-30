@@ -1,15 +1,16 @@
 import { useState } from "react";
 import { Box, FormControl, FormLabel, TextField } from "@mui/material";
+import { updateInput } from "../../../util/formdata";
 import FormTextInput from "../Inputs/FormTextInput";
 import FormRadioInput from "../Inputs/FormRadioInput";
 import Address from "./Address";
 // import { useUpdateFormData, updateInput } from "../../../util/formdata";
 
 const EducationGroup = (props) => {
-  const [educationInfo, setEducationInfo] = useState({});
-  // const handleInputChange = (name, value) => {
-  //   updateInput(name, value, setEducationInfo);
-  // };
+  const [education, setEducation] = useState(props.education);
+  const handleInputChange = (name, value) => {
+    updateInput(name, value, setEducation);
+  };
   // useUpdatedFormData(props.type.abr, educationInfo, props.onChange);
   return (
     <Box component="fieldset">
@@ -18,6 +19,11 @@ const EducationGroup = (props) => {
       {/* TODO Uncomment this once Address component fixed<Address id={`${props.type.abr}_address`} />  */}
       <FormControl>
         <FormLabel htmlFor={`${props.type.abr}_attendance`}>Dates:</FormLabel>
+        <Address
+          id={`${props.type.abr}_address`}
+          abr={props.type.abr}
+          address={education[`${props.type.abr}_address`]}
+        />
         <TextField id={`${props.type.abr}_start_date`} type="date" /> to
         <TextField id={`${props.type.abr}_end_date`} type="date" />
       </FormControl>

@@ -26,31 +26,31 @@ const Address = (props) => {
     <Box component="fieldset" id={props.id} sx={props.sx}>
       <legend>Address:</legend>
       <FormTextInput
-        id="street"
+        id={`${props.abr}_street` || "street"}
         label="Street Address"
         value={address.street}
         onChange={handleInputChange}
       />
       <FormTextInput
-        id="unit_apt"
+        id={`${props.abr}_unit_apt` || "unit_apt"}
         label="Apartment/Unit #"
         value={address["unit_apt"]}
         onChange={handleInputChange}
       />
       <FormTextInput
-        id="city"
+        id={`${props.abr}_city` || "city"}
         label="City"
         onChange={handleInputChange}
         value={address.city}
       />
       <FormTextInput
-        id="state"
+        id={`${props.abr}_state` || "state"}
         label="State"
         onChange={handleInputChange}
         value={address.state}
       />
       <FormNumInput
-        id="zipcode"
+        id={`${props.abr}_zipcode` || "zipcode"}
         label="ZIP Code"
         onChange={handleInputChange}
         value={address.zipcode}
