@@ -21,36 +21,40 @@ const Address = (props) => {
 
   //Send input value changes to parent component
   // to be saved in a state for this input group
-  useUpdateFormData("address", address, props.onChange);
+  useUpdateFormData(
+    props.abr ? `${props.abr}_address` : "address",
+    address,
+    props.onChange
+  );
   return (
     <Box component="fieldset" id={props.id} sx={props.sx}>
       <legend>Address:</legend>
       <FormTextInput
-        id={`${props.abr}_street` || "street"}
+        id={props.abr ? `${props.abr}_street` : "street"}
         label="Street Address"
         value={address.street}
         onChange={handleInputChange}
       />
       <FormTextInput
-        id={`${props.abr}_unit_apt` || "unit_apt"}
+        id={props.abr ? `${props.abr}_unit_apt` : "unit_apt"}
         label="Apartment/Unit #"
         value={address["unit_apt"]}
         onChange={handleInputChange}
       />
       <FormTextInput
-        id={`${props.abr}_city` || "city"}
+        id={props.abr ? `${props.abr}_city` : "city"}
         label="City"
         onChange={handleInputChange}
         value={address.city}
       />
       <FormTextInput
-        id={`${props.abr}_state` || "state"}
+        id={props.abr ? `${props.abr}_state` : "state"}
         label="State"
         onChange={handleInputChange}
         value={address.state}
       />
       <FormNumInput
-        id={`${props.abr}_zipcode` || "zipcode"}
+        id={props.abr ? `${props.abr}_zipcode` : "zipcode"}
         label="ZIP Code"
         onChange={handleInputChange}
         value={address.zipcode}

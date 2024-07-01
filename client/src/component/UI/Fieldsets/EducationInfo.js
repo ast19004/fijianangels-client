@@ -25,12 +25,8 @@ const EducationInfo = (props) => {
   //As input values change save them in educationInfo value state
   const handleChange = (name, value) => {
     updateInput(name, value, setEducation);
+    console.log(education);
   };
-
-  //Send input value changes to parent component
-  // to be saved in a state for this input group
-  // Make sure input name matches context
-  // useUpdateFormData("education", educationInfo, props.onChange);
 
   // If used in a MultiStepForm this component will be
   // wrapped in a FormStep that takes a context and this component.
@@ -47,8 +43,9 @@ const EducationInfo = (props) => {
       <legend>Education</legend>
       {educationTypes.map((type) => (
         <EducationGroup
-          type={type}
           key={type.abr}
+          abr={type.abr}
+          label={type.label}
           onChange={handleChange}
           education={education[`${type.abr}`]}
         />

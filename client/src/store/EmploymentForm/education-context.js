@@ -4,7 +4,7 @@ import { updateInput } from "../../util/formdata";
 const EducationContext = React.createContext({
   education: {
     high_school: {
-      high_school: "",
+      high_school_name: "",
       high_school_address: {
         high_school_street: "",
         high_school_unit_apt: "",
@@ -17,7 +17,7 @@ const EducationContext = React.createContext({
       is_high_school_graduate: "",
     },
     college: {
-      college: "",
+      college_name: "",
       college_address: {
         college_street: "",
         college_unit_apt: "",
@@ -30,7 +30,7 @@ const EducationContext = React.createContext({
       is_college_graduate: "",
     },
     other: {
-      other: "",
+      other_name: "",
       other_address: {
         other_street: "",
         other_unit_apt: "",
@@ -43,7 +43,7 @@ const EducationContext = React.createContext({
       is_other_graduate: "",
     },
   },
-  updateEducation: (name, value) => {},
+  updateEducation: (value) => {},
 });
 
 export const EducationContextProvider = (props) => {

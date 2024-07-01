@@ -5,7 +5,7 @@ import { convertFormToPDF } from "../../../util/formdata";
 import { ApplicantContextProvider } from "../../../store/EmploymentForm/applicant-context";
 import { EducationContextProvider } from "../../../store/EmploymentForm/education-context.js";
 import ApplicantInfo from "../Fieldsets/ApplicantInfo";
-import EducationInfo from "../Fieldsets/EducationInfo";
+import EducationInfo from "../Fieldsets/EducationInfo.js";
 import ReferencesInfo from "../Fieldsets/ReferencesInfo";
 import PreviousEmploymentInfo from "../Fieldsets/PreviousEmploymentInfo";
 import MilitaryServiceInfo from "../Fieldsets/MilitaryServiceInfo";

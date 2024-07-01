@@ -40,7 +40,7 @@ const FormRadioInput = (props) => {
         id={props.id}
         name={props.name || props.id}
         onChange={handleInputChange}
-        value={radioValue}
+        value={radioValue || {}}
       >
         {controls.map((control) => (
           <FormControlLabel
