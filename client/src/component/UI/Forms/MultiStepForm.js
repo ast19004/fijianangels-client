@@ -29,7 +29,9 @@ const MultiStepForm = (props) => {
       onPrev={props.onBack}
     >
       <ProgressBar steps={props.steps} currentStep={props.progress} />
-      <EnhanceChildren progress={props.progress}>{currentStep}</EnhanceChildren>
+      <EnhanceChildren progress={props.progress} context={props.context}>
+        {currentStep}
+      </EnhanceChildren>
     </Form>
   );
 };

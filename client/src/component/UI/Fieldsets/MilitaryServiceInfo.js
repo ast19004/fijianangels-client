@@ -18,13 +18,13 @@ const MilitaryServiceInfo = (props) => {
 
       <FormControl>
         <FormLabel htmlFor="duration">Dates:</FormLabel>
-        <TextField id="start-date" type="date" /> to
-        <TextField id="end-date" type="date" />
+        <TextField id="service_start" type="date" /> to
+        <TextField id="service_end" type="date" />
       </FormControl>
       <FormTextInput id="rank" label="Rank at Discharge" />
-      <FormTextInput id="discharge-type" label="Type of Discharge:" />
+      <FormTextInput id="discharge_type" label="Type of Discharge:" />
       <FormTextInput
-        id="discharge-explanation"
+        id="discharge_explanation"
         label="If other than honorable, explain:"
       />
     </Box>

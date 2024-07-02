@@ -20,23 +20,23 @@ const EmploymentGroup = (props) => {
   return (
     <Box component="fieldset">
       <legend>Previous Employment</legend>
-      <FormTextInput id="company1-name" label="Company" />
-      <FormPhoneInput id="company1-phone" label="Phone:" />
+      <FormTextInput id="company1_name" label="Company" />
+      <FormPhoneInput id="company1_phone" label="Phone:" />
       {/* TODO uncomment once updated<Address id="company1-address" /> */}
-      <FormTextInput id="company1-supervisor" label="Supervisor:" />
-      <FormTextInput id="company1-job-title" label="Job Title:" />
-      <FormTextInput id="company1-end-salary" label="Ending Salary:" />
-      <FormTextInput id="company1-responsibilities" label="Responsibilities:" />
+      <FormTextInput id="company1_supervisor" label="Supervisor:" />
+      <FormTextInput id="company1_job_title" label="Job Title:" />
+      <FormTextInput id="company1_end_salary" label="Ending Salary:" />
+      <FormTextInput id="company1_responsibilities" label="Responsibilities:" />
 
       <FormControl>
-        <FormLabel htmlFor="company1-duration">Dates:</FormLabel>
-        <TextField id="company1-start-date" type="date" /> to
-        <TextField id="company1-end-date" type="date" />
+        <FormLabel htmlFor="company1_duration">Dates:</FormLabel>
+        <TextField id="company1_start_date" type="date" /> to
+        <TextField id="company1_end_date" type="date" />
       </FormControl>
-      <FormTextInput id="company1-leaving-reason" label="Reason for Leaving:" />
+      <FormTextInput id="company1_leaving_reason" label="Reason for Leaving:" />
 
       <FormRadioInput
-        id="company1-reference"
+        id="company1_can_contact"
         label="May we contact your previous supervisor for a reference?"
       />
     </Box>

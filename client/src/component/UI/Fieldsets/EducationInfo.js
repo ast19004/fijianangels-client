@@ -1,11 +1,11 @@
 import { useContext, useEffect, useState } from "react";
 import { updateInput } from "../../../util/formdata";
-import EducationContext from "../../../store/EmploymentForm/education-context";
 import EducationGroup from "../InputGroups/EducationGroup";
 import CustomFieldset from "./styles/CustomFieldset";
+import EmploymentFormContext from "../../../store/EmploymentForm/employment-form-context";
 
 const EducationInfo = (props) => {
-  const educationCtx = useContext(EducationContext);
+  const educationCtx = useContext(EmploymentFormContext);
   const educationTypes = [
     { abr: "high_school", label: "High School" },
     { abr: "college", label: "College" },

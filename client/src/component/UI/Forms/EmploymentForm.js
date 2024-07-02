@@ -2,8 +2,8 @@ import { useState } from "react";
 
 import { convertFormToPDF } from "../../../util/formdata";
 
-import { ApplicantContextProvider } from "../../../store/EmploymentForm/applicant-context";
-import { EducationContextProvider } from "../../../store/EmploymentForm/education-context.js";
+// import { ApplicantContextProvider } from "../../../store/EmploymentForm/applicant-context";
+import { EmploymentFormContextProvider } from "../../../store/EmploymentForm/employment-form-context.js";
 import ApplicantInfo from "../Fieldsets/ApplicantInfo";
 import EducationInfo from "../Fieldsets/EducationInfo.js";
 import ReferencesInfo from "../Fieldsets/ReferencesInfo";
@@ -62,27 +62,27 @@ const EmploymentForm = (props) => {
       onBack={handleBack}
     >
       <FormStep
-        parentComponent={ApplicantContextProvider}
+        parentComponent={EmploymentFormContextProvider}
         childComponent={ApplicantInfo}
       />
       <FormStep
-        parentComponent={EducationContextProvider}
+        parentComponent={EmploymentFormContextProvider}
         childComponent={EducationInfo}
       />
       <FormStep
-        parentComponent={ApplicantContextProvider}
+        parentComponent={EmploymentFormContextProvider}
         childComponent={ReferencesInfo}
       />
       <FormStep
-        parentComponent={ApplicantContextProvider}
+        parentComponent={EmploymentFormContextProvider}
         childComponent={PreviousEmploymentInfo}
       />
       <FormStep
-        parentComponent={ApplicantContextProvider}
+        parentComponent={EmploymentFormContextProvider}
         childComponent={MilitaryServiceInfo}
       />
       <FormStep
-        parentComponent={ApplicantContextProvider}
+        parentComponent={EmploymentFormContextProvider}
         childComponent={SigningInfo}
       />
     </MultiStepForm>

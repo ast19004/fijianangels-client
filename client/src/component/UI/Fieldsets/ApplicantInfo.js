@@ -1,15 +1,15 @@
 import { useContext, useEffect, useState } from "react";
 import { updateInput } from "../../../util/formdata";
-import { ApplicantContext } from "../../../store/EmploymentForm/applicant-context";
 import Address from "../InputGroups/Address";
 import FullName from "../InputGroups/FullName";
 import Contact from "../InputGroups/Contact";
 import EmploymentEligibility from "../Fieldsets/EmploymentEligibilty";
 import CustomFieldset from "./styles/CustomFieldset";
 import FormDateInput from "../Inputs/FormDateInput";
+import EmploymentFormContext from "../../../store/EmploymentForm/employment-form-context";
 
 const ApplicantInfo = (props) => {
-  const applicantCtx = useContext(ApplicantContext);
+  const applicantCtx = useContext(EmploymentFormContext);
   const [applicant, setApplicant] = useState(applicantCtx.applicant);
   const [isInputValid, setIsInputValid] = useState(true);
   const [errors, setErrors] = useState("");

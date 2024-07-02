@@ -1,74 +1,99 @@
 import React, { useState } from "react";
-import { updateInput } from "../../util/formdata";
+import { getTodaysDate } from "../../util/Date";
+import { updateObj } from "../../util/formdata";
+import { applicantObj } from "./applicantObj";
+import { educationObj } from "./educationObj";
+import { referencesObj } from "./referencesObj";
+import { prevEmploymentObj } from "./prevEmploymentObj";
+import { militaryObj } from "./militaryObj";
 
-const EmploymentFormContext = React.createContext({
-  // applicant: {
-  //   fullName: {
-  //     first: "",
-  //     middle: "",
-  //     last: "",
-  //   },
-  //   address: {},
-  //   contact: {},
-  // },
-  // educationInput: {},
-  referencesInput: {},
-  previousEmploymentInput: {},
-  militaryServiceData: {},
-  signature: {},
+export const EmploymentFormContext = React.createContext({
+  //Applicant Info
+  applicant: applicantObj,
+  //Education Info
+  education: educationObj,
 
-  // updateApplicant: (name, value) => {},
-  // updateEducation: (name, value) => {},
-  updateReferences: (name, value) => {},
-  updatePreviousEmployment: (name, value) => {},
-  updateMilitaryService: (name, value) => {},
-  updateSignature: (name, value) => {},
+  //References Info
+  references: referencesObj,
+
+  //Previous Employment
+  previousEmployment: prevEmploymentObj,
+
+  //Miliaty Service
+  miliatyService: militaryObj,
+
+  //Signature
+  signature: {
+    signature: "",
+    signatureDate: "",
+  },
+
+  //Update Functions
+  updateApplicant: (newValues) => {},
+  updateEducation: (newValues) => {},
+  updatePreviousEmployment: (newValues) => {},
+  updateReferences: (newValues) => {},
+  updateMilitaryService: (newValues) => {},
+  updateSignature: (newValues) => {},
 });
 
 export const EmploymentFormContextProvider = (props) => {
-  // const [applicant, setApplicant] = useState({
-  //   fullName: {
-  //     first: "",
-  //     middle: "",
-  //     last: "",
-  //   },
-  //   address: {},
-  //   contact: {},
-  // });
-  // const [education, setEducation] = useState({});
-  const [references, setReferences] = useState({});
-  const [previousEmployment, setPreviousEmployment] = useState({});
-  const [militaryService, setMilitaryService] = useState({});
-  const [signature, setSignature] = useState({});
+  //Update Functions
+  const handleUpdateApplicant = (newValues) => {
+    updateObj(applicant, newValues, setApplicant);
+  };
+
+  const handleUpdateEducation = (newValues) => {
+    updateObj(education, newValues, setEducation);
+  };
+
+  const handleUpdatePreviousEmployment = (newValues) => {
+    updateObj(previousEmployment, newValues, setPreviousEmployment);
+  };
+  const handleUpdateReferences = (newValues) => {
+    updateObj(references, newValues, setReferences);
+  };
+  const handleUpdateMilitaryService = (newValues) => {
+    updateObj(militaryService, newValues, setMilitaryService);
+  };
+  const handleUpdateSignature = (newValues) => {
+    updateObj(signature, newValues, setSignature);
+  };
+
+  //Applicant Info
+  const [applicant, setApplicant] = useState({
+    application_date: getTodaysDate(),
+    ...applicantObj,
+  });
+
+  //Education Info
+  const [education, setEducation] = useState(educationObj);
+  const [references, setReferences] = useState(referencesObj);
+  const [previousEmployment, setPreviousEmployment] =
+    useState(prevEmploymentObj);
+  const [militaryService, setMilitaryService] = useState(militaryObj);
+  const [signature, setSignature] = useState({
+    signature: "",
+    signatureDate: "",
+  });
 
   return (
     <EmploymentFormContext.Provider
       value={{
-        // applicant: applicant,
-        // educationInput: education,
-        referencesInput: references,
-        previousEmploymentInput: previousEmployment,
-        militaryServiceData: militaryService,
+        applicant: applicant,
+        education: education,
+        references: references,
+        previousEmployment: previousEmployment,
+        militaryService: militaryService,
         signature: signature,
-
-        // updateApplicant: (name, value) => {
-        //   updateInput(name, value, setApplicant);
-        //   console.log(applicant);
-        // },
-        // updateEducation: (name, value) => {
-        //   updateInput(name, value, setEducation);
-        // },
-        updateReferences: (name, value) => {
-          updateInput(name, value, setReferences);
-        },
-        updatePreviousEmployment: (name, value) => {
-          updateInput(name, value, setPreviousEmployment);
-        },
-        updateMilitaryService: (name, value) => {
-          updateInput(name, value, setMilitaryService);
-        },
-        updateSignature: (name, value) => {
-          updateInput(name, value, setSignature);
+        updateEducation: handleUpdateEducation,
+        updateApplicant: handleUpdateApplicant,
+        updatePreviousEmployment: handleUpdatePreviousEmployment,
+        updateReferences: handleUpdateReferences,
+        updateMilitaryService: handleUpdateMilitaryService,
+        updateSignature: handleUpdateSignature,
+        test: () => {
+          console.log("Hi");
         },
       }}
     >

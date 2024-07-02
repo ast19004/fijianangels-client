@@ -15,31 +15,31 @@ const ReferenceGroup = (props) => {
     <Box component="fieldset">
       <legend>Reference #{props.num}</legend>
       <FormTextInput
-        id={`ref${props.num}-full-name`}
+        id={`ref${props.num}_full_name`}
         label="Full Name"
         onChange={handleInputChange}
       />
 
       <FormTextInput
-        id={`ref${props.num}-relationship`}
+        id={`ref${props.num}_relationship`}
         label="Relationship:"
         onChange={handleInputChange}
       />
 
       <FormTextInput
-        id={`ref${props.num}-company`}
+        id={`ref${props.num}_company`}
         label="Company:"
         onChange={handleInputChange}
       />
 
       <FormTextInput
-        id={`ref${props.num}-address`}
+        id={`ref${props.num}_address`}
         label="Address:"
         onChange={handleInputChange}
       />
 
       <FormTextInput
-        id={`ref${props.num}-phone`}
+        id={`ref${props.num}_phone`}
         label="Phone:"
         onChange={handleInputChange}
       />

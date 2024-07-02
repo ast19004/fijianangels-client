@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Box, FormControl, FormLabel, TextField } from "@mui/material";
 import { updateInput, useUpdateFormData } from "../../../util/formdata";
 import FormTextInput from "../Inputs/FormTextInput";
@@ -11,6 +11,12 @@ const EducationGroup = (props) => {
   const handleInputChange = (name, value) => {
     updateInput(name, value, setEducation);
   };
+
+  //As parent component changes update values for this child
+  useEffect(() => {
+    setEducation(props.education);
+  }, [props.education]);
+
   useUpdateFormData(props.abr, education, props.onChange);
   return (
     <Box component="fieldset">
@@ -19,6 +25,7 @@ const EducationGroup = (props) => {
         id={`${props.abr}_name` || "school_name"}
         label={props.label}
         onChange={handleInputChange}
+        value={props.education[`${props.abr}_name`]}
       />
       <Address
         id={`${props.abr}_address`}

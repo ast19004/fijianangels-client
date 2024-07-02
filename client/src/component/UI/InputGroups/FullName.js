@@ -14,10 +14,6 @@ const FullName = (props) => {
     setNameData(props.fullName);
   }, []);
 
-  useEffect(() => {
-    console.log("Full Name input: ", nameData);
-  }, [nameData]);
-
   const first = props.abr ? props.abr + "_first_name" : "first_name";
   const middle = props.abr ? props.abr + "_middle_name" : "middle_name";
   const last = props.abr ? props.abr + "_last_name" : "last_name";
@@ -37,24 +33,32 @@ const FullName = (props) => {
       <legend>{legend}</legend>
       <FormTextInput
         id={first}
-        name="first_name"
+        name={first}
         label="First:"
         onChange={handleChange}
-        value={nameData.first_name}
+        value={
+          props.abr ? nameData[`${props.abr}_first_name`] : nameData.first_name
+        }
       />
       <FormTextInput
         id={middle}
-        name="middle_name"
+        name={middle}
         label="M.I."
         onChange={handleChange}
-        value={nameData.middle_name}
+        value={
+          props.abr
+            ? nameData[`${props.abr}_middle_name`]
+            : nameData.middle_name
+        }
       />
       <FormTextInput
         id={last}
-        name="last_name"
+        name={last}
         label="Last:"
         onChange={handleChange}
-        value={nameData.last_name}
+        value={
+          props.abr ? nameData[`${props.abr}_last_name`] : nameData.last_name
+        }
       />
     </Box>
   );
