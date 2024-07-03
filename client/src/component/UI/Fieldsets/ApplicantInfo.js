@@ -29,16 +29,12 @@ const ApplicantInfo = (props) => {
   //and as the parent changes
   useEffect(() => {
     setApplicant(applicantCtx.applicant);
-  }, []);
+  }, [applicantCtx.applicant]);
 
   const handleInputChange = (dataName, data) => {
     // handleValidation();
     updateInput(dataName, data, setApplicant);
   };
-
-  useEffect(() => {
-    console.log(applicant);
-  }, [applicant]);
 
   // If used in a MultiStepForm this component will be
   // wrapped in a FormStep that takes a context and this component.

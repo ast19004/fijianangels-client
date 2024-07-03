@@ -7,6 +7,7 @@ import { updateInput, useUpdateFormData } from "../../../util/formdata";
 
 const Address = (props) => {
   const [address, setAddress] = useState(props.address);
+  const abbreviation = props.abr;
 
   //Any address data passed over from parent component
   //is used to set values initially for address inputs
@@ -22,7 +23,7 @@ const Address = (props) => {
   //Send input value changes to parent component
   // to be saved in a state for this input group
   useUpdateFormData(
-    props.abr ? `${props.abr}_address` : "address",
+    abbreviation ? `${abbreviation}_address` : "address",
     address,
     props.onChange
   );
@@ -30,34 +31,42 @@ const Address = (props) => {
     <Box component="fieldset" id={props.id} sx={props.sx}>
       <legend>Address:</legend>
       <FormTextInput
-        id={props.abr ? `${props.abr}_street` : "street"}
+        id={abbreviation ? `${abbreviation}_street` : "street"}
         label="Street Address"
-        value={address.street}
+        value={
+          abbreviation ? address[`${abbreviation}_street`] : address.street
+        }
         onChange={handleInputChange}
       />
       <FormTextInput
-        id={props.abr ? `${props.abr}_unit_apt` : "unit_apt"}
+        id={abbreviation ? `${abbreviation}_unit_apt` : "unit_apt"}
         label="Apartment/Unit #"
-        value={address["unit_apt"]}
+        value={
+          abbreviation
+            ? address[`${abbreviation}_unit_apt`]
+            : address["unit_apt"]
+        }
         onChange={handleInputChange}
       />
       <FormTextInput
-        id={props.abr ? `${props.abr}_city` : "city"}
+        id={abbreviation ? `${abbreviation}_city` : "city"}
         label="City"
         onChange={handleInputChange}
-        value={address.city}
+        value={abbreviation ? address[`${abbreviation}_city`] : address.city}
       />
       <FormTextInput
-        id={props.abr ? `${props.abr}_state` : "state"}
+        id={abbreviation ? `${abbreviation}_state` : "state"}
         label="State"
         onChange={handleInputChange}
-        value={address.state}
+        value={abbreviation ? address[`${abbreviation}_state`] : address.state}
       />
       <FormNumInput
-        id={props.abr ? `${props.abr}_zipcode` : "zipcode"}
+        id={abbreviation ? `${abbreviation}_zipcode` : "zipcode"}
         label="ZIP Code"
         onChange={handleInputChange}
-        value={address.zipcode}
+        value={
+          abbreviation ? address[`${abbreviation}_zipcode`] : address.zipcode
+        }
       />
     </Box>
   );

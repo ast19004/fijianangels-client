@@ -20,23 +20,22 @@ const EducationInfo = (props) => {
   //and as the parent changes
   useEffect(() => {
     setEducation(educationCtx.education);
-  }, []);
+  }, [educationCtx.education]);
 
   //As input values change save them in educationInfo value state
   const handleChange = (name, value) => {
     updateInput(name, value, setEducation);
-    console.log(education);
   };
+
+  useEffect(() => {
+    console.log(education);
+  }, [education]);
 
   // If used in a MultiStepForm this component will be
   // wrapped in a FormStep that takes a context and this component.
   // The FormStep component provides the useSaveStep to save the current step's state before moving onto the next formStep
   props.useSaveState &&
     props.useSaveState(education, educationCtx.updateEducation, errors);
-
-  useEffect(() => {
-    console.log(JSON.stringify(education));
-  }, [education]);
 
   return (
     <CustomFieldset>

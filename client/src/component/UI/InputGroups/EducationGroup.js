@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Box, FormControl, FormLabel, TextField } from "@mui/material";
+import { Box } from "@mui/material";
 import { updateInput, useUpdateFormData } from "../../../util/formdata";
 import FormTextInput from "../Inputs/FormTextInput";
 import FormRadioInput from "../Inputs/FormRadioInput";
@@ -7,54 +7,54 @@ import Address from "./Address";
 import FormDateInput from "../Inputs/FormDateInput";
 
 const EducationGroup = (props) => {
-  const [education, setEducation] = useState(props.education);
+  const groupName = props.abr || "";
+  const [educationGroup, setEducationGroup] = useState(props.education);
   const handleInputChange = (name, value) => {
-    updateInput(name, value, setEducation);
+    updateInput(name, value, setEducationGroup);
   };
 
-  //As parent component changes update values for this child
+  //Any education group data passed over from parent component
+  //is used to set values initially for education group inputs
   useEffect(() => {
-    setEducation(props.education);
-  }, [props.education]);
+    setEducationGroup(props.education);
+  }, []);
 
-  useUpdateFormData(props.abr, education, props.onChange);
+  useUpdateFormData(groupName, educationGroup, props.onChange);
+
   return (
     <Box component="fieldset">
       <legend>{props.label}</legend>
       <FormTextInput
-        id={`${props.abr}_name` || "school_name"}
+        id={`${groupName}_name`}
         label={props.label}
         onChange={handleInputChange}
-        value={props.education[`${props.abr}_name`]}
+        value={educationGroup[`${groupName}_name`]}
       />
       <Address
-        id={`${props.abr}_address`}
-        abr={props.abr}
-        address={education[`${props.abr}_address`]}
+        id={`${groupName}_address`}
+        abr={groupName}
+        address={educationGroup[`${groupName}_address`]}
         onChange={handleInputChange}
       />
-      <FormControl>
-        <FormLabel htmlFor={`${props.abr}_attendance`}>Dates:</FormLabel>
-        <FormDateInput
-          id={`${props.abr}_start_date`}
-          htmlFor={`${props.abr}_start_date`}
-          label="Start Date:"
-          onChange={handleInputChange}
-          value={education[`${props.abr}_start_date`]}
-        />
-        <FormDateInput
-          id={`${props.abr}_end_date`}
-          htmlFor={`${props.abr}_end_date`}
-          label="End Date:"
-          onChange={handleInputChange}
-          value={education[`${props.abr}_end_date`]}
-        />
-      </FormControl>
+      <FormDateInput
+        id={`${groupName}_start_date`}
+        htmlFor={`${groupName}_start_date`}
+        label="Start Date:"
+        onChange={handleInputChange}
+        value={educationGroup[`${groupName}_start_date`]}
+      />
+      <FormDateInput
+        id={`${groupName}_end_date`}
+        htmlFor={`${groupName}_end_date`}
+        label="End Date:"
+        onChange={handleInputChange}
+        value={educationGroup[`${groupName}_end_date`]}
+      />
       <FormRadioInput
-        id={`is_${props.abr}_graduate`}
+        id={`is_${groupName}_graduate`}
         label="Did you graduate?"
         onChange={handleInputChange}
-        value={education[`is_${props.abr}_graduate`]}
+        value={educationGroup[`is_${groupName}_graduate`]}
       />
     </Box>
   );
