@@ -8,7 +8,6 @@ const FormInput = (props) => {
   const [errMsg, setErrMsg] = useState([""]);
 
   const handleInputChange = (event) => {
-    console.log("hit");
     setInputValue(event.target.value);
   };
   const handleValidation = (event) => {

@@ -1,7 +1,14 @@
 export let prevEmploymentObj = {
-  company1: {
+  1: {
     company1_name: "",
     company1_phone: "",
+    company1_address: {
+      company1_street: "",
+      company1_unit_apt: "",
+      company1_city: "",
+      company1_state: "",
+      company1_zipcode: "",
+    },
     company1_supervisor: "",
     company1_job_title: "",
     company1_end_salary: "",
@@ -12,9 +19,16 @@ export let prevEmploymentObj = {
     company1_leaving_reason: "",
     company1_can_contact: "",
   },
-  company2: {
+  2: {
     company2_name: "",
     company2_phone: "",
+    company2_address: {
+      company2_street: "",
+      company2_unit_apt: "",
+      company2_city: "",
+      company2_state: "",
+      company2_zipcode: "",
+    },
     company2_supervisor: "",
     company2_job_title: "",
     company2_end_salary: "",
@@ -25,9 +39,16 @@ export let prevEmploymentObj = {
     company2_leaving_reason: "",
     company2_can_contact: "",
   },
-  company3: {
+  3: {
     company3_name: "",
     company3_phone: "",
+    company3_address: {
+      company3_street: "",
+      company3_unit_apt: "",
+      company3_city: "",
+      company3_state: "",
+      company3_zipcode: "",
+    },
     company3_supervisor: "",
     company3_job_title: "",
     company3_end_salary: "",

@@ -1,17 +1,34 @@
-import { useState } from "react";
+import { useState, useContext, useEffect } from "react";
+import EmploymentFormContext from "../../../store/EmploymentForm/employment-form-context";
 import EmploymentGroup from "../InputGroups/EmploymentGroup";
-// import { useUpdateFormData, updateInput } from "../../../util/formdata";
+import { updateInput } from "../../../util/formdata";
 
 const PreviousEmploymentInfo = (props) => {
-  const [employmentHistory, setEmploymentHistory] = useState({});
+  const ctx = useContext(EmploymentFormContext);
+  const [history, setHistory] = useState(ctx.previousEmployment);
+  const [errors, setErrors] = useState("");
 
-  // const handleChange = (name, value) => {
-  //   updateInput(name, value, setEmploymentHistory);
-  // };
+  //Any previous employment data passed over from parent component
+  //is used to set values initially for previous employment inputs
+  //and as the parent changes
+  useEffect(() => {
+    setHistory(ctx.employmentHistory);
+    console.log(history);
+  }, [ctx.employmentHistory]);
 
-  // useUpdateFormData("employment", employmentHistory, props.onChange);
+  const handleChange = (name, value) => {
+    updateInput(name, value, setHistory);
+  };
 
-  return <EmploymentGroup num={1} />;
+  // If used in a MultiStepForm this component will be
+  // wrapped in a FormStep that takes a context and this component.
+  // The FormStep component provides the useSaveStep to save the current step's state before moving onto the next formStep
+  props.useSaveState &&
+    props.useSaveState(history, ctx.updatePreviousEmployment, errors);
+
+  return (
+    <EmploymentGroup num={1} onChange={handleChange} employment={history[0]} />
+  );
 };
 
 export default PreviousEmploymentInfo;

@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import { getTodaysDate } from "../../util/Date";
 import { updateObj } from "../../util/formdata";
-import { applicantObj } from "./applicantObj";
-import { educationObj } from "./educationObj";
-import { referencesObj } from "./referencesObj";
-import { prevEmploymentObj } from "./prevEmploymentObj";
-import { militaryObj } from "./militaryObj";
+import { applicantObj } from "./ref_objects/applicantObj";
+import { educationObj } from "./ref_objects/educationObj";
+import { referencesObj } from "./ref_objects/referencesObj";
+import { prevEmploymentObj } from "./ref_objects/prevEmploymentObj";
+import { militaryObj } from "./ref_objects/militaryObj";
 
 export const EmploymentFormContext = React.createContext({
   //Applicant Info
@@ -92,9 +92,6 @@ export const EmploymentFormContextProvider = (props) => {
         updateReferences: handleUpdateReferences,
         updateMilitaryService: handleUpdateMilitaryService,
         updateSignature: handleUpdateSignature,
-        test: () => {
-          console.log("Hi");
-        },
       }}
     >
       {props.children}
