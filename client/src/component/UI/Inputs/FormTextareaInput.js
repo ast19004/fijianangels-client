@@ -1,20 +1,25 @@
 import { useEffect, useState } from "react";
 import FormInput from "./FormInput";
+import { useUpdateFormData } from "../../../util/formdata";
 
 const FormTextareaInput = (props) => {
   const exampleText =
     props.exampleText || "My experience with this caregiver was...";
 
   const [inputValue, setInputValue] = useState(exampleText);
+
+  //Any name data passed over from parent component
+  //is used to set values initially for fullName inputs
+  useEffect(() => {
+    setInputValue(props.value);
+  }, []);
+
   const handleInputChange = (event) => {
     setInputValue(event.target.value);
   };
-  // useEffect(() => {
-  //   if (!props.onChange) {
-  //     return;
-  //   }
-  //   props.onChange(props.name, inputValue);
-  // }, [inputValue, props.onChange]);
+
+  useUpdateFormData(props.name, inputValue, props.onChange);
+
   return (
     <FormInput id={props.id} label={props.label} inputProps={props.inputProps}>
       <textarea

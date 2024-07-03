@@ -8,12 +8,6 @@ const Form = (props) => {
     setFormData(props.formData);
   }, [props.formData]);
 
-  const onSubmit = (event) => {
-    event.preventDefault();
-    console.log(JSON.stringify(formData));
-    // Handle form submission data here
-  };
-
   return (
     <Box
       component="form"
@@ -64,11 +58,23 @@ const Form = (props) => {
               type="submit"
               variant="contained"
               color="primary"
-              onClick={props.onSubmit || onSubmit}
+              onClick={props.onSubmit}
             >
               Submit
             </Button>
           ))}
+        {/* TODO: remove this extra submit button and consolidate it with the submit of above */}
+        {props.submit && (
+          <Button
+            disabled={props.submitDisabled}
+            type="submit"
+            variant="contained"
+            color="primary"
+            onClick={props.onSubmit}
+          >
+            Submit
+          </Button>
+        )}
       </ButtonGroup>
     </Box>
   );

@@ -4,8 +4,10 @@ import { useEffect, useState } from "react";
 import CustomTextField from "../Inputs/CustomTextField";
 
 const FormInput = (props) => {
-  const [inputValue, setInputValue] = useState("");
+  const [inputValue, setInputValue] = useState(props.value || "");
   const [errMsg, setErrMsg] = useState([""]);
+
+  useEffect(() => {}, [inputValue]);
 
   const handleInputChange = (event) => {
     setInputValue(event.target.value);

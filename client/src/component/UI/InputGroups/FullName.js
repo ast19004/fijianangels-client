@@ -26,7 +26,7 @@ const FullName = (props) => {
   };
   //Send input value changes to parent component
   // to be saved in a state for this input group
-  useUpdateFormData("fullName", nameData, props.onChange);
+  useUpdateFormData(props.name || "fullName", nameData, props.onChange);
 
   return (
     <Box component="fieldset" id={props.id} sx={props.sx}>

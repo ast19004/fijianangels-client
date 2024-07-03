@@ -20,7 +20,7 @@ const Contact = (props) => {
   };
   //Send input value changes to parent component
   // to be saved in a state for this input group
-  useUpdateFormData("contact", contactData, props.onChange);
+  useUpdateFormData(props.name || "contact", contactData, props.onChange);
 
   return (
     <Box component="fieldset" id={props.id} sx={props.sx}>
