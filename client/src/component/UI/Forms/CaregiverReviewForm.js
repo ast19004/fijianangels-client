@@ -8,11 +8,14 @@ import FormTextareaInput from "../Inputs/FormTextareaInput";
 import FormSelectServices from "../Inputs/FormSelectServices";
 import ProgressBar from "../ProgressBar";
 import FormDateInput from "../Inputs/FormDateInput";
+import { getTodaysDate } from "../../../util/Date";
 
 const CaregiverReviewForm = (props) => {
   const reviewerNameAbr = "reviewer";
   const caregiverNameAbr = "caregiver";
+  const currentDate = getTodaysDate();
   const [reviewInfo, setReviewInfo] = useState({
+    todaysDate: currentDate,
     //Reviewer Info
     [reviewerNameAbr + "fullName"]: {
       first_name: "",

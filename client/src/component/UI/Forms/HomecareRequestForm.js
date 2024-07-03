@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { updateInput } from "../../../util/formdata";
 
+import { getTodaysDate } from "../../../util/Date";
 import FullName from "../InputGroups/FullName";
 import Contact from "../InputGroups/Contact";
 import Form from "../Forms/Form";
@@ -9,7 +10,9 @@ import FormSelectServices from "../Inputs/FormSelectServices";
 import ProgressBar from "../ProgressBar";
 
 const HomecareRequestForm = (props) => {
+  const currenDate = getTodaysDate();
   const [request, setRequest] = useState({
+    todaysDate: currenDate,
     fullName: {
       first_name: "",
       middle_name: "",
