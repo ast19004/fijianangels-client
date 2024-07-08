@@ -32,12 +32,12 @@ const ReferencesInfo = (props) => {
     <CustomFieldset>
       <legend>References:</legend>
       <p>Please list three professional references.</p>
-      {["1", "2", "3"].map((num) => (
+      {Object.keys(references).map((key, index) => (
         <ReferenceGroup
-          num={num}
-          key={num}
+          label={`Reference ${index + 1}`}
+          key={key}
           onChange={handleInputChange}
-          reference={references[`ref${num}`]}
+          reference={references[key]}
         />
       ))}
     </CustomFieldset>
