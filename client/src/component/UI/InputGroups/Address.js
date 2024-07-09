@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
-import { Box } from "@mui/material";
+
+import CustomFieldset from "../Fieldsets/styles/CustomFieldset";
 
 import FormTextInput from "../Inputs/FormTextInput";
 import FormNumInput from "../Inputs/FormNumInput";
@@ -13,6 +14,11 @@ const Address = (props) => {
   //is used to set values initially for address inputs
   useEffect(() => {
     setAddress(props.address);
+    console.log(
+      `Received address : ${JSON.stringify(
+        props.address
+      )} from parent & props.abr = ${props.abr}`
+    );
   }, []);
 
   //As input values change save them in address state
@@ -27,8 +33,9 @@ const Address = (props) => {
     address,
     props.onChange
   );
+
   return (
-    <Box component="fieldset" id={props.id} sx={props.sx}>
+    <CustomFieldset id={props.id}>
       <legend>Address:</legend>
       <FormTextInput
         id={abbreviation ? `${abbreviation}_street` : "street"}
@@ -68,7 +75,7 @@ const Address = (props) => {
           abbreviation ? address[`${abbreviation}_zipcode`] : address.zipcode
         }
       />
-    </Box>
+    </CustomFieldset>
   );
 };
 

@@ -10,7 +10,7 @@ const FormDateInput = (props) => {
       type="date"
       value={props.value}
       onChange={props.onChange || (() => {})}
-      required={true}
+      errors={props.errors}
       inputProps={props.inputProps}
     />
   );

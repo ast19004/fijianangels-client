@@ -21,6 +21,7 @@ const FormInput = (props) => {
     if (!props.onChange) {
       return;
     }
+    //TODO: check value against a validation obj that contain functions that test the value for certain criteria and corresponding errMessages should the value fail the test
     props.onChange(props.name, inputValue);
   }, [inputValue]);
 
@@ -37,6 +38,7 @@ const FormInput = (props) => {
           onFocus={props.onFocus}
           onChange={handleInputChange}
           onBlur={handleValidation}
+          errors={props.errors}
           inputProps={props.inputProps}
         />
       )}

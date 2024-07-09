@@ -7,6 +7,7 @@ import EmploymentEligibility from "../Fieldsets/EmploymentEligibilty";
 import CustomFieldset from "./styles/CustomFieldset";
 import FormDateInput from "../Inputs/FormDateInput";
 import EmploymentFormContext from "../../../store/EmploymentForm/employment-form-context";
+import { Box } from "@mui/material";
 
 const ApplicantInfo = (props) => {
   const applicantCtx = useContext(EmploymentFormContext);
@@ -43,7 +44,7 @@ const ApplicantInfo = (props) => {
     props.useSaveState(applicant, applicantCtx.updateApplicant, errors);
 
   return (
-    <CustomFieldset>
+    <Box component="fieldset" id={props.id} sx={props.sx}>
       <legend>Applicant Information</legend>
       <FormDateInput
         id="application_date"
@@ -60,7 +61,7 @@ const ApplicantInfo = (props) => {
         eligibility={applicant.eligibility}
         onChange={handleInputChange}
       />
-    </CustomFieldset>
+    </Box>
   );
 };
 

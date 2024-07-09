@@ -4,6 +4,7 @@ import { Box } from "@mui/material";
 import FormPhoneInput from "../Inputs/FormNumInput";
 import FormEmailInput from "../Inputs/FormEmailInput";
 import { updateInput, useUpdateFormData } from "../../../util/formdata";
+import CustomFieldset from "../Fieldsets/styles/CustomFieldset";
 
 const Contact = (props) => {
   const [contactData, setContactData] = useState(props.contact);
@@ -23,7 +24,7 @@ const Contact = (props) => {
   useUpdateFormData(props.name || "contact", contactData, props.onChange);
 
   return (
-    <Box component="fieldset" id={props.id} sx={props.sx}>
+    <CustomFieldset id={props.id}>
       <legend>Contact</legend>
       <FormPhoneInput
         id="contact_phone"
@@ -37,7 +38,7 @@ const Contact = (props) => {
         value={contactData.contact_email}
         onChange={handleChange}
       />
-    </Box>
+    </CustomFieldset>
   );
 };
 

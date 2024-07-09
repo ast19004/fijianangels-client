@@ -4,6 +4,7 @@ import FormRadioInput from "../Inputs/FormRadioInput";
 import { useEffect, useState } from "react";
 import { updateInput, useUpdateFormData } from "../../../util/formdata";
 import FormDateInput from "../Inputs/FormDateInput";
+import CustomFieldset from "./styles/CustomFieldset";
 
 const EmploymentEligibility = (props) => {
   const [eligibilityData, setEligibilityData] = useState(props.eligibility);
@@ -24,7 +25,7 @@ const EmploymentEligibility = (props) => {
   // to be saved in a state for this input group
   useUpdateFormData("eligibility", eligibilityData, props.onChange);
   return (
-    <fieldset>
+    <CustomFieldset>
       <legend>Employment Details:</legend>
       <FormNumInput
         id="ssn"
@@ -89,7 +90,7 @@ const EmploymentEligibility = (props) => {
         onChange={handleChange}
         value={eligibilityData.felony_explanation}
       />
-    </fieldset>
+    </CustomFieldset>
   );
 };
 

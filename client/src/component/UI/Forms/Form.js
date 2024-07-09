@@ -3,10 +3,17 @@ import { useEffect, useState } from "react";
 
 const Form = (props) => {
   const [formData, setFormData] = useState({});
+  const [formErrors, setFormErrors] = useState(null);
 
+  //If a multiStep Form, receive data obtained by higher level parent
   useEffect(() => {
     setFormData(props.formData);
   }, [props.formData]);
+
+  //If a multiStep Form, check for errors found by higher level parent
+  useEffect(() => {
+    props.errors && setFormErrors(props.errors);
+  }, [props.errors]);
 
   return (
     <Box
@@ -41,6 +48,7 @@ const Form = (props) => {
             {props.hasNextStep && (
               <Button
                 type="button"
+                disabled={props.submitDisabled}
                 variant="contained"
                 color="primary"
                 onClick={props.onNext}
@@ -54,7 +62,7 @@ const Form = (props) => {
         {!props.multiStep ||
           (!props.hasNextStep && (
             <Button
-              disabled={props.submitDisabled}
+              disabled={props.errors}
               type="submit"
               variant="contained"
               color="primary"
@@ -66,7 +74,7 @@ const Form = (props) => {
         {/* TODO: remove this extra submit button and consolidate it with the submit of above */}
         {props.submit && (
           <Button
-            disabled={props.submitDisabled}
+            disabled={props.errors}
             type="submit"
             variant="contained"
             color="primary"

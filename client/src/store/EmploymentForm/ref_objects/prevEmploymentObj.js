@@ -1,5 +1,5 @@
 export let prevEmploymentObj = {
-  1: {
+  company1: {
     company1_name: "",
     company1_phone: "",
     company1_address: {
@@ -19,7 +19,7 @@ export let prevEmploymentObj = {
     company1_leaving_reason: "",
     company1_can_contact: "",
   },
-  2: {
+  company2: {
     company2_name: "",
     company2_phone: "",
     company2_address: {
@@ -39,7 +39,7 @@ export let prevEmploymentObj = {
     company2_leaving_reason: "",
     company2_can_contact: "",
   },
-  3: {
+  company3: {
     company3_name: "",
     company3_phone: "",
     company3_address: {

@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { TextField, Box } from "@mui/material";
+import { Box } from "@mui/material";
 
 import FormTextInput from "../Inputs/FormTextInput";
 import FormPhoneInput from "../Inputs/FormPhoneInput";
@@ -7,9 +7,10 @@ import FormRadioInput from "../Inputs/FormRadioInput";
 
 import Address from "../InputGroups/Address";
 import { useUpdateFormData, updateInput } from "../../../util/formdata";
+import FormDateInput from "../Inputs/FormDateInput";
 
 const EmploymentGroup = (props) => {
-  const [employment, setEmployment] = useState(props.employment);
+  const [employment, setEmployment] = useState(props.group);
 
   const handleInputChange = (name, value) => {
     updateInput(name, value, setEmployment);
@@ -21,74 +22,77 @@ const EmploymentGroup = (props) => {
     setEmployment(props.employment);
   }, []);
 
-  useUpdateFormData(props.num, employment, props.onChange);
+  useUpdateFormData(props.groupName, employment, props.onChange);
 
   return (
     <Box component="fieldset">
-      <legend>Previous Employment</legend>
       <FormTextInput
-        id={`company${props.num}_name`}
+        id={`${props.groupName}_name`}
         label="Company"
-        value={employment[`company${props.num}_name`]}
+        value={employment[`${props.groupName}_name`]}
         onChange={handleInputChange}
       />
       <FormPhoneInput
-        id={`company${props.num}_phone`}
+        id={`${props.groupName}_phone`}
         label="Phone:"
-        value={employment[`company${props.num}_phone`]}
+        value={employment[`${props.groupName}_phone`]}
         onChange={handleInputChange}
       />
       <Address
-        id={`company${props.num}_address`}
-        address={employment[`company${props.num}_address`]}
-        abr={`company${props.num}`}
+        id={`${props.groupName}_address`}
+        address={employment[`${props.groupName}_address`]}
+        abr={`${props.groupName}`}
         onChange={handleInputChange}
       />
       <FormTextInput
-        id={`company${props.num}_supervisor`}
+        id={`${props.groupName}_supervisor`}
         label="Supervisor:"
-        value={employment[`company${props.num}_supervisor`]}
+        value={employment[`${props.groupName}_supervisor`]}
         onChange={handleInputChange}
       />
       <FormTextInput
-        id={`company${props.num}_job_title`}
+        id={`${props.groupName}_job_title`}
         label="Job Title:"
-        value={employment[`company${props.num}_job_title`]}
+        value={employment[`${props.groupName}_job_title`]}
         onChange={handleInputChange}
       />
       <FormTextInput
-        id={`company${props.num}_end_salary`}
+        id={`${props.groupName}_end_salary`}
         label="Ending Salary:"
-        value={employment[`company${props.num}_end_salary`]}
+        value={employment[`${props.groupName}_end_salary`]}
         onChange={handleInputChange}
       />
       <FormTextInput
-        id={`company${props.num}_responsibilities`}
+        id={`${props.groupName}_responsibilities`}
         label="Responsibilities:"
-        value={employment[`company${props.num}_responsibilities`]}
+        value={employment[`${props.groupName}_responsibilities`]}
         onChange={handleInputChange}
       />
-      <TextField
-        id={`company${props.num}_start_date`}
-        type="date"
-        value={employment[`company${props.num}_start_date`]}
+      <FormDateInput
+        id={`${props.groupName}_start_date`}
+        htmlFor={`${props.groupName}_start_date`}
+        label="From:"
         onChange={handleInputChange}
+        value={employment[`${props.groupName}_start_date`]}
       />
-      <TextField
-        id={`company${props.num}_end_date`}
-        type="date"
-        value={employment[`company${props.num}_end_date`]}
+      <FormDateInput
+        id={`${props.groupName}_end_date`}
+        htmlFor={`${props.groupName}_end_date`}
+        label="To:"
         onChange={handleInputChange}
+        value={employment[`${props.groupName}_end_date`]}
       />
       <FormTextInput
-        id={`company${props.num}_leaving_reason`}
+        id={`${props.groupName}_leaving_reason`}
         label="Reason for Leaving:"
-        value={employment[`company${props.num}_leaving_reason`]}
+        value={employment[`${props.groupName}_leaving_reason`]}
         onChange={handleInputChange}
       />
       <FormRadioInput
+        id={`${props.groupName}_can_contact`}
         label="May we contact your previous supervisor for a reference?"
-        value={employment[`company${props.num}_can_contact `]}
+        name={`${props.groupName}_can_contact`}
+        value={employment[`${props.groupName}_can_contact`]}
         onChange={handleInputChange}
       />
     </Box>

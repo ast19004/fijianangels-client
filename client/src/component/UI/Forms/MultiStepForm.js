@@ -7,6 +7,7 @@ import EnhanceChildren from "../../../util/EnhanceChildren";
 const MultiStepForm = (props) => {
   //This component wraps a form component to provide it with the ability to be broken up into steps
   const [currentStep, setCurrentStep] = useState();
+  const [stepErrors, setStepErrors] = useState(null);
 
   //Only display the current step of the form
   useEffect(() => {
@@ -27,6 +28,7 @@ const MultiStepForm = (props) => {
       hasNextStep={props.hasNextStep}
       onNext={props.onNext}
       onPrev={props.onBack}
+      errors={stepErrors}
     >
       <ProgressBar steps={props.steps} currentStep={props.progress} />
       <EnhanceChildren progress={props.progress} context={props.context}>

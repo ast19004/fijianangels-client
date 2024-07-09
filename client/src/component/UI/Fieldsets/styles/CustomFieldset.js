@@ -4,6 +4,7 @@ const CustomFieldset = (props) => {
   return (
     <Box
       component="fieldset"
+      id={props.id}
       sx={{
         borderWidth: 0,
         margin: 0,

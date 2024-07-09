@@ -16,41 +16,41 @@ const ReferenceGroup = (props) => {
     setReference(props.reference);
   }, []);
 
-  useUpdateFormData(`ref${props.num}`, reference, props.onChange);
+  useUpdateFormData(`${props.refName}`, reference, props.onChange);
 
   return (
     <Box component="fieldset">
-      <legend>Reference #{props.num}</legend>
+      <legend>{props.label}</legend>
       <FormTextInput
-        id={`ref${props.num}_full_name`}
+        id={`${props.refName}_full_name`}
         label="Full Name"
-        value={reference[`ref${props.num}_full_name`]}
+        value={reference[`${props.refName}_full_name`]}
         onChange={handleInputChange}
       />
 
       <FormTextInput
-        id={`ref${props.num}_relationship`}
+        id={`${props.refName}_relationship`}
         label="Relationship:"
-        value={reference[`ref${props.num}_relationship`]}
+        value={reference[`${props.refName}_relationship`]}
         onChange={handleInputChange}
       />
 
       <FormTextInput
-        id={`ref${props.num}_company`}
+        id={`${props.refName}_company`}
         label="Company:"
-        value={reference[`ref${props.num}_company`]}
+        value={reference[`${props.refName}_company`]}
         onChange={handleInputChange}
       />
 
       <FormTextInput
-        id={`ref${props.num}_address`}
+        id={`${props.refName}_address`}
         label="Address:"
-        value={reference[`ref${props.num}_address`]}
+        value={reference[`${props.refName}_address`]}
         onChange={handleInputChange}
       />
 
       <FormTextInput
-        id={`ref${props.num}_phone`}
+        id={`${props.refName}_phone`}
         label="Phone:"
         onChange={handleInputChange}
       />
