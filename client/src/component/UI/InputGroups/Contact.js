@@ -24,7 +24,7 @@ const Contact = (props) => {
   useUpdateFormData(props.name || "contact", contactData, props.onChange);
 
   return (
-    <CustomFieldset id={props.id}>
+    <CustomFieldset id={props.id} resetStyles={props.resetStyles}>
       <legend>Contact</legend>
       <FormPhoneInput
         id="contact_phone"

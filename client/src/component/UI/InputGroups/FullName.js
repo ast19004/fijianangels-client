@@ -51,7 +51,7 @@ const FullName = (props) => {
   useUpdateFormData(props.name || "fullName", nameData, props.onChange);
 
   return (
-    <CustomFieldset id={props.id}>
+    <CustomFieldset id={props.id} resetStyles={props.resetStyles}>
       <legend>{legend}</legend>
       <FormTextInput
         id={first}

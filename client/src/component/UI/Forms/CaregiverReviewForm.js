@@ -46,17 +46,20 @@ const CaregiverReviewForm = (props) => {
     <Form title="Caregiver Review" submit>
       {/* <ProgressBar value={0.5} /> */}
       <FullName
+        resetStyles
         legend="Your Name"
         fullName={reviewInfo[reviewerNameAbr + "fullName"]}
         name={reviewerNameAbr + "fullName"}
         onChange={handleInputChange}
       />
       <Contact
+        resetStyles
         contact={reviewInfo[reviewerNameAbr + "contact"]}
         name={reviewerNameAbr + "contact"}
         onChange={handleInputChange}
       />
       <FullName
+        resetStyles
         legend="Caregiver Name"
         fullName={reviewInfo[caregiverNameAbr + "fullName"]}
         name={caregiverNameAbr + "fullName"}

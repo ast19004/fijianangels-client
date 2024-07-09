@@ -30,23 +30,31 @@ const HomecareRequestForm = (props) => {
   const handleFormSubmit = () => {};
   return (
     <Form title="Homecare Request Form" submit onSubmit={handleFormSubmit}>
-      <FullName fullName={request.fullName} onChange={handleInputChange} />
-      <Contact contact={request.contact} onChange={handleInputChange} />
+      <FullName
+        fullName={request.fullName}
+        onChange={handleInputChange}
+        resetStyles
+      />
+      <Contact
+        contact={request.contact}
+        onChange={handleInputChange}
+        resetStyles
+      />
       <fieldset>
         <legend>Services</legend>
         <FormSelectServices
           ervices={props.requestedServices}
           onChange={handleInputChange}
         />
+        <FormTextareaInput
+          id="extra_info"
+          label="Comments/ Additional Information"
+          name="additionalInfo"
+          exampleText="comments..."
+          value={props.additional_info}
+          onChange={handleInputChange}
+        />
       </fieldset>
-      <FormTextareaInput
-        id="extra_info"
-        label="Comments/ Additional Information"
-        name="additionalInfo"
-        exampleText="comments..."
-        value={props.additional_info}
-        onChange={handleInputChange}
-      />
     </Form>
   );
 };
