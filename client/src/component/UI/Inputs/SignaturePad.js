@@ -1,12 +1,14 @@
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import SignatureCanvas from "react-signature-canvas";
-import { Box, Button } from "@mui/material";
+import { Box, Button, FormControl, FormLabel } from "@mui/material";
 
-const SignaturePad = () => {
-  const sigPadRef = useRef(null);
+const SignaturePad = (props) => {
+  const sigPadRef = useRef({});
+  const [signature, setSignature] = useState(props.signature);
 
   const clear = () => {
     sigPadRef.current.clear();
+    setSignature("");
   };
 
   const save = () => {
@@ -15,23 +17,25 @@ const SignaturePad = () => {
     } else {
       const dataUrl = sigPadRef.current
         .getTrimmedCanvas()
-        .toDataUrl("image/png");
-      console.log(dataUrl);
-      //TODO: Send data to parent component
+        .toDataURL("image/png");
+      setSignature(dataUrl);
+      //Save data in parent componenet & in Employment ctx
+      // props.onChange("signature", signature);
     }
   };
   return (
     <Box>
-      <Box component="span" sx={{ color: "#888" }}>
-        Signature
-      </Box>
-      <SignatureCanvas
-        ref={sigPadRef}
-        penColor="black"
-        canvasProps={{ width: 500, height: 200 }}
-        className="sigCanvas"
-        backgroundColor="white"
-      />
+      <FormControl>
+        <FormLabel>Signature</FormLabel>
+        <SignatureCanvas
+          ref={sigPadRef}
+          value={signature}
+          penColor="black"
+          canvasProps={{ width: 500, height: 200 }}
+          className="sigCanvas"
+          backgroundColor="white"
+        />
+      </FormControl>
       <Button onClick={clear}>Clear</Button>
       <Button onClick={save}>Save</Button>
     </Box>

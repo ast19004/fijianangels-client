@@ -1,8 +1,7 @@
 import { useState, useContext, useEffect } from "react";
 import { EmploymentFormContext } from "../../../store/EmploymentForm/employment-form-context";
 import { Box } from "@mui/material";
-import FormTextInput from "../Inputs/FormTextInput";
-import { useUpdatedFormData, updateInput } from "../../../util/formdata";
+import { updateInput } from "../../../util/formdata";
 import FormDateInput from "../Inputs/FormDateInput";
 import SignaturePad from "../Inputs/SignaturePad";
 
@@ -21,8 +20,6 @@ const SigningInfo = (props) => {
     updateInput(dataName, data, setSignature);
   };
 
-  // useUpdatedFormData("signed", signature, props.onChange);
-
   return (
     <Box component="fieldset">
       <legend>Disclaimer and Signature</legend>
@@ -35,7 +32,7 @@ const SigningInfo = (props) => {
         misleading information in my application or interview may result in my
         release.
       </p>
-      <SignaturePad />
+      <SignaturePad onChange={handleInputChange} value={signature.signature} />
       {/* <FormTextInput
         id="signature"
         label="Signature"
