@@ -1,14 +1,26 @@
+import { useState, useContext, useEffect } from "react";
+import { EmploymentFormContext } from "../../../store/EmploymentForm/employment-form-context";
 import { Box } from "@mui/material";
 import FormTextInput from "../Inputs/FormTextInput";
-import { useState } from "react";
-// import { useUpdatedFormData, updateInput } from "../../../util/formdata";
+import { useUpdatedFormData, updateInput } from "../../../util/formdata";
+import FormDateInput from "../Inputs/FormDateInput";
+import SignaturePad from "../Inputs/SignaturePad";
 
 const SigningInfo = (props) => {
-  const [signature, setSignature] = useState({});
+  const ctx = useContext(EmploymentFormContext);
+  const [signature, setSignature] = useState(ctx.signature);
 
-  // const handleInputChange = (name, value) => {
-  //   updateInput(name, value, setSignature);
-  // };
+  //Any signature data passed over from parent component
+  //is used to set values initially for signature inputs
+  //and as the parent changes
+  useEffect(() => {
+    setSignature(ctx.signature);
+  }, [ctx.signature]);
+
+  const handleInputChange = (dataName, data) => {
+    updateInput(dataName, data, setSignature);
+  };
+
   // useUpdatedFormData("signed", signature, props.onChange);
 
   return (
@@ -23,8 +35,20 @@ const SigningInfo = (props) => {
         misleading information in my application or interview may result in my
         release.
       </p>
-      <FormTextInput id="signature" label="Signature" />
-      <FormTextInput id="signature-date" label="Date" />
+      <SignaturePad />
+      {/* <FormTextInput
+        id="signature"
+        label="Signature"
+        value={signature.signature}
+        onChange={handleInputChange}
+      /> */}
+      <FormDateInput
+        id="signature-date"
+        htmlFor="signature-date"
+        label="Date"
+        value={signature.signatureDate}
+        inputProps={{ readOnly: true }}
+      />
     </Box>
   );
 };

@@ -22,11 +22,15 @@ const SignaturePad = () => {
   };
   return (
     <Box>
+      <Box component="span" sx={{ color: "#888" }}>
+        Signature
+      </Box>
       <SignatureCanvas
         ref={sigPadRef}
         penColor="black"
         canvasProps={{ width: 500, height: 200 }}
         className="sigCanvas"
+        backgroundColor="white"
       />
       <Button onClick={clear}>Clear</Button>
       <Button onClick={save}>Save</Button>

@@ -74,7 +74,7 @@ export const EmploymentFormContextProvider = (props) => {
   const [militaryService, setMilitaryService] = useState(militaryObj);
   const [signature, setSignature] = useState({
     signature: "",
-    signatureDate: "",
+    signatureDate: getTodaysDate(),
   });
 
   return (
