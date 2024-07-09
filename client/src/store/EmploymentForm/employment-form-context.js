@@ -20,7 +20,7 @@ export const EmploymentFormContext = React.createContext({
   previousEmployment: prevEmploymentObj,
 
   //Miliaty Service
-  miliatyService: militaryObj,
+  militaryService: militaryObj,
 
   //Signature
   signature: {

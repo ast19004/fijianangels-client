@@ -4,7 +4,6 @@ import Address from "../InputGroups/Address";
 import FullName from "../InputGroups/FullName";
 import Contact from "../InputGroups/Contact";
 import EmploymentEligibility from "../Fieldsets/EmploymentEligibilty";
-import CustomFieldset from "./styles/CustomFieldset";
 import FormDateInput from "../Inputs/FormDateInput";
 import EmploymentFormContext from "../../../store/EmploymentForm/employment-form-context";
 import { Box } from "@mui/material";
