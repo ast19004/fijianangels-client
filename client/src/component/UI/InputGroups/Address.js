@@ -14,11 +14,6 @@ const Address = (props) => {
   //is used to set values initially for address inputs
   useEffect(() => {
     setAddress(props.address);
-    console.log(
-      `Received address : ${JSON.stringify(
-        props.address
-      )} from parent & props.abr = ${props.abr}`
-    );
   }, []);
 
   //As input values change save them in address state

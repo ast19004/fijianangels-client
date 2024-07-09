@@ -18,11 +18,8 @@ export const updateInput = (name, value, setState) => {
 
 //Set new values to an existing object. Values with corresponding keys in the old object will have overwritten value
 export const updateObj = (obj, newValues, setFunction) => {
-  console.log("prevObj: ", obj);
-  console.log("newValues: ", newValues);
   const updatedObj = { ...obj, ...newValues };
   setFunction(updatedObj);
-  console.log("updatedObj: ", updatedObj);
 };
 
 export const saveState = (dataValue, saveFunc) => {

@@ -27,10 +27,6 @@ const EducationInfo = (props) => {
     updateInput(name, value, setEducation);
   };
 
-  useEffect(() => {
-    console.log(education);
-  }, [education]);
-
   // If used in a MultiStepForm this component will be
   // wrapped in a FormStep that takes a context and this component.
   // The FormStep component provides the useSaveStep to save the current step's state before moving onto the next formStep

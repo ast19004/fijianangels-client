@@ -2,7 +2,10 @@ import { useState } from "react";
 
 import { convertFormToPDF } from "../../../util/formdata";
 
-import { EmploymentFormContextProvider } from "../../../store/EmploymentForm/employment-form-context.js";
+import {
+  EmploymentFormContextProvider,
+  EmploymentFormContext,
+} from "../../../store/EmploymentForm/employment-form-context.js";
 import ApplicantInfo from "../Fieldsets/ApplicantInfo";
 import EducationInfo from "../Fieldsets/EducationInfo.js";
 import ReferencesInfo from "../Fieldsets/ReferencesInfo";
@@ -43,8 +46,9 @@ const EmploymentForm = (props) => {
   //   bool === true && setSaveState(false);
   // };
 
-  const onSubmit = (event) => {
+  const handleSubmit = (event, getFormData) => {
     event.preventDefault();
+    console.log(getFormData());
     // console.log(JSON.stringify(formData));
     // Handle form submission data here
   };
@@ -59,6 +63,7 @@ const EmploymentForm = (props) => {
       hasNextStep={hasNextStep}
       onNext={handleNext}
       onBack={handleBack}
+      onSubmit={handleSubmit}
     >
       <FormStep
         parentComponent={EmploymentFormContextProvider}

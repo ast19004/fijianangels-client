@@ -9,7 +9,6 @@ const FormStep = ({ parentComponent, childComponent, ...props }) => {
   const useSaveState = (dataValue, saveFunction) => {
     useEffect(() => {
       saveState(dataValue, saveFunction);
-      console.log("save success");
     }, [props.progress]);
   };
   return parentComponent ? (

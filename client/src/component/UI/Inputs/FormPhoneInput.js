@@ -5,7 +5,6 @@ import { isMobilePhone, isEmpty } from "validator";
 const FormPhoneInput = (props) => {
   const [errors, setErrors] = useState([]);
   const handleValidation = (e) => {
-    console.log("in validation");
     //TODO: add a way to verify phone # exists
     isMobilePhone(e.target.value, "en-US") &&
       setErrors((prevErrors) => [...prevErrors, "Not a valid phone #"]);

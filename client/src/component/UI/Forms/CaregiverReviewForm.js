@@ -40,7 +40,6 @@ const CaregiverReviewForm = (props) => {
 
   const handleInputChange = (dataName, data) => {
     updateInput(dataName, data, setReviewInfo);
-    console.log(reviewInfo);
   };
   return (
     <Form title="Caregiver Review" submit>
