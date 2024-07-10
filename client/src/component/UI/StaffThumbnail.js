@@ -7,6 +7,8 @@ import {
   Typography,
 } from "@mui/material";
 
+import Reviews from "./Reviews";
+
 function StaffThumbnail(props) {
   return (
     <Card sx={{ minWidth: "300px" }}>
@@ -26,6 +28,9 @@ function StaffThumbnail(props) {
         <Button>client reviews</Button>
         {/* TODO: Look into ExpandMore https://mui.com/material-ui/react-card/ */}
       </CardActions>
+      <CardContent sx={{ paddingTop: "0" }}>
+        <Reviews />
+      </CardContent>
     </Card>
   );
 }
