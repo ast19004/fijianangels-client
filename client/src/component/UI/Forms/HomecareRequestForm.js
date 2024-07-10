@@ -10,9 +10,9 @@ import FormSelectServices from "../Inputs/FormSelectServices";
 import ProgressBar from "../ProgressBar";
 
 const HomecareRequestForm = (props) => {
-  const currenDate = getTodaysDate();
+  const currentDate = getTodaysDate();
   const [request, setRequest] = useState({
-    todaysDate: currenDate,
+    todaysDate: currentDate,
     fullName: {
       first_name: "",
       middle_name: "",
@@ -43,7 +43,7 @@ const HomecareRequestForm = (props) => {
       <fieldset>
         <legend>Services</legend>
         <FormSelectServices
-          ervices={props.requestedServices}
+          services={props.requestedServices}
           onChange={handleInputChange}
         />
         <FormTextareaInput

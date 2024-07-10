@@ -1,0 +1,117 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "This is the website for the homecare company Fijian Angels.",
+    "version": "1.0.0",
+    "title": "Fijian Angels Homecare"
+  },
+  "host": "localhost:5000",
+  "basePath": "/",
+  "schemes": ["http"],
+  "consumes": ["application/json"],
+  "produces": ["application/json"],
+  "paths": {
+    "/reviews/{staffId}": {
+      "parameters": [
+        {
+          "name": "staffId",
+          "in": "path",
+          "required": true,
+          "description": "ID of targeted staff member",
+          "type": "string"
+        }
+      ],
+      "get": {
+        "summary": "Use staff id to find reviews in the Review database that are associated with this staff member",
+        "tags": ["Reviews"],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#definitions/Reviews"
+            }
+          }
+        }
+      }
+    },
+
+    "/review": {
+      "post": {
+        "tags": ["Reviews"],
+        "summary": "Add new review to the Review database",
+        "parameters": [
+          {
+            "name": "review",
+            "in": "body",
+            "description": "Review that we want to create",
+            "schema": {
+              "$ref": "#definitions/UpdateReview"
+            }
+          }
+        ],
+        "produces": ["application/json"],
+        "responses": {
+          "201": {
+            "description": "New review is created",
+            "schema": {
+              "#ref": "#definitions/Review"
+            }
+          }
+        }
+      }
+    },
+    "definitions": {
+      "Review": {
+        "required": [
+          "parent_id",
+          "reader_name",
+          "theme_color",
+          "total_reading_duration",
+          "reading_coins",
+          "reader_sessions",
+          "reader_prizes"
+        ],
+        "properties": {
+          "parent_id": {
+            "type": "string"
+          },
+          "reader_name": {
+            "type": "string"
+          },
+          "theme_color": {
+            "type": "string"
+          },
+          "total_reading_duration": {
+            "type": "number"
+          },
+          "reading_coins": {
+            "type": "number"
+          },
+          "reader_sessions": {
+            "type": "array",
+            "$ref": "#definitions/ReaderSessions"
+          },
+          "reader_prizes": {
+            "type": "array",
+            "$ref": "#definitions/ReaderPrize"
+          }
+        }
+      },
+      "Reviews": {
+        "type": "array",
+        "$ref": "#definitions/Review"
+      },
+      "UpdateReview": {
+        "required": ["reader_name", "theme_color"],
+        "properties": {
+          "reader_name": {
+            "type": "string"
+          },
+          "theme_color": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}
