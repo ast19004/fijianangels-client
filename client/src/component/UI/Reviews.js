@@ -30,7 +30,14 @@ const Reviews = (props) => {
           justifyContent: "space-between",
         }}
       >
-        <Typography sx={{ color: "#066988" }}>Reviews</Typography>
+        <Typography
+          sx={{
+            color: "rgba(0,0,0,0.7)",
+            letterSpacing: "2px",
+          }}
+        >
+          <b>REVIEWS</b>
+        </Typography>
         <Button onClick={props.onClose}>
           <CloseRoundedIcon sx={{ color: "gray" }} />
         </Button>

@@ -3,19 +3,17 @@ import Section from "../component/UI/Section";
 
 function CoreValues() {
   return (
-    <Article header="OUR CORE VALUES" id="corevalues">
+    <Article header="OUR CORE VALUES" id="corevalues" sx={{ margin: 0 }}>
       <Section
         id="section-quality"
         header="QUALITY"
         paragraph="We strive to be the best quality home care. This is accomplished by hiring, training, and retaining highly qualified caregivers."
       />
-      <br />
       <Section
         id="section-flexibity"
         header="FLEXIBILITY"
         paragraph="We provide the flexible service menu and schedule to accommodate a variety of home care needs and fulfill the individual needs of every client."
       />
-      <br />
       <Section
         id="section-integrity"
         header="INTEGRITY"

@@ -11,7 +11,7 @@ function Article(props) {
       component="article"
       id={props.id}
       key={props.id}
-      sx={{ margin: "10% 0" }}
+      sx={{ margin: "10% 0", ...props.sx }}
     >
       <StyledHeader>{props.header}</StyledHeader>
       {props.children}
