@@ -31,7 +31,7 @@ const Reviews = (props) => {
         }}
       >
         <Typography sx={{ color: "#066988" }}>Reviews</Typography>
-        <Button>
+        <Button onClick={props.onClose}>
           <CloseRoundedIcon sx={{ color: "gray" }} />
         </Button>
       </ListSubheader>
