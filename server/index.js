@@ -1,21 +1,18 @@
-if (process.env.NODE_ENV !== "production") {
-  require("dotenv").config();
-}
+// if (process.env.NODE_ENV !== "production") {
+require("dotenv").config();
+// }
 
 // const swaggerUi = require("swagger-ui-express"),
 //   swaggerDocument = require("./swagger.json");
 
 const express = require("express");
 const bodyParser = require("body-parser");
-// const mongoose = require("mongoose");
+const mongoose = require("mongoose");
 
 const path = require("path");
 
 const PORT = process.env.PORT || 5000;
-// const MONGODB_URL =
-//   process.env.MONGODB_URL ||
-//   `mongodb+srv://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@${process.env.DB}.zr23rly.mongodb.net/?retryWrites=true&w=majority`;
-
+const uri = process.env.MONGODB_URI;
 // const userRoutes = require("./routes/user");
 
 const app = express();
@@ -34,12 +31,12 @@ app.use((req, res, next) => {
 
 // app.use(userRoutes);
 
-// mongoose;
-//   .connect(MONGODB_URL)
-//   .then((result) => {
-// app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
-app.listen(PORT);
-//   })
-//   .catch((err) => {
-//     console.log(err);
-//   });
+mongoose
+  .connect(uri)
+  .then((result) => {
+    // app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+    app.listen(PORT);
+  })
+  .catch((err) => {
+    console.log(err);
+  });
