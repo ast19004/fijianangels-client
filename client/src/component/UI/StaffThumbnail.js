@@ -37,9 +37,12 @@ function StaffThumbnail(props) {
         </CardActions>
       )}
       {showReviews && (
-        <CardContent sx={{ paddingTop: "0" }}>
-          <Reviews onClose={handleReviewDisplay} />
-        </CardContent>
+        <>
+          <br />
+          <CardContent sx={{ paddingTop: "0" }}>
+            <Reviews onClose={handleReviewDisplay} />
+          </CardContent>
+        </>
       )}
     </Card>
   );
