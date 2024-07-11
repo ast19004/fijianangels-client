@@ -3,21 +3,22 @@ import StaffThumbnail from "../component/UI/StaffThumbnail";
 
 import staff1 from "../assests/images/staff1-400px.jpg";
 import staff2 from "../assests/images/staff2-400px.jpg";
+import staff3 from "../assests/images/staff3-400px.jpg";
 import noImage from "../assests/images/no-image.svg";
 
 function Staff(props) {
   const staffMembers = [
     {
       staffMember: "Kyle Colata",
-      image: noImage,
+      image: staff1,
     },
     {
       staffMember: "Ana Colata",
-      image: noImage,
+      image: staff2,
     },
     {
       staffMember: "Kyle Colata",
-      image: noImage,
+      image: staff3,
     },
     {
       staffMember: "Ana Colata",
