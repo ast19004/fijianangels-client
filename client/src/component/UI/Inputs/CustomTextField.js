@@ -16,7 +16,6 @@ const CustomTextField = (props) => {
       onFocus={props.onFocus}
       inputProps={{
         ...props.inputProps,
-        errors: props.errors,
       }}
     />
   );

@@ -9,7 +9,10 @@ const FormTextInput = (props) => {
       label={props.label}
       type="text"
       value={props.value}
+      helperText={props.helperText}
       onChange={props.onChange || (() => {})}
+      onFocus={props.onFocus}
+      onBlur={props.onBlur}
       inputProps={props.inputProps}
     />
   );
