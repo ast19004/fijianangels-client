@@ -36,7 +36,7 @@ const FullName = (props) => {
         onChange={handleChange}
         onFocus={props.onFocus}
         onBlur={props.onBlur}
-        helperText={props.helperText.firstName || ""}
+        helperText={props.helperText ? props.helperText.firstName : ""}
         value={
           props.abr ? nameData[`${props.abr}_first_name`] : nameData.first_name
         }
@@ -48,7 +48,7 @@ const FullName = (props) => {
         onChange={handleChange}
         onFocus={props.onFocus}
         // onBlur={props.onBlur}
-        helperText={props.helperText.middleName || ""}
+        // helperText={props.helperText.middleName || ""}
         value={
           props.abr
             ? nameData[`${props.abr}_middle_name`]
@@ -62,7 +62,7 @@ const FullName = (props) => {
         onChange={handleChange}
         onFocus={props.onFocus}
         onBlur={props.onBlur}
-        helperText={props.helperText.lastName || ""}
+        helperText={props.helperText ? props.helperText.lastName : ""}
         value={
           props.abr ? nameData[`${props.abr}_last_name`] : nameData.last_name
         }

@@ -115,12 +115,7 @@ const CaregiverReviewForm = (props) => {
         };
         validationObj = [[checkInvalidEmail, "Must be a valid email"]];
         break;
-      case "contact_email2":
-        const checkInvalidEmail2 = (value) => {
-          return !isEmail(value);
-        };
-        validationObj = [[checkInvalidEmail2, "Must be a valid email"]];
-        break;
+
       default:
         validationObj = [[() => {}, ""]];
     }
@@ -165,6 +160,7 @@ const CaregiverReviewForm = (props) => {
 
   const handleEndDateValidation = (event) => {
     const errors = validateIsEmpty(event.target.value, "Please end enter date");
+    //TODO: make sure end date is after start date
     setEndDateErrors(errors);
   };
 
@@ -259,7 +255,7 @@ const CaregiverReviewForm = (props) => {
           helperText={startDateErrors}
         />
         <FormDateInput
-          id="enddate"
+          id="endDate"
           htmlFor="endDate"
           label="Care End Date:"
           onChange={handleInputChange}
