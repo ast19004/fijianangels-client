@@ -2,6 +2,7 @@ import Select from "react-select";
 import FormInput from "./FormInput";
 import { useEffect, useState } from "react";
 import { useUpdateFormData } from "../../../util/formdata";
+import { FormHelperText } from "@mui/material";
 
 const options = [
   { value: "companion-care", label: "Companion Care" },
@@ -52,14 +53,16 @@ const FormSelectServices = (props) => {
   );
 
   return (
-    <FormInput id="select-services" label={label} inputProps={props.inputProps}>
+    <FormInput id="select_services" label={label} inputProps={props.inputProps}>
       <Select
-        id="select-services"
+        id="select_services"
         name="services"
         options={options}
         isMulti
         onChange={handleSelectionChange}
+        onBlur={props.onBlur}
       />
+      <FormHelperText>{props.helperText}</FormHelperText>
     </FormInput>
   );
 };

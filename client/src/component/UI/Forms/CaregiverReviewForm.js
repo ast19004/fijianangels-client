@@ -23,11 +23,6 @@ const CaregiverReviewForm = (props) => {
     contact_phone: "",
     contact_email: "",
   };
-  const serviceErrFreeState = {
-    startDate: "",
-    endDate: "",
-    review: "",
-  };
   const [formHasErrors, setFormHasErrors] = useState(false);
   const [reviewerNameErrors, setReviewerNameErrors] =
     useState(nameErrFreeState);
@@ -35,6 +30,11 @@ const CaregiverReviewForm = (props) => {
     useState(contactErrFreeState);
   const [caregiverNameErrors, setCaregiverNameErrors] =
     useState(nameErrFreeState);
+  const [servicesErrors, setServicesErrors] = useState("");
+  const [startDateErrors, setStateDateErrors] = useState("");
+  const [endDateErrors, setEndDateErrors] = useState("");
+  const [reviewErrors, setReviewErrors] = useState("");
+
   const [reviewInfo, setReviewInfo] = useState({
     todaysDate: currentDate,
     //Reviewer Info
@@ -53,7 +53,7 @@ const CaregiverReviewForm = (props) => {
       middle_name: "",
       last_name: "",
     },
-    servicesProvided: [],
+    services: [],
     startDate: "",
     endDate: "",
     review: "",
@@ -85,13 +85,13 @@ const CaregiverReviewForm = (props) => {
     }
   };
 
-  const validateIsEmpty = (value) => {
+  const validateIsEmpty = (value, errMsg = emptyError) => {
     const validationObj = [
       [
         (value) => {
           return isEmpty(trim(value));
         },
-        emptyError,
+        errMsg,
       ],
     ];
     const errors = validate(value, validationObj);
@@ -114,6 +114,12 @@ const CaregiverReviewForm = (props) => {
           return !isEmail(value);
         };
         validationObj = [[checkInvalidEmail, "Must be a valid email"]];
+        break;
+      case "contact_email2":
+        const checkInvalidEmail2 = (value) => {
+          return !isEmail(value);
+        };
+        validationObj = [[checkInvalidEmail2, "Must be a valid email"]];
         break;
       default:
         validationObj = [[() => {}, ""]];
@@ -139,6 +145,35 @@ const CaregiverReviewForm = (props) => {
   const handleCaregiverNameValidation = (event) => {
     const errors = validateIsEmpty(event.target.value);
     setErrors(event.target.name, errors, setCaregiverNameErrors);
+  };
+
+  const handleServicesValidation = (event) => {
+    const errors = validateIsEmpty(
+      event.target.value,
+      "Please select the services you requested of this caregiver"
+    );
+    setServicesErrors(errors);
+  };
+
+  const handleStartDateValidation = (event) => {
+    const errors = validateIsEmpty(
+      event.target.value,
+      "Please start enter date"
+    );
+    setStateDateErrors(errors);
+  };
+
+  const handleEndDateValidation = (event) => {
+    const errors = validateIsEmpty(event.target.value, "Please end enter date");
+    setEndDateErrors(errors);
+  };
+
+  const handleReviewValidation = (event) => {
+    const errors = validateIsEmpty(
+      event.target.value,
+      "Review needed, tell us about your experience"
+    );
+    setReviewErrors(errors);
   };
 
   //TODO: use the bellow on submit to check the form for errors
@@ -211,20 +246,26 @@ const CaregiverReviewForm = (props) => {
           name="serviceProvided"
           services={reviewInfo.servicesProvided}
           onChange={handleInputChange}
+          onBlur={handleServicesValidation}
+          helperText={servicesErrors}
         />
         <FormDateInput
           id="startDate"
           htmlFor="startDate"
           label="Care Start Date:"
           onChange={handleInputChange}
+          onBlur={handleStartDateValidation}
           value={reviewInfo.startDate}
+          helperText={startDateErrors}
         />
         <FormDateInput
           id="enddate"
           htmlFor="endDate"
           label="Care End Date:"
           onChange={handleInputChange}
+          onBlur={handleEndDateValidation}
           value={reviewInfo.endDate}
+          helperText={endDateErrors}
         />
         <FormTextareaInput
           id="review"
@@ -232,6 +273,8 @@ const CaregiverReviewForm = (props) => {
           name="review"
           value={reviewInfo.review}
           onChange={handleInputChange}
+          onBlur={handleReviewValidation}
+          helperText={reviewErrors}
         />
       </fieldset>
     </Form>

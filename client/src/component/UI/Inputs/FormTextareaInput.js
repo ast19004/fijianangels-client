@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import FormInput from "./FormInput";
 import { useUpdateFormData } from "../../../util/formdata";
+import { FormHelperText } from "@mui/material";
 
 const FormTextareaInput = (props) => {
   const exampleText =
@@ -29,7 +30,9 @@ const FormTextareaInput = (props) => {
         cols={props.col || "33"}
         value={inputValue}
         onChange={handleInputChange}
+        onBlur={props.onBlur}
       />
+      <FormHelperText>{props.helperText}</FormHelperText>
     </FormInput>
   );
 };
