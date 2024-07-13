@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { updateInput } from "../../../util/formdata";
-import { isEmpty, trim } from "validator";
+import { isEmpty, trim, isEmail, isMobilePhone } from "validator";
 
 import FullName from "../InputGroups/FullName";
 import Contact from "../InputGroups/Contact";
@@ -19,21 +19,21 @@ const CaregiverReviewForm = (props) => {
     middle_name: "",
     last_name: "",
   };
-  const errorFreeState = {
-    reviewerContact: {
-      contact_phone: "",
-      _contact_email: "",
-    },
-    servicesProvided: "",
+  const contactErrFreeState = {
+    contact_phone: "",
+    contact_email: "",
+  };
+  const serviceErrFreeState = {
     startDate: "",
     endDate: "",
     review: "",
   };
   const [formHasErrors, setFormHasErrors] = useState(false);
-  const [formErrors, setFormErrors] = useState(errorFreeState);
-  const [reviewerNameErrors, setReviewerFormErrors] =
+  const [reviewerNameErrors, setReviewerNameErrors] =
     useState(nameErrFreeState);
-  const [caregiverNameErrors, setCaregiverFormErrors] =
+  const [reviewerContactErrors, setReviewerContactErrors] =
+    useState(contactErrFreeState);
+  const [caregiverNameErrors, setCaregiverNameErrors] =
     useState(nameErrFreeState);
   const [reviewInfo, setReviewInfo] = useState({
     todaysDate: currentDate,
@@ -45,7 +45,7 @@ const CaregiverReviewForm = (props) => {
     },
     reviewerContact: {
       contact_phone: "",
-      _contact_email: "",
+      contact_email: "",
     },
     //Caregiver Info
     caregiverName: {
@@ -59,47 +59,86 @@ const CaregiverReviewForm = (props) => {
     review: "",
   });
 
-  const resetValidation = () => {
-    // setFormErrors(errorFreeState);
-    return;
-  };
-
   const handleInputChange = (dataName, data) => {
     updateInput(dataName, data, setReviewInfo);
   };
 
   const setErrors = (name, errors, setFunction) => {
-    setFunction((prevState) => {
-      return {
-        ...prevState,
-        [name]: errors,
-      };
-    });
+    setFunction((prevState) => ({
+      ...prevState,
+      [name]: errors,
+    }));
   };
 
-  const handleValidation = (event) => {
-    return;
+  const validate = (value, validationObj) => {
+    let errors = "";
+    for (let [func, errMsg] of validationObj) {
+      //A truthly returning function mean there is an error
+      if (func(value)) {
+        if (Array.isArray(errors)) {
+          errors.push(errMsg);
+        } else {
+          errors = [errMsg];
+        }
+      }
+      return errors;
+    }
+  };
+
+  const validateIsEmpty = (value) => {
+    const validationObj = [
+      [
+        (value) => {
+          return isEmpty(trim(value));
+        },
+        emptyError,
+      ],
+    ];
+    const errors = validate(value, validationObj);
+    return errors;
+  };
+
+  const validateContact = (name, value) => {
+    const emptyError = validateIsEmpty(value);
+    let errors = emptyError;
+    let validationObj;
+    switch (name) {
+      case "contact_phone":
+        const checkInvalidPhone = (value) => {
+          return !isMobilePhone(value, "en-US");
+        };
+        validationObj = [[checkInvalidPhone, "Must be a valid phone #"]];
+        break;
+      case "contact_email":
+        const checkInvalidEmail = (value) => {
+          return !isEmail(value);
+        };
+        validationObj = [[checkInvalidEmail, "Must be a valid email"]];
+        break;
+      default:
+        validationObj = [[() => {}, ""]];
+    }
+    const validationErrors = validate(value, validationObj);
+    errors = errors.length ? errors.concat(validationErrors) : validationErrors;
+    return errors;
   };
 
   const handleReviewerNameValidation = (event) => {
-    let errors = "";
-    if (isEmpty(trim(event.target.value))) {
-      if (Array.isArray(errors)) {
-        errors.push(emptyError);
-      } else {
-        errors = [emptyError];
-      }
-    }
-    console.log("In reviewer name validation function");
-    errors.length &&
-      setErrors(event.target.name, errors, setReviewerFormErrors);
+    const errors = validateIsEmpty(event.target.value);
+    setErrors(event.target.name, errors, setReviewerNameErrors);
+  };
+
+  const handleReviewerContactValidation = (event) => {
+    const errors = validateContact(event.target.name, event.target.value);
+    setReviewerContactErrors((prevState) => ({
+      ...prevState,
+      [event.target.name]: errors,
+    }));
   };
 
   const handleCaregiverNameValidation = (event) => {
-    let errors = "";
-    // isEmpty(trim(value)) &&
-    console.log("In caregiver name validation function");
-    setErrors(event.target.name, errors, setCaregiverFormErrors);
+    const errors = validateIsEmpty(event.target.value);
+    setErrors(event.target.name, errors, setCaregiverNameErrors);
   };
 
   //TODO: use the bellow on submit to check the form for errors
@@ -119,7 +158,7 @@ const CaregiverReviewForm = (props) => {
       const objHasErrors =
         Object.values(obj).filter((value) => value !== "").length !== 0;
       if (objHasErrors) {
-        setFormErrors(true);
+        setFormHasErrors(true);
       }
     }
     console.log("Form has errors: ", formHasErrors);
@@ -139,13 +178,17 @@ const CaregiverReviewForm = (props) => {
           lastName: reviewerNameErrors.last_name[0] || "",
         }}
         onChange={handleInputChange}
-        onFocus={resetValidation}
         onBlur={handleReviewerNameValidation}
       />
       <Contact
         resetStyles
         contact={reviewInfo.reviewerContact}
         name="reviewerContact"
+        helperText={{
+          contact_phone: reviewerContactErrors.contact_phone[0] || "",
+          contact_email: reviewerContactErrors.contact_email[0] || "",
+        }}
+        onBlur={handleReviewerContactValidation}
         onChange={handleInputChange}
       />
       <FullName
@@ -159,7 +202,6 @@ const CaregiverReviewForm = (props) => {
           lastName: caregiverNameErrors.last_name[0] || "",
         }}
         onChange={handleInputChange}
-        onFocus={resetValidation}
         onBlur={handleCaregiverNameValidation}
       />
       <fieldset>
