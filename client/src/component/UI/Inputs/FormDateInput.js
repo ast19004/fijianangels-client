@@ -9,7 +9,9 @@ const FormDateInput = (props) => {
       label={props.label}
       type="date"
       value={props.value}
-      onChange={props.onChange || (() => {})}
+      helperText={props.helperText}
+      onChange={props.onChange}
+      onBlur={props.onBlur}
       errors={props.errors}
       inputProps={props.inputProps}
     />
