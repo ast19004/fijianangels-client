@@ -25,30 +25,30 @@ const options = [
 const FormSelectServices = (props) => {
   const label = props.label || "Services Needed";
 
-  const [selectOptions, setSelectOptions] = useState([]);
-  const handleSelectionChange = (selectedOptions) => {
+  const [selectedOptions, setSelectedOptions] = useState([]);
+  const handleSelectionChange = (event) => {
     // Handle selected options
-    setSelectOptions(selectedOptions.map((item) => item.label));
+    setSelectedOptions([...event]);
   };
 
   //Any name data passed over from parent component
   //is used to set values initially for fullName inputs
   useEffect(() => {
-    setSelectOptions(props.services);
+    setSelectedOptions(props.services);
   }, []);
 
   useEffect(() => {
     if (!props.onChange) {
       return;
     }
-    props.onChange("services", selectOptions);
-  }, [selectOptions]);
+    props.onChange(props.name || "requestedServices", selectedOptions);
+  }, [selectedOptions]);
 
   //Send input value changes to parent component
   // to be saved in a state for this input group
   useUpdateFormData(
     props.name || "requestedServices",
-    selectOptions,
+    selectedOptions,
     props.onChange
   );
 
@@ -58,6 +58,7 @@ const FormSelectServices = (props) => {
         id="select_services"
         name="services"
         options={options}
+        value={selectedOptions}
         isMulti
         onChange={handleSelectionChange}
         onBlur={props.onBlur}
