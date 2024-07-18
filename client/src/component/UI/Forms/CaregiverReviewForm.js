@@ -140,13 +140,15 @@ const CaregiverReviewForm = (props) => {
   };
 
   const handleSelectServiceValidation = (selectedOptions) => {
+    let errors = [];
     const errMsg = "Please select at least one service provided";
     if (!selectedOptions.length) {
-      servicesErrors
-        ? setServicesErrors((prevErrors) => [...prevErrors, errMsg])
-        : setServicesErrors([errMsg]);
+      errors.push(errMsg);
+    }
+    if (!servicesErrors.length && !errors) {
+      return;
     } else {
-      setServicesErrors([]);
+      setServicesErrors(errors);
     }
   };
 

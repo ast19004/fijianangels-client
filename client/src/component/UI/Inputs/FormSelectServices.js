@@ -76,7 +76,9 @@ const FormSelectServices = (props) => {
         // blurInputOnSelect={false}
         onMenuClose={handleSelectionClose}
       />
-      <FormHelperText>{props.helperText}</FormHelperText>
+      <FormHelperText>
+        {!selectedOptions.length && props.helperText}
+      </FormHelperText>
     </FormInput>
   );
 };
