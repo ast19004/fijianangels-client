@@ -1,6 +1,12 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { updateInput } from "../../../util/formdata";
-import { isEmpty, trim, isEmail, isMobilePhone } from "validator";
+import { isEmail, isMobilePhone } from "validator";
+import {
+  validate,
+  validateIsEmpty,
+  setErrors,
+  checkIsFormValid,
+} from "../../../util/validation";
 
 import FullName from "../InputGroups/FullName";
 import Contact from "../InputGroups/Contact";
@@ -13,7 +19,8 @@ import { getTodaysDate } from "../../../util/Date";
 const CaregiverReviewForm = (props) => {
   //TODO: find efficient way to see if form has any errors
   const currentDate = getTodaysDate();
-  const emptyError = "Cannot be empty";
+
+  //Error state initial values
   const nameErrFreeState = {
     first_name: "",
     middle_name: "",
@@ -23,6 +30,8 @@ const CaregiverReviewForm = (props) => {
     contact_phone: "",
     contact_email: "",
   };
+
+  //Error states
   const [formHasErrors, setFormHasErrors] = useState(false);
   const [reviewerNameErrors, setReviewerNameErrors] =
     useState(nameErrFreeState);
@@ -35,6 +44,18 @@ const CaregiverReviewForm = (props) => {
   const [endDateErrors, setEndDateErrors] = useState("");
   const [reviewErrors, setReviewErrors] = useState("");
 
+  //All types on inputErrors
+  const inputErrors = [
+    reviewerNameErrors,
+    reviewerContactErrors,
+    caregiverNameErrors,
+    servicesErrors,
+    startDateErrors,
+    endDateErrors,
+    reviewErrors,
+  ];
+
+  //Form input values
   const [reviewInfo, setReviewInfo] = useState({
     todaysDate: currentDate,
     //Reviewer Info
@@ -63,41 +84,11 @@ const CaregiverReviewForm = (props) => {
     updateInput(dataName, data, setReviewInfo);
   };
 
-  const setErrors = (name, errors, setFunction) => {
-    setFunction((prevState) => ({
-      ...prevState,
-      [name]: errors,
-    }));
+  const handleServiceInputChange = (dataName, data) => {
+    handleInputChange(dataName, data);
   };
 
-  const validate = (value, validationObj) => {
-    let errors = "";
-    for (let [func, errMsg] of validationObj) {
-      //A truthly returning function mean there is an error
-      if (func(value)) {
-        if (Array.isArray(errors)) {
-          errors.push(errMsg);
-        } else {
-          errors = [errMsg];
-        }
-      }
-      return errors;
-    }
-  };
-
-  const validateIsEmpty = (value, errMsg = emptyError) => {
-    const validationObj = [
-      [
-        (value) => {
-          return isEmpty(trim(value));
-        },
-        errMsg,
-      ],
-    ];
-    const errors = validate(value, validationObj);
-    return errors;
-  };
-
+  //Form validation functions
   const validateContact = (name, value) => {
     const emptyError = validateIsEmpty(value);
     let errors = emptyError;
@@ -127,6 +118,8 @@ const CaregiverReviewForm = (props) => {
   const handleReviewerNameValidation = (event) => {
     const errors = validateIsEmpty(event.target.value);
     setErrors(event.target.name, errors, setReviewerNameErrors);
+
+    checkIsFormValid(inputErrors, formHasErrors, setFormHasErrors);
   };
 
   const handleReviewerContactValidation = (event) => {
@@ -135,19 +128,26 @@ const CaregiverReviewForm = (props) => {
       ...prevState,
       [event.target.name]: errors,
     }));
+
+    checkIsFormValid(inputErrors, formHasErrors, setFormHasErrors);
   };
 
   const handleCaregiverNameValidation = (event) => {
     const errors = validateIsEmpty(event.target.value);
     setErrors(event.target.name, errors, setCaregiverNameErrors);
+
+    checkIsFormValid(inputErrors, formHasErrors, setFormHasErrors);
   };
 
-  const handleServicesValidation = (event) => {
-    const errors = validateIsEmpty(
-      event.target.value,
-      "Please select the services you requested of this caregiver"
-    );
-    setServicesErrors(errors);
+  const handleSelectServiceValidation = (selectedOptions) => {
+    const errMsg = "Please select at least one service provided";
+    if (!selectedOptions.length) {
+      servicesErrors
+        ? setServicesErrors((prevErrors) => [...prevErrors, errMsg])
+        : setServicesErrors([errMsg]);
+    } else {
+      setServicesErrors([]);
+    }
   };
 
   const handleStartDateValidation = (event) => {
@@ -156,12 +156,14 @@ const CaregiverReviewForm = (props) => {
       "Please start enter date"
     );
     setStateDateErrors(errors);
+    checkIsFormValid(inputErrors, formHasErrors, setFormHasErrors);
   };
 
   const handleEndDateValidation = (event) => {
     const errors = validateIsEmpty(event.target.value, "Please end enter date");
     //TODO: make sure end date is after start date
     setEndDateErrors(errors);
+    checkIsFormValid(inputErrors, formHasErrors, setFormHasErrors);
   };
 
   const handleReviewValidation = (event) => {
@@ -170,34 +172,22 @@ const CaregiverReviewForm = (props) => {
       "Review needed, tell us about your experience"
     );
     setReviewErrors(errors);
+    checkIsFormValid(inputErrors, formHasErrors, setFormHasErrors);
   };
 
-  //TODO: use the bellow on submit to check the form for errors
-  // useEffect(() => {
-  //   const formErrObjs = [caregiverNameErrors, reviewerNameErrors];
-  //   checkFormErrorStatus(formErrObjs);
-  // }, [caregiverNameErrors, reviewerNameErrors]);
-
-  const checkFormErrorStatus = (errObjs) => {
-    //Reset formErrorStatus to false before check
-    formHasErrors && setFormHasErrors(false);
-    for (let obj of errObjs) {
-      //If form error has already been found do not continue
-      if (formHasErrors) {
-        break;
-      }
-      const objHasErrors =
-        Object.values(obj).filter((value) => value !== "").length !== 0;
-      if (objHasErrors) {
-        setFormHasErrors(true);
-      }
-    }
-    console.log("Form has errors: ", formHasErrors);
+  //Form submit function
+  const handleOnSubmit = (e) => {
+    e.preventDefault();
+    console.log(reviewInfo);
   };
 
   return (
-    <Form title="Caregiver Review" submit>
-      {/* <ProgressBar value={0.5} /> */}
+    <Form
+      title="Caregiver Review"
+      submit
+      onSubmit={handleOnSubmit}
+      submitDisabled={formHasErrors}
+    >
       <FullName
         resetStyles
         legend="Your Name"
@@ -209,7 +199,7 @@ const CaregiverReviewForm = (props) => {
           lastName: reviewerNameErrors.last_name[0] || "",
         }}
         onChange={handleInputChange}
-        onBlur={handleReviewerNameValidation}
+        onMenuClose={handleReviewerNameValidation}
       />
       <Contact
         resetStyles
@@ -239,10 +229,10 @@ const CaregiverReviewForm = (props) => {
         <legend>Services</legend>
         <FormSelectServices
           label="Services Provided"
-          name="serviceProvided"
-          services={reviewInfo.servicesProvided}
-          onChange={handleInputChange}
-          onBlur={handleServicesValidation}
+          name="services"
+          services={reviewInfo.services}
+          onChange={handleServiceInputChange}
+          onMenuClose={handleSelectServiceValidation}
           helperText={servicesErrors}
         />
         <FormDateInput

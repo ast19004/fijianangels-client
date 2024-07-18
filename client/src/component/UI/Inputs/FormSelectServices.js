@@ -3,6 +3,9 @@ import FormInput from "./FormInput";
 import { useEffect, useState } from "react";
 import { useUpdateFormData } from "../../../util/formdata";
 import { FormHelperText } from "@mui/material";
+import makeAnimated from "react-select/animated";
+
+const animatedComponents = makeAnimated();
 
 const options = [
   { value: "companion-care", label: "Companion Care" },
@@ -26,10 +29,6 @@ const FormSelectServices = (props) => {
   const label = props.label || "Services Needed";
 
   const [selectedOptions, setSelectedOptions] = useState([]);
-  const handleSelectionChange = (event) => {
-    // Handle selected options
-    setSelectedOptions([...event]);
-  };
 
   //Any name data passed over from parent component
   //is used to set values initially for fullName inputs
@@ -44,6 +43,17 @@ const FormSelectServices = (props) => {
     props.onChange(props.name || "requestedServices", selectedOptions);
   }, [selectedOptions]);
 
+  const handleSelectionChange = (event) => {
+    // Handle selected options
+    setSelectedOptions(
+      event.filter((obj) => Object.keys(obj).includes("value"))
+    );
+  };
+
+  const handleSelectionClose = () => {
+    props.onMenuClose(selectedOptions);
+  };
+
   //Send input value changes to parent component
   // to be saved in a state for this input group
   useUpdateFormData(
@@ -55,13 +65,16 @@ const FormSelectServices = (props) => {
   return (
     <FormInput id="select_services" label={label} inputProps={props.inputProps}>
       <Select
+        isMulti
         id="select_services"
         name="services"
+        components={animatedComponents}
         options={options}
         value={selectedOptions}
-        isMulti
         onChange={handleSelectionChange}
-        onBlur={props.onBlur}
+        // closeMenuOnSelect={false}
+        // blurInputOnSelect={false}
+        onMenuClose={handleSelectionClose}
       />
       <FormHelperText>{props.helperText}</FormHelperText>
     </FormInput>

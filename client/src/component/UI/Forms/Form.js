@@ -19,6 +19,7 @@ const Form = (props) => {
     <Box
       component="form"
       sx={{ maxWidth: "350px", margin: "0 auto", ...props.sx }}
+      onSubmit={props.onSubmit}
     >
       <Typography
         component="h2"
@@ -62,7 +63,7 @@ const Form = (props) => {
         {!props.multiStep ||
           (!props.hasNextStep && (
             <Button
-              disabled={props.errors}
+              disabled={props.submitDisabled}
               type="submit"
               variant="contained"
               color="primary"
@@ -74,7 +75,7 @@ const Form = (props) => {
         {/* TODO: remove this extra submit button and consolidate it with the submit of above */}
         {props.submit && (
           <Button
-            disabled={props.errors}
+            disabled={props.submitDisabled}
             type="submit"
             variant="contained"
             color="primary"

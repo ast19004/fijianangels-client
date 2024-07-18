@@ -36,3 +36,25 @@ export const setErrors = (name, errors, setFunction) => {
     [name]: errors,
   }));
 };
+
+export const checkIsFormValid = (
+  inputErrors,
+  formHasErrors,
+  setFormHasErrors
+) => {
+  let formInvalid = false;
+  for (let input of inputErrors) {
+    if (formInvalid) {
+      break;
+    }
+    //If inputErrors contains all empty values then there are no errors
+    if (typeof input === "object") {
+      formInvalid = Object.values(input).filter((i) => i !== "").length !== 0;
+    } else {
+      formInvalid = input !== "";
+    }
+
+    !formHasErrors && formInvalid && setFormHasErrors(true);
+    formHasErrors && !formInvalid && setFormHasErrors(false);
+  }
+};
