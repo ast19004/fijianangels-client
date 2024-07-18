@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { updateInput } from "../../../util/formdata";
 import { isEmail, isMobilePhone } from "validator";
 import {
@@ -122,7 +122,7 @@ const CaregiverReviewForm = (props) => {
     checkIsFormValid(inputErrors, formHasErrors, setFormHasErrors);
   };
 
-  const handleReviewerContactValidation = (event) => {
+  const handleContactValidation = (event) => {
     const errors = validateContact(event.target.name, event.target.value);
     setReviewerContactErrors((prevState) => ({
       ...prevState,
@@ -211,7 +211,7 @@ const CaregiverReviewForm = (props) => {
           contact_phone: reviewerContactErrors.contact_phone[0] || "",
           contact_email: reviewerContactErrors.contact_email[0] || "",
         }}
-        onBlur={handleReviewerContactValidation}
+        onBlur={handleContactValidation}
         onChange={handleInputChange}
       />
       <FullName
