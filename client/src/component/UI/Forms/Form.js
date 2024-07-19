@@ -57,23 +57,21 @@ const Form = (props) => {
               Next
             </Button>
           )}
+          {!props.multiStep || !props.hasNextStep ? (
+            <Button
+              disabled={props.submitDisabled}
+              type="submit"
+              variant="contained"
+              color="primary"
+              onClick={props.onSubmit}
+            >
+              Submit
+            </Button>
+          ) : null}
         </ButtonGroup>
-      ) : (
-        !props.hasNextStep && (
-          <Button
-            disabled={props.submitDisabled}
-            type="submit"
-            variant="contained"
-            color="primary"
-            onClick={props.onSubmit}
-          >
-            Submit
-          </Button>
-        )
-      )}
+      ) : null}
       {/* TODO: remove this extra submit button and consolidate it with the submit of above */}
-      :(
-      {props.submit ? (
+      {props.submit && (
         <Button
           sx={{ display: "block", margin: "16px auto 0 auto" }}
           disabled={props.submitDisabled}
@@ -84,8 +82,7 @@ const Form = (props) => {
         >
           Submit
         </Button>
-      ) : null}
-      )
+      )}
     </Box>
   );
 };
