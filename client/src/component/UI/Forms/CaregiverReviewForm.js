@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { updateInput } from "../../../util/formdata";
 import { isEmail, isMobilePhone } from "validator";
 import {
@@ -118,8 +118,6 @@ const CaregiverReviewForm = (props) => {
   const handleReviewerNameValidation = (event) => {
     const errors = validateIsEmpty(event.target.value);
     setErrors(event.target.name, errors, setReviewerNameErrors);
-
-    checkIsFormValid(inputErrors, formHasErrors, setFormHasErrors);
   };
 
   const handleContactValidation = (event) => {
@@ -128,15 +126,11 @@ const CaregiverReviewForm = (props) => {
       ...prevState,
       [event.target.name]: errors,
     }));
-
-    checkIsFormValid(inputErrors, formHasErrors, setFormHasErrors);
   };
 
   const handleCaregiverNameValidation = (event) => {
     const errors = validateIsEmpty(event.target.value);
     setErrors(event.target.name, errors, setCaregiverNameErrors);
-
-    checkIsFormValid(inputErrors, formHasErrors, setFormHasErrors);
   };
 
   const handleSelectServiceValidation = (selectedOptions) => {
@@ -158,14 +152,12 @@ const CaregiverReviewForm = (props) => {
       "Please start enter date"
     );
     setStateDateErrors(errors);
-    checkIsFormValid(inputErrors, formHasErrors, setFormHasErrors);
   };
 
   const handleEndDateValidation = (event) => {
     const errors = validateIsEmpty(event.target.value, "Please end enter date");
     //TODO: make sure end date is after start date
     setEndDateErrors(errors);
-    checkIsFormValid(inputErrors, formHasErrors, setFormHasErrors);
   };
 
   const handleReviewValidation = (event) => {
@@ -174,13 +166,39 @@ const CaregiverReviewForm = (props) => {
       "Review needed, tell us about your experience"
     );
     setReviewErrors(errors);
-    checkIsFormValid(inputErrors, formHasErrors, setFormHasErrors);
+  };
+
+  //Check all input values in an obj that have required keys
+  //eturn empty if any required inputs are empty
+  const hasEmptyRequiredInputs = (obj) => {
+    const nonRequiredInputKeys = ["middle_name"];
+    //Check if any required inputs are empty
+    let hasEmpty = false;
+    for (let [key, value] of Object.entries(obj)) {
+      if (hasEmpty) {
+        break;
+      }
+      if (nonRequiredInputKeys.includes(key)) {
+        return;
+      }
+      if ((Array.isArray(value) && !value.length) || value === "") {
+        hasEmpty = true;
+      } else if (typeof value == "object") {
+        hasEmptyRequiredInputs(value);
+      }
+    }
+    return hasEmpty;
   };
 
   //Form submit function
   const handleOnSubmit = (e) => {
     e.preventDefault();
-    console.log(reviewInfo);
+    hasEmptyRequiredInputs(reviewInfo);
+
+    checkIsFormValid(inputErrors, formHasErrors, setFormHasErrors);
+    if (formHasErrors) {
+      console.log(formHasErrors);
+    }
   };
 
   return (
@@ -201,7 +219,7 @@ const CaregiverReviewForm = (props) => {
           lastName: reviewerNameErrors.last_name[0] || "",
         }}
         onChange={handleInputChange}
-        onMenuClose={handleReviewerNameValidation}
+        onBlur={handleReviewerNameValidation}
       />
       <Contact
         resetStyles
