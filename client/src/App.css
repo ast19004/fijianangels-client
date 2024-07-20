@@ -38,6 +38,11 @@
 }
 
 /* --- Html Elements--- */
+input:required,
+textarea:required,
+#select_services {
+  border: 1px solid #555 !important;
+}
 body {
   margin-bottom: 50px;
 }

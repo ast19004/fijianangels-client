@@ -31,6 +31,7 @@ const FormTextareaInput = (props) => {
         value={inputValue}
         onChange={handleInputChange}
         onBlur={props.onBlur}
+        required={props.inputProps.required}
       />
       <FormHelperText>{props.helperText}</FormHelperText>
     </FormInput>

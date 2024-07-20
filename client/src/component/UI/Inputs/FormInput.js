@@ -17,7 +17,10 @@ const FormInput = (props) => {
   }, [inputValue]);
 
   return (
-    <FormControl sx={{ margin: "1rem", backgroundColor: "white" }}>
+    <FormControl
+      className={props.className}
+      sx={{ margin: "1rem", backgroundColor: "white" }}
+    >
       <FormLabel htmlFor={props.id}>{props.label}</FormLabel>
       {props.children || (
         <CustomTextField

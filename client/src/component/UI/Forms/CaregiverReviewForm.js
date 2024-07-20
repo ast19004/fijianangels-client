@@ -7,17 +7,18 @@ import {
   setErrors,
   checkIsFormValid,
 } from "../../../util/validation";
+import { smoothScrollToTop } from "../../../util/scroll";
 
 import FullName from "../InputGroups/FullName";
 import Contact from "../InputGroups/Contact";
 import Form from "../Forms/Form";
 import FormTextareaInput from "../Inputs/FormTextareaInput";
 import FormSelectServices from "../Inputs/FormSelectServices";
-import FormDateInput from "../Inputs/FormDateInput";
+import DateRange from "../InputGroups/DateRange";
 import { getTodaysDate } from "../../../util/Date";
+import { Typography } from "@mui/material";
 
 const CaregiverReviewForm = (props) => {
-  //TODO: find efficient way to see if form has any errors
   const currentDate = getTodaysDate();
 
   //Error state initial values
@@ -33,6 +34,7 @@ const CaregiverReviewForm = (props) => {
 
   //Error states
   const [formHasErrors, setFormHasErrors] = useState(false);
+  const [formIncomplete, setFormIncomplete] = useState(false);
   const [reviewerNameErrors, setReviewerNameErrors] =
     useState(nameErrFreeState);
   const [reviewerContactErrors, setReviewerContactErrors] =
@@ -40,7 +42,7 @@ const CaregiverReviewForm = (props) => {
   const [caregiverNameErrors, setCaregiverNameErrors] =
     useState(nameErrFreeState);
   const [servicesErrors, setServicesErrors] = useState("");
-  const [startDateErrors, setStateDateErrors] = useState("");
+  const [startDateErrors, setStartDateErrors] = useState("");
   const [endDateErrors, setEndDateErrors] = useState("");
   const [reviewErrors, setReviewErrors] = useState("");
 
@@ -146,18 +148,30 @@ const CaregiverReviewForm = (props) => {
     }
   };
 
-  const handleStartDateValidation = (event) => {
-    const errors = validateIsEmpty(
-      event.target.value,
-      "Please start enter date"
-    );
-    setStateDateErrors(errors);
-  };
-
-  const handleEndDateValidation = (event) => {
-    const errors = validateIsEmpty(event.target.value, "Please end enter date");
-    //TODO: make sure end date is after start date
-    setEndDateErrors(errors);
+  const handleDateValidation = (event) => {
+    const name = event.target.name;
+    const value = event.target.value;
+    let errors = "";
+    const startErrMsg = "Start date must be a date < end date";
+    const endErrMsg = "End date must be a date > start date";
+    switch (name) {
+      case "startDate":
+        errors = validateIsEmpty(value, "Please enter start date");
+        if (reviewInfo.endDate && value > reviewInfo.endDate) {
+          errors.length ? errors.push(startErrMsg) : (errors = [startErrMsg]);
+        }
+        setStartDateErrors(errors);
+        break;
+      case "endDate":
+        errors = validateIsEmpty(value, "Please enter end date");
+        if (!reviewInfo.startDate || value < reviewInfo.startDate) {
+          errors.length ? errors.push(endErrMsg) : (errors = [endErrMsg]);
+        }
+        setEndDateErrors(errors);
+        break;
+      default:
+        break;
+    }
   };
 
   const handleReviewValidation = (event) => {
@@ -193,21 +207,27 @@ const CaregiverReviewForm = (props) => {
   //Form submit function
   const handleOnSubmit = (e) => {
     e.preventDefault();
-    hasEmptyRequiredInputs(reviewInfo);
-
+    const isIncomplete = hasEmptyRequiredInputs(reviewInfo);
+    setFormIncomplete(isIncomplete);
     checkIsFormValid(inputErrors, formHasErrors, setFormHasErrors);
-    if (formHasErrors) {
-      console.log(formHasErrors);
+    if (!formHasErrors && !isIncomplete) {
+      console.log(reviewInfo);
+    } else {
+      smoothScrollToTop();
     }
   };
 
   return (
-    <Form
-      title="Caregiver Review"
-      submit
-      onSubmit={handleOnSubmit}
-      submitDisabled={formHasErrors}
-    >
+    <Form title="Caregiver Review" submit onSubmit={handleOnSubmit}>
+      {formIncomplete && (
+        <Typography
+          component="span"
+          align="center"
+          sx={{ display: "block", color: "red", fontSize: "1.2rem" }}
+        >
+          <i>Please fill out all required input fields</i>
+        </Typography>
+      )}
       <FullName
         resetStyles
         legend="Your Name"
@@ -254,24 +274,20 @@ const CaregiverReviewForm = (props) => {
           onChange={handleServiceInputChange}
           onMenuClose={handleSelectServiceValidation}
           helperText={servicesErrors}
+          inputProps={{ required: true }}
         />
-        <FormDateInput
-          id="startDate"
-          htmlFor="startDate"
-          label="Care Start Date:"
+        <DateRange
           onChange={handleInputChange}
-          onBlur={handleStartDateValidation}
-          value={reviewInfo.startDate}
-          helperText={startDateErrors}
-        />
-        <FormDateInput
-          id="endDate"
-          htmlFor="endDate"
-          label="Care End Date:"
-          onChange={handleInputChange}
-          onBlur={handleEndDateValidation}
-          value={reviewInfo.endDate}
-          helperText={endDateErrors}
+          onValidate={handleDateValidation}
+          inputProps={{ required: true }}
+          startId="startDate"
+          startLabel="Care Start Date:"
+          startValue={reviewInfo.startDate}
+          startHelperText={startDateErrors}
+          endId="endDate"
+          endLabel="Care End Date:"
+          endValue={reviewInfo.endDate}
+          endHelperText={endDateErrors}
         />
         <FormTextareaInput
           id="review"
@@ -281,6 +297,7 @@ const CaregiverReviewForm = (props) => {
           onChange={handleInputChange}
           onBlur={handleReviewValidation}
           helperText={reviewErrors}
+          inputProps={{ required: true }}
         />
       </fieldset>
     </Form>

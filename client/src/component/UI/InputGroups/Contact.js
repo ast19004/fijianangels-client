@@ -32,6 +32,7 @@ const Contact = (props) => {
         helperText={props.helperText.contact_phone}
         onChange={handleChange}
         onBlur={props.onBlur}
+        inputProps={{ required: true }}
       />
       <FormEmailInput
         id="contact_email"
@@ -40,6 +41,7 @@ const Contact = (props) => {
         helperText={props.helperText.contact_email}
         onChange={handleChange}
         onBlur={props.onBlur}
+        inputProps={{ required: true }}
       />
     </CustomFieldset>
   );

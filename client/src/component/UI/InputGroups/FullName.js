@@ -40,6 +40,7 @@ const FullName = (props) => {
         value={
           props.abr ? nameData[`${props.abr}_first_name`] : nameData.first_name
         }
+        inputProps={{ required: true }}
       />
       <FormTextInput
         id={middle}
@@ -66,6 +67,7 @@ const FullName = (props) => {
         value={
           props.abr ? nameData[`${props.abr}_last_name`] : nameData.last_name
         }
+        inputProps={{ required: true }}
       />
     </CustomFieldset>
   );

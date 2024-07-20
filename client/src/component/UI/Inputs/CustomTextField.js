@@ -14,9 +14,7 @@ const CustomTextField = (props) => {
       onChange={props.onChange}
       onBlur={props.onBlur}
       onFocus={props.onFocus}
-      inputProps={{
-        ...props.inputProps,
-      }}
+      inputProps={props.inputProps}
     />
   );
 };

@@ -1,29 +1,27 @@
-import { useState } from "react";
 import FormDateInput from "../Inputs/FormDateInput";
 
 const DateRange = (props) => {
-  const [dates, setDates] = useState(props.range);
-
-  const handleChange = (updatedDates) => {
-    setDates((prevDates) => {
-      return { ...prevDates, ...updatedDates };
-    });
-  };
   return (
     <>
       <FormDateInput
         id={props.startId}
-        htmlFor={props.stateHtmlFor}
+        htmlFor={props.startId}
         label={props.startLabel}
-        onChange={handleChange}
-        value={dates.startDate}
+        onChange={props.onChange}
+        onBlur={props.onValidate}
+        value={props.startValue}
+        helperText={props.startHelperText}
+        inputProps={props.inputProps}
       />
       <FormDateInput
         id={props.endId}
-        htmlFor={props.endHtmlFor}
+        htmlFor={props.endId}
         label={props.endLabel}
-        onChange={handleChange}
-        value={dates.endDate}
+        onChange={props.onChange}
+        onBlur={props.onValidate}
+        value={props.endValue}
+        helperText={props.endHelperText}
+        inputProps={props.inputProps}
       />
     </>
   );

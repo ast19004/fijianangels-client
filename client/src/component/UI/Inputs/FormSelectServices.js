@@ -63,7 +63,12 @@ const FormSelectServices = (props) => {
   );
 
   return (
-    <FormInput id="select_services" label={label} inputProps={props.inputProps}>
+    <FormInput
+      id="select_services"
+      className="services"
+      label={label}
+      inputProps={props.inputProps}
+    >
       <Select
         isMulti
         id="select_services"
@@ -72,8 +77,6 @@ const FormSelectServices = (props) => {
         options={options}
         value={selectedOptions}
         onChange={handleSelectionChange}
-        // closeMenuOnSelect={false}
-        // blurInputOnSelect={false}
         onMenuClose={handleSelectionClose}
       />
       <FormHelperText>
