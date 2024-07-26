@@ -3,7 +3,8 @@ import { MenuList, MenuItem } from "@mui/material";
 const FormsSubNavigation = (props) => {
   function handleLink(event, link) {
     event.preventDefault();
-    window.open(link, "_blank");
+    const baseURL = window.location.origin;
+    window.open(`${baseURL}${link}`, "_blank");
   }
   function handleEmployeeForm(event) {
     handleLink(event, "/employment-form");

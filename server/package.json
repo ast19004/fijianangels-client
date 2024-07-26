@@ -1,6 +1,7 @@
 {
   "name": "server",
   "version": "1.0.0",
+  "homepage": "http://localhost:5000",
   "description": "fijian angels server",
   "main": "index.js",
   "scripts": {

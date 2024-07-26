@@ -24,7 +24,13 @@ app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.text({ type: "text/plain" }));
 
-app.use(express.static(path.join(__dirname + "/public")));
+// Serve static files from the React app's build directory
+app.use(express.static(path.join(__dirname, "public")));
+
+// For any other route, serve the index.html file
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "public", "index.html"));
+});
 
 app.use((req, res, next) => {
   res.setHeader("Access-Control-Allow-Origin", "*");

@@ -17,7 +17,7 @@ import CaregiverReviewForm from "./component/UI/Forms/CaregiverReviewForm";
 function App() {
   return (
     <div className="App">
-      <BrowserRouter>
+      <BrowserRouter basename="/">
         <Header />
         <Routes>
           <Route
