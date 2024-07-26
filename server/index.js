@@ -8,6 +8,9 @@ const swaggerUi = require("swagger-ui-express"),
 const express = require("express");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
+const careReviewRoutes = require("./routes/forms/carereview");
+
+const cors = require("cors");
 
 const path = require("path");
 
@@ -17,6 +20,7 @@ const uri = process.env.MONGODB_URI;
 
 const app = express();
 
+app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.text({ type: "text/plain" }));
 
@@ -29,7 +33,10 @@ app.use((req, res, next) => {
   next();
 });
 
-// app.use(userRoutes);
+app.post("/send-email", () => {
+  console.log("Backend");
+});
+// app.use(careReviewRoutes);
 
 mongoose
   .connect(uri)

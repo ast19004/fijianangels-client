@@ -1,4 +1,7 @@
 import { useState } from "react";
+import { PDFViewer, pdf } from "@react-pdf/renderer";
+import { CaregiverReviewPDF } from "./PDF/CareReview";
+
 import { updateInput } from "../../../util/formdata";
 import { isEmail, isMobilePhone } from "validator";
 import {
@@ -204,6 +207,33 @@ const CaregiverReviewForm = (props) => {
     return hasEmpty;
   };
 
+  //Generate pdf and send to company email
+  const generateAndSendPDF = async (reviewInfo) => {
+    // Generate PDF and get its Blob
+    const blob = await pdf(
+      <CaregiverReviewPDF reviewInfo={reviewInfo} />
+    ).toBlob();
+    // Send the Blob to the backend
+    // Send the Blob and form data to the backend
+    const formData = new FormData();
+    formData.append(
+      "file",
+      blob,
+      `Review_${reviewInfo.reviewerName.last_name},${reviewInfo.reviewerName.first_name}.pdf`
+    );
+    formData.append(
+      "name",
+      `${reviewInfo.reviewerName.first_name} ${reviewInfo.reviewerName.last_name}`
+    );
+    formData.append("email", reviewInfo.reviewerContact.contact_email);
+    formData.append("message", "Please view the attached PDF");
+
+    await fetch("http://localhost:5000/send-email", {
+      method: "POST",
+      body: formData,
+    });
+  };
+
   //Form submit function
   const handleOnSubmit = (e) => {
     e.preventDefault();
@@ -211,96 +241,101 @@ const CaregiverReviewForm = (props) => {
     setFormIncomplete(isIncomplete);
     checkIsFormValid(inputErrors, formHasErrors, setFormHasErrors);
     if (!formHasErrors && !isIncomplete) {
-      console.log(reviewInfo);
+      generateAndSendPDF(reviewInfo);
     } else {
       smoothScrollToTop();
     }
   };
 
   return (
-    <Form title="Caregiver Review" submit onSubmit={handleOnSubmit}>
-      {formIncomplete && (
-        <Typography
-          component="span"
-          align="center"
-          sx={{ display: "block", color: "red", fontSize: "1.2rem" }}
-        >
-          <i>Please fill out all required input fields</i>
-        </Typography>
-      )}
-      <FullName
-        resetStyles
-        legend="Your Name"
-        fullName={reviewInfo.reviewerName}
-        name="reviewerName"
-        helperText={{
-          firstName: reviewerNameErrors.first_name[0] || "",
-          middleName: reviewerNameErrors.middle_name[0] || "",
-          lastName: reviewerNameErrors.last_name[0] || "",
-        }}
-        onChange={handleInputChange}
-        onBlur={handleReviewerNameValidation}
-      />
-      <Contact
-        resetStyles
-        contact={reviewInfo.reviewerContact}
-        name="reviewerContact"
-        helperText={{
-          contact_phone: reviewerContactErrors.contact_phone[0] || "",
-          contact_email: reviewerContactErrors.contact_email[0] || "",
-        }}
-        onBlur={handleContactValidation}
-        onChange={handleInputChange}
-      />
-      <FullName
-        resetStyles
-        legend="Caregiver Name"
-        fullName={reviewInfo.caregiverName}
-        name="caregiverName"
-        helperText={{
-          firstName: caregiverNameErrors.first_name[0] || "",
-          middleName: caregiverNameErrors.middle_name[0] || "",
-          lastName: caregiverNameErrors.last_name[0] || "",
-        }}
-        onChange={handleInputChange}
-        onBlur={handleCaregiverNameValidation}
-      />
-      <fieldset>
-        <legend>Services</legend>
-        <FormSelectServices
-          label="Services Provided"
-          name="services"
-          services={reviewInfo.services}
-          onChange={handleServiceInputChange}
-          onMenuClose={handleSelectServiceValidation}
-          helperText={servicesErrors}
-          inputProps={{ required: true }}
-        />
-        <DateRange
+    <>
+      {/* <PDFViewer height="1200" width="100%">
+        <CaregiverReviewPDF reviewInfo={reviewInfo} />
+      </PDFViewer> */}
+      <Form title="Caregiver Review" submit onSubmit={handleOnSubmit}>
+        {formIncomplete && (
+          <Typography
+            component="span"
+            align="center"
+            sx={{ display: "block", color: "red", fontSize: "1.2rem" }}
+          >
+            <i>Please fill out all required input fields</i>
+          </Typography>
+        )}
+        <FullName
+          resetStyles
+          legend="Your Name"
+          fullName={reviewInfo.reviewerName}
+          name="reviewerName"
+          helperText={{
+            firstName: reviewerNameErrors.first_name[0] || "",
+            middleName: reviewerNameErrors.middle_name[0] || "",
+            lastName: reviewerNameErrors.last_name[0] || "",
+          }}
           onChange={handleInputChange}
-          onValidate={handleDateValidation}
-          inputProps={{ required: true }}
-          startId="startDate"
-          startLabel="Care Start Date:"
-          startValue={reviewInfo.startDate}
-          startHelperText={startDateErrors}
-          endId="endDate"
-          endLabel="Care End Date:"
-          endValue={reviewInfo.endDate}
-          endHelperText={endDateErrors}
+          onBlur={handleReviewerNameValidation}
         />
-        <FormTextareaInput
-          id="review"
-          label="Caregiver Review"
-          name="review"
-          value={reviewInfo.review}
+        <Contact
+          resetStyles
+          contact={reviewInfo.reviewerContact}
+          name="reviewerContact"
+          helperText={{
+            contact_phone: reviewerContactErrors.contact_phone[0] || "",
+            contact_email: reviewerContactErrors.contact_email[0] || "",
+          }}
+          onBlur={handleContactValidation}
           onChange={handleInputChange}
-          onBlur={handleReviewValidation}
-          helperText={reviewErrors}
-          inputProps={{ required: true }}
         />
-      </fieldset>
-    </Form>
+        <FullName
+          resetStyles
+          legend="Caregiver Name"
+          fullName={reviewInfo.caregiverName}
+          name="caregiverName"
+          helperText={{
+            firstName: caregiverNameErrors.first_name[0] || "",
+            middleName: caregiverNameErrors.middle_name[0] || "",
+            lastName: caregiverNameErrors.last_name[0] || "",
+          }}
+          onChange={handleInputChange}
+          onBlur={handleCaregiverNameValidation}
+        />
+        <fieldset>
+          <legend>Services</legend>
+          <FormSelectServices
+            label="Services Provided"
+            name="services"
+            services={reviewInfo.services}
+            onChange={handleServiceInputChange}
+            onMenuClose={handleSelectServiceValidation}
+            helperText={servicesErrors}
+            inputProps={{ required: true }}
+          />
+          <DateRange
+            onChange={handleInputChange}
+            onValidate={handleDateValidation}
+            inputProps={{ required: true }}
+            startId="startDate"
+            startLabel="Care Start Date:"
+            startValue={reviewInfo.startDate}
+            startHelperText={startDateErrors}
+            endId="endDate"
+            endLabel="Care End Date:"
+            endValue={reviewInfo.endDate}
+            endHelperText={endDateErrors}
+          />
+          <FormTextareaInput
+            id="review"
+            label="Caregiver Review"
+            name="review"
+            value={reviewInfo.review}
+            onChange={handleInputChange}
+            onBlur={handleReviewValidation}
+            helperText={reviewErrors}
+            inputProps={{ required: true }}
+          />
+        </fieldset>
+      </Form>
+    </>
   );
 };
 
