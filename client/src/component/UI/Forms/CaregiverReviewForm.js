@@ -213,7 +213,6 @@ const CaregiverReviewForm = (props) => {
     const blob = await pdf(
       <CaregiverReviewPDF reviewInfo={reviewInfo} />
     ).toBlob();
-    // Send the Blob to the backend
     // Send the Blob and form data to the backend
     const formData = new FormData();
     formData.append(
@@ -231,7 +230,10 @@ const CaregiverReviewForm = (props) => {
     await fetch("http://localhost:5000/send-email", {
       method: "POST",
       body: formData,
-    });
+    })
+      .then((response) => response.json())
+      .then((data) => console.log("Success", data))
+      .catch((err) => console.log(err));
   };
 
   //Form submit function

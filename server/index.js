@@ -38,8 +38,9 @@ app.use((req, res, next) => {
   next();
 });
 
-app.post("/send-email", () => {
-  console.log("Backend");
+app.post("/send-email", (req, res) => {
+  console.log("Backend", req.body);
+  res.send("Done");
 });
 // app.use(careReviewRoutes);
 
