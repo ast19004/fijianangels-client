@@ -7,6 +7,9 @@ const FormTextareaInput = (props) => {
   const exampleText =
     props.exampleText || "My experience with this caregiver was...";
 
+  const { inputProps = {} } = props; // Default to an empty object if inputProps is undefined
+  const { required = false } = inputProps; // Default to false if required is undefined
+
   const [inputValue, setInputValue] = useState(exampleText);
 
   //Any name data passed over from parent component
@@ -31,7 +34,7 @@ const FormTextareaInput = (props) => {
         value={inputValue}
         onChange={handleInputChange}
         onBlur={props.onBlur}
-        required={props.inputProps.required}
+        required={required}
       />
       <FormHelperText>{props.helperText}</FormHelperText>
     </FormInput>

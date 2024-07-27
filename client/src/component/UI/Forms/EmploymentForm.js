@@ -2,10 +2,7 @@ import { useState } from "react";
 
 import { convertFormToPDF } from "../../../util/formdata";
 
-import {
-  EmploymentFormContextProvider,
-  EmploymentFormContext,
-} from "../../../store/EmploymentForm/employment-form-context.js";
+import { EmploymentFormContextProvider } from "../../../store/EmploymentForm/employment-form-context.js";
 import ApplicantInfo from "../Fieldsets/ApplicantInfo";
 import EducationInfo from "../Fieldsets/EducationInfo.js";
 import ReferencesInfo from "../Fieldsets/ReferencesInfo";

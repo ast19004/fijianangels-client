@@ -55,7 +55,17 @@ const ApplicantInfo = (props) => {
       />
       <FullName fullName={applicant.fullName} onChange={handleInputChange} />
       <Address address={applicant.address} onChange={handleInputChange} />
-      <Contact contact={applicant.contact} onChange={handleInputChange} />
+      <Contact
+        name="contact"
+        resetStyles
+        contact={applicant.contact}
+        onChange={handleInputChange}
+        // helperText={{
+        //   contact_phone: reviewerContactErrors.contact_phone[0] || "",
+        //   contact_email: reviewerContactErrors.contact_email[0] || "",
+        // }}
+        // onBlur={handleContactValidation}
+      />
       <EmploymentEligibility
         eligibility={applicant.eligibility}
         onChange={handleInputChange}

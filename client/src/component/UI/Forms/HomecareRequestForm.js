@@ -7,7 +7,6 @@ import Contact from "../InputGroups/Contact";
 import Form from "../Forms/Form";
 import FormTextareaInput from "../Inputs/FormTextareaInput";
 import FormSelectServices from "../Inputs/FormSelectServices";
-import ProgressBar from "../ProgressBar";
 
 const HomecareRequestForm = (props) => {
   const currentDate = getTodaysDate();
@@ -39,12 +38,21 @@ const HomecareRequestForm = (props) => {
         contact={request.contact}
         onChange={handleInputChange}
         resetStyles
+        helperText={{
+          contact_phone: "",
+          contact_email: "",
+        }}
       />
       <fieldset>
         <legend>Services</legend>
         <FormSelectServices
-          services={props.requestedServices}
+          label="Requested Services"
+          name="requestedServices"
+          services={request.requestedServices}
           onChange={handleInputChange}
+          // onMenuClose={handleSelectServiceValidation}
+          // helperText={servicesErrors}
+          inputProps={{ required: true }}
         />
         <FormTextareaInput
           id="extra_info"
