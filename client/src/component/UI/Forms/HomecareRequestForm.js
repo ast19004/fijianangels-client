@@ -50,7 +50,7 @@ const HomecareRequestForm = (props) => {
           name="requestedServices"
           services={request.requestedServices}
           onChange={handleInputChange}
-          // onMenuClose={handleSelectServiceValidation}
+          onMenuClose={() => {}}
           // helperText={servicesErrors}
           inputProps={{ required: true }}
         />

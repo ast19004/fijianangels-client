@@ -9,35 +9,35 @@ import noImage from "../assests/images/no-image.svg";
 function Staff(props) {
   const staffMembers = [
     {
-      staffMember: "Kyle Colata",
+      staffMember: "Name 1",
       image: staff1,
     },
     {
-      staffMember: "Ana Colata",
+      staffMember: "Name 2",
       image: staff2,
     },
     {
-      staffMember: "Kyle Colata",
+      staffMember: "Name 3",
       image: staff3,
     },
     {
-      staffMember: "Ana Colata",
+      staffMember: "Name 4",
       image: noImage,
     },
     {
-      staffMember: "Kyle Colata",
+      staffMember: "Name 5",
       image: noImage,
     },
     {
-      staffMember: "Ana Colata",
+      staffMember: "Name 6",
       image: noImage,
     },
     {
-      staffMember: "Kyle Colata",
+      staffMember: "Name 7",
       image: noImage,
     },
     {
-      staffMember: "Ana Colata",
+      staffMember: "Name 8",
       image: noImage,
     },
   ];

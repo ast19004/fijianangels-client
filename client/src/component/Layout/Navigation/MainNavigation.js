@@ -88,7 +88,7 @@ const MainNavigation = (props) => {
                 placement === "bottom-start" ? "left top" : "left bottom",
             }}
           >
-            <Paper elevation={24} variant="outlined" square={false}>
+            <Paper elevation={0} variant="outlined" square={false}>
               <ClickAwayListener onClickAway={handleClose}>
                 <MenuList
                   sx={{
