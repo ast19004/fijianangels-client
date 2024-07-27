@@ -1,6 +1,6 @@
-// if (process.env.NODE_ENV !== "production") {
-require("dotenv").config();
-// }
+if (process.env.NODE_ENV !== "production") {
+  require("dotenv").config();
+}
 
 const swaggerUi = require("swagger-ui-express"),
   swaggerDocument = require("./swagger.json");
@@ -16,7 +16,6 @@ const path = require("path");
 
 const PORT = process.env.PORT || 5000;
 const uri = process.env.MONGODB_URI;
-// const userRoutes = require("./routes/user");
 
 const app = express();
 
