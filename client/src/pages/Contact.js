@@ -10,9 +10,8 @@ function Contact() {
         displayBlock
         header=""
         multiParagraph={[
-          "Office # 510-612-7595",
+          "Office # 510-612-7595 / 650-518-0532",
           "510-812-9475",
-          "650-518-0532",
           "724-434-4646",
         ]}
         lineHeight={1.2}
