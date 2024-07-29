@@ -6,10 +6,10 @@ const swaggerUi = require("swagger-ui-express"),
   swaggerDocument = require("./swagger.json");
 
 const express = require("express");
-const multer = require("multer");
 
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
+const { uploadFile, sendEmail } = require("./middleware/upload");
 const careReviewRoutes = require("./routes/forms/carereview");
 
 const cors = require("cors");
@@ -18,10 +18,6 @@ const path = require("path");
 
 const PORT = process.env.PORT || 5000;
 const uri = process.env.MONGODB_URI;
-
-// Set up storage for multer
-const storage = multer.memoryStorage();
-const upload = multer({ storage: storage });
 
 const app = express();
 
@@ -44,22 +40,7 @@ app.use((req, res, next) => {
   next();
 });
 
-app.post("/send-email", upload.single("file"), (req, res) => {
-  // Access the file and other form data
-  const file = req.file;
-  const name = req.body.name;
-  const email = req.body.email;
-  const message = req.body.message;
-
-  // Log the received data for debugging
-  console.log("File:", file);
-  console.log("Name:", name);
-  console.log("Email:", email);
-  console.log("Message:", message);
-
-  // Your email sending logic here
-  res.json({ message: "File received and processed successfully" });
-});
+app.post("/send-email", uploadFile, sendEmail);
 // app.use(careReviewRoutes);
 
 mongoose
