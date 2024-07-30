@@ -1,8 +1,9 @@
 {
   "files": {
     "main.css": "/static/css/main.0caaf582.css",
-    "main.js": "/static/js/main.d56e8b94.js",
+    "main.js": "/static/js/main.80b2423f.js",
     "static/js/592.599f76a2.chunk.js": "/static/js/592.599f76a2.chunk.js",
+    "static/media/homecare-main.jpg": "/static/media/homecare-main.0f6d5d4c681dddea1af7.jpg",
     "static/media/staff1-400px.jpg": "/static/media/staff1-400px.55d03136fec0ec182dea.jpg",
     "static/media/staff3-400px.jpg": "/static/media/staff3-400px.a4d3888e5a72f6499010.jpg",
     "static/media/staff2-400px.jpg": "/static/media/staff2-400px.25eb304884148aa0dd78.jpg",
@@ -10,11 +11,11 @@
     "index.html": "/index.html",
     "static/media/flowerLogo.svg": "/static/media/flowerLogo.b420300e633d29e119de6187a816a241.svg",
     "main.0caaf582.css.map": "/static/css/main.0caaf582.css.map",
-    "main.d56e8b94.js.map": "/static/js/main.d56e8b94.js.map",
+    "main.80b2423f.js.map": "/static/js/main.80b2423f.js.map",
     "592.599f76a2.chunk.js.map": "/static/js/592.599f76a2.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.0caaf582.css",
-    "static/js/main.d56e8b94.js"
+    "static/js/main.80b2423f.js"
   ]
 }
