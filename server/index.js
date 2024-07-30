@@ -10,7 +10,6 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const { uploadFile, sendEmail } = require("./middleware/upload");
-const careReviewRoutes = require("./routes/forms/carereview");
 
 const cors = require("cors");
 
@@ -41,7 +40,6 @@ app.use((req, res, next) => {
 });
 
 app.post("/send-email", uploadFile, sendEmail);
-// app.use(careReviewRoutes);
 
 mongoose
   .connect(uri)

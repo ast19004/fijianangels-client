@@ -57,7 +57,7 @@ function Staff(props) {
         // }}
       >
         {staffMembers.map((member) => (
-          <Grid item key={member.staffMember}>
+          <Grid item key={member.staffMember} xs={12} sm={4} md={3}>
             <StaffThumbnail
               image={member.image}
               staffMember={member.staffMember}
