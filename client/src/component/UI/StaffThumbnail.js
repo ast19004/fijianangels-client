@@ -27,13 +27,11 @@ function StaffThumbnail(props) {
                 xs: "600px", // Height for extra-small screens
                 sm: "350px", // Height for small screens
                 md: "450px", // Height for medium screens
-                lg: "350px", // Height for large screens
               }
             : {
                 xs: "500px", // Height for extra-small screens
                 sm: "250px", // Height for small screens
                 md: "350px", // Height for medium screens
-                lg: "250px", // Height for large screens
               },
         }}
         component="img"

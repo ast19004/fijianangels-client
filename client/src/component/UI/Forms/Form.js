@@ -23,9 +23,8 @@ const Form = (props) => {
     >
       <Typography
         component="h2"
-        variant="h5"
         textAlign="center"
-        sx={{ color: "#066988", marginBottom: "1rem" }}
+        sx={{ color: "#066988", marginBottom: "1rem", fontSize: "1.6rem" }}
       >
         {props.title.toUpperCase()}
       </Typography>
