@@ -1,21 +1,23 @@
 {
   "files": {
-    "main.css": "/static/css/main.0caaf582.css",
-    "main.js": "/static/js/main.80b2423f.js",
+    "main.css": "/static/css/main.a7491431.css",
+    "main.js": "/static/js/main.e0c39802.js",
     "static/js/592.599f76a2.chunk.js": "/static/js/592.599f76a2.chunk.js",
-    "static/media/homecare-main.jpg": "/static/media/homecare-main.0f6d5d4c681dddea1af7.jpg",
+    "static/media/homecare-main.jpg": "/static/media/homecare-main.0546d3c61f2867a4ea13.jpg",
+    "static/media/homecare-main800px.jpg": "/static/media/homecare-main800px.3e5db6b86e3ed9fc06d5.jpg",
+    "static/media/homecare-main500px.jpg": "/static/media/homecare-main500px.576615fc0a5bc78afd15.jpg",
     "static/media/staff1-400px.jpg": "/static/media/staff1-400px.55d03136fec0ec182dea.jpg",
     "static/media/staff3-400px.jpg": "/static/media/staff3-400px.a4d3888e5a72f6499010.jpg",
     "static/media/staff2-400px.jpg": "/static/media/staff2-400px.25eb304884148aa0dd78.jpg",
     "static/media/no-image.svg": "/static/media/no-image.6a5e211a35898d38a89faad7df1cb901.svg",
     "index.html": "/index.html",
     "static/media/flowerLogo.svg": "/static/media/flowerLogo.b420300e633d29e119de6187a816a241.svg",
-    "main.0caaf582.css.map": "/static/css/main.0caaf582.css.map",
-    "main.80b2423f.js.map": "/static/js/main.80b2423f.js.map",
+    "main.a7491431.css.map": "/static/css/main.a7491431.css.map",
+    "main.e0c39802.js.map": "/static/js/main.e0c39802.js.map",
     "592.599f76a2.chunk.js.map": "/static/js/592.599f76a2.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.0caaf582.css",
-    "static/js/main.80b2423f.js"
+    "static/css/main.a7491431.css",
+    "static/js/main.e0c39802.js"
   ]
 }

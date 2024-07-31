@@ -32,7 +32,6 @@ function Contact() {
         style={{
           borderColor: "#CA4766",
           color: "#CA4766",
-          backgroundColor: "rgba(6,105,136, .2)",
           padding: "12px 36px",
           fontSize: "18px",
           margin: "3% 0",

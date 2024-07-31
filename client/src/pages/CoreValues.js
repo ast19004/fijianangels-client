@@ -3,7 +3,12 @@ import Section from "../component/UI/Section";
 
 function CoreValues() {
   return (
-    <Article header="OUR CORE VALUES" id="corevalues" sx={{ margin: 0 }}>
+    <Article
+      header=""
+      id="corevalues"
+      sx={{ margin: 0, padding: "10px 0 20px 0" }}
+      variant="h5"
+    >
       <Section
         id="section-quality"
         header="QUALITY"

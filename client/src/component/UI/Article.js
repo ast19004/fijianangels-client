@@ -1,9 +1,4 @@
-import { Box } from "@mui/material";
-import styled from "styled-components";
-
-const StyledHeader = styled.h2`
-  color: #ca4766;
-`;
+import { Box, Typography } from "@mui/material";
 
 function Article(props) {
   return (
@@ -13,7 +8,13 @@ function Article(props) {
       key={props.id}
       sx={{ margin: "10% 0", ...props.sx }}
     >
-      <StyledHeader>{props.header}</StyledHeader>
+      <Typography
+        variant={props.variant ? props.variant : "h2"}
+        component={props.component ? props.component : "h2"}
+        color="#ca4766"
+      >
+        {props.header}
+      </Typography>
       {props.children}
     </Box>
   );

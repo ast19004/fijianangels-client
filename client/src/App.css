@@ -25,6 +25,24 @@
   background-color: rgba(200, 225, 225, 0.25);
 }
 
+/* Transitions & Animations */
+
+.image {
+  /* display: block;
+  margin: 50px auto;
+  max-width: 100%;
+  height: auto; */
+  opacity: 0;
+  transform: scale(0) translateZ(0);
+  transition: opacity 2s, transform 2s;
+  will-change: opacity, transform;
+}
+
+.image-enter-active {
+  opacity: 1;
+  transform: scale(1) translateZ(0);
+}
+
 /* --- Overridden Component Classes --- */
 .css-1fdsijx-ValueContainer {
   padding: 16px 50px !important;
@@ -75,5 +93,7 @@ footer {
   padding: 5px 0 15px 0;
 }
 footer:hover {
-  background-color: rgb(62, 152, 180);
+  @media screen {
+    background-color: rgb(62, 152, 180);
+  }
 }

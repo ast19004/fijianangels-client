@@ -10,6 +10,7 @@ import {
   Stack,
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
+import CloseIcon from "@mui/icons-material/Close";
 
 import AnchorLink from "../../UI/AnchorLink";
 import FormsSubNavigation from "./FormsSubNavigation";
@@ -79,16 +80,29 @@ const MainNavigation = (props) => {
         placement="bottom-start"
         transition
         disablePortal
+        modifiers={[
+          {
+            name: "offset",
+            options: {
+              offset: [-20, 10], // Adjust this to control the offset from the anchor element
+            },
+          },
+        ]}
       >
-        {({ TransitionProps, placement }) => (
+        {({ TransitionProps }) => (
           <Grow
             {...TransitionProps}
-            style={{
-              transformOrigin:
-                placement === "bottom-start" ? "left top" : "left bottom",
-            }}
+            style={{ transformOrigin: "left top" }}
+            timeout={500}
           >
-            <Paper elevation={0} variant="outlined" square={false}>
+            <Paper
+              sx={{
+                padding: "1rem",
+                maxWidth: "300",
+                boxShadow:
+                  "0px 2px 4px, rgba(0, 0, 0, 0.12), 0px 3px 6px, rgba(0, 0, 0, 0.24)",
+              }}
+            >
               <ClickAwayListener onClickAway={handleClose}>
                 <MenuList
                   sx={{
