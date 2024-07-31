@@ -10,7 +10,6 @@ import {
   Stack,
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
-import CloseIcon from "@mui/icons-material/Close";
 
 import AnchorLink from "../../UI/AnchorLink";
 import FormsSubNavigation from "./FormsSubNavigation";

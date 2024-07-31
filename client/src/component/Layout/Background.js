@@ -13,6 +13,7 @@ function Background() {
   const homeBackgroundStyles = {
     backgroundImage: `url(${homeCareImg500px})`,
     backgroundRepeat: "no-repeat",
+    backgroundPosition: "center",
     height: "92vh",
     width: "100vw",
     position: "relative",
@@ -26,6 +27,7 @@ function Background() {
     "@media(min-width: 800px)": {
       top: "0px",
       backgroundImage: `url(${homeCareImg})`,
+      backgroundPosition: "top center",
     },
     "@media(min-width: 800px) and (min-height: 1000px)": {
       backgroundImage: `url(${homeCareImg1300pxHeight})`,
@@ -74,6 +76,9 @@ function Background() {
                 },
                 "@media(min-width: 1000px)": {
                   height: "80vh",
+                },
+                "@media(min-width: 800px) and (min-height: 1000px)": {
+                  height: "30vh",
                 },
               }}
             >
