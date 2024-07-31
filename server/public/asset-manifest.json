@@ -1,11 +1,12 @@
 {
   "files": {
     "main.css": "/static/css/main.a7491431.css",
-    "main.js": "/static/js/main.e0c39802.js",
+    "main.js": "/static/js/main.aaf536f7.js",
     "static/js/592.599f76a2.chunk.js": "/static/js/592.599f76a2.chunk.js",
-    "static/media/homecare-main.jpg": "/static/media/homecare-main.0546d3c61f2867a4ea13.jpg",
-    "static/media/homecare-main800px.jpg": "/static/media/homecare-main800px.3e5db6b86e3ed9fc06d5.jpg",
-    "static/media/homecare-main500px.jpg": "/static/media/homecare-main500px.576615fc0a5bc78afd15.jpg",
+    "static/media/homecare-main1300px-height.jpg": "/static/media/homecare-main1300px-height.fc01f55a8c0e383f057a.jpg",
+    "static/media/homecare-main.jpg": "/static/media/homecare-main.a4f76fee6fa0363efa14.jpg",
+    "static/media/homecare-main800px.jpg": "/static/media/homecare-main800px.7772fe998bd8e6dddf91.jpg",
+    "static/media/homecare-main500px.jpg": "/static/media/homecare-main500px.f190aa5f04fe2a1538a6.jpg",
     "static/media/staff1-400px.jpg": "/static/media/staff1-400px.55d03136fec0ec182dea.jpg",
     "static/media/staff3-400px.jpg": "/static/media/staff3-400px.a4d3888e5a72f6499010.jpg",
     "static/media/staff2-400px.jpg": "/static/media/staff2-400px.25eb304884148aa0dd78.jpg",
@@ -13,11 +14,11 @@
     "index.html": "/index.html",
     "static/media/flowerLogo.svg": "/static/media/flowerLogo.b420300e633d29e119de6187a816a241.svg",
     "main.a7491431.css.map": "/static/css/main.a7491431.css.map",
-    "main.e0c39802.js.map": "/static/js/main.e0c39802.js.map",
+    "main.aaf536f7.js.map": "/static/js/main.aaf536f7.js.map",
     "592.599f76a2.chunk.js.map": "/static/js/592.599f76a2.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.a7491431.css",
-    "static/js/main.e0c39802.js"
+    "static/js/main.aaf536f7.js"
   ]
 }
