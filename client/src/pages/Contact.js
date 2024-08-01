@@ -27,19 +27,6 @@ function Contact() {
         ]}
         lineHeight={1.2}
       />
-      <Button
-        href="/caregiver-review-form"
-        style={{
-          borderColor: "#CA4766",
-          color: "#CA4766",
-          padding: "12px 36px",
-          fontSize: "18px",
-          margin: "3% 0",
-        }}
-        variant="outlined"
-      >
-        SEND CAREGIVER REVIEW
-      </Button>
     </Article>
   );
 }

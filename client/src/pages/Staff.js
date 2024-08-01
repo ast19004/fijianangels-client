@@ -1,4 +1,4 @@
-import { Box, Grid, Typography } from "@mui/material";
+import { Box, Button, Grid, Typography } from "@mui/material";
 import StaffThumbnail from "../component/UI/StaffThumbnail";
 
 import staff1 from "../assests/images/staff1-400px.jpg";
@@ -44,7 +44,7 @@ function Staff(props) {
   return (
     <Box id="staff">
       <Typography variant="h2" color="#ca4766" sx={{ paddingBottom: "1rem" }}>
-        MEET OUR STAFF
+        MEET OUR CAREGIVERS
       </Typography>
       <Grid
         container
@@ -65,6 +65,19 @@ function Staff(props) {
           </Grid>
         ))}
       </Grid>
+      <Button
+        href="/caregiver-review-form"
+        style={{
+          borderColor: "#CA4766",
+          color: "#CA4766",
+          padding: "12px 36px",
+          fontSize: "18px",
+          margin: "3% 0",
+        }}
+        variant="outlined"
+      >
+        SEND CAREGIVER REVIEW
+      </Button>
     </Box>
   );
 }

@@ -1,5 +1,6 @@
 import { Box } from "@mui/material";
 import "./App.css";
+import "bootstrap/dist/css/bootstrap.min.css";
 import Footer from "./component/Layout/Footer";
 import Contact from "./pages/Contact";
 import CoreValues from "./pages/CoreValues";
@@ -55,10 +56,10 @@ function App() {
                 <Background />
                 <main>
                   <CoreValues />
-                  <Staff />
                   <Services />
-                  <Pricing />
+                  {/* <Pricing /> */}
                   <Contact />
+                  <Staff />
                 </main>
               </>
             }

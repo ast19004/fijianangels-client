@@ -4,7 +4,11 @@ import StyledParagraph from "../Styling/StyledParagraph";
 
 function Section(props) {
   return (
-    <Box key={props.id} component="section" sx={{ margin: "10px 0" }}>
+    <Box
+      key={props.id}
+      component="section"
+      sx={{ margin: "10px 0", ...props.sx }}
+    >
       <StyledHeader
         headerColor={props.headerColor}
         displayBlock={props.displayBlock}

@@ -228,6 +228,8 @@ const CaregiverReviewForm = (props) => {
     formData.append("message", "Please view the attached PDF");
 
     await fetch("http://localhost:5000/send-email", {
+      Authorization: process.env.REACT_APP_SENDGRID_API_KEY,
+      "Content-Type": "application/json",
       method: "POST",
       body: formData,
     })
