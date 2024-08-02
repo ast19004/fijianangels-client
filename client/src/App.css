@@ -84,6 +84,7 @@ main {
 footer {
   text-align: center;
   position: fixed;
+  z-index: 9999;
   height: 75px;
   background-color: rgba(62, 152, 180, 0.9);
   bottom: 0;
