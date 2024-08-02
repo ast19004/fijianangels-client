@@ -115,7 +115,7 @@ function Services() {
           fade={true}
         >
           {services.map((service, index) => (
-            <Carousel.Item key={index}>
+            <Carousel.Item key={service.src}>
               <Picture
                 src={service.src}
                 alt={service.alt}
@@ -145,7 +145,7 @@ function Services() {
                   .slice(index * 2, index * 2 + 2)
                   .map((service, index) => (
                     <Picture
-                      key={index}
+                      key={service.src}
                       src={service.src}
                       alt={service.alt}
                       overlayText={service.overlayText}
@@ -171,7 +171,7 @@ function Services() {
               >
                 {services.slice(num * 3, num * 3 + 3).map((service, index) => (
                   <Picture
-                    key={index}
+                    key={service.src}
                     src={service.src}
                     alt={service.alt}
                     overlayText={service.overlayText}
