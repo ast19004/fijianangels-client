@@ -1,7 +1,9 @@
 import { Box, Typography } from "@mui/material";
 import styles from "./Picture.module.css";
+import { useState } from "react";
 
 const Picture = (props) => {
+  const [showTextBody, setShowTextBody] = useState(false);
   return (
     <Box sx={{ position: "relative", textAlign: "center", color: "black" }}>
       <img
@@ -11,9 +13,14 @@ const Picture = (props) => {
         src={props.src}
         alt={props.alt}
       />
-      <Box className={styles.textContainer}>
+      <Box
+        className={`${styles.textContainer} ${
+          showTextBody ? styles.slideUp : ""
+        }`}
+        onClick={() => setShowTextBody((prev) => !prev)}
+      >
         <Typography
-          className={styles.text}
+          className={`${styles.textHeader}`}
           component="h3"
           align="center"
           sx={{
@@ -25,9 +32,11 @@ const Picture = (props) => {
           {props.overlayText ? props.overlayText.header : ""}
         </Typography>
         <Typography
-          className={styles.text}
+          className={`${styles.textBody} ${
+            showTextBody ? "" : styles.disappear
+          }`}
           component="p"
-          align="center"
+          align="left"
           sx={{ fontSize: "1rem", color: "rgb(50, 50, 50)" }}
         >
           {props.overlayText ? props.overlayText.body : ""}

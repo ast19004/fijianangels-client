@@ -8,19 +8,32 @@
 }
 
 .textContainer {
+  cursor: pointer;
+  transition: all 1s ease-in;
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, 45%);
+  transform: translate(-50%, 20%);
   background-color: rgba(255, 255, 255, 0.5);
   border-radius: 5px;
   padding: 15px;
   width: 100%;
-  height: 40%;
+  height: 352px;
+  overflow-y: auto;
 }
-.text {
-  width: 75%;
-  transform: translate(20%, 0%);
+.slideUp {
+  transform: translate(-50%, -50%);
+}
+.textHeader {
+  padding: 0 15px;
+  transform: translate(0%, 0%);
+}
+.textBody {
+  padding: 0 25px;
+  opacity: 1;
+}
+.disappear {
+  opacity: 0;
 }
 
 .circleImg {
