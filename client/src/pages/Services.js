@@ -9,6 +9,9 @@ import servicePersonalSrc from "../assests/images/services/service-personal350px
 import serviceCookingSrc from "../assests/images/services/service-cooking350px.jpg";
 import serviceHospiceSrc from "../assests/images/services/service-hospice350px.jpg";
 import serviceCleaningSrc from "../assests/images/services/service-housecleaning.jpg";
+import serviceMedRemindSrc from "../assests/images/services/service-medreminder.jpg";
+import serviceRespiteSrc from "../assests/images/services/service-respite.jpg";
+import serviceStrokeSrc from "../assests/images/services/service-strokecare.jpg";
 import { useState } from "react";
 import { Box } from "@mui/material";
 
@@ -66,6 +69,30 @@ function Services() {
       overlayText: {
         header: "Special Diets, Prep, Eating",
         body: "Cooking and cleaning up is our job. Our caregivers can prepare regular meals focused on maintaining a healthy diet and sufficient nutrition. We are happy to do the shopping and prepare meals per the client's specific direction or meal plan, or we can get creative with other healthy options.",
+      },
+    },
+    {
+      src: serviceMedRemindSrc,
+      alt: "Medication Reminders",
+      overlayText: {
+        header: "Medication Reminders",
+        body: "Our caregivers cannot administer medications, but they can provide regular reminders for oral medications or injections and the monitoring of side effects or other medical issues. The only time they can give medication is if it is approved by a family member.",
+      },
+    },
+    {
+      src: serviceRespiteSrc,
+      alt: "Respite Care",
+      overlayText: {
+        header: "Respite Care",
+        body: "Families need a break to maintain their own health. This is critical as caregiving can be immensely stressful. We can help relieve this stress of caring for a loved one by providing a much-needed break to primary caregiver.",
+      },
+    },
+    {
+      src: serviceStrokeSrc,
+      alt: "Stroke Care",
+      overlayText: {
+        header: "Stroke Care",
+        body: "When someone has a stroke, they need time to readjust to a new normal with new abilities. Our CareGivers provide relief for caregivers who understand the chronic care needs of those who have experienced a stroke. Our compassionate caregivers patiently work through your loved ones comunication difficulties to promote their dignity, preferences, and lifestyle choices.",
       },
     },
   ];
@@ -129,7 +156,21 @@ function Services() {
             <Box
               sx={{ display: "flex", gap: "15px", justifyContent: "center" }}
             >
-              {services.slice(4).map((service, index) => (
+              {services.slice(4, 6).map((service, index) => (
+                <Picture
+                  key={index}
+                  src={service.src}
+                  alt={service.alt}
+                  overlayText={service.overlayText}
+                />
+              ))}
+            </Box>
+          </Carousel.Item>
+          <Carousel.Item>
+            <Box
+              sx={{ display: "flex", gap: "15px", justifyContent: "center" }}
+            >
+              {services.slice(6, 8).map((service, index) => (
                 <Picture
                   key={index}
                   src={service.src}
@@ -166,7 +207,21 @@ function Services() {
             <Box
               sx={{ display: "flex", gap: "15px", justifyContent: "center" }}
             >
-              {services.slice(3).map((service, index) => (
+              {services.slice(3, 6).map((service, index) => (
+                <Picture
+                  key={index}
+                  src={service.src}
+                  alt={service.alt}
+                  overlayText={service.overlayText}
+                />
+              ))}
+            </Box>
+          </Carousel.Item>
+          <Carousel.Item>
+            <Box
+              sx={{ display: "flex", gap: "15px", justifyContent: "center" }}
+            >
+              {services.slice(6).map((service, index) => (
                 <Picture
                   key={index}
                   src={service.src}
