@@ -73,7 +73,12 @@ function Services() {
   return (
     <>
       <MediaQuery maxWidth={649}>
-        <Carousel activeIndex={index} onSelect={handleSelect} interval={1000}>
+        <Carousel
+          activeIndex={index}
+          onSelect={handleSelect}
+          interval={3000}
+          fade={true}
+        >
           {services.map((service, index) => (
             <Carousel.Item key={index}>
               <Picture
@@ -86,7 +91,12 @@ function Services() {
         </Carousel>
       </MediaQuery>
       <MediaQuery minWidth={650} maxWidth={1019}>
-        <Carousel activeIndex={index} onSelect={handleSelect} interval={500}>
+        <Carousel
+          activeIndex={index}
+          onSelect={handleSelect}
+          interval={5000}
+          fade={true}
+        >
           <Carousel.Item>
             <Box
               sx={{ display: "flex", gap: "15px", justifyContent: "center" }}
@@ -132,7 +142,12 @@ function Services() {
         </Carousel>
       </MediaQuery>
       <MediaQuery minWidth={1020}>
-        <Carousel activeIndex={index} onSelect={handleSelect} interval={1000}>
+        <Carousel
+          activeIndex={index}
+          onSelect={handleSelect}
+          interval={5000}
+          fade={true}
+        >
           <Carousel.Item>
             <Box
               sx={{ display: "flex", gap: "15px", justifyContent: "center" }}
