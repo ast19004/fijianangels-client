@@ -107,7 +107,7 @@ function Services() {
 
   return (
     <>
-      <MediaQuery maxWidth={649}>
+      <MediaQuery maxWidth={724}>
         <Carousel
           activeIndex={index}
           onSelect={handleSelect}
@@ -117,6 +117,7 @@ function Services() {
           {services.map((service, index) => (
             <Carousel.Item key={service.src}>
               <Picture
+                key={`${service.src}${Math.floor(Math.random() * 100)}`}
                 src={service.src}
                 alt={service.alt}
                 overlayText={service.overlayText}
@@ -125,7 +126,8 @@ function Services() {
           ))}
         </Carousel>
       </MediaQuery>
-      <MediaQuery minWidth={650} maxWidth={1019}>
+
+      <MediaQuery minWidth={725} maxWidth={1019}>
         <Carousel
           activeIndex={index}
           onSelect={handleSelect}
@@ -133,7 +135,7 @@ function Services() {
           fade={true}
         >
           {[0, 1, 2, 3, 4].map((slice, index) => (
-            <Carousel.Item>
+            <Carousel.Item key={index}>
               <Box
                 sx={{
                   display: "flex",
@@ -145,7 +147,7 @@ function Services() {
                   .slice(index * 2, index * 2 + 2)
                   .map((service, index) => (
                     <Picture
-                      key={service.src}
+                      key={`${service.src}${Math.floor(Math.random() * 100)}`}
                       src={service.src}
                       alt={service.alt}
                       overlayText={service.overlayText}
@@ -165,13 +167,13 @@ function Services() {
           fade={true}
         >
           {[0, 1, 2].map((num) => (
-            <Carousel.Item>
+            <Carousel.Item key={num}>
               <Box
                 sx={{ display: "flex", gap: "15px", justifyContent: "center" }}
               >
                 {services.slice(num * 3, num * 3 + 3).map((service, index) => (
                   <Picture
-                    key={service.src}
+                    key={`${service.src}${Math.floor(Math.random() * 100)}`}
                     src={service.src}
                     alt={service.alt}
                     overlayText={service.overlayText}

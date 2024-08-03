@@ -23,11 +23,6 @@ const Picture = (props) => {
           className={`${styles.textHeader}`}
           component="h3"
           align="center"
-          sx={{
-            fontSize: "1.7rem",
-            color: "rgb(15 38 45 / 90%)",
-            letterSpacing: "2px",
-          }}
         >
           {props.overlayText ? props.overlayText.header : ""}
         </Typography>

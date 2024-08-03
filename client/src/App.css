@@ -55,6 +55,27 @@
   font-size: 1rem !important;
 }
 
+@media (min-width: 500px) {
+  .carousel-control-prev-icon,
+  .carousel-control-next-icon {
+    filter: invert(100%);
+  }
+  .carousel-control-prev-icon {
+    transform: translate(-25%, 0%);
+  }
+  .carousel-control-next-icon {
+    transform: translate(25%, 0%);
+  }
+}
+@media (min-width: 1024px) {
+  .carousel-control-prev-icon {
+    transform: translate(-150%, 0%);
+  }
+  .carousel-control-next-icon {
+    transform: translate(150%, 0%);
+  }
+}
+
 /* --- Html Elements--- */
 input:required,
 textarea:required,
