@@ -19,10 +19,12 @@
   padding: 15px;
   width: 100%;
   height: 110%;
-  overflow-y: auto;
 }
 .slideUp {
   transform: translate(-50%, -50%);
+}
+.textContainer.slideUp {
+  overflow-y: auto;
 }
 .textHeader {
   font-size: 1.4rem !important;
@@ -31,8 +33,12 @@
   padding: 0 15px;
   transform: translate(0%, 0%);
 }
+
+.textContainer.slideUp .textHeader {
+  padding-top: 10px;
+}
 .textBody {
-  padding: 0 25px;
+  padding: 10px 25px 35px 25px;
   opacity: 1;
 }
 .disappear {

@@ -115,14 +115,14 @@ const MainNavigation = (props) => {
                   onKeyDown={handleListKeyDown}
                 >
                   <MenuItem className="menuItem" onClick={handleClose}>
-                    <AnchorLink href="#staff">About</AnchorLink>
-                  </MenuItem>
-                  <MenuItem className="menuItem" onClick={handleClose}>
                     <AnchorLink href="#services">Services</AnchorLink>
                   </MenuItem>
                   <MenuItem className="menuItem" onClick={handleClose}>
-                    <AnchorLink href="#prices">Prices</AnchorLink>
+                    <AnchorLink href="#staff">About</AnchorLink>
                   </MenuItem>
+                  {/* <MenuItem className="menuItem" onClick={handleClose}>
+                    <AnchorLink href="#prices">Prices</AnchorLink>
+                  </MenuItem> */}
                   <MenuItem className="menuItem" onClick={handleClose}>
                     <AnchorLink href="#contact">Contact</AnchorLink>
                   </MenuItem>

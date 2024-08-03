@@ -8,6 +8,7 @@ const StyledParagraph = (props) => {
         lineHeight: props.lineHeight || 1.7,
         color: props.paragraphColor || "#066988",
         display: !props.displayBlock ? "inline" : "block",
+        ...props.sx,
       }}
     >
       {props.children}

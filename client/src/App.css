@@ -77,6 +77,9 @@
 }
 
 /* --- Html Elements--- */
+main {
+  display: grid;
+}
 input:required,
 textarea:required,
 #select_services {

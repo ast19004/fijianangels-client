@@ -42,8 +42,13 @@ function Staff(props) {
     },
   ];
   return (
-    <Box id="staff">
-      <Typography variant="h2" color="#ca4766" sx={{ paddingBottom: "1rem" }}>
+    <Box id="staff" sx={{ display: "grid" }}>
+      <Typography
+        variant="h4"
+        align="center"
+        color="#ca4766"
+        sx={{ paddingBottom: "1rem" }}
+      >
         MEET OUR CAREGIVERS
       </Typography>
       <Grid
@@ -73,6 +78,8 @@ function Staff(props) {
           padding: "12px 36px",
           fontSize: "18px",
           margin: "3% 0",
+          display: "inline-block",
+          justifySelf: "center",
         }}
         variant="outlined"
       >

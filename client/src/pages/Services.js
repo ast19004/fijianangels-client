@@ -109,6 +109,7 @@ function Services() {
     <>
       <MediaQuery maxWidth={724}>
         <Carousel
+          id="services"
           activeIndex={index}
           onSelect={handleSelect}
           interval={3000}
@@ -129,6 +130,7 @@ function Services() {
 
       <MediaQuery minWidth={725} maxWidth={1019}>
         <Carousel
+          id="services"
           activeIndex={index}
           onSelect={handleSelect}
           interval={5000}
@@ -161,6 +163,7 @@ function Services() {
 
       <MediaQuery minWidth={1020}>
         <Carousel
+          id="services"
           activeIndex={index}
           onSelect={handleSelect}
           interval={5000}
