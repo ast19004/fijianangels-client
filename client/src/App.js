@@ -65,7 +65,7 @@ function App() {
             }
           />
         </Routes>
-        <Box className="spacingBlock" sx={{ height: "50px" }} />
+        <Box className="spacingBlock" sx={{ height: "125px" }} />
         <Footer />
       </BrowserRouter>
     </div>
