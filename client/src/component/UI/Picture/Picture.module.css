@@ -20,6 +20,9 @@
   width: 100%;
   height: 110%;
 }
+.textContainer:hover {
+  background-color: white;
+}
 .slideUp {
   transform: translate(-50%, -50%);
 }
@@ -41,6 +44,19 @@
   padding: 10px 25px 35px 25px;
   opacity: 1;
 }
+.superscript-icon {
+  color: rgb(15 38 45 / 50%);
+  font-size: 0em; /* Adjust size relative to parent text */
+  vertical-align: super; /* Aligns the icon as superscript */
+  line-height: 0; /* Prevents extra spacing */
+}
+.superscript-icon svg {
+  transition: transform 0.5s ease-in-out;
+  transform: rotate(180deg);
+}
+.textContainer.slideUp .superscript-icon svg {
+  transform: rotate(0deg);
+}
 .disappear {
   opacity: 0;
 }
@@ -52,6 +68,9 @@
 @media (min-width: 500px) {
   .textHeader {
     transform: translate(0%, 100%);
+  }
+  .textContainer.slideUp .textHeader {
+    transform: translate(0%, 10%);
   }
 }
 

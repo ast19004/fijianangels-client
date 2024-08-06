@@ -1,6 +1,7 @@
 import { Box, Typography } from "@mui/material";
 import styles from "./Picture.module.css";
 import { useState } from "react";
+import InfoIcon from "@mui/icons-material/ExpandCircleDownOutlined";
 
 const Picture = (props) => {
   const [showTextBody, setShowTextBody] = useState(false);
@@ -25,6 +26,9 @@ const Picture = (props) => {
           align="center"
         >
           {props.overlayText ? props.overlayText.header : ""}
+          <sup className={styles["superscript-icon"]}>
+            <InfoIcon />
+          </sup>
         </Typography>
         <Typography
           className={`${styles.textBody} ${
