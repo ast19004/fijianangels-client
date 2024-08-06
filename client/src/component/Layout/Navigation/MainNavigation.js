@@ -12,11 +12,11 @@ import {
 import MenuIcon from "@mui/icons-material/Menu";
 
 import AnchorLink from "../../UI/AnchorLink";
-import FormsSubNavigation from "./FormsSubNavigation";
+// import FormsSubNavigation from "./FormsSubNavigation";
 
 const MainNavigation = (props) => {
   const [open, setOpen] = React.useState(false);
-  const [subMenuOpen, setSubMenuOpen] = React.useState(false);
+  // const [subMenuOpen, setSubMenuOpen] = React.useState(false);
   const anchorRef = React.useRef(null);
 
   const handleToggle = () => {
@@ -40,9 +40,9 @@ const MainNavigation = (props) => {
     }
   }
 
-  function handleToggleFormSubMenu(event) {
-    setSubMenuOpen((prevState) => !prevState);
-  }
+  // function handleToggleFormSubMenu(event) {
+  //   setSubMenuOpen((prevState) => !prevState);
+  // }
 
   // return focus to the button when we transitioned from !open -> open
   const prevOpen = React.useRef(open);
@@ -53,6 +53,23 @@ const MainNavigation = (props) => {
 
     prevOpen.current = open;
   }, [open]);
+
+  function handleLink(event, link) {
+    event.preventDefault();
+    const baseURL = window.location.origin;
+    window.open(`${baseURL}${link}`, "_blank");
+  }
+  function handleEmployeeForm(event) {
+    handleLink(event, "/employment-form");
+  }
+
+  function handleRequestForm(event) {
+    handleLink(event, "/homecare-request-form");
+  }
+
+  function handleReviewForm(event) {
+    handleLink(event, "/caregiver-review-form");
+  }
 
   return (
     <Stack direction="row" spacing={0}>
@@ -106,7 +123,7 @@ const MainNavigation = (props) => {
                 <MenuList
                   sx={{
                     color: "#066988",
-                    display: "flex",
+                    // display: "flex",
                     flexDirection: "column",
                   }}
                   autoFocusItem={open}
@@ -114,11 +131,17 @@ const MainNavigation = (props) => {
                   aria-labelledby="nav-button"
                   onKeyDown={handleListKeyDown}
                 >
+                  <MenuItem
+                    className="menuItemLink"
+                    onClick={handleRequestForm}
+                  >
+                    Get Care
+                  </MenuItem>
                   <MenuItem className="menuItem" onClick={handleClose}>
                     <AnchorLink href="#services">Services</AnchorLink>
                   </MenuItem>
                   <MenuItem className="menuItem" onClick={handleClose}>
-                    <AnchorLink href="#staff">About</AnchorLink>
+                    <AnchorLink href="#staff">About Us</AnchorLink>
                   </MenuItem>
                   {/* <MenuItem className="menuItem" onClick={handleClose}>
                     <AnchorLink href="#prices">Prices</AnchorLink>
@@ -126,8 +149,16 @@ const MainNavigation = (props) => {
                   <MenuItem className="menuItem" onClick={handleClose}>
                     <AnchorLink href="#contact">Contact</AnchorLink>
                   </MenuItem>
-
+                  <MenuItem className="menuItemLink" onClick={handleReviewForm}>
+                    Review
+                  </MenuItem>
                   <MenuItem
+                    className="menuItemLink"
+                    onClick={handleEmployeeForm}
+                  >
+                    Employment
+                  </MenuItem>
+                  {/* <MenuItem
                     className="menuItem"
                     onClick={handleToggleFormSubMenu}
                     onMouseEnter={() => setSubMenuOpen(true)}
@@ -140,7 +171,7 @@ const MainNavigation = (props) => {
                   >
                     Forms
                     <FormsSubNavigation open={subMenuOpen} />
-                  </MenuItem>
+                  </MenuItem> */}
                 </MenuList>
               </ClickAwayListener>
             </Paper>

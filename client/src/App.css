@@ -9,16 +9,24 @@
   color: #066988;
   cursor: pointer;
 }
+.menuItem,
+.menuItemLink {
+  display: flex !important;
+  justify-content: center !important;
+}
 .menuItem a {
   padding: 10px 15px !important;
 }
-#nav-menu .menuItem:last-child {
-  padding: 10px 0 0px 30px;
-}
-.subMenuItem {
-  font-size: 0.9rem !important;
+.menuItemLink {
   padding: 15px !important;
 }
+/* #nav-menu .menuItem:last-child {
+  padding: 10px 0 0px 30px;
+} */
+/* .subMenuItem {
+  font-size: 0.9rem !important;
+  padding: 15px !important;
+} */
 
 .MuiFormLabel-root,
 .spacingBlock {
