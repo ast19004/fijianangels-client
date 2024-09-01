@@ -2,6 +2,8 @@ import * as React from "react";
 import { Button } from "@mui/material";
 import MainNavigation from "./Navigation/MainNavigation";
 
+import logo from "../../assests/images/fijian-angels-logo.svg";
+
 function Header() {
   return (
     <header>
@@ -18,7 +20,7 @@ function Header() {
           color: "#ca4766",
         }}
       >
-        FIJIAN ANGELS HOMECARE
+        <img className="App-logo" src={logo} alt="Fijian Angels Logo" />
       </Button>
     </header>
   );

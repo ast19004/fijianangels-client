@@ -121,6 +121,7 @@ const MainNavigation = (props) => {
             >
               <ClickAwayListener onClickAway={handleClose}>
                 <MenuList
+                  className="main-nav__list"
                   sx={{
                     color: "#066988",
                     // display: "flex",
@@ -138,7 +139,9 @@ const MainNavigation = (props) => {
                     Get Care
                   </MenuItem>
                   <MenuItem className="menuItem" onClick={handleClose}>
-                    <AnchorLink href="#services">Services</AnchorLink>
+                    <AnchorLink href="#services" offset="150">
+                      Services
+                    </AnchorLink>
                   </MenuItem>
                   <MenuItem className="menuItem" onClick={handleClose}>
                     <AnchorLink href="#staff">About Us</AnchorLink>
@@ -147,7 +150,9 @@ const MainNavigation = (props) => {
                     <AnchorLink href="#prices">Prices</AnchorLink>
                   </MenuItem> */}
                   <MenuItem className="menuItem" onClick={handleClose}>
-                    <AnchorLink href="#contact">Contact</AnchorLink>
+                    <AnchorLink href="#contact" offset="240">
+                      Contact
+                    </AnchorLink>
                   </MenuItem>
                   <MenuItem className="menuItemLink" onClick={handleReviewForm}>
                     Review

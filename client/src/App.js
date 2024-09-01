@@ -52,16 +52,16 @@ function App() {
             exact
             path="/"
             element={
-              <>
+              <Box className="body-container">
                 <Background />
                 <main>
-                  <CoreValues />
+                  <CoreValues sx={{ margin: "30px 0 70px 0" }} />
                   <Services />
                   {/* <Pricing /> */}
                   <Contact />
                   <Staff />
                 </main>
-              </>
+              </Box>
             }
           />
         </Routes>

@@ -4,25 +4,26 @@ import { Box } from "@mui/material";
 import { useInView } from "react-intersection-observer";
 import { Transition } from "react-transition-group";
 
-import homeCareImg500px from "../../assests/images/homecare-main500px.jpg";
-import homeCareImg800px from "../../assests/images/homecare-main800px.jpg";
+import homeCareImg600px from "../../assests/images/homecare-main600px.jpg";
+import homeCareImg900px from "../../assests/images/homecare-main900px.jpg";
 import homeCareImg1300pxHeight from "../../assests/images/homecare-main1300px-height.jpg";
 import homeCareImg from "../../assests/images/homecare-main.jpg";
 
 function Background() {
   const homeBackgroundStyles = {
-    backgroundImage: `url(${homeCareImg500px})`,
+    backgroundImage: `url(${homeCareImg600px})`,
     backgroundRepeat: "no-repeat",
-    backgroundPosition: "center",
+    backgroundPosition: "bottom left 15%",
+    backgroundSize: "cover",
     height: "92vh",
     width: "100vw",
     position: "relative",
     top: "15px",
     right: "0px",
-    zIndex: "-2",
+    zIndex: "0",
     "@media(min-width: 400px)": {},
     "@media(min-width: 500px)": {
-      backgroundImage: `url(${homeCareImg800px})`,
+      backgroundImage: `url(${homeCareImg900px})`,
     },
     "@media(min-width: 800px)": {
       top: "0px",
@@ -39,7 +40,7 @@ function Background() {
   });
 
   return (
-    <>
+    <Box sx={{ position: "relative", overflow: "hidden" }}>
       <Transition in={entry} timeout={500}>
         {(state) => (
           <>
@@ -51,35 +52,20 @@ function Background() {
                 opacity: state === "entered" ? 1 : 0,
               }}
             ></Box>
-            <Box
+            {/* <Box
               sx={{
                 position: "absolute",
-                top: "20px",
-                zIndex: "-1",
+                top: "-16%",
+                right: "-5%",
+                rotate: "20deg",
+                zIndex: "0",
                 display: "flex",
                 justifyContent: "end",
-                height: "30vh",
-                width: "100vw",
-                right: "0px",
+                height: "35vh",
 
                 transition: "all 1s ease-in",
                 transitionDelay: "0.5s",
-                opacity: state === "entered" ? 0.6 : 0,
-                "@media(min-width: 500px)": {
-                  height: "40vh",
-                },
-                "@media(min-width: 900px)": {
-                  height: "50vh",
-                },
-                "@media(min-width: 1200px)": {
-                  height: "60vh",
-                },
-                "@media(min-width: 1000px)": {
-                  height: "80vh",
-                },
-                "@media(min-width: 800px) and (min-height: 1000px)": {
-                  height: "30vh",
-                },
+                opacity: state === "entered" ? 0.75 : 0,
               }}
             >
               <img
@@ -89,11 +75,11 @@ function Background() {
                 src={flowerLogo}
                 alt="flower logo"
               />
-            </Box>
+            </Box> */}
           </>
         )}
       </Transition>
-    </>
+    </Box>
   );
 }
 

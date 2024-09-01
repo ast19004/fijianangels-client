@@ -1,12 +1,12 @@
 import Article from "../component/UI/Article";
 import Section from "../component/UI/Section";
 
-function CoreValues() {
+function CoreValues(props) {
   return (
     <Article
       header=""
       id="corevalues"
-      sx={{ margin: 0, padding: "10px 0 20px 0" }}
+      sx={{ margin: 0, padding: "10px 0 20px 0", ...props.sx }}
       variant="h5"
     >
       <Section

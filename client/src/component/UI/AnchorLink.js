@@ -2,7 +2,7 @@ import { Box } from "@mui/material";
 import { useLocation, useNavigate } from "react-router-dom";
 
 const AnchorLink = (props) => {
-  const offset = props.offset || 60;
+  const offset = props.offset || 100;
   const targetAnchor = document.querySelector(props.href);
   const location = useLocation();
   const navigate = useNavigate();
@@ -17,6 +17,7 @@ const AnchorLink = (props) => {
     const offsetPosition = elementPosition + window.scrollY - offset;
     window.scrollTo({ top: offsetPosition, behavior: "smooth" });
   };
+
   return (
     <Box component="a" className="anchorLink" onClick={handleClick}>
       {props.children}

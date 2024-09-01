@@ -1,8 +1,23 @@
 /* --- Classes --- */
+* {
+  box-sizing: border-box;
+}
 .App {
   position: relative;
   top: 0;
   left: 0;
+}
+
+.App-logo {
+  position: fixed;
+  top: 1%;
+  right: 6%;
+  height: 80px;
+  width: auto;
+  border-bottom: 2px solid rgba(202, 71, 101, 0.3);
+  border-radius: 50%;
+  background-color: white;
+  padding: 0 8px;
 }
 .anchorLink {
   text-decoration: none;
@@ -12,13 +27,7 @@
 .menuItem,
 .menuItemLink {
   display: flex !important;
-  justify-content: center !important;
-}
-.menuItem a {
-  padding: 10px 15px !important;
-}
-.menuItemLink {
-  padding: 15px !important;
+  justify-content: end !important;
 }
 /* #nav-menu .menuItem:last-child {
   padding: 10px 0 0px 30px;
@@ -106,6 +115,7 @@ header {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  border-bottom: 2px solid rgba(202, 71, 101, 0.3);
 }
 main {
   padding: 2%;
@@ -114,19 +124,21 @@ main {
 }
 
 footer {
+  cursor: pointer;
   text-align: center;
   position: fixed;
   z-index: 9999;
   height: 75px;
-  background-color: rgba(62, 152, 180, 0.9);
+  background-color: rgba(202, 71, 101, 0.9);
   bottom: 0;
   left: 0;
   right: 0;
   margin-bottom: 0;
-  padding: 5px 0 15px 0;
+  padding: 10px 0 15px 0;
 }
 footer:hover {
   @media screen {
-    background-color: rgb(62, 152, 180);
+    background-color: rgba(202, 71, 101, 1);
+    /* background-color: rgb(62, 152, 180); */
   }
 }
