@@ -26,8 +26,6 @@ function Footer() {
           gap: "3px",
           letterSpacing: "1px",
           fontWeight: "500",
-          marginLeft: "27px",
-          marginBottom: "-5px",
         }}
       >
         FIJIAN ANGELS HOMECARE

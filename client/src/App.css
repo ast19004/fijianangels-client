@@ -12,13 +12,14 @@
   position: fixed;
   top: 1%;
   right: 6%;
-  height: 80px;
+  height: 60px;
   width: auto;
   border-bottom: 2px solid rgba(202, 71, 101, 0.3);
   border-radius: 50%;
   background-color: white;
-  padding: 0 8px;
+  padding: 0 8px 4px 0;
 }
+
 .anchorLink {
   text-decoration: none;
   color: #066988;
@@ -71,28 +72,6 @@
   color: red !important;
   font-size: 1rem !important;
 }
-
-@media (min-width: 500px) {
-  .carousel-control-prev-icon,
-  .carousel-control-next-icon {
-    filter: invert(100%);
-  }
-  .carousel-control-prev-icon {
-    transform: translate(-25%, 0%);
-  }
-  .carousel-control-next-icon {
-    transform: translate(25%, 0%);
-  }
-}
-@media (min-width: 1024px) {
-  .carousel-control-prev-icon {
-    transform: translate(-150%, 0%);
-  }
-  .carousel-control-next-icon {
-    transform: translate(150%, 0%);
-  }
-}
-
 /* --- Html Elements--- */
 main {
   display: grid;
@@ -128,17 +107,62 @@ footer {
   text-align: center;
   position: fixed;
   z-index: 9999;
-  height: 75px;
+  height: 60px;
   background-color: rgba(202, 71, 101, 0.9);
   bottom: 0;
   left: 0;
   right: 0;
   margin-bottom: 0;
   padding: 10px 0 15px 0;
+  @media (min-width: 500px) {
+    height: 65px;
+  }
 }
+
+footer p:first-child {
+  font-size: 18px;
+  margin-bottom: -2px;
+
+  @media (min-width: 500px) {
+    font-size: 20px;
+    margin-bottom: -4px;
+  }
+}
+
+footer p:nth-child(2) {
+  font-size: 13px;
+
+  @media (min-width: 500px) {
+    font-size: 14px;
+  }
+}
+
 footer:hover {
   @media screen {
     background-color: rgba(202, 71, 101, 1);
     /* background-color: rgb(62, 152, 180); */
+  }
+}
+
+/* --- Media Queries --- */
+
+@media (min-width: 600px) {
+  .App-logo {
+    height: 70px;
+  }
+}
+
+@media (min-width: 800px) {
+  .App-logo {
+    height: 80px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .carousel-control-prev-icon {
+    transform: translate(-150%, 0%);
+  }
+  .carousel-control-next-icon {
+    transform: translate(150%, 0%);
   }
 }
