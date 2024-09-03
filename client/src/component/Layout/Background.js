@@ -18,7 +18,7 @@ function Background() {
     height: "92vh",
     width: "100vw",
     position: "relative",
-    top: "15px",
+    top: "0px",
     right: "0px",
     zIndex: "0",
     "@media(min-width: 400px)": {},
@@ -26,7 +26,6 @@ function Background() {
       backgroundImage: `url(${homeCareImg900px})`,
     },
     "@media(min-width: 800px)": {
-      top: "0px",
       backgroundImage: `url(${homeCareImg})`,
       backgroundPosition: "top center",
     },
