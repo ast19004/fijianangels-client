@@ -114,37 +114,36 @@ footer {
   right: 0;
   margin-bottom: 0;
   padding: 10px 0 15px 0;
-  @media (min-width: 500px) {
-    height: 65px;
-  }
 }
 
 footer p:first-child {
   font-size: 18px;
   margin-bottom: -2px;
-
-  @media (min-width: 500px) {
-    font-size: 20px;
-    margin-bottom: -4px;
-  }
 }
 
 footer p:nth-child(2) {
   font-size: 13px;
-
-  @media (min-width: 500px) {
-    font-size: 14px;
-  }
 }
 
 footer:hover {
-  @media screen {
-    background-color: rgba(202, 71, 101, 1);
-    /* background-color: rgb(62, 152, 180); */
-  }
+  background-color: rgba(202, 71, 101, 1);
 }
 
 /* --- Media Queries --- */
+
+@media (min-width: 500px) {
+  footer {
+    height: 65px;
+  }
+  footer p:first-child {
+    font-size: 20px;
+    margin-bottom: -4px;
+  }
+
+  footer p:nth-child(2) {
+    font-size: 14px;
+  }
+}
 
 @media (min-width: 600px) {
   .App-logo {
