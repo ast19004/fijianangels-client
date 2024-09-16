@@ -139,18 +139,20 @@ const MainNavigation = (props) => {
                     Get Care
                   </MenuItem>
                   <MenuItem className="menuItem" onClick={handleClose}>
-                    <AnchorLink href="#services" offset="150">
+                    <AnchorLink href="#services" offset="185">
                       Services
                     </AnchorLink>
                   </MenuItem>
                   <MenuItem className="menuItem" onClick={handleClose}>
-                    <AnchorLink href="#staff">About Us</AnchorLink>
+                    <AnchorLink href="#corevalues" offset="175">
+                      About Us
+                    </AnchorLink>
                   </MenuItem>
                   {/* <MenuItem className="menuItem" onClick={handleClose}>
                     <AnchorLink href="#prices">Prices</AnchorLink>
                   </MenuItem> */}
                   <MenuItem className="menuItem" onClick={handleClose}>
-                    <AnchorLink href="#contact" offset="240">
+                    <AnchorLink href="#contact" offset="195">
                       Contact
                     </AnchorLink>
                   </MenuItem>

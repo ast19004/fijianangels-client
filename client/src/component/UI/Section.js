@@ -5,6 +5,8 @@ import StyledParagraph from "../Styling/StyledParagraph";
 function Section(props) {
   return (
     <Box
+      id={props.id}
+      className={props.className}
       key={props.id}
       component="section"
       sx={{ margin: "10px 0", ...props.sx }}

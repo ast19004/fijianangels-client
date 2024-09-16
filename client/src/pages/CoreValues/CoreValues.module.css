@@ -1,0 +1,21 @@
+.corevalues {
+  justify-self: center;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1rem;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  background-color: white;
+  height: 25rem;
+  max-width: 67.5rem;
+  margin: 4.5rem 0 7rem 0;
+}
+
+.corevalues_icon {
+  display: block;
+  margin: 0 auto;
+  width: auto;
+  max-height: auto;
+  max-width: 50%;
+}

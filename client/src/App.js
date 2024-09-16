@@ -3,7 +3,7 @@ import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Footer from "./component/Layout/Footer";
 import Contact from "./pages/Contact";
-import CoreValues from "./pages/CoreValues";
+import CoreValues from "./pages/CoreValues/CoreValues";
 import Pricing from "./pages/Pricing";
 import Services from "./pages/Services";
 import Staff from "./pages/Staff";
