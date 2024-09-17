@@ -34,7 +34,7 @@ function CoreValues(props) {
           id="section-flexibity"
           className={styles.corevalue_section}
           // header="FLEXIBILITY"
-          paragraph="We provide the flexible service menu and schedule to accommodate a variety of home care needs and fulfill the individual needs of every client."
+          paragraph="We provide a flexible service menu and schedule to accommodate a variety of home care needs and fulfill the individual needs of every client."
         />
       </Box>
       <Box className={styles.corevalue}>
