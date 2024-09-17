@@ -1,21 +1,44 @@
 .corevalues {
   justify-self: center;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  gap: 1rem;
+  gap: 5rem;
   align-items: center;
   justify-content: center;
   padding: 1rem;
   background-color: white;
-  height: 25rem;
-  max-width: 67.5rem;
   margin: 4.5rem 0 7rem 0;
+  text-align: center;
+  width: 90%;
 }
-
-.corevalues_icon {
+.corevalue {
+}
+.corevalue_icon {
   display: block;
   margin: 0 auto;
   width: auto;
   max-height: auto;
-  max-width: 50%;
+  max-width: 40%;
+}
+.corevalue_section {
+  width: 60%;
+  margin: 0 auto;
+  border-bottom: 10px dotted pink;
+}
+
+@media (min-width: 50rem) {
+  .corevalues {
+    height: 25rem;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1rem;
+    max-width: 67.5rem;
+  }
+
+  .corevalue_icon {
+    max-width: 50%;
+  }
+  .corevalue_section {
+    width: 100%;
+    margin: 0 auto;
+    border-bottom: none;
+  }
 }
