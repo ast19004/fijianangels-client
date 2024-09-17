@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.543d83f2.css",
-    "main.js": "/static/js/main.9fda1852.js",
+    "main.css": "/static/css/main.a4e0120a.css",
+    "main.js": "/static/js/main.5757e97d.js",
     "static/js/592.599f76a2.chunk.js": "/static/js/592.599f76a2.chunk.js",
     "static/media/flowerLogo.svg": "/static/media/flowerLogo.8ae0be610879ed2d1296a83383c7b8b6.svg",
     "static/media/homecare-main600px.jpg": "/static/media/homecare-main600px.29a1db5c4470f736038c.jpg",
@@ -26,12 +26,12 @@
     "static/media/no-image.svg": "/static/media/no-image.6a5e211a35898d38a89faad7df1cb901.svg",
     "static/media/fijian-angels-logo.svg": "/static/media/fijian-angels-logo.ec44a1f02df0abeeda0b1ba5cc40942b.svg",
     "index.html": "/index.html",
-    "main.543d83f2.css.map": "/static/css/main.543d83f2.css.map",
-    "main.9fda1852.js.map": "/static/js/main.9fda1852.js.map",
+    "main.a4e0120a.css.map": "/static/css/main.a4e0120a.css.map",
+    "main.5757e97d.js.map": "/static/js/main.5757e97d.js.map",
     "592.599f76a2.chunk.js.map": "/static/js/592.599f76a2.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.543d83f2.css",
-    "static/js/main.9fda1852.js"
+    "static/css/main.a4e0120a.css",
+    "static/js/main.5757e97d.js"
   ]
 }
