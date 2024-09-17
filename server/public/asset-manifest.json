@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.a4e0120a.css",
-    "main.js": "/static/js/main.5757e97d.js",
+    "main.css": "/static/css/main.6f9bc49f.css",
+    "main.js": "/static/js/main.aed1b46b.js",
     "static/js/592.599f76a2.chunk.js": "/static/js/592.599f76a2.chunk.js",
     "static/media/flowerLogo.svg": "/static/media/flowerLogo.8ae0be610879ed2d1296a83383c7b8b6.svg",
     "static/media/homecare-main600px.jpg": "/static/media/homecare-main600px.29a1db5c4470f736038c.jpg",
@@ -15,6 +15,7 @@
     "static/media/service-companion350px.jpg": "/static/media/service-companion350px.d61761a7ade5ce11bc11.jpg",
     "static/media/service-strokecare.jpg": "/static/media/service-strokecare.fa1106a69946a98a5480.jpg",
     "static/media/service-mobility350px.jpg": "/static/media/service-mobility350px.e8566cc8c839e3296cfb.jpg",
+    "static/media/fijianangelslogo_address.svg": "/static/media/fijianangelslogo_address.0ed1825baad48ba2f1a3b6a8a97ee5ed.svg",
     "static/media/service-personal350px.jpg": "/static/media/service-personal350px.a07884724adefd8a54dd.jpg",
     "static/media/integrity.svg": "/static/media/integrity.462d9e13dc536bdd7f47e9945fdd424e.svg",
     "static/media/homecare-main900px.jpg": "/static/media/homecare-main900px.e3715bae48ec2fe88873.jpg",
@@ -26,12 +27,12 @@
     "static/media/no-image.svg": "/static/media/no-image.6a5e211a35898d38a89faad7df1cb901.svg",
     "static/media/fijian-angels-logo.svg": "/static/media/fijian-angels-logo.ec44a1f02df0abeeda0b1ba5cc40942b.svg",
     "index.html": "/index.html",
-    "main.a4e0120a.css.map": "/static/css/main.a4e0120a.css.map",
-    "main.5757e97d.js.map": "/static/js/main.5757e97d.js.map",
+    "main.6f9bc49f.css.map": "/static/css/main.6f9bc49f.css.map",
+    "main.aed1b46b.js.map": "/static/js/main.aed1b46b.js.map",
     "592.599f76a2.chunk.js.map": "/static/js/592.599f76a2.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.a4e0120a.css",
-    "static/js/main.5757e97d.js"
+    "static/css/main.6f9bc49f.css",
+    "static/js/main.aed1b46b.js"
   ]
 }
