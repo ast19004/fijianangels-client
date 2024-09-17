@@ -42,6 +42,10 @@
 .spacingBlock {
   background-color: rgba(200, 225, 225, 0.25);
 }
+.image-responsive {
+  display: block;
+  max-width: 100%;
+}
 
 /* Transitions & Animations */
 
@@ -72,6 +76,7 @@
   color: red !important;
   font-size: 1rem !important;
 }
+
 /* --- Html Elements--- */
 main {
   display: grid;
