@@ -4,8 +4,7 @@ import StyledParagraph from "../component/Styling/StyledParagraph";
 import StyledHeader from "../component/Styling/StyledHeader";
 
 import logoWithAddress from "../assests/images/svg/fijianangelslogo_address.svg";
-import { Box, Link, Tooltip, tooltipClasses, Typography } from "@mui/material";
-import { styled } from "@mui/material/styles";
+import { Box, Link } from "@mui/material";
 
 function Contact() {
   return (
@@ -16,11 +15,11 @@ function Contact() {
         background: "white",
         width: "100%",
         maxWidth: "67.5rem",
-        padding: "1rem",
+        padding: "2rem",
         display: "grid",
         justifySelf: "center",
         alignSelf: "center",
-        "@media(min-width: 62rem)": { padding: "2rem" },
+        "@media(min-width: 62rem)": { padding: "3rem" },
       }}
     >
       <StyledHeader
@@ -28,26 +27,14 @@ function Contact() {
           display: "block",
           textAlign: "center",
           fontSize: "2rem",
-          paddingBottom: "2rem",
-          "@media(min-width: 62rem)": { fontSize: "2.5rem" },
+          paddingBottom: "1rem",
+          "@media(min-width: 62rem)": {
+            fontSize: "2.5rem",
+          },
         }}
       >
         We look forward to hearing from you
       </StyledHeader>
-      {/* <HtmlTooltip
-        title={
-          <>
-            <Typography>
-              <em>Navigate to:</em>
-            </Typography>
-            <Typography variant="h6">8784 Twinberry Way,</Typography>
-            <Typography variant="h6">Elk Grove, CA, 95624</Typography>
-            <Typography>
-              <em>on Google Maps</em>
-            </Typography>
-          </>
-        }
-      > */}
       <Link
         href="https://maps.app.goo.gl/dHBcG3DWVfJFgu9z9"
         underline="none"
@@ -61,7 +48,6 @@ function Contact() {
           alt="8784 Twinberry Way, Elk Grove, CA-95624"
         />
       </Link>
-      {/* </HtmlTooltip> */}
 
       <Box
         sx={{
@@ -96,8 +82,10 @@ function Contact() {
         paragraphColor={"#ca4766"}
         sx={{
           textAlign: "center",
-          paddingTop: "2rem",
-          "@media(min-width: 62rem)": { fontSize: "1.2rem" },
+          paddingTop: "1rem",
+          "@media(min-width: 62rem)": {
+            fontSize: "1.2rem",
+          },
         }}
       >
         SERVING EAST BAY, SAN FRANCISCO, SAN MATEO, PALO ALTO AND MARIN COUNTY
@@ -107,16 +95,3 @@ function Contact() {
 }
 
 export default Contact;
-
-const HtmlTooltip = styled(({ className, ...props }) => (
-  <Tooltip {...props} classes={{ popper: className }} />
-))(({ theme }) => ({
-  [`& .${tooltipClasses.tooltip}`]: {
-    backgroundColor: "#f5f5f9",
-    color: "rgba(0, 0, 0, 0.87)",
-    maxWidth: 220,
-    fontSize: theme.typography.pxToRem(12),
-    border: "1px solid #dadde9",
-    boxShadow: "5px 5px 5px #888",
-  },
-}));
