@@ -20,18 +20,21 @@ function Contact() {
         display: "grid",
         justifySelf: "center",
         alignSelf: "center",
+        "@media(min-width: 62rem)": { padding: "2rem" },
       }}
     >
-      <StyledHeader sx={{ display: "block", textAlign: "center" }}>
+      <StyledHeader
+        sx={{
+          display: "block",
+          textAlign: "center",
+          fontSize: "2rem",
+          paddingBottom: "2rem",
+          "@media(min-width: 62rem)": { fontSize: "2.5rem" },
+        }}
+      >
         We look forward to hearing from you
       </StyledHeader>
-      <StyledParagraph
-        paragraphColor={"#ca4766"}
-        sx={{ textAlign: "center", marginBottom: "-2rem" }}
-      >
-        SERVING EAST BAY, SAN FRANCISCO, SAN MATEO, PALO ALTO AND MARIN COUNTY
-      </StyledParagraph>
-      <HtmlTooltip
+      {/* <HtmlTooltip
         title={
           <>
             <Typography>
@@ -44,39 +47,37 @@ function Contact() {
             </Typography>
           </>
         }
+      > */}
+      <Link
+        href="https://maps.app.goo.gl/dHBcG3DWVfJFgu9z9"
+        underline="none"
+        sx={{ justifySelf: "center" }}
+        target="_blank"
+        rel="noopener"
       >
-        <Link
-          href="https://maps.app.goo.gl/dHBcG3DWVfJFgu9z9"
-          underline="none"
-          sx={{ justifySelf: "center" }}
-          target="_blank"
-          rel="noopener"
-        >
-          <img
-            className="image-responsive"
-            src={logoWithAddress}
-            alt="8784 Twinberry Way, Elk Grove, CA-95624"
-          />
-        </Link>
-      </HtmlTooltip>
+        <img
+          className="image-responsive"
+          src={logoWithAddress}
+          alt="8784 Twinberry Way, Elk Grove, CA-95624"
+        />
+      </Link>
+      {/* </HtmlTooltip> */}
+
       <Box
         sx={{
           justifySelf: "center",
-          display: "grid",
-          gridTemplateColumns: "1fr 2fr",
-          gap: "2rem",
-          marginTop: "-4rem",
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
         }}
       >
         <Section
           id="section-hours"
           displayBlock
           header=""
-          multiParagraph={["Monday-Friday", "9:00am-7:00pm"]}
-          lineHeight={1.2}
-          sx={{
-            textAlign: "right",
-          }}
+          multiParagraph={["Monday-Friday 9:00am-7:00pm"]}
+          paragraphColor="rgba(2, 26, 51, 0.9)"
+          lineHeight={1}
         />
         <Section
           id="section-phone"
@@ -86,9 +87,21 @@ function Contact() {
             "Office # (510)612-7595 / (650)518-0532",
             "(510)812-9475 (724)434-4646",
           ]}
+          paragraphColor="rgba(2, 26, 51, 0.9)"
           lineHeight={1.2}
+          sx={{ textAlign: "right" }}
         />
       </Box>
+      <StyledParagraph
+        paragraphColor={"#ca4766"}
+        sx={{
+          textAlign: "center",
+          paddingTop: "2rem",
+          "@media(min-width: 62rem)": { fontSize: "1.2rem" },
+        }}
+      >
+        SERVING EAST BAY, SAN FRANCISCO, SAN MATEO, PALO ALTO AND MARIN COUNTY
+      </StyledParagraph>
     </Article>
   );
 }
