@@ -1,42 +1,63 @@
-import flowerLogo from "../../flowerLogo.svg";
 import { Box } from "@mui/material";
 
 import { useInView } from "react-intersection-observer";
 import { Transition } from "react-transition-group";
+import { toggleStateByInterval } from "../../util/toggle";
 
-import homeCareImg600px from "../../assests/images/homecare-main600px.jpg";
-import homeCareImg900px from "../../assests/images/homecare-main900px.jpg";
-import homeCareImg1300pxHeight from "../../assests/images/homecare-main1300px-height.jpg";
-import homeCareImg from "../../assests/images/homecare-main.jpg";
+import homeCareImg600px from "../../assests/images/1500px.jpg";
+
+import mainVideo from "../../assests/videos/elderly_assistance.mp4";
+import { useEffect, useState } from "react";
 
 function Background() {
+  const [displayVideo, setDisplayVideo] = useState(false);
+  const [toggleVideoDisplay, setToggleVideoDisplay] = useState(null);
+  const { ref, inView, entry } = useInView({
+    threshold: 0.5,
+  });
+
+  useEffect(() => {
+    if (inView) {
+      !toggleVideoDisplay &&
+        setToggleVideoDisplay(toggleStateByInterval(7000, setDisplayVideo));
+    } else {
+      // Clean up the interval when out of view
+      clearInterval(toggleVideoDisplay);
+
+      //Reset original states
+      setToggleVideoDisplay(null);
+      setDisplayVideo(false);
+    }
+    // Clean up the interval on component unmount
+    return () => {
+      clearInterval(toggleVideoDisplay);
+      //Reset original states
+      setToggleVideoDisplay(null);
+      setDisplayVideo(false);
+    };
+  }, [inView]);
+
   const homeBackgroundStyles = {
     backgroundImage: `url(${homeCareImg600px})`,
     backgroundRepeat: "no-repeat",
-    backgroundPosition: "bottom left 15%",
+    backgroundPosition: "top left 35%",
     backgroundSize: "cover",
-    height: "92vh",
+    height: "86vh",
     width: "100vw",
     position: "relative",
-    top: "0px",
-    right: "0px",
+    top: "0",
+    right: "0",
     zIndex: "0",
-    "@media(min-width: 400px)": {},
-    "@media(min-width: 500px)": {
-      backgroundImage: `url(${homeCareImg900px})`,
+    "@media(min-width: 55rem)": {
+      height: "85vh",
     },
-    "@media(min-width: 800px)": {
-      backgroundImage: `url(${homeCareImg})`,
-      backgroundPosition: "top center",
+    "@media(min-width: 75rem)": {
+      height: "84vh",
     },
-    "@media(min-width: 800px) and (min-height: 1000px)": {
-      backgroundImage: `url(${homeCareImg1300pxHeight})`,
+    "@media(min-width: 100rem)": {
+      height: "83vh",
     },
   };
-
-  const { ref, inView, entry } = useInView({
-    threshold: 1,
-  });
 
   return (
     <Box sx={{ position: "relative", overflow: "hidden" }}>
@@ -48,33 +69,26 @@ function Background() {
               sx={{
                 ...homeBackgroundStyles,
                 transition: "all 1s ease-in",
-                opacity: state === "entered" ? 1 : 0,
-              }}
-            ></Box>
-            {/* <Box
-              sx={{
-                position: "absolute",
-                top: "-16%",
-                right: "-5%",
-                rotate: "20deg",
-                zIndex: "0",
-                display: "flex",
-                justifyContent: "end",
-                height: "35vh",
-
-                transition: "all 1s ease-in",
-                transitionDelay: "0.5s",
-                opacity: state === "entered" ? 0.75 : 0,
               }}
             >
-              <img
+              <video
+                name="Mobility Assistance"
+                autoPlay
+                muted
+                loop
                 style={{
-                  display: "block",
+                  transition: "opacity 1s",
+                  opacity: displayVideo ? 1 : 0,
+                  position: "absolute",
+                  top: "0",
+                  left: "0",
+                  maxHeight: "100%",
+                  width: "auto",
                 }}
-                src={flowerLogo}
-                alt="flower logo"
-              />
-            </Box> */}
+              >
+                <source src={mainVideo} type="video/mp4" />
+              </video>
+            </Box>
           </>
         )}
       </Transition>

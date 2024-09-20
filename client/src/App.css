@@ -42,10 +42,6 @@
 .spacingBlock {
   background-color: rgba(200, 225, 225, 0.25);
 }
-.image-responsive {
-  display: block;
-  max-width: 100%;
-}
 
 /* Transitions & Animations */
 
@@ -63,6 +59,11 @@
 .image-enter-active {
   opacity: 1;
   transform: scale(1) translateZ(0);
+}
+
+.image-responsive {
+  display: block;
+  max-width: 100%;
 }
 
 /* --- Overridden Component Classes --- */

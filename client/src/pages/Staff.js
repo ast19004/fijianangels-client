@@ -4,7 +4,7 @@ import StaffThumbnail from "../component/UI/StaffThumbnail";
 import staff1 from "../assests/images/staff1-400px.jpg";
 import staff2 from "../assests/images/staff2-400px.jpg";
 import staff3 from "../assests/images/staff3-400px.jpg";
-import noImage from "../assests/images/no-image.svg";
+import noImage from "../assests/images/svg/no-image.svg";
 
 function Staff(props) {
   const staffMembers = [

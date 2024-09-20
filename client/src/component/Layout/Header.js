@@ -2,7 +2,7 @@ import * as React from "react";
 import { Button } from "@mui/material";
 import MainNavigation from "./Navigation/MainNavigation";
 
-import logo from "../../assests/images/fijian-angels-logo.svg";
+import logo from "../../assests/images/svg/fijian-angels-logo.svg";
 
 function Header() {
   return (
