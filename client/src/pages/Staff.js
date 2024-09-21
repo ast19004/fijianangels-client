@@ -44,23 +44,20 @@ function Staff(props) {
   return (
     <Box id="staff" sx={{ display: "grid" }}>
       <Typography
-        variant="h4"
+        variant="h5"
         align="center"
         color="#ca4766"
-        sx={{ paddingBottom: "1rem" }}
+        sx={{
+          paddingTop: "0.5rem",
+          paddingBottom: "0.5rem",
+          border: "3px solid rgba(202, 71, 101, 1)",
+          color: "white",
+          backgroundColor: "rgba(2, 26, 51, 0.85)",
+        }}
       >
         MEET OUR CAREGIVERS
       </Typography>
-      <Grid
-        container
-        spacing={2}
-        // sx={{
-        //   width: "100%",
-        //   position: "relative",
-        //   overflowX: "scroll",
-        //   maxHeight: "390px",
-        // }}
-      >
+      <Grid container spacing={2}>
         {staffMembers.map((member) => (
           <Grid item key={member.staffMember} xs={12} sm={4} md={3}>
             <StaffThumbnail

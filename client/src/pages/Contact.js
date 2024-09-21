@@ -15,7 +15,7 @@ function Contact() {
         background: "white",
         width: "100%",
         maxWidth: "67.5rem",
-        padding: "2rem",
+        padding: "3rem 4%",
         display: "grid",
         justifySelf: "center",
         alignSelf: "center",
@@ -26,7 +26,7 @@ function Contact() {
         sx={{
           display: "block",
           textAlign: "center",
-          fontSize: "2rem",
+          fontSize: "1.2rem",
           paddingBottom: "1rem",
           "@media(min-width: 62rem)": {
             fontSize: "2.5rem",

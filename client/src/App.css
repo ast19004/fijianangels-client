@@ -3,6 +3,7 @@
   box-sizing: border-box;
 }
 .App {
+  width: 100%;
   position: relative;
   top: 0;
   left: 0;
@@ -12,12 +13,12 @@
   position: fixed;
   top: 1%;
   right: 6%;
-  height: 60px;
+  height: 3.75rem;
   width: auto;
   border-bottom: 2px solid rgba(202, 71, 101, 0.3);
   border-radius: 50%;
   background-color: white;
-  padding: 0 8px 4px 0;
+  padding: 0 0.5rem 0.25rem 0;
 }
 
 .anchorLink {
@@ -30,13 +31,6 @@
   display: flex !important;
   justify-content: end !important;
 }
-/* #nav-menu .menuItem:last-child {
-  padding: 10px 0 0px 30px;
-} */
-/* .subMenuItem {
-  font-size: 0.9rem !important;
-  padding: 15px !important;
-} */
 
 .MuiFormLabel-root,
 .spacingBlock {
@@ -46,10 +40,6 @@
 /* Transitions & Animations */
 
 .image {
-  /* display: block;
-  margin: 50px auto;
-  max-width: 100%;
-  height: auto; */
   opacity: 0;
   transform: scale(0) translateZ(0);
   transition: opacity 2s, transform 2s;
@@ -68,7 +58,7 @@
 
 /* --- Overridden Component Classes --- */
 .css-1fdsijx-ValueContainer {
-  padding: 16px 50px !important;
+  padding: 1rem 3.1rem !important;
 }
 .MuiFormControl-root {
   width: 96%;
@@ -80,6 +70,7 @@
 
 /* --- Html Elements--- */
 main {
+  width: 100%;
   display: grid;
 }
 input:required,
@@ -88,7 +79,8 @@ textarea:required,
   border: 1px solid #555 !important;
 }
 body {
-  margin-bottom: 50px;
+  width: 100%;
+  margin-bottom: 3.1rem;
 }
 header {
   position: sticky;
@@ -96,7 +88,7 @@ header {
   color: #ca4766;
   top: 0;
   background: white;
-  padding: 1% 2%;
+  padding: 0.2% 2%;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -118,7 +110,7 @@ footer {
   left: 0;
   right: 0;
   margin-bottom: 0;
-  padding: 10px 0 15px 0;
+  padding: 0.8rem 0 3.8rem 0;
 }
 
 footer p:first-child {
@@ -127,7 +119,7 @@ footer p:first-child {
 }
 
 footer p:nth-child(2) {
-  font-size: 13px;
+  font-size: 1.2rem;
 }
 
 footer:hover {
@@ -141,28 +133,31 @@ footer:hover {
     height: 65px;
   }
   footer p:first-child {
-    font-size: 20px;
-    margin-bottom: -4px;
+    font-size: 1.25rem;
+    margin-bottom: -0.25px;
   }
 
   footer p:nth-child(2) {
-    font-size: 14px;
+    font-size: 1rem;
   }
 }
 
 @media (min-width: 600px) {
+  main {
+    gap: 10rem;
+  }
   .App-logo {
-    height: 70px;
+    height: 4.4rem;
   }
 }
 
-@media (min-width: 800px) {
+@media (min-width: 50rem) {
   .App-logo {
-    height: 80px;
+    height: 5rem;
   }
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 64rem) {
   .carousel-control-prev-icon {
     transform: translate(-150%, 0%);
   }

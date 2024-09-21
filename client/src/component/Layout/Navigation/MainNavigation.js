@@ -86,7 +86,7 @@ const MainNavigation = (props) => {
         aria-label="menu"
         sx={{ mr: 2 }}
       >
-        <MenuIcon sx={{ fill: "#ca4766" }} />
+        <MenuIcon sx={{ fill: "#ca4766" }} fontSize="large" />
       </IconButton>
       <Popper
         open={open}
@@ -124,7 +124,6 @@ const MainNavigation = (props) => {
                   className="main-nav__list"
                   sx={{
                     color: "#066988",
-                    // display: "flex",
                     flexDirection: "column",
                   }}
                   autoFocusItem={open}
