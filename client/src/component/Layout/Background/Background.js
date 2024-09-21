@@ -1,13 +1,12 @@
+import { useEffect, useState } from "react";
 import { Box } from "@mui/material";
 
 import { useInView } from "react-intersection-observer";
 import { Transition } from "react-transition-group";
-import { toggleStateByInterval } from "../../util/toggle";
+import { toggleStateByInterval } from "../../../util/toggle";
 
-import homeCareImg600px from "../../assests/images/1500px.jpg";
-
-import mainVideo from "../../assests/videos/elderly_assistance.mp4";
-import { useEffect, useState } from "react";
+import mainVideo from "../../../assests/videos/elderly_assistance.mp4";
+import styles from "./Background.module.css";
 
 function Background() {
   const [displayVideo, setDisplayVideo] = useState(false);
@@ -37,54 +36,20 @@ function Background() {
     };
   }, [inView]);
 
-  const homeBackgroundStyles = {
-    backgroundImage: `url(${homeCareImg600px})`,
-    backgroundRepeat: "no-repeat",
-    backgroundPosition: "top left 35%",
-    backgroundSize: "cover",
-    height: "86vh",
-    width: "100vw",
-    position: "relative",
-    top: "0",
-    right: "0",
-    zIndex: "0",
-    "@media(min-width: 55rem)": {
-      height: "85vh",
-    },
-    "@media(min-width: 75rem)": {
-      height: "84vh",
-    },
-    "@media(min-width: 100rem)": {
-      height: "83vh",
-    },
-  };
-
   return (
-    <Box sx={{ position: "relative", overflow: "hidden" }}>
+    <Box className={styles.background_container}>
       <Transition in={entry} timeout={500}>
         {(state) => (
           <>
-            <Box
-              ref={ref}
-              sx={{
-                ...homeBackgroundStyles,
-                transition: "all 1s ease-in",
-              }}
-            >
+            <Box ref={ref} className={styles.background}>
               <video
+                className={`${styles["foreground-video"]} ${
+                  displayVideo ? "" : styles.disappear
+                }`}
                 name="Mobility Assistance"
                 autoPlay
                 muted
                 loop
-                style={{
-                  transition: "opacity 1s",
-                  opacity: displayVideo ? 1 : 0,
-                  position: "absolute",
-                  top: "0",
-                  left: "0",
-                  maxHeight: "100%",
-                  width: "auto",
-                }}
               >
                 <source src={mainVideo} type="video/mp4" />
               </video>

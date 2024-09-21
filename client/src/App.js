@@ -8,7 +8,7 @@ import Pricing from "./pages/Pricing";
 import Services from "./pages/Services";
 import Staff from "./pages/Staff";
 import Header from "./component/Layout/Header";
-import Background from "./component/Layout/Background";
+import Background from "./component/Layout/Background/Background";
 import EmploymentForm from "./component/UI/Forms/EmploymentForm";
 import HomecareRequestForm from "./component/UI/Forms/HomecareRequestForm";
 
