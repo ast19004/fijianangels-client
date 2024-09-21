@@ -5,7 +5,7 @@ import Footer from "./component/Layout/Footer";
 import Contact from "./pages/Contact";
 import CoreValues from "./pages/CoreValues/CoreValues";
 import Pricing from "./pages/Pricing";
-import Services from "./pages/Services";
+import Services from "./pages/Services/Services";
 import Staff from "./pages/Staff";
 import Header from "./component/Layout/Header";
 import Background from "./component/Layout/Background/Background";

@@ -138,12 +138,22 @@ const MainNavigation = (props) => {
                     Get Care
                   </MenuItem>
                   <MenuItem className="menuItem" onClick={handleClose}>
-                    <AnchorLink href="#services" offset="185">
+                    <AnchorLink
+                      href="#services"
+                      offsetSm="55"
+                      offsetMd="190"
+                      offsetLg="190"
+                    >
                       Services
                     </AnchorLink>
                   </MenuItem>
                   <MenuItem className="menuItem" onClick={handleClose}>
-                    <AnchorLink href="#corevalues" offset="175">
+                    <AnchorLink
+                      href="#corevalues"
+                      offsetSm="70"
+                      offsetMd="70"
+                      offsetLg="197"
+                    >
                       About Us
                     </AnchorLink>
                   </MenuItem>
@@ -151,7 +161,12 @@ const MainNavigation = (props) => {
                     <AnchorLink href="#prices">Prices</AnchorLink>
                   </MenuItem> */}
                   <MenuItem className="menuItem" onClick={handleClose}>
-                    <AnchorLink href="#contact" offset="195">
+                    <AnchorLink
+                      href="#contact"
+                      offsetSm="45"
+                      offsetMd="220"
+                      offsetLg="110"
+                    >
                       Contact
                     </AnchorLink>
                   </MenuItem>
@@ -164,20 +179,6 @@ const MainNavigation = (props) => {
                   >
                     Employment
                   </MenuItem>
-                  {/* <MenuItem
-                    className="menuItem"
-                    onClick={handleToggleFormSubMenu}
-                    onMouseEnter={() => setSubMenuOpen(true)}
-                    onMouseLeave={() => setSubMenuOpen(false)}
-                    sx={{
-                      display: "flex",
-                      flexDirection: "column",
-                      alignItems: "start",
-                    }}
-                  >
-                    Forms
-                    <FormsSubNavigation open={subMenuOpen} />
-                  </MenuItem> */}
                 </MenuList>
               </ClickAwayListener>
             </Paper>

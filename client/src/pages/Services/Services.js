@@ -1,19 +1,21 @@
 import Carousel from "react-bootstrap/Carousel";
-import Picture from "../component/UI/Picture/Picture";
+import Picture from "../../component/UI/Picture/Picture";
 
 import MediaQuery from "react-responsive";
 
-import serviceMobilitySrc from "../assests/images/services/service-mobility350px.jpg";
-import serviceCompanionSrc from "../assests/images/services/service-companion350px.jpg";
-import servicePersonalSrc from "../assests/images/services/service-personal350px.jpg";
-import serviceCookingSrc from "../assests/images/services/service-cooking350px.jpg";
-import serviceHospiceSrc from "../assests/images/services/service-hospice350px.jpg";
-import serviceCleaningSrc from "../assests/images/services/service-housecleaning.jpg";
-import serviceMedRemindSrc from "../assests/images/services/service-medreminder.jpg";
-import serviceRespiteSrc from "../assests/images/services/service-respite.jpg";
-import serviceStrokeSrc from "../assests/images/services/service-strokecare.jpg";
+import serviceMobilitySrc from "../../assests/images/services/service-mobility350px.jpg";
+import serviceCompanionSrc from "../../assests/images/services/service-companion350px.jpg";
+import servicePersonalSrc from "../../assests/images/services/service-personal350px.jpg";
+import serviceCookingSrc from "../../assests/images/services/service-cooking350px.jpg";
+import serviceHospiceSrc from "../../assests/images/services/service-hospice350px.jpg";
+import serviceCleaningSrc from "../../assests/images/services/service-housecleaning.jpg";
+import serviceMedRemindSrc from "../../assests/images/services/service-medreminder.jpg";
+import serviceRespiteSrc from "../../assests/images/services/service-respite.jpg";
+import serviceStrokeSrc from "../../assests/images/services/service-strokecare.jpg";
 import { useState } from "react";
 import { Box } from "@mui/material";
+
+import styles from "./Services.module.css";
 
 function Services() {
   const [index, setIndex] = useState(0);
@@ -110,6 +112,7 @@ function Services() {
       <MediaQuery maxWidth={724}>
         <Carousel
           id="services"
+          className={styles["carousel_services-sm"]}
           activeIndex={index}
           onSelect={handleSelect}
           interval={3000}
