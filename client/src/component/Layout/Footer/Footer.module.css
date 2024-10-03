@@ -1,0 +1,94 @@
+.footer {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  width: 100%;
+  cursor: pointer;
+  position: fixed;
+  z-index: 9999;
+  height: max-content;
+  background-color: white;
+  bottom: 0;
+  left: 0;
+  margin-bottom: 0;
+  background-color: rgba(202, 71, 101, 0.9);
+  transition: all 1s;
+}
+
+.footer_text {
+  transition: all 1s;
+}
+
+.footer_text,
+.footer_text-action {
+  padding: 1.3rem;
+}
+
+.footer_text {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  height: max-content;
+  background-color: white;
+  clip-path: polygon(0 0, 95% 0, 100% 0%, 95% 100%, 0 100%);
+  padding-right: 2rem;
+}
+
+.footer_text-header {
+  letter-spacing: 1px;
+  font-weight: 500;
+  font-size: 1.4rem !important;
+  margin-bottom: -2px;
+}
+
+.footer_text-subheader {
+  font-size: 1rem;
+  letter-spacing: 1px;
+  transform: scale(1, 0.9);
+  font-size: 1rem !important;
+}
+
+.footer_text-action {
+  height: max-content;
+  font-size: 1.1rem !important;
+  justify-self: flex-start;
+  align-self: center;
+}
+
+/* Hover styles */
+.footer:hover {
+  background-color: whitesmoke;
+}
+.footer:hover .footer_text {
+  background-color: rgba(202, 71, 101, 0.9);
+}
+.footer:hover .footer_text-header {
+  color: white;
+}
+.footer:hover .footer_text-subheader {
+  color: white;
+}
+.footer:hover .footer_text-action {
+  color: rgba(202, 71, 101);
+}
+
+@media (min-width: 53rem) {
+  .footer_text {
+    padding-right: 5rem;
+  }
+  .footer_text-header {
+    font-size: 1.6rem !important;
+  }
+  .footer_text-subheader {
+    font-size: 1.1rem !important;
+  }
+  .footer_text-action {
+    font-size: 1.3rem !important;
+  }
+}
+
+@media (min-width: 62rem) {
+  .footer_text-action {
+    font-size: 1.5rem !important;
+  }
+}

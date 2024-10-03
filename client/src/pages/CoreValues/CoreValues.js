@@ -10,7 +10,7 @@ function CoreValues(props) {
   return (
     <Box
       id="corevalues"
-      class={styles.corevalues}
+      className={styles.corevalues}
       sx={{
         ...props.sx,
       }}

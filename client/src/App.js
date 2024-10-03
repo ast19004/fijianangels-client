@@ -1,14 +1,14 @@
 import { Box } from "@mui/material";
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import Footer from "./component/Layout/Footer";
+import Footer from "./component/Layout/Footer/Footer";
 import Contact from "./pages/Contact";
 import CoreValues from "./pages/CoreValues/CoreValues";
 import Pricing from "./pages/Pricing";
 import Services from "./pages/Services/Services";
 import Staff from "./pages/Staff";
 import Header from "./component/Layout/Header";
-import Background from "./component/Layout/Background/Background";
+import Home from "./pages/Home/Home";
 import EmploymentForm from "./component/UI/Forms/EmploymentForm";
 import HomecareRequestForm from "./component/UI/Forms/HomecareRequestForm";
 
@@ -53,13 +53,13 @@ function App() {
             path="/"
             element={
               <Box className="body-container">
-                <Background />
+                <Home />
                 <main>
                   <CoreValues sx={{ margin: "30px 0 70px 0" }} />
                   <Services />
                   {/* <Pricing /> */}
                   <Contact />
-                  <Staff />
+                  {/* <Staff /> */}
                 </main>
               </Box>
             }

@@ -8,7 +8,7 @@ import { toggleStateByInterval } from "../../../util/toggle";
 import mainVideo from "../../../assests/videos/elderly_assistance.mp4";
 import styles from "./Background.module.css";
 
-function Background() {
+function Background(props) {
   const [displayVideo, setDisplayVideo] = useState(false);
   const [toggleVideoDisplay, setToggleVideoDisplay] = useState(null);
   const { ref, inView, entry } = useInView({
@@ -37,7 +37,7 @@ function Background() {
   }, [inView]);
 
   return (
-    <Box className={styles.background_container}>
+    <Box className={styles.background_container} sx={{ ...props.sx }}>
       <Transition in={entry} timeout={500}>
         {(state) => (
           <>

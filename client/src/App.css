@@ -99,48 +99,7 @@ main {
   background-color: rgba(200, 225, 225, 0.25);
 }
 
-footer {
-  cursor: pointer;
-  text-align: center;
-  position: fixed;
-  z-index: 9999;
-  height: 0.7rem;
-  background-color: rgba(202, 71, 101, 0.9);
-  bottom: 0;
-  left: 0;
-  right: 0;
-  margin-bottom: 0;
-  padding: 0.8rem 0 3.8rem 0;
-}
-
-footer p:first-child {
-  font-size: 18px;
-  margin-bottom: -2px;
-}
-
-footer p:nth-child(2) {
-  font-size: 1.2rem;
-}
-
-footer:hover {
-  background-color: rgba(202, 71, 101, 1);
-}
-
 /* --- Media Queries --- */
-
-@media (min-width: 500px) {
-  footer {
-    height: 65px;
-  }
-  footer p:first-child {
-    font-size: 1.25rem;
-    margin-bottom: -0.25px;
-  }
-
-  footer p:nth-child(2) {
-    font-size: 1rem;
-  }
-}
 
 @media (min-width: 600px) {
   main {
