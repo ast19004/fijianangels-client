@@ -14,6 +14,12 @@ import MenuIcon from "@mui/icons-material/Menu";
 import AnchorLink from "../../UI/AnchorLink";
 // import FormsSubNavigation from "./FormsSubNavigation";
 
+import {
+  handleEmployeeForm,
+  handleRequestForm,
+  handleReviewForm,
+} from "../../../util/event";
+
 const MainNavigation = (props) => {
   const [open, setOpen] = React.useState(false);
   // const [subMenuOpen, setSubMenuOpen] = React.useState(false);
@@ -53,23 +59,6 @@ const MainNavigation = (props) => {
 
     prevOpen.current = open;
   }, [open]);
-
-  function handleLink(event, link) {
-    event.preventDefault();
-    const baseURL = window.location.origin;
-    window.open(`${baseURL}${link}`, "_blank");
-  }
-  function handleEmployeeForm(event) {
-    handleLink(event, "/employment-form");
-  }
-
-  function handleRequestForm(event) {
-    handleLink(event, "/homecare-request-form");
-  }
-
-  function handleReviewForm(event) {
-    handleLink(event, "/caregiver-review-form");
-  }
 
   return (
     <Stack direction="row" spacing={0}>
