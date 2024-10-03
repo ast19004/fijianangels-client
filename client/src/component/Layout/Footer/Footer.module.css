@@ -14,10 +14,6 @@
   transition: all 1s;
 }
 
-.footer_text {
-  transition: all 1s;
-}
-
 .footer_text,
 .footer_text-action {
   padding: 1.3rem;
@@ -58,6 +54,7 @@
 /* Hover styles */
 .footer:hover {
   background-color: whitesmoke;
+  border-top: 1px solid rgba(202, 71, 101, 0.5);
 }
 .footer:hover .footer_text {
   background-color: rgba(202, 71, 101, 0.9);
