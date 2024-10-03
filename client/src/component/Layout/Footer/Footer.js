@@ -1,5 +1,7 @@
 import { Box, Typography } from "@mui/material";
 
+import { handleRequestForm } from "../../../util/event";
+
 import CallIcon from "@mui/icons-material/ContactPhone";
 import styles from "./Footer.module.css";
 
@@ -12,7 +14,7 @@ function Footer() {
   // };
 
   return (
-    <footer className={styles.footer}>
+    <footer className={styles.footer} onClick={handleRequestForm}>
       <Box className={styles.footer_text}>
         <Typography
           className={styles["footer_text-header"]}
