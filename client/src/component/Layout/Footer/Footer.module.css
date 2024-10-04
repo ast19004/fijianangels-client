@@ -1,6 +1,6 @@
 .footer {
   display: grid;
-  grid-template-columns: 1.5fr 1fr;
+  grid-template-columns: 1.35fr 1fr;
   width: 100%;
   cursor: pointer;
   position: fixed;
@@ -70,6 +70,9 @@
 }
 
 @media (min-width: 53rem) {
+  .footer {
+    grid-template-columns: 1fr 1fr;
+  }
   .footer_text {
     padding-right: 5rem;
   }

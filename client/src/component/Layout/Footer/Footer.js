@@ -2,7 +2,6 @@ import { Box, Typography } from "@mui/material";
 
 import { handleRequestForm } from "../../../util/event";
 
-import CallIcon from "@mui/icons-material/ContactPhone";
 import styles from "./Footer.module.css";
 
 function Footer() {

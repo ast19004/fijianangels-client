@@ -1,0 +1,27 @@
+.home {
+  position: relative;
+}
+
+.home_contact-icon {
+  transition: all 1s;
+  position: absolute;
+  z-index: 99999;
+  bottom: 50vw;
+  left: -1.3rem;
+  width: 6rem;
+  font-size: 3rem;
+  cursor: pointer;
+  border-radius: 50%;
+  border: 0.3rem solid white;
+  box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
+}
+
+.home_contact-icon:hover {
+  transform: translate(0.3rem, -1rem) scale(1.1);
+}
+
+@media (min-width: 42rem) {
+  .home_contact-icon {
+    bottom: 15vw;
+  }
+}

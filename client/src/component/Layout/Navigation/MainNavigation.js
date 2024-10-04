@@ -75,7 +75,7 @@ const MainNavigation = (props) => {
         aria-label="menu"
         sx={{ mr: 2 }}
       >
-        <MenuIcon sx={{ fill: "#ca4766" }} fontSize="large" />
+        <MenuIcon sx={{ fill: "#ca4766", fontSize: "2.5rem" }} />
       </IconButton>
       <Popper
         open={open}
