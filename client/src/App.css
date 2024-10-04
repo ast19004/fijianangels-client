@@ -11,14 +11,20 @@
 
 .App-logo {
   position: fixed;
-  top: 1%;
-  right: 6%;
-  height: 3.75rem;
+  top: -0.2%;
+  right: -0.2%;
+  height: 5rem;
   width: auto;
-  border-bottom: 2px solid rgba(202, 71, 101, 0.3);
   border-radius: 50%;
+  border: 4px solid #ca4765a0;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+  padding: 0.3rem;
   background-color: white;
-  padding: 0 0.5rem 0.25rem 0;
+  transition: transform 1s;
+  will-change: transform;
+}
+.App-logo:hover {
+  transform: translate(-1vh, 1vh);
 }
 
 .anchorLink {
@@ -106,13 +112,13 @@ main {
     gap: 10rem;
   }
   .App-logo {
-    height: 4.4rem;
+    height: 5.5rem;
   }
 }
 
 @media (min-width: 50rem) {
   .App-logo {
-    height: 5rem;
+    height: 6rem;
   }
 }
 
