@@ -4,7 +4,8 @@ import StyledParagraph from "../component/Styling/StyledParagraph";
 import StyledHeader from "../component/Styling/StyledHeader";
 
 import logoWithAddress from "../assests/images/svg/fijianangelslogo_address.svg";
-import { Box, Link } from "@mui/material";
+import { Box, Link, Typography } from "@mui/material";
+import PhoneLink from "../component/UI/Links/PhoneLink/PhoneLink";
 
 function Contact() {
   return (
@@ -65,18 +66,24 @@ function Contact() {
           paragraphColor="rgba(2, 26, 51, 0.9)"
           lineHeight={1}
         />
-        <Section
-          id="section-phone"
-          displayBlock
-          header=""
-          multiParagraph={[
-            "Office # (510)612-7595 / (650)518-0532",
-            "(510)812-9475 (724)434-4646",
-          ]}
-          paragraphColor="rgba(2, 26, 51, 0.9)"
-          lineHeight={1.2}
-          sx={{ textAlign: "right" }}
-        />
+        <Box id="section-phone">
+          <Typography
+            color="rgba(2, 26, 51, 0.9)"
+            lineHeight={2}
+            sx={{ textAlign: "right" }}
+          >
+            Office # <PhoneLink tel="5106127595">(510)612-7595</PhoneLink> /{" "}
+            <PhoneLink tel="6505180532">(650)518-0532</PhoneLink>
+          </Typography>
+          <Typography
+            color="rgba(2, 26, 51, 0.9)"
+            lineHeight={2}
+            sx={{ textAlign: "right" }}
+          >
+            <PhoneLink tel="5108129475">(510)812-9475</PhoneLink>{" "}
+            <PhoneLink tel="7244344646">(724)434-4646</PhoneLink>
+          </Typography>
+        </Box>
       </Box>
       <StyledParagraph
         paragraphColor={"#ca4766"}

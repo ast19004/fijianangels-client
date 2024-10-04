@@ -2,7 +2,7 @@ import { Box } from "@mui/material";
 import Background from "../../component/Layout/Background/Background";
 
 import CallIcon from "../../assests/images/svg/contact.svg";
-import AnchorLink from "../../component/UI/AnchorLink";
+import AnchorLink from "../../component/UI/Links/AnchorLink";
 
 import styles from "./Home.module.css";
 
