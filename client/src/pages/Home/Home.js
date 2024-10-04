@@ -2,6 +2,7 @@ import { Box } from "@mui/material";
 import Background from "../../component/Layout/Background/Background";
 
 import CallIcon from "../../assests/images/svg/contact.svg";
+import AnchorLink from "../../component/UI/AnchorLink";
 
 import styles from "./Home.module.css";
 
@@ -9,11 +10,13 @@ const Home = () => {
   return (
     <Box className={styles.home}>
       <Background className={styles.home_background} />
-      <img
-        className={styles["home_contact-icon"]}
-        src={CallIcon}
-        alt="contact icon"
-      />
+      <AnchorLink href="#contact" offsetSm="45" offsetMd="220" offsetLg="110">
+        <img
+          className={styles["home_contact-icon"]}
+          src={CallIcon}
+          alt="contact icon"
+        />
+      </AnchorLink>
     </Box>
   );
 };
