@@ -4,9 +4,9 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import Footer from "./component/Layout/Footer/Footer";
 import Contact from "./pages/Contact";
 import CoreValues from "./pages/CoreValues/CoreValues";
+import Staff from "./pages/Staff/Staff";
 import Pricing from "./pages/Pricing";
 import Services from "./pages/Services/Services";
-import Staff from "./pages/Staff";
 import Header from "./component/Layout/Header";
 import Home from "./pages/Home/Home";
 import EmploymentForm from "./component/UI/Forms/EmploymentForm";
@@ -57,9 +57,9 @@ function App() {
                 <main>
                   <Services />
                   <CoreValues />
+                  <Staff />
                   {/* <Pricing /> */}
                   <Contact />
-                  {/* <Staff /> */}
                 </main>
               </Box>
             }
