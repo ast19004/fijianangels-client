@@ -1,0 +1,17 @@
+.office_title {
+  color: rgba(202, 71, 101, 0.75);
+  font-size: 1.5rem;
+}
+.office_coverage {
+  color: rgba(6, 70, 151, 255);
+}
+
+.office_address {
+  color: rgba(96, 125, 173, 255);
+  font-size: 1.2rem;
+}
+
+.office_title-main {
+  font-size: 1.8rem;
+  text-align: center;
+}

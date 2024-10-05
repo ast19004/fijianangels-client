@@ -17,8 +17,8 @@ const Staff = (props) => {
           <Box
             sx={{
               height: "20rem",
-              backgroundColor: "lightblue",
-              border: "1px solid darkblue",
+              backgroundColor: "rgba(70, 150, 255, 0.3)",
+              border: "1px solid rgba(70, 150, 255, 1)",
               borderRadius: "1rem",
             }}
           />
@@ -31,6 +31,9 @@ const Staff = (props) => {
             color="rgba(100, 150, 255, 1)"
           >
             <b>Anaseini Colata</b>
+          </Typography>
+          <Typography component="p" color="rgba(100, 150, 255, 1)">
+            Cheif Executive Officer (CEO)
           </Typography>
           <Typography color="rgba(2, 26, 51, 0.9)">
             Originally from Fiji, Anaseini embarked on her caregiving journey
@@ -50,8 +53,8 @@ const Staff = (props) => {
         <Box
           sx={{
             height: "20rem",
-            backgroundColor: "lightblue",
-            border: "1px solid darkblue",
+            backgroundColor: "rgba(70, 150, 255, 0.3)",
+            border: "1px solid rgba(70, 150, 255, 1)",
             borderRadius: "1rem",
           }}
         />
@@ -60,6 +63,9 @@ const Staff = (props) => {
       <Box component="section">
         <Typography component="h3" variant="h4" color="rgba(100, 150, 255, 1)">
           <b>Tava Setareki</b>
+          <Typography component="p" color="rgba(100, 150, 255, 1)">
+            Cheif Operations Officer (COO)
+          </Typography>
         </Typography>
         <Typography color="rgba(2, 26, 51, 0.9)">
           Tava is a native of Fiji, born and raised with a deep appreciation for
