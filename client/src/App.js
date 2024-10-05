@@ -55,8 +55,8 @@ function App() {
               <Box className="body-container">
                 <Home />
                 <main>
-                  <CoreValues sx={{ margin: "30px 0 70px 0" }} />
                   <Services />
+                  <CoreValues />
                   {/* <Pricing /> */}
                   <Contact />
                   {/* <Staff /> */}

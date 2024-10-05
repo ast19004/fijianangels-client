@@ -124,7 +124,7 @@ const MainNavigation = (props) => {
                     className="menuItemLink"
                     onClick={handleRequestForm}
                   >
-                    Get Care
+                    GET CARE
                   </MenuItem>
                   <MenuItem className="menuItem" onClick={handleClose}>
                     <AnchorLink
@@ -133,7 +133,7 @@ const MainNavigation = (props) => {
                       offsetMd="190"
                       offsetLg="190"
                     >
-                      Services
+                      SERVICES
                     </AnchorLink>
                   </MenuItem>
                   <MenuItem className="menuItem" onClick={handleClose}>
@@ -143,7 +143,7 @@ const MainNavigation = (props) => {
                       offsetMd="70"
                       offsetLg="197"
                     >
-                      About Us
+                      ABOUT US
                     </AnchorLink>
                   </MenuItem>
                   {/* <MenuItem className="menuItem" onClick={handleClose}>
@@ -156,17 +156,17 @@ const MainNavigation = (props) => {
                       offsetMd="220"
                       offsetLg="110"
                     >
-                      Contact
+                      CONTACT
                     </AnchorLink>
                   </MenuItem>
-                  <MenuItem className="menuItemLink" onClick={handleReviewForm}>
+                  {/* <MenuItem className="menuItemLink" onClick={handleReviewForm}>
                     Review
-                  </MenuItem>
+                  </MenuItem> */}
                   <MenuItem
                     className="menuItemLink"
                     onClick={handleEmployeeForm}
                   >
-                    Employment
+                    CARRERS
                   </MenuItem>
                 </MenuList>
               </ClickAwayListener>

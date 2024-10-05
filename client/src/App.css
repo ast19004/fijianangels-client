@@ -78,6 +78,9 @@
 main {
   width: 100%;
   display: grid;
+  gap: 3rem;
+  padding: 2%;
+  background-color: rgba(200, 225, 225, 0.25);
 }
 input:required,
 textarea:required,
@@ -100,17 +103,10 @@ header {
   justify-content: space-between;
   border-bottom: 2px solid rgba(202, 71, 101, 0.3);
 }
-main {
-  padding: 2%;
-  background-color: rgba(200, 225, 225, 0.25);
-}
 
 /* --- Media Queries --- */
 
 @media (min-width: 600px) {
-  main {
-    gap: 10rem;
-  }
   .App-logo {
     height: 5.5rem;
   }

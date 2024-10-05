@@ -112,7 +112,7 @@ function Services() {
       <MediaQuery maxWidth={724}>
         <Carousel
           id="services"
-          className={styles["carousel_services-sm"]}
+          className={`${styles["carousel_services"]} ${styles["carousel_services-sm"]}`}
           activeIndex={index}
           onSelect={handleSelect}
           interval={3000}
@@ -134,6 +134,7 @@ function Services() {
       <MediaQuery minWidth={725} maxWidth={1019}>
         <Carousel
           id="services"
+          className={styles["carousel_services"]}
           activeIndex={index}
           onSelect={handleSelect}
           interval={5000}
@@ -167,6 +168,7 @@ function Services() {
       <MediaQuery minWidth={1020}>
         <Carousel
           id="services"
+          className={styles["carousel_services"]}
           activeIndex={index}
           onSelect={handleSelect}
           interval={5000}
