@@ -22,51 +22,6 @@ function Contact() {
         "@media(min-width: 62rem)": { padding: "3rem" },
       }}
     >
-      <Link
-        sx={{ display: "block", margin: "0 auto" }}
-        href="https://maps.app.goo.gl/dHBcG3DWVfJFgu9z9"
-        underline="none"
-        // sx={{ justifySelf: "center" }}
-        target="_blank"
-        rel="noopener"
-      >
-        <img className="image-responsive" src={logo} alt="Fijian Angels Logo" />
-      </Link>
-
-      <Box
-        sx={{
-          display: "grid",
-          // alignItems: "center",
-          paddingLeft: "1rem",
-        }}
-      >
-        <Box
-          id="section-phone"
-          sx={{
-            gridColumn: "1/-1",
-            justifySelf: "center",
-            marginBottom: "3rem",
-          }}
-        >
-          <Typography
-            color="rgba(2, 26, 51, 0.9)"
-            lineHeight={2}
-            sx={{ textAlign: "center" }}
-          >
-            Office # <PhoneLink tel="5106127595">(510)612-7595</PhoneLink> /{" "}
-            <PhoneLink tel="6505180532">(650)518-0532</PhoneLink>
-          </Typography>
-          <Typography
-            color="rgba(2, 26, 51, 0.9)"
-            lineHeight={2}
-            sx={{ textAlign: "right" }}
-          >
-            <PhoneLink tel="5108129475">(510)812-9475</PhoneLink>{" "}
-            <PhoneLink tel="7244344646">(724)434-4646</PhoneLink>
-          </Typography>
-        </Box>
-      </Box>
-
       <StyledHeader
         sx={{
           display: "block",
@@ -114,15 +69,60 @@ function Contact() {
         }}
       >
         <Locations />
+        <Link
+          sx={{ display: "block", margin: "0 auto" }}
+          href="https://maps.app.goo.gl/dHBcG3DWVfJFgu9z9"
+          underline="none"
+          // sx={{ justifySelf: "center" }}
+          target="_blank"
+          rel="noopener"
+        >
+          <img
+            className="image-responsive"
+            src={logo}
+            alt="Fijian Angels Logo"
+          />
+        </Link>
+
         <Box
           sx={{
-            backgroundColor: "rgba(0,0,0,0.2)",
-            height: "25rem",
-            width: "100%",
-            borderRadius: "2rem",
-            "@media(min-width: 60rem)": { height: "100%" },
+            display: "grid",
+            // alignItems: "center",
           }}
-        />
+        >
+          <Box
+            id="section-phone"
+            sx={{
+              marginBottom: "3rem",
+            }}
+          >
+            <Typography
+              color="rgba(2, 26, 51, 0.9)"
+              lineHeight={2}
+              sx={{ textAlign: "center" }}
+            >
+              Office # <PhoneLink tel="5106127595">(510)612-7595</PhoneLink> /{" "}
+              <PhoneLink tel="6505180532">(650)518-0532</PhoneLink>
+            </Typography>
+            <Typography
+              color="rgba(2, 26, 51, 0.9)"
+              lineHeight={2}
+              sx={{ textAlign: "right" }}
+            >
+              <PhoneLink tel="5108129475">(510)812-9475</PhoneLink>{" "}
+              <PhoneLink tel="7244344646">(724)434-4646</PhoneLink>
+            </Typography>
+          </Box>
+          <Box
+            sx={{
+              backgroundColor: "rgba(0,0,0,0.2)",
+              height: "25rem",
+              width: "100%",
+              borderRadius: "2rem",
+              "@media(min-width: 60rem)": { height: "100%" },
+            }}
+          />
+        </Box>
       </Box>
     </Box>
   );
