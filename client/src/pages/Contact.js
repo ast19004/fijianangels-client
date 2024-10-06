@@ -1,9 +1,6 @@
-import Section from "../component/UI/Section";
-import Article from "../component/UI/Article";
-import StyledParagraph from "../component/Styling/StyledParagraph";
 import StyledHeader from "../component/Styling/StyledHeader";
 
-import logoWithAddress from "../assests/images/svg/fijianangelslogo_address.svg";
+import logo from "../assests/images/svg/fijian_angels_logo-+name.svg";
 import { Box, Link, Typography } from "@mui/material";
 import Locations from "./Locations/Locations";
 import PhoneLink from "../component/UI/Links/PhoneLink/PhoneLink";
@@ -25,32 +22,6 @@ function Contact() {
         "@media(min-width: 62rem)": { padding: "3rem" },
       }}
     >
-      <StyledHeader
-        sx={{
-          display: "block",
-          textAlign: "center",
-          fontSize: "1.2rem",
-          paddingBottom: "1rem",
-          color: "white",
-          "@media(min-width: 62rem)": {
-            fontSize: "2.5rem",
-          },
-        }}
-      >
-        We look forward to hearing from you
-      </StyledHeader>
-      <Typography
-        id="section-hours"
-        variant="h2"
-        color="white"
-        sx={{
-          textShadow: "1px 1px 2px rgba(70, 150, 255, 0.8)",
-          marginBottom: "2rem",
-        }}
-        textAlign="center"
-      >
-        Monday-Friday 9:00am-7:00pm
-      </Typography>
       <Link
         sx={{ display: "block", margin: "0 auto" }}
         href="https://maps.app.goo.gl/dHBcG3DWVfJFgu9z9"
@@ -59,11 +30,7 @@ function Contact() {
         target="_blank"
         rel="noopener"
       >
-        <img
-          className="image-responsive"
-          src={logoWithAddress}
-          alt="8784 Twinberry Way, Elk Grove, CA-95624"
-        />
+        <img className="image-responsive" src={logo} alt="Fijian Angels Logo" />
       </Link>
 
       <Box
@@ -99,6 +66,34 @@ function Contact() {
           </Typography>
         </Box>
       </Box>
+
+      <StyledHeader
+        sx={{
+          display: "block",
+          textAlign: "center",
+          fontSize: "1.2rem",
+          paddingBottom: "1rem",
+          color: "white",
+          "@media(min-width: 62rem)": {
+            fontSize: "1.8rem",
+            letterSpacing: "0.1rem",
+          },
+        }}
+      >
+        We look forward to hearing from you
+      </StyledHeader>
+      <Typography
+        id="section-hours"
+        variant="h2"
+        color="white"
+        sx={{
+          textShadow: "1px 1px 2px rgba(70, 150, 255, 0.8)",
+          marginBottom: "2rem",
+        }}
+        textAlign="center"
+      >
+        <b>Monday-Friday 9:00am-7:00pm</b>
+      </Typography>
       {/* <StyledParagraph
         paragraphColor={"#ca4766"}
         sx={{
