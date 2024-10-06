@@ -1,3 +1,9 @@
+.office {
+  background: white;
+  width: fit-content;
+  padding: 1rem;
+  border-radius: 1rem;
+}
 .office_title {
   color: rgba(202, 71, 101, 0.75);
   font-size: 1.5rem;
@@ -12,6 +18,5 @@
 }
 
 .office_title-main {
-  font-size: 1.8rem;
-  text-align: center;
+  font-size: 2rem;
 }

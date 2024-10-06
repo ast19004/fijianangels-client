@@ -1,40 +1,15 @@
-import { Box, Typography } from "@mui/material";
+import { Box } from "@mui/material";
 import OfficeAddress from "./OfficeAddress/OfficeAddress";
-import PhoneLink from "../../component/UI/Links/PhoneLink/PhoneLink";
 
 const Locations = (props) => {
   return (
-    <Box
-      sx={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: "1rem" }}
-    >
+    <Box sx={{ display: "grid", gridTemplateColumns: "1fr", gap: "1rem" }}>
       <OfficeAddress
         mainOffice
-        sx={{ gridColumn: "1/-1", justifySelf: "center" }}
         officeTitle="Main Office"
         officeCoverage=""
         officeAddress="8784 Twinberry Way, Elk Grove CA"
       />
-      <Box
-        id="section-phone"
-        sx={{ gridColumn: "1/-1", justifySelf: "center", marginTop: "-0.5rem" }}
-      >
-        <Typography
-          color="rgba(2, 26, 51, 0.9)"
-          lineHeight={2}
-          sx={{ textAlign: "right" }}
-        >
-          Office # <PhoneLink tel="5106127595">(510)612-7595</PhoneLink> /{" "}
-          <PhoneLink tel="6505180532">(650)518-0532</PhoneLink>
-        </Typography>
-        <Typography
-          color="rgba(2, 26, 51, 0.9)"
-          lineHeight={2}
-          sx={{ textAlign: "right" }}
-        >
-          <PhoneLink tel="5108129475">(510)812-9475</PhoneLink>{" "}
-          <PhoneLink tel="7244344646">(724)434-4646</PhoneLink>
-        </Typography>
-      </Box>
       <OfficeAddress
         officeTitle="Golden Gate Regional Center"
         officeCoverage="Covers

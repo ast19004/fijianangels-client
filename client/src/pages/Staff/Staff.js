@@ -12,11 +12,12 @@ const Staff = (props) => {
         margin: "0 auto",
       }}
     >
-      <Box>
+      <Box sx={{ display: "flex", gap: "2rem" }}>
         <Box>
           <Box
             sx={{
               height: "20rem",
+              width: "20rem",
               backgroundColor: "rgba(70, 150, 255, 0.3)",
               border: "1px solid rgba(70, 150, 255, 1)",
               borderRadius: "1rem",
@@ -33,7 +34,7 @@ const Staff = (props) => {
             <b>Anaseini Colata</b>
           </Typography>
           <Typography component="p" color="rgba(100, 150, 255, 1)">
-            Cheif Executive Officer (CEO)
+            Founder & Cheif Executive Officer (CEO)
           </Typography>
           <Typography color="rgba(2, 26, 51, 0.9)">
             Originally from Fiji, Anaseini embarked on her caregiving journey
@@ -49,40 +50,54 @@ const Staff = (props) => {
           </Typography>
         </Box>
       </Box>
-      <Box>
-        <Box
-          sx={{
-            height: "20rem",
-            backgroundColor: "rgba(70, 150, 255, 0.3)",
-            border: "1px solid rgba(70, 150, 255, 1)",
-            borderRadius: "1rem",
-          }}
-        />
-        {/* <img src="" alt="Anaseini Coloata" /> */}
-      </Box>
-      <Box component="section">
-        <Typography component="h3" variant="h4" color="rgba(100, 150, 255, 1)">
-          <b>Tava Setareki</b>
-          <Typography component="p" color="rgba(100, 150, 255, 1)">
-            Cheif Operations Officer (COO)
+
+      <Box sx={{ display: "flex", flexDirection: "row-reverse", gap: "2rem" }}>
+        <Box>
+          <Box
+            sx={{
+              height: "20rem",
+              width: "20rem",
+              backgroundColor: "rgba(70, 150, 255, 0.3)",
+              border: "1px solid rgba(70, 150, 255, 1)",
+              borderRadius: "1rem",
+            }}
+          />
+          {/* <img src="" alt="Anaseini Coloata" /> */}
+        </Box>
+        <Box component="section">
+          <Typography
+            component="h3"
+            variant="h4"
+            color="rgba(100, 150, 255, 1)"
+            textAlign="right"
+          >
+            <b>Tava Setareki</b>
+            <Typography
+              component="p"
+              color="rgba(100, 150, 255, 1)"
+              textAlign="right"
+            >
+              Cheif Operations Officer (COO)
+            </Typography>
           </Typography>
-        </Typography>
-        <Typography color="rgba(2, 26, 51, 0.9)">
-          Tava is a native of Fiji, born and raised with a deep appreciation for
-          community and care. She has over twelve years of professional
-          experience in the senior care industry, where she has managed care
-          services, business administration, and home care operations. Tava is
-          eager to embark on the next phase of her career, utilizing her
-          professional expertise and education in Business Administration as she
-          steps into a pivotal role as an Administrator and business owner. As a
-          Certified RCFE Administrator, Tava takes pride in delivering
-          high-quality care, fostering strong relationships with my team, the
-          community, and healthcare professionals. Tava's passion lies in
-          working with seniors, enriching their lives, and creating a positive,
-          lasting impact through her work. Personally, she is am married and the
-          proud mother of three wonderful children. In her free time, she enjoys
-          journaling, cooking with her family, and listening to music.
-        </Typography>
+          <Typography color="rgba(2, 26, 51, 0.9)" textAlign="right">
+            Tava is a native of Fiji, born and raised with a deep appreciation
+            for community and care. She has over twelve years of professional
+            experience in the senior care industry, where she has managed care
+            services, business administration, and home care operations. Tava is
+            eager to embark on the next phase of her career, utilizing her
+            professional expertise and education in Business Administration as
+            she steps into a pivotal role as an Administrator and business
+            owner. As a Certified RCFE Administrator, Tava takes pride in
+            delivering high-quality care, fostering strong relationships with my
+            team, the community, and healthcare professionals. Tava's passion
+            lies in working with seniors, enriching their lives, and creating a
+            positive, lasting impact through her work. Personally, she is am
+            married and the proud mother of three wonderful children. In her
+            free time, she enjoys journaling, cooking with her family, and
+            listening to music.
+          </Typography>
+        </Box>
       </Box>
     </Box>
   );
