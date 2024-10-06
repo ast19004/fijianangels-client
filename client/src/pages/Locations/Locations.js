@@ -3,7 +3,14 @@ import OfficeAddress from "./OfficeAddress/OfficeAddress";
 
 const Locations = (props) => {
   return (
-    <Box sx={{ display: "grid", gridTemplateColumns: "1fr", gap: "1rem" }}>
+    <Box
+      sx={{
+        display: "grid",
+        gridTemplateColumns: "1fr",
+        gap: "1rem",
+        ...props.sx,
+      }}
+    >
       <OfficeAddress
         mainOffice
         officeTitle="Main Office"

@@ -107,15 +107,20 @@ function Contact() {
         SERVING EAST BAY, SAN FRANCISCO, SAN MATEO, PALO ALTO AND MARIN COUNTY
       </StyledParagraph> */}
       <Box
-        sx={{ display: "grid", gridTemplateColumns: "1fr 2fr", gap: "2rem" }}
+        sx={{
+          display: "grid",
+          gap: "2rem",
+          "@media(min-width: 60rem)": { gridTemplateColumns: "1fr 2fr" },
+        }}
       >
         <Locations />
         <Box
           sx={{
             backgroundColor: "rgba(0,0,0,0.2)",
-            height: "100%",
+            height: "25rem",
             width: "100%",
             borderRadius: "2rem",
+            "@media(min-width: 60rem)": { height: "100%" },
           }}
         />
       </Box>
