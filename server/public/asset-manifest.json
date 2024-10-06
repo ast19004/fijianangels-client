@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.eb68434c.css",
-    "main.js": "/static/js/main.3f0d18c7.js",
+    "main.css": "/static/css/main.78ac47d6.css",
+    "main.js": "/static/js/main.cfa42492.js",
     "static/js/592.599f76a2.chunk.js": "/static/js/592.599f76a2.chunk.js",
     "static/media/elderly_assistance.mp4": "/static/media/elderly_assistance.c5c10b4fa0ab0ed76711.mp4",
     "static/media/1500px.jpg": "/static/media/1500px.903e6d72eae8897d5606.jpg",
@@ -13,24 +13,20 @@
     "static/media/service-companion350px.jpg": "/static/media/service-companion350px.d61761a7ade5ce11bc11.jpg",
     "static/media/service-strokecare.jpg": "/static/media/service-strokecare.fa1106a69946a98a5480.jpg",
     "static/media/service-mobility350px.jpg": "/static/media/service-mobility350px.e8566cc8c839e3296cfb.jpg",
-    "static/media/fijianangelslogo_address.svg": "/static/media/fijianangelslogo_address.1f52d7a3bdae6e4486296045b86f013c.svg",
+    "static/media/fijian_angels_logo-+name.svg": "/static/media/fijian_angels_logo-+name.f890f4e72cb0fbda9576a8c8eaa2dfeb.svg",
     "static/media/service-personal350px.jpg": "/static/media/service-personal350px.a07884724adefd8a54dd.jpg",
     "static/media/integrity.svg": "/static/media/integrity.462d9e13dc536bdd7f47e9945fdd424e.svg",
     "static/media/service-respite.jpg": "/static/media/service-respite.299ee55f498b5f5fe2d6.jpg",
-    "static/media/staff1-400px.jpg": "/static/media/staff1-400px.55d03136fec0ec182dea.jpg",
     "static/media/service-housecleaning.jpg": "/static/media/service-housecleaning.1f903ab3c30ec1ef9172.jpg",
-    "static/media/staff3-400px.jpg": "/static/media/staff3-400px.a4d3888e5a72f6499010.jpg",
-    "static/media/staff2-400px.jpg": "/static/media/staff2-400px.25eb304884148aa0dd78.jpg",
-    "static/media/no-image.svg": "/static/media/no-image.6a5e211a35898d38a89faad7df1cb901.svg",
     "static/media/contact.svg": "/static/media/contact.6474b0bf73867cf09adb5584d8a49b02.svg",
     "static/media/fijian-angels-logo.svg": "/static/media/fijian-angels-logo.ec44a1f02df0abeeda0b1ba5cc40942b.svg",
     "index.html": "/index.html",
-    "main.eb68434c.css.map": "/static/css/main.eb68434c.css.map",
-    "main.3f0d18c7.js.map": "/static/js/main.3f0d18c7.js.map",
+    "main.78ac47d6.css.map": "/static/css/main.78ac47d6.css.map",
+    "main.cfa42492.js.map": "/static/js/main.cfa42492.js.map",
     "592.599f76a2.chunk.js.map": "/static/js/592.599f76a2.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.eb68434c.css",
-    "static/js/main.3f0d18c7.js"
+    "static/css/main.78ac47d6.css",
+    "static/js/main.cfa42492.js"
   ]
 }
