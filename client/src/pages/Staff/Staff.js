@@ -12,8 +12,20 @@ const Staff = (props) => {
         margin: "0 auto",
       }}
     >
-      <Box sx={{ display: "flex", gap: "2rem" }}>
-        <Box>
+      <Box
+        sx={{
+          display: "flex",
+          flexDirection: "column",
+          marginBottom: "4rem",
+          "@media(min-width: 40rem)": { flexDirection: "row", gap: "2rem" },
+        }}
+      >
+        <Box
+          sx={{
+            alignSelf: "center",
+            "@media(min-width: 40rem)": { alignSelf: "flex-start" },
+          }}
+        >
           <Box
             sx={{
               height: "20rem",
@@ -30,10 +42,21 @@ const Staff = (props) => {
             component="h3"
             variant="h4"
             color="rgba(100, 150, 255, 1)"
+            sx={{
+              textAlign: "center",
+              "@media(min-width: 40rem)": { textAlign: "left" },
+            }}
           >
             <b>Anaseini Colata</b>
           </Typography>
-          <Typography component="p" color="rgba(100, 150, 255, 1)">
+          <Typography
+            component="p"
+            color="rgba(100, 150, 255, 1)"
+            sx={{
+              textAlign: "center",
+              "@media(min-width: 40rem)": { textAlign: "left" },
+            }}
+          >
             Founder & Cheif Executive Officer (CEO)
           </Typography>
           <Typography color="rgba(2, 26, 51, 0.9)">
@@ -51,8 +74,28 @@ const Staff = (props) => {
         </Box>
       </Box>
 
-      <Box sx={{ display: "flex", flexDirection: "row-reverse", gap: "2rem" }}>
-        <Box>
+      <Box
+        sx={{
+          display: "flex",
+          flexDirection: "column",
+          "@media(min-width: 40rem)": {
+            flexDirection: "row-reverse",
+            gap: "2rem",
+          },
+        }}
+      >
+        <Box
+          sx={{
+            display: "flex",
+            flexDirection: "column",
+            alignSelf: "center",
+            "@media(min-width: 40rem)": {
+              flexDirection: "row",
+              gap: "2rem",
+              alignSelf: "flex-end",
+            },
+          }}
+        >
           <Box
             sx={{
               height: "20rem",
@@ -69,18 +112,30 @@ const Staff = (props) => {
             component="h3"
             variant="h4"
             color="rgba(100, 150, 255, 1)"
-            textAlign="right"
+            sx={{
+              textAlign: "center",
+              "@media(min-width: 40rem)": { textAlign: "right" },
+            }}
           >
             <b>Tava Setareki</b>
             <Typography
               component="p"
               color="rgba(100, 150, 255, 1)"
-              textAlign="right"
+              sx={{
+                textAlign: "center",
+                "@media(min-width: 40rem)": { textAlign: "right" },
+              }}
             >
               Cheif Operations Officer (COO)
             </Typography>
           </Typography>
-          <Typography color="rgba(2, 26, 51, 0.9)" textAlign="right">
+          <Typography
+            color="rgba(2, 26, 51, 0.9)"
+            sx={{
+              textAlign: "left",
+              "@media(min-width: 40rem)": { textAlign: "right" },
+            }}
+          >
             Tava is a native of Fiji, born and raised with a deep appreciation
             for community and care. She has over twelve years of professional
             experience in the senior care industry, where she has managed care
