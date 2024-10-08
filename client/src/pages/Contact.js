@@ -66,6 +66,7 @@ function Contact() {
           }}
         >
           <iframe
+            title="Fijian Angels Homecare Locations"
             src="https://www.google.com/maps/d/u/2/embed?mid=1LGXGyj9ZQwug3XS6Tedyugb_lBSVi_0&ehbc=2E312F&noprof=1"
             width="100%"
             height="100%"
@@ -109,6 +110,18 @@ function Contact() {
             <PhoneLink tel="5108129475">(510) 812-9475</PhoneLink>{" "}
             <PhoneLink tel="7244344646">(724) 434-4646</PhoneLink>
           </Typography>
+          <Box
+            component="a"
+            href="mailto:admin@fijianangelshomecare.info"
+            sx={{
+              color: "rgba(70, 150, 255, 1)",
+              filter: "invert(50%)",
+              textDecoration: "none",
+              letterSpacing: "0.1rem",
+            }}
+          >
+            admin@fijianangelshomecare.info
+          </Box>
         </Box>
       </Box>
     </Box>

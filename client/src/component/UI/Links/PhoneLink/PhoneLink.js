@@ -1,15 +1,7 @@
-import { Box } from "@mui/material";
+import CustomLink from "../CustomLink";
 
 const PhoneLink = (props) => {
-  return (
-    <Box
-      component="a"
-      sx={{ textDecoration: "none", color: "inherit" }}
-      href={`tel:${props.tel}`}
-    >
-      {props.children}
-    </Box>
-  );
+  return <CustomLink href={`tel:${props.tel}`}>{props.children}</CustomLink>;
 };
 
 export default PhoneLink;
