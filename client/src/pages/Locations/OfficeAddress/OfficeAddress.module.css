@@ -1,6 +1,7 @@
 .office {
   background: white;
-  width: fit-content;
+  width: 100%;
+  height: fit-content;
   padding: 1rem;
   border-radius: 1rem;
 }
@@ -19,4 +20,11 @@
 
 .office_title-main {
   font-size: 2rem;
+}
+
+@media (min-width: 60rem) {
+  .office {
+    width: fit-content;
+    min-width: 20rem;
+  }
 }

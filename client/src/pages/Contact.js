@@ -1,7 +1,7 @@
 import StyledHeader from "../component/Styling/StyledHeader";
 
 import logo from "../assests/images/svg/fijian_angels_logo-+name.svg";
-import { Box, Link, Typography } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import Locations from "./Locations/Locations";
 import PhoneLink from "../component/UI/Links/PhoneLink/PhoneLink";
 
@@ -19,48 +19,37 @@ function Contact() {
         justifySelf: "center",
         alignSelf: "center",
         margin: "0 auto",
-        "@media(min-width: 62rem)": { padding: "3rem" },
+        "@media(min-width: 62rem)": { padding: "3rem", gap: "2rem" },
       }}
     >
-      <StyledHeader
-        sx={{
-          display: "block",
-          textAlign: "center",
-          fontSize: "1.2rem",
-          paddingBottom: "1rem",
-          color: "white",
-          "@media(min-width: 62rem)": {
-            fontSize: "1.8rem",
-            letterSpacing: "0.1rem",
-          },
-        }}
-      >
-        We look forward to hearing from you
-      </StyledHeader>
-      <Typography
-        id="section-hours"
-        variant="h2"
-        color="white"
-        sx={{
-          textShadow: "1px 1px 2px rgba(70, 150, 255, 0.8)",
-          marginBottom: "2rem",
-        }}
-        textAlign="center"
-      >
-        <b>Monday-Friday 9:00am-7:00pm</b>
-      </Typography>
-      {/* <StyledParagraph
-        paragraphColor={"#ca4766"}
-        sx={{
-          textAlign: "center",
-          paddingTop: "1rem",
-          "@media(min-width: 62rem)": {
+      <Box component="section">
+        <StyledHeader
+          sx={{
+            display: "block",
+            textAlign: "center",
             fontSize: "1.2rem",
-          },
-        }}
-      >
-        SERVING EAST BAY, SAN FRANCISCO, SAN MATEO, PALO ALTO AND MARIN COUNTY
-      </StyledParagraph> */}
+            color: "white",
+            "@media(min-width: 62rem)": {
+              fontSize: "1.8rem",
+              letterSpacing: "0.1rem",
+            },
+          }}
+        >
+          We look forward to hearing from you
+        </StyledHeader>
+        <Typography
+          id="section-hours"
+          color="white"
+          sx={{
+            textShadow: "1px 1px 2px rgba(70, 150, 255, 0.8)",
+            marginBottom: "2rem",
+            fontSize: "2.3rem",
+          }}
+          textAlign="center"
+        >
+          <b>Monday-Friday 9:00am-7:00pm</b>
+        </Typography>
+      </Box>
       <Box
         sx={{
           display: "grid",
@@ -69,59 +58,57 @@ function Contact() {
         }}
       >
         <Locations />
-        <Link
-          sx={{ display: "block", margin: "0 auto" }}
-          href="https://maps.app.goo.gl/dHBcG3DWVfJFgu9z9"
-          underline="none"
-          // sx={{ justifySelf: "center" }}
-          target="_blank"
-          rel="noopener"
+        <Box
+          sx={{
+            width: "100%",
+            height: "100%",
+            minHeight: "30rem",
+          }}
         >
+          <iframe
+            src="https://www.google.com/maps/d/u/2/embed?mid=1LGXGyj9ZQwug3XS6Tedyugb_lBSVi_0&ehbc=2E312F&noprof=1"
+            width="100%"
+            height="100%"
+          ></iframe>
+        </Box>
+      </Box>
+
+      <Box
+        sx={{
+          display: "grid",
+          justifyContent: "center",
+          marginTop: "2rem",
+        }}
+      >
+        <Box sx={{ display: "block", margin: "0 auto", height: "9.5rem" }}>
           <img
             className="image-responsive"
             src={logo}
             alt="Fijian Angels Logo"
           />
-        </Link>
-
-        <Box
-          sx={{
-            display: "grid",
-            // alignItems: "center",
-          }}
-        >
-          <Box
-            id="section-phone"
-            sx={{
-              marginBottom: "3rem",
-            }}
+        </Box>
+        <Box id="section-phone">
+          <Typography
+            color="rgba(2, 26, 51, 0.9)"
+            lineHeight={2}
+            sx={{ textAlign: "center" }}
           >
-            <Typography
-              color="rgba(2, 26, 51, 0.9)"
-              lineHeight={2}
-              sx={{ textAlign: "center" }}
-            >
-              Office # <PhoneLink tel="5106127595">(510)612-7595</PhoneLink> /{" "}
-              <PhoneLink tel="6505180532">(650)518-0532</PhoneLink>
-            </Typography>
-            <Typography
-              color="rgba(2, 26, 51, 0.9)"
-              lineHeight={2}
-              sx={{ textAlign: "right" }}
-            >
-              <PhoneLink tel="5108129475">(510)812-9475</PhoneLink>{" "}
-              <PhoneLink tel="7244344646">(724)434-4646</PhoneLink>
-            </Typography>
-          </Box>
-          <Box
-            sx={{
-              backgroundColor: "rgba(0,0,0,0.2)",
-              height: "25rem",
-              width: "100%",
-              borderRadius: "2rem",
-              "@media(min-width: 60rem)": { height: "100%" },
-            }}
-          />
+            <PhoneLink tel="5106127595">
+              <b>(510) 612-7595</b>
+            </PhoneLink>{" "}
+            /{" "}
+            <PhoneLink tel="6505180532">
+              <b>(650) 518-0532</b>
+            </PhoneLink>
+          </Typography>
+          <Typography
+            color="rgba(2, 26, 51, 0.9)"
+            lineHeight={2}
+            sx={{ textAlign: "center" }}
+          >
+            <PhoneLink tel="5108129475">(510) 812-9475</PhoneLink>{" "}
+            <PhoneLink tel="7244344646">(724) 434-4646</PhoneLink>
+          </Typography>
         </Box>
       </Box>
     </Box>
