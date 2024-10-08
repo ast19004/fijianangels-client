@@ -18,7 +18,7 @@ function Background(props) {
   useEffect(() => {
     if (inView) {
       !toggleVideoDisplay &&
-        setToggleVideoDisplay(toggleStateByInterval(7000, setDisplayVideo));
+        setToggleVideoDisplay(toggleStateByInterval(3000, setDisplayVideo));
     } else {
       // Clean up the interval when out of view
       clearInterval(toggleVideoDisplay);
