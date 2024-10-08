@@ -4,6 +4,7 @@ import logo from "../assests/images/svg/fijian_angels_logo-+name.svg";
 import { Box, Typography } from "@mui/material";
 import Locations from "./Locations/Locations";
 import PhoneLink from "../component/UI/Links/PhoneLink/PhoneLink";
+import ContactLink from "../component/UI/Links/ContactLink";
 
 function Contact() {
   return (
@@ -110,18 +111,16 @@ function Contact() {
             <PhoneLink tel="5108129475">(510) 812-9475</PhoneLink>{" "}
             <PhoneLink tel="7244344646">(724) 434-4646</PhoneLink>
           </Typography>
-          <Box
-            component="a"
-            href="mailto:admin@fijianangelshomecare.info"
+          <ContactLink
+            href="admin@fijianangelshomecare.info"
             sx={{
               color: "rgba(70, 150, 255, 1)",
               filter: "invert(50%)",
-              textDecoration: "none",
               letterSpacing: "0.1rem",
             }}
           >
             admin@fijianangelshomecare.info
-          </Box>
+          </ContactLink>
         </Box>
       </Box>
     </Box>

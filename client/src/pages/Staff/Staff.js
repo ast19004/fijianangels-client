@@ -1,4 +1,6 @@
 import { Box, Typography } from "@mui/material";
+import EmailOutlinedIcon from "@mui/icons-material/EmailOutlined";
+import ContactLink from "../../component/UI/Links/ContactLink";
 
 const Staff = (props) => {
   return (
@@ -38,27 +40,35 @@ const Staff = (props) => {
           {/* <img src="" alt="Anaseini Coloata" /> */}
         </Box>
         <Box component="section">
-          <Typography
-            component="h3"
-            variant="h4"
-            color="rgba(100, 150, 255, 1)"
-            sx={{
-              textAlign: "center",
-              "@media(min-width: 40rem)": { textAlign: "left" },
-            }}
-          >
-            <b>Anaseini Colata</b>
-          </Typography>
-          <Typography
-            component="p"
-            color="rgba(100, 150, 255, 1)"
-            sx={{
-              textAlign: "center",
-              "@media(min-width: 40rem)": { textAlign: "left" },
-            }}
-          >
-            Founder & Chief Executive Officer, CEO
-          </Typography>
+          <ContactLink href="anaseini@fijianangelshomecare.info">
+            <Typography
+              component="h3"
+              variant="h4"
+              color="rgba(100, 150, 255, 1)"
+              sx={{
+                textAlign: "center",
+                "@media(min-width: 40rem)": { textAlign: "left" },
+              }}
+            >
+              <b>Anaseini Colata</b>
+              <Box
+                component="span"
+                sx={{ display: "inline-block", padding: "0 0.25rem" }}
+              >
+                <EmailOutlinedIcon />
+              </Box>
+            </Typography>
+            <Typography
+              component="p"
+              color="rgba(100, 150, 255, 1)"
+              sx={{
+                textAlign: "center",
+                "@media(min-width: 40rem)": { textAlign: "left" },
+              }}
+            >
+              Founder & Chief Executive Officer, CEO
+            </Typography>
+          </ContactLink>
           <Typography color="rgba(2, 26, 51, 0.9)">
             Originally from Fiji, Anaseini embarked on her caregiving journey
             after migrating to the United States at a young age. She grew up
@@ -108,27 +118,35 @@ const Staff = (props) => {
           {/* <img src="" alt="Anaseini Coloata" /> */}
         </Box>
         <Box component="section">
-          <Typography
-            component="h3"
-            variant="h4"
-            color="rgba(100, 150, 255, 1)"
-            sx={{
-              textAlign: "center",
-              "@media(min-width: 40rem)": { textAlign: "right" },
-            }}
-          >
-            <b>Tava Setareki</b>
+          <ContactLink href="tava@fijianangelshomecare.info">
             <Typography
-              component="p"
+              component="h3"
+              variant="h4"
               color="rgba(100, 150, 255, 1)"
               sx={{
                 textAlign: "center",
                 "@media(min-width: 40rem)": { textAlign: "right" },
               }}
             >
-              Chief Operations Officer (COO)
+              <Box
+                component="span"
+                sx={{ display: "inline-block", padding: "0 0.25rem" }}
+              >
+                <EmailOutlinedIcon />
+              </Box>
+              <b>Tava Setareki</b>
+              <Typography
+                component="p"
+                color="rgba(100, 150, 255, 1)"
+                sx={{
+                  textAlign: "center",
+                  "@media(min-width: 40rem)": { textAlign: "right" },
+                }}
+              >
+                Chief Operations Officer (COO)
+              </Typography>
             </Typography>
-          </Typography>
+          </ContactLink>
           <Typography
             color="rgba(2, 26, 51, 0.9)"
             sx={{
