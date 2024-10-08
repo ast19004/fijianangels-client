@@ -57,7 +57,7 @@ const Staff = (props) => {
               "@media(min-width: 40rem)": { textAlign: "left" },
             }}
           >
-            Founder & Cheif Executive Officer (CEO)
+            Founder & Chief Executive Officer, CEO
           </Typography>
           <Typography color="rgba(2, 26, 51, 0.9)">
             Originally from Fiji, Anaseini embarked on her caregiving journey
@@ -126,7 +126,7 @@ const Staff = (props) => {
                 "@media(min-width: 40rem)": { textAlign: "right" },
               }}
             >
-              Cheif Operations Officer (COO)
+              Chief Operations Officer (COO)
             </Typography>
           </Typography>
           <Typography

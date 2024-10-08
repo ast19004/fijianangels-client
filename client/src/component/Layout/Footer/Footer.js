@@ -31,7 +31,7 @@ function Footer() {
           color="rgba(202, 71, 101)"
           align="right"
         >
-          Licenced & Bonded
+          Licensed & Bonded
         </Typography>
       </Box>
       <Typography
