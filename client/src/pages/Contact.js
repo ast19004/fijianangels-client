@@ -89,6 +89,16 @@ function Contact() {
             alt="Fijian Angels Logo"
           />
         </Box>
+        <ContactLink
+          href="admin@fijianangelshomecare.info"
+          sx={{
+            color: "#444",
+
+            letterSpacing: "0.1rem",
+          }}
+        >
+          admin@fijianangelshomecare.info
+        </ContactLink>
         <Box id="section-phone">
           <Typography
             color="rgba(2, 26, 51, 0.9)"
@@ -111,16 +121,6 @@ function Contact() {
             <PhoneLink tel="5108129475">(510) 812-9475</PhoneLink>{" "}
             <PhoneLink tel="7244344646">(724) 434-4646</PhoneLink>
           </Typography>
-          <ContactLink
-            href="admin@fijianangelshomecare.info"
-            sx={{
-              color: "rgba(70, 150, 255, 1)",
-              filter: "invert(50%)",
-              letterSpacing: "0.1rem",
-            }}
-          >
-            admin@fijianangelshomecare.info
-          </ContactLink>
         </Box>
       </Box>
     </Box>
