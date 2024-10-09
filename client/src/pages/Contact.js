@@ -11,16 +11,18 @@ function Contact() {
     <Box
       id="contact"
       sx={{
-        border: "3px solid rgba(100, 150, 255, 0.25)",
-        borderRadius: "2rem",
         width: "96%",
         maxWidth: "67.5rem",
-        padding: "3rem 4%",
+        // padding: "3rem 4%",
         display: "grid",
         justifySelf: "center",
         alignSelf: "center",
         margin: "0 auto",
-        "@media(min-width: 62rem)": { padding: "3rem", gap: "2rem" },
+        "@media(min-width: 62rem)": {
+          border: "3px solid rgba(100, 150, 255, 0.25)",
+          borderRadius: "2.2rem",
+          gap: "2rem",
+        },
       }}
     >
       <Box
