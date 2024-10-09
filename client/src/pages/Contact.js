@@ -11,8 +11,8 @@ function Contact() {
     <Box
       id="contact"
       sx={{
+        border: "3px solid rgba(100, 150, 255, 0.25)",
         borderRadius: "2rem",
-        background: "rgba(70, 150, 255, 0.3)",
         width: "96%",
         maxWidth: "67.5rem",
         padding: "3rem 4%",
@@ -23,16 +23,25 @@ function Contact() {
         "@media(min-width: 62rem)": { padding: "3rem", gap: "2rem" },
       }}
     >
-      <Box component="section">
+      <Box
+        component="section"
+        sx={{
+          padding: "2rem 2rem 0 0.5rem ",
+          marginBottom: "1rem",
+          backgroundColor: "rgba(100, 150, 255, 0.25)",
+          borderRadius: "2rem 2rem 4rem 0",
+        }}
+      >
         <StyledHeader
           sx={{
             display: "block",
             textAlign: "center",
-            fontSize: "1.2rem",
+            fontSize: "1rem",
             color: "white",
             "@media(min-width: 62rem)": {
               fontSize: "1.8rem",
               letterSpacing: "0.1rem",
+              lineHeight: "0.5",
             },
           }}
         >
@@ -42,7 +51,7 @@ function Contact() {
           id="section-hours"
           color="white"
           sx={{
-            textShadow: "1px 1px 2px rgba(70, 150, 255, 0.8)",
+            textShadow: "1px 1px 2px #888",
             marginBottom: "2rem",
             fontSize: "2.3rem",
           }}
@@ -80,9 +89,21 @@ function Contact() {
           display: "grid",
           justifyContent: "center",
           marginTop: "2rem",
+          padding: "1rem 0",
+          borderRadius: "2rem",
+          backgroundColor: "rgba(255, 255, 255, 0.7)",
+          "@media(min-width: 60rem)": {
+            marginTop: "1rem",
+          },
         }}
       >
-        <Box sx={{ display: "block", margin: "0 auto", height: "9.5rem" }}>
+        <Box
+          sx={{
+            display: "block",
+            margin: "0 auto",
+            height: "9.5rem",
+          }}
+        >
           <img
             className="image-responsive"
             src={logo}
@@ -92,31 +113,25 @@ function Contact() {
         <ContactLink
           href="admin@fijianangelshomecare.info"
           sx={{
-            color: "#444",
-
+            color: "#555",
             letterSpacing: "0.1rem",
           }}
         >
-          admin@fijianangelshomecare.info
+          <b>admin@fijianangelshomecare.info</b>
         </ContactLink>
         <Box id="section-phone">
           <Typography
-            color="rgba(2, 26, 51, 0.9)"
+            color="#555"
             lineHeight={2}
-            sx={{ textAlign: "center" }}
+            sx={{ textAlign: "center", opacity: 0.5 }}
           >
-            <PhoneLink tel="5106127595">
-              <b>(510) 612-7595</b>
-            </PhoneLink>{" "}
-            /{" "}
-            <PhoneLink tel="6505180532">
-              <b>(650) 518-0532</b>
-            </PhoneLink>
+            <PhoneLink tel="5106127595">(510) 612-7595</PhoneLink> /{" "}
+            <PhoneLink tel="6505180532">(650) 518-0532</PhoneLink>
           </Typography>
           <Typography
-            color="rgba(2, 26, 51, 0.9)"
+            color="#555"
             lineHeight={2}
-            sx={{ textAlign: "center" }}
+            sx={{ textAlign: "center", opacity: 0.5 }}
           >
             <PhoneLink tel="5108129475">(510) 812-9475</PhoneLink>{" "}
             <PhoneLink tel="7244344646">(724) 434-4646</PhoneLink>
