@@ -27,7 +27,7 @@ const Staff = (props) => {
           backgroundPosition: "top 20% left",
           backgroundSize: "cover",
           "@media(min-width: 60rem)": {
-            height: "23rem",
+            height: "25rem",
             backgroundPosition: "top 12% left",
           },
         }}
@@ -48,11 +48,12 @@ const Staff = (props) => {
         >
           <Box
             sx={{
-              height: "20rem",
-              width: "20rem",
+              height: "15rem",
+              width: "15rem",
               backgroundColor: "rgba(70, 150, 255, 0.3)",
               border: "1px solid rgba(70, 150, 255, 1)",
               borderRadius: "1rem",
+              opacity: 0.5,
             }}
           />
           {/* <img src="" alt="Anaseini Coloata" /> */}
@@ -126,8 +127,8 @@ const Staff = (props) => {
         >
           <Box
             sx={{
-              height: "20rem",
-              width: "20rem",
+              height: "15rem",
+              width: "15rem",
               backgroundColor: "rgba(70, 150, 255, 0.3)",
               border: "1px solid rgba(70, 150, 255, 1)",
               borderRadius: "1rem",

@@ -112,6 +112,9 @@ function Contact() {
             display: "block",
             margin: "0 auto",
             height: "9.5rem",
+            "@media(min-width: 42rem)": {
+              height: "5rem",
+            },
           }}
         >
           <img
@@ -133,7 +136,13 @@ function Contact() {
           <Typography
             color="#111"
             lineHeight={2}
-            sx={{ textAlign: "center", opacity: 0.5 }}
+            sx={{
+              textAlign: "center",
+              opacity: 0.5,
+              "@media(min-width(42rem))": {
+                textAlign: "right",
+              },
+            }}
           >
             <PhoneLink tel="5106127595">(510) 612-7595</PhoneLink> /{" "}
             <PhoneLink tel="6505180532">(650) 518-0532</PhoneLink>
@@ -141,7 +150,13 @@ function Contact() {
           <Typography
             color="#111"
             lineHeight={2}
-            sx={{ textAlign: "center", opacity: 0.5 }}
+            sx={{
+              textAlign: "center",
+              opacity: 0.5,
+              "@media(min-width(42rem))": {
+                textAlign: "right",
+              },
+            }}
           >
             <PhoneLink tel="5108129475">(510) 812-9475</PhoneLink>{" "}
             <PhoneLink tel="7244344646">(724) 434-4646</PhoneLink>
