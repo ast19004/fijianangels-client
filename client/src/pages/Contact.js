@@ -34,15 +34,18 @@ function Contact() {
           marginBottom: "1rem",
           borderRadius: "2rem 2rem 4rem 0",
           backgroundImage: `url(${contact1_1500px})`,
-          backgroundPosition: "top left 35%",
+          backgroundPosition: "top left 65%",
           backgroundSize: "cover",
+          "@media(min-width: 42rem)": {
+            backgroundPosition: "top left 35%",
+          },
         }}
       >
         <StyledHeader
           sx={{
             display: "block",
-            fontSize: "1rem",
-            color: "rgba(200,200,200, 1)",
+            fontSize: "0.85rem",
+            color: "rgba(150,150,150, 1)",
             "@media(min-width: 62rem)": {
               fontSize: "1.8rem",
               letterSpacing: "0.1rem",
@@ -56,9 +59,12 @@ function Contact() {
           id="section-hours"
           color="white"
           sx={{
-            textShadow: "1px 1px 2px #888",
+            textShadow: "0px 0px 2px #111",
             marginBottom: "2rem",
-            fontSize: "2.3rem",
+            fontSize: "2rem",
+            "@media(min-width: 42rem)": {
+              fontSize: "2.3rem",
+            },
           }}
         >
           <b>Monday-Friday 9:00am-7:00pm</b>
