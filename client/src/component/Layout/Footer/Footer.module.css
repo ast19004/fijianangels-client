@@ -23,7 +23,7 @@
   position: relative;
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
+  align-items: center;
   height: max-content;
   background-color: white;
   clip-path: polygon(0 0, 95% 0, 100% 0%, 95% 100%, 0 100%);
@@ -75,6 +75,7 @@
   }
   .footer_text {
     padding-right: 5rem;
+    align-items: end;
   }
   .footer_text-header {
     font-size: 1.6rem !important;
