@@ -2,6 +2,9 @@ import { Box, Typography } from "@mui/material";
 import EmailOutlinedIcon from "@mui/icons-material/EmailOutlined";
 import ContactLink from "../../component/UI/Links/ContactLink";
 
+import love_hand_gesture_500px from "../../assests/images/love_hand_gesture/love_hand_gesture_500px.jpg";
+import love_hand_gesture_800px from "../../assests/images/love_hand_gesture/love_hand_gesture_800px.jpg";
+import love_hand_gesture_1024px from "../../assests/images/love_hand_gesture/love_hand_gesture_1024px.jpg";
 import love_hand_gesture_1500px from "../../assests/images/love_hand_gesture/love_hand_gesture-1500px.jpg";
 
 const Staff = (props) => {
@@ -23,12 +26,17 @@ const Staff = (props) => {
           width: "100%",
           marginBottom: "1rem",
           borderRadius: "2rem 2rem 0 0",
-          backgroundImage: `url(${love_hand_gesture_1500px})`,
+          backgroundImage: `url(${love_hand_gesture_500px})`,
           backgroundPosition: "top 20% left",
           backgroundSize: "cover",
-          "@media(min-width: 60rem)": {
-            height: "25rem",
-            backgroundPosition: "top 12% left",
+          "@media(min-width: 31rem)": {
+            backgroundImage: `url(${love_hand_gesture_800px})`,
+          },
+          "@media(min-width: 50rem)": {
+            backgroundImage: `url(${love_hand_gesture_1024px})`,
+          },
+          "@media(min-width: 64rem)": {
+            backgroundImage: `url(${love_hand_gesture_1500px})`,
           },
         }}
       ></Box>
