@@ -2,6 +2,8 @@ import { Box, Typography } from "@mui/material";
 import EmailOutlinedIcon from "@mui/icons-material/EmailOutlined";
 import ContactLink from "../../component/UI/Links/ContactLink";
 
+import love_hand_gesture_1500px from "../../assests/images/love_hand_gesture-1500px.jpg";
+
 const Staff = (props) => {
   return (
     <Box
@@ -14,6 +16,22 @@ const Staff = (props) => {
         margin: "0 auto",
       }}
     >
+      <Box
+        sx={{
+          margin: "0 auto",
+          height: "12rem",
+          width: "100%",
+          marginBottom: "1rem",
+          borderRadius: "2rem 2rem 0 0",
+          backgroundImage: `url(${love_hand_gesture_1500px})`,
+          backgroundPosition: "top 20% left",
+          backgroundSize: "cover",
+          "@media(min-width: 60rem)": {
+            height: "23rem",
+            backgroundPosition: "top 12% left",
+          },
+        }}
+      ></Box>
       <Box
         sx={{
           display: "flex",

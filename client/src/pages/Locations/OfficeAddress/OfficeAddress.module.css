@@ -25,6 +25,7 @@
 @media (min-width: 60rem) {
   .office {
     width: fit-content;
-    min-width: 20rem;
+    min-width: 24rem;
+    border-radius: 0 1rem 1rem 0;
   }
 }

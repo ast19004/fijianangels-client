@@ -21,7 +21,7 @@ function Contact() {
         alignSelf: "center",
         margin: "0 auto",
         "@media(min-width: 62rem)": {
-          border: "3px solid rgba(100, 150, 255, 0.25)",
+          // border: "3px solid rgba(100, 150, 255, 0.25)",
           borderRadius: "2.2rem",
           gap: "2rem",
         },
@@ -100,6 +100,7 @@ function Contact() {
             padding: "2% 12% 2% 2%",
             justifyContent: "end",
             marginTop: "1rem",
+            opacity: "0.9",
             backgroundImage: `url(${contact2_1500px})`,
             backgroundPosition: "top left 35%",
             backgroundSize: "cover",
