@@ -6,6 +6,9 @@ import Locations from "./Locations/Locations";
 import PhoneLink from "../component/UI/Links/PhoneLink/PhoneLink";
 import ContactLink from "../component/UI/Links/ContactLink";
 
+import contact1_1500px from "../assests/images/contact/contact1-1500px.jpg";
+import contact2_1500px from "../assests/images/contact/contact2-1500px.jpg";
+
 function Contact() {
   return (
     <Box
@@ -13,7 +16,6 @@ function Contact() {
       sx={{
         width: "96%",
         maxWidth: "67.5rem",
-        // padding: "3rem 4%",
         display: "grid",
         justifySelf: "center",
         alignSelf: "center",
@@ -28,18 +30,19 @@ function Contact() {
       <Box
         component="section"
         sx={{
-          padding: "2rem 2rem 0 0.5rem ",
+          padding: "2rem 2rem 0 2% ",
           marginBottom: "1rem",
-          backgroundColor: "rgba(100, 150, 255, 0.25)",
           borderRadius: "2rem 2rem 4rem 0",
+          backgroundImage: `url(${contact1_1500px})`,
+          backgroundPosition: "top left 35%",
+          backgroundSize: "cover",
         }}
       >
         <StyledHeader
           sx={{
             display: "block",
-            textAlign: "center",
             fontSize: "1rem",
-            color: "white",
+            color: "rgba(200,200,200, 1)",
             "@media(min-width: 62rem)": {
               fontSize: "1.8rem",
               letterSpacing: "0.1rem",
@@ -57,7 +60,6 @@ function Contact() {
             marginBottom: "2rem",
             fontSize: "2.3rem",
           }}
-          textAlign="center"
         >
           <b>Monday-Friday 9:00am-7:00pm</b>
         </Typography>
@@ -94,8 +96,13 @@ function Contact() {
           padding: "1rem 0",
           borderRadius: "2rem",
           backgroundColor: "rgba(255, 255, 255, 0.7)",
-          "@media(min-width: 60rem)": {
+          "@media(min-width: 37rem)": {
+            padding: "2% 12% 2% 2%",
+            justifyContent: "end",
             marginTop: "1rem",
+            backgroundImage: `url(${contact2_1500px})`,
+            backgroundPosition: "top left 35%",
+            backgroundSize: "cover",
           },
         }}
       >
@@ -115,7 +122,7 @@ function Contact() {
         <ContactLink
           href="admin@fijianangelshomecare.info"
           sx={{
-            color: "#555",
+            color: "#111",
             letterSpacing: "0.1rem",
           }}
         >
@@ -123,7 +130,7 @@ function Contact() {
         </ContactLink>
         <Box id="section-phone">
           <Typography
-            color="#555"
+            color="#111"
             lineHeight={2}
             sx={{ textAlign: "center", opacity: 0.5 }}
           >
@@ -131,7 +138,7 @@ function Contact() {
             <PhoneLink tel="6505180532">(650) 518-0532</PhoneLink>
           </Typography>
           <Typography
-            color="#555"
+            color="#111"
             lineHeight={2}
             sx={{ textAlign: "center", opacity: 0.5 }}
           >
