@@ -2,7 +2,7 @@ import { Box, Typography } from "@mui/material";
 import EmailOutlinedIcon from "@mui/icons-material/EmailOutlined";
 import ContactLink from "../../component/UI/Links/ContactLink";
 
-import love_hand_gesture_1500px from "../../assests/images/love_hand_gesture-1500px.jpg";
+import love_hand_gesture_1500px from "../../assests/images/love_hand_gesture/love_hand_gesture-1500px.jpg";
 
 const Staff = (props) => {
   return (
