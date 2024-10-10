@@ -33,7 +33,7 @@
 .footer_text-header {
   letter-spacing: 1px;
   font-weight: 500;
-  font-size: 1.4rem !important;
+  font-size: 1rem !important;
   margin-bottom: -2px;
 }
 
@@ -41,12 +41,12 @@
   font-size: 1rem;
   letter-spacing: 1px;
   transform: scale(1, 0.9);
-  font-size: 1rem !important;
+  font-size: 0.8rem !important;
 }
 
 .footer_text-action {
   height: max-content;
-  font-size: 1.1rem !important;
+  font-size: 1rem !important;
   justify-self: flex-start;
   align-self: center;
 }

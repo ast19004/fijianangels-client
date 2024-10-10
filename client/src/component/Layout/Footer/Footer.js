@@ -18,7 +18,6 @@ function Footer() {
         <Typography
           className={styles["footer_text-header"]}
           component="h3"
-          variant="h5"
           color="rgba(202, 71, 101)"
           align="right"
         >
