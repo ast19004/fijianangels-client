@@ -133,10 +133,10 @@ function Contact() {
             backgroundPosition: "top left 35%",
           },
           "@media(min-width: 50rem)": {
-            backgroundImage: `url(${contact1_1024px})`,
+            backgroundImage: `url(${contact2_1024px})`,
           },
           "@media(min-width: 64rem)": {
-            backgroundImage: `url(${contact1_1500px})`,
+            backgroundImage: `url(${contact2_1500px})`,
           },
         }}
       >
