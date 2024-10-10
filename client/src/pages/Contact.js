@@ -6,8 +6,11 @@ import Locations from "./Locations/Locations";
 import PhoneLink from "../component/UI/Links/PhoneLink/PhoneLink";
 import ContactLink from "../component/UI/Links/ContactLink";
 
-import contact1_1500px from "../assests/images/contact/contact1-1500px.jpg";
-import contact2_1500px from "../assests/images/contact/contact2-1500px.jpg";
+// Contact 1 image
+import contact1_1500px from "../assests/images/contact/contact1/contact1_1500px.jpg";
+
+// Contact 2 Image
+import contact2_1500px from "../assests/images/contact/contact2/contact2_1500px.jpg";
 
 function Contact() {
   return (
