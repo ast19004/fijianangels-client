@@ -136,7 +136,7 @@ function Contact() {
           "@media(min-width: 49rem)": {
             backgroundImage: `url(${contact2_1024px})`,
           },
-          "@media(min-width: 6rem)": {
+          "@media(min-width: 63rem)": {
             backgroundImage: `url(${contact2_1500px})`,
           },
         }}
