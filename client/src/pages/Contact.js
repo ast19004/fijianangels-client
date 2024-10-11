@@ -45,16 +45,16 @@ function Contact() {
           backgroundImage: `url(${contact1_500px})`,
           backgroundPosition: "top left 65%",
           backgroundSize: "cover",
-          "@media(min-width: 31rem)": {
+          "@media(min-width: 30rem)": {
             backgroundImage: `url(${contact1_800px})`,
           },
-          "@media(min-width: 42rem)": {
+          "@media(min-width: 41rem)": {
             backgroundPosition: "top left 35%",
           },
-          "@media(min-width: 50rem)": {
+          "@media(min-width: 49rem)": {
             backgroundImage: `url(${contact1_1024px})`,
           },
-          "@media(min-width: 64rem)": {
+          "@media(min-width: 63rem)": {
             backgroundImage: `url(${contact1_1500px})`,
           },
         }}
@@ -120,6 +120,7 @@ function Contact() {
           padding: "1rem 0",
           borderRadius: "2rem",
           backgroundColor: "rgba(255, 255, 255, 0.7)",
+
           "@media(min-width: 37rem)": {
             padding: "2% 12% 2% 2%",
             justifyContent: "end",
@@ -132,10 +133,10 @@ function Contact() {
           "@media(min-width: 42rem)": {
             backgroundPosition: "top left 35%",
           },
-          "@media(min-width: 50rem)": {
+          "@media(min-width: 49rem)": {
             backgroundImage: `url(${contact2_1024px})`,
           },
-          "@media(min-width: 64rem)": {
+          "@media(min-width: 6rem)": {
             backgroundImage: `url(${contact2_1500px})`,
           },
         }}

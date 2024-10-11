@@ -31,12 +31,12 @@
 .disappear {
   opacity: 0;
 }
-@media (min-width: 31rem) {
+@media (min-width: 30rem) {
   .background {
     background-image: url("../../../assests/images/home_image/main_home_800px.jpg");
   }
 }
-@media (min-width: 50rem) {
+@media (min-width: 49rem) {
   .background {
     background-image: url("../../../assests/images/home_image/main_home_1024px.jpg");
   }
@@ -46,7 +46,7 @@
     object-position: bottom 15% left 72%;
   }
 }
-@media (min-width: 64rem) {
+@media (min-width: 63rem) {
   .foreground-video {
     object-position: center;
   }

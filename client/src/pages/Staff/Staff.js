@@ -29,13 +29,13 @@ const Staff = (props) => {
           backgroundImage: `url(${love_hand_gesture_500px})`,
           backgroundPosition: "top 20% left",
           backgroundSize: "cover",
-          "@media(min-width: 31rem)": {
+          "@media(min-width: 30rem)": {
             backgroundImage: `url(${love_hand_gesture_800px})`,
           },
-          "@media(min-width: 50rem)": {
+          "@media(min-width: 49rem)": {
             backgroundImage: `url(${love_hand_gesture_1024px})`,
           },
-          "@media(min-width: 64rem)": {
+          "@media(min-width: 63rem)": {
             backgroundImage: `url(${love_hand_gesture_1500px})`,
           },
         }}
