@@ -23,7 +23,7 @@
   position: relative;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: end;
   height: max-content;
   background-color: white;
   clip-path: polygon(0 0, 95% 0, 100% 0%, 95% 100%, 0 100%);

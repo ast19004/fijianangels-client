@@ -4,7 +4,7 @@
 }
 .background {
   transition: all 1s ease-in;
-  background-image: url("../../../assests/images/home_image/main_home_500px.jpg");
+  background-image: url("../../../assests/images/home_image/main_home_800px.jpg");
   background-repeat: no-repeat;
   background-position: top left 35%;
   background-size: cover;
@@ -30,11 +30,6 @@
 
 .disappear {
   opacity: 0;
-}
-@media (min-width: 30rem) {
-  .background {
-    background-image: url("../../../assests/images/home_image/main_home_800px.jpg");
-  }
 }
 @media (min-width: 49rem) {
   .background {

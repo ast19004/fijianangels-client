@@ -7,13 +7,11 @@ import PhoneLink from "../component/UI/Links/PhoneLink/PhoneLink";
 import ContactLink from "../component/UI/Links/ContactLink";
 
 // Contact 1 image
-import contact1_500px from "../assests/images/contact/contact1/contact1_500px.jpg";
 import contact1_800px from "../assests/images/contact/contact1/contact1_800px.jpg";
 import contact1_1024px from "../assests/images/contact/contact1/contact1_1024px.jpg";
 import contact1_1500px from "../assests/images/contact/contact1/contact1_1500px.jpg";
 
 // Contact 2 Image
-import contact2_500px from "../assests/images/contact/contact2/contact2_1500px.jpg";
 import contact2_800px from "../assests/images/contact/contact2/contact2_800px.jpg";
 import contact2_1024px from "../assests/images/contact/contact2/contact2_1024px.jpg";
 import contact2_1500px from "../assests/images/contact/contact2/contact2_1500px.jpg";
@@ -42,12 +40,9 @@ function Contact() {
           padding: "2rem 2rem 0 2% ",
           marginBottom: "1rem",
           borderRadius: "2rem 2rem 4rem 0",
-          backgroundImage: `url(${contact1_500px})`,
+          backgroundImage: `url(${contact1_800px})`,
           backgroundPosition: "top left 65%",
           backgroundSize: "cover",
-          "@media(min-width: 30rem)": {
-            backgroundImage: `url(${contact1_800px})`,
-          },
           "@media(min-width: 41rem)": {
             backgroundPosition: "top left 35%",
           },
