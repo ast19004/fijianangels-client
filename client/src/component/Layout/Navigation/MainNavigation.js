@@ -166,7 +166,7 @@ const MainNavigation = (props) => {
                     className="menuItemLink"
                     onClick={handleEmployeeForm}
                   >
-                    CARRERS
+                    EMPLOYMENT
                   </MenuItem>
                 </MenuList>
               </ClickAwayListener>

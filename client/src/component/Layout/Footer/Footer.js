@@ -22,7 +22,6 @@ function Footer() {
           align="right"
         >
           FIJIAN ANGELS HOMECARE
-          {/* <CallIcon sx={{ fontSize: "inherit", opacity: "0.75" }} /> */}
         </Typography>
         <Typography
           className={styles["footer_text-subheader"]}
