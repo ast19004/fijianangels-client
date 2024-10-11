@@ -1,5 +1,8 @@
 .footer {
-  display: grid;
+  display: -webkit-box; /* Older Safari versions */
+  display: -ms-grid; /* IE10 and IE11 */
+  display: grid; /* Standard */
+
   grid-template-columns: 1.35fr 1fr;
   width: 100%;
   cursor: pointer;
@@ -10,8 +13,11 @@
   left: 0;
   margin-bottom: 0;
   background-color: rgba(202, 71, 101, 0.9);
+  -webkit-transition: all 1s; /* Safari */
   transition: all 1s;
+
   height: min-content;
+  height: auto; /* Fallback */
 }
 
 .footer_text,
@@ -25,8 +31,17 @@
   flex-direction: column;
   align-items: end;
   height: max-content;
+  height: auto; /* Fallback */
   background-color: white;
+  -webkit-clip-path: polygon(
+    0 0,
+    95% 0,
+    100% 0%,
+    95% 100%,
+    0 100%
+  ); /* Safari */
   clip-path: polygon(0 0, 95% 0, 100% 0%, 95% 100%, 0 100%);
+
   padding-right: 2rem;
 }
 
