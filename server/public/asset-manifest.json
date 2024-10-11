@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.404b6728.css",
-    "main.js": "/static/js/main.6f53c442.js",
+    "main.css": "/static/css/main.3602769d.css",
+    "main.js": "/static/js/main.b24c408e.js",
     "static/js/592.599f76a2.chunk.js": "/static/js/592.599f76a2.chunk.js",
     "static/media/elderly_assistance.mp4": "/static/media/elderly_assistance.c5c10b4fa0ab0ed76711.mp4",
     "static/media/main_home_1500px.jpg": "/static/media/main_home_1500px.903e6d72eae8897d5606.jpg",
@@ -10,7 +10,6 @@
     "static/media/love_hand_gesture_1024px.jpg": "/static/media/love_hand_gesture_1024px.981e9272cf20c7d7ce93.jpg",
     "static/media/main_home_800px.jpg": "/static/media/main_home_800px.053b528f23da84a528aa.jpg",
     "static/media/love_hand_gesture_800px.jpg": "/static/media/love_hand_gesture_800px.4bbc0cdab7cc19ac02a0.jpg",
-    "static/media/main_home_500px.jpg": "/static/media/main_home_500px.224f565bcc8232628f4c.jpg",
     "static/media/love_hand_gesture_500px.jpg": "/static/media/love_hand_gesture_500px.d35767b381a36430f225.jpg",
     "static/media/service-medreminder.jpg": "/static/media/service-medreminder.4c2db03ebfa6388d67cb.jpg",
     "static/media/service-cooking350px.jpg": "/static/media/service-cooking350px.944a87606fba33dc7926.jpg",
@@ -27,7 +26,6 @@
     "static/media/integrity.svg": "/static/media/integrity.462d9e13dc536bdd7f47e9945fdd424e.svg",
     "static/media/contact1_800px.jpg": "/static/media/contact1_800px.e3060597a7268fe10c44.jpg",
     "static/media/service-respite.jpg": "/static/media/service-respite.299ee55f498b5f5fe2d6.jpg",
-    "static/media/contact1_500px.jpg": "/static/media/contact1_500px.3d26263f9052ddadefa4.jpg",
     "static/media/contact2_1500px.jpg": "/static/media/contact2_1500px.6ffaa00e06b160b33d4c.jpg",
     "static/media/contact2_1024px.jpg": "/static/media/contact2_1024px.f39f36f92454218e0486.jpg",
     "static/media/service-housecleaning.jpg": "/static/media/service-housecleaning.1f903ab3c30ec1ef9172.jpg",
@@ -35,12 +33,12 @@
     "static/media/contact.svg": "/static/media/contact.6474b0bf73867cf09adb5584d8a49b02.svg",
     "static/media/fijian-angels-logo.svg": "/static/media/fijian-angels-logo.ec44a1f02df0abeeda0b1ba5cc40942b.svg",
     "index.html": "/index.html",
-    "main.404b6728.css.map": "/static/css/main.404b6728.css.map",
-    "main.6f53c442.js.map": "/static/js/main.6f53c442.js.map",
+    "main.3602769d.css.map": "/static/css/main.3602769d.css.map",
+    "main.b24c408e.js.map": "/static/js/main.b24c408e.js.map",
     "592.599f76a2.chunk.js.map": "/static/js/592.599f76a2.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.404b6728.css",
-    "static/js/main.6f53c442.js"
+    "static/css/main.3602769d.css",
+    "static/js/main.b24c408e.js"
   ]
 }
