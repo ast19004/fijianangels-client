@@ -1,7 +1,17 @@
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v8.4.14,
+* Autoprefixer: v10.4.7
+* Browsers: last 4 version
+*/
+
 .footer {
-  display: -webkit-box; /* Older Safari versions */
+  display: -webkit-box; /* Old WebKit browsers */
+  display: -ms-flexbox; /* IE10 */
   display: -ms-grid; /* IE10 and IE11 */
   display: grid; /* Standard */
+
+  -ms-grid-columns: 1.35fr 1fr;
 
   grid-template-columns: 1.35fr 1fr;
   width: 100%;
@@ -13,8 +23,13 @@
   left: 0;
   margin-bottom: 0;
   background-color: rgba(202, 71, 101, 0.9);
-  -webkit-transition: all 1s; /* Safari */
+  -webkit-transition: all 1s; /* For Older Browsers */
+  -o-transition: all 1s;
   transition: all 1s;
+
+  height: -webkit-min-content;
+
+  height: -moz-min-content;
 
   height: min-content;
   height: auto; /* Fallback */
@@ -27,9 +42,18 @@
 
 .footer_text {
   position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
   flex-direction: column;
+  -webkit-box-align: end;
+  -ms-flex-align: end;
   align-items: end;
+  height: -webkit-max-content;
+  height: -moz-max-content;
   height: max-content;
   height: auto; /* Fallback */
   background-color: white;
@@ -55,6 +79,8 @@
 .footer_text-subheader {
   font-size: 1rem;
   letter-spacing: 1px;
+  -webkit-transform: scale(1, 0.9);
+  -ms-transform: scale(1, 0.9);
   transform: scale(1, 0.9);
   font-size: 0.8rem !important;
 }
@@ -62,6 +88,8 @@
 .footer_text-action {
   font-size: 1rem !important;
   justify-self: flex-start;
+  -ms-flex-item-align: center;
+  -ms-grid-row-align: center;
   align-self: center;
 }
 
@@ -85,10 +113,13 @@
 
 @media (min-width: 53rem) {
   .footer {
+    -ms-grid-columns: 1fr 1fr;
     grid-template-columns: 1fr 1fr;
   }
   .footer_text {
     padding-right: 5rem;
+    -webkit-box-align: end;
+    -ms-flex-align: end;
     align-items: end;
   }
   .footer_text-header {

@@ -1,8 +1,17 @@
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v8.4.14,
+* Autoprefixer: v10.4.7
+* Browsers: last 4 version
+*/
+
 .home {
   position: relative;
 }
 
 .home_contact-icon {
+  -webkit-transition: all 1s;
+  -o-transition: all 1s;
   transition: all 1s;
   position: absolute;
   z-index: 99999;
@@ -13,10 +22,13 @@
   cursor: pointer;
   border-radius: 50%;
   border: 0.3rem solid white;
+  -webkit-box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
   box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
 }
 
 .home_contact-icon:hover {
+  -webkit-transform: translate(0.3rem, -1rem) scale(1.1);
+  -ms-transform: translate(0.3rem, -1rem) scale(1.1);
   transform: translate(0.3rem, -1rem) scale(1.1);
 }
 

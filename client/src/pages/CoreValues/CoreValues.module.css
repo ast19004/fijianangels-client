@@ -1,8 +1,21 @@
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v8.4.14,
+* Autoprefixer: v10.4.7
+* Browsers: last 4 version
+*/
+
 .corevalues {
+  -ms-grid-column-align: center;
   justify-self: center;
+  display: -ms-grid;
   display: grid;
   gap: 5rem;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
   justify-content: center;
   padding: 2.5rem;
   background-color: white;
@@ -11,12 +24,19 @@
   text-align: center;
 }
 .corevalue {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   justify-items: space-between;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
   gap: 0.5rem;
 }
 .corevalue:nth-of-type(2) {
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: reverse;
+  -ms-flex-direction: row-reverse;
   flex-direction: row-reverse;
 }
 .corevalue_icon {
@@ -36,6 +56,7 @@
 @media (min-width: 50rem) {
   .corevalues {
     height: 25rem;
+    -ms-grid-columns: 1fr 1rem 1fr 1rem 1fr;
     grid-template-columns: 1fr 1fr 1fr;
     gap: 1rem;
     max-width: 67.5rem;

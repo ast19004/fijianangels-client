@@ -1,6 +1,15 @@
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v8.4.14,
+* Autoprefixer: v10.4.7
+* Browsers: last 4 version
+*/
+
 .office {
   background: white;
   width: 100%;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
   height: fit-content;
   padding: 1rem;
   border-radius: 1rem;
@@ -24,6 +33,8 @@
 
 @media (min-width: 60rem) {
   .office {
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
     width: fit-content;
     min-width: 24rem;
     border-radius: 0 1rem 1rem 0;

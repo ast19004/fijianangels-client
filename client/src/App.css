@@ -1,5 +1,13 @@
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v8.4.14,
+* Autoprefixer: v10.4.7
+* Browsers: last 4 version
+*/
+
 /* --- Classes --- */
 * {
+  -webkit-box-sizing: border-box;
   box-sizing: border-box;
 }
 .App {
@@ -17,13 +25,20 @@
   width: auto;
   border-radius: 50%;
   border: 4px solid #ca4765a0;
+  -webkit-box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
   padding: 0.3rem;
   background-color: white;
+  -webkit-transition: -webkit-transform 1s;
+  transition: -webkit-transform 1s;
+  -o-transition: transform 1s;
   transition: transform 1s;
+  transition: transform 1s, -webkit-transform 1s;
   will-change: transform;
 }
 .App-logo:hover {
+  -webkit-transform: translate(-1vh, 1vh);
+  -ms-transform: translate(-1vh, 1vh);
   transform: translate(-1vh, 1vh);
 }
 
@@ -34,7 +49,11 @@
 }
 .menuItem,
 .menuItemLink {
+  display: -webkit-box !important;
+  display: -ms-flexbox !important;
   display: flex !important;
+  -webkit-box-pack: end !important;
+  -ms-flex-pack: end !important;
   justify-content: end !important;
 }
 
@@ -47,13 +66,19 @@
 
 .image {
   opacity: 0;
+  -webkit-transform: scale(0) translateZ(0);
   transform: scale(0) translateZ(0);
+  -webkit-transition: opacity 2s, -webkit-transform 2s;
+  transition: opacity 2s, -webkit-transform 2s;
+  -o-transition: opacity 2s, transform 2s;
   transition: opacity 2s, transform 2s;
+  transition: opacity 2s, transform 2s, -webkit-transform 2s;
   will-change: opacity, transform;
 }
 
 .image-enter-active {
   opacity: 1;
+  -webkit-transform: scale(1) translateZ(0);
   transform: scale(1) translateZ(0);
 }
 
@@ -82,6 +107,7 @@
 /* --- Html Elements--- */
 main {
   width: 100%;
+  display: -ms-grid;
   display: grid;
   gap: 4rem;
   padding: 2%;
@@ -103,8 +129,14 @@ header {
   top: 0;
   background: white;
   padding: 0.2% 2%;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
   justify-content: space-between;
   border-bottom: 2px solid rgba(202, 71, 101, 0.3);
 }
@@ -128,9 +160,13 @@ header {
 
 @media (min-width: 64rem) {
   .carousel-control-prev-icon {
+    -webkit-transform: translate(-150%, 0%);
+    -ms-transform: translate(-150%, 0%);
     transform: translate(-150%, 0%);
   }
   .carousel-control-next-icon {
+    -webkit-transform: translate(150%, 0%);
+    -ms-transform: translate(150%, 0%);
     transform: translate(150%, 0%);
   }
 }

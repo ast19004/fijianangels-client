@@ -1,31 +1,46 @@
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v8.4.14,
+* Autoprefixer: v10.4.7
+* Browsers: last 4 version
+*/
+
 .background_container {
   position: relative;
   overflow: hidden;
 }
 .background {
+  -webkit-transition: all 1s ease-in; /* Safari */
+  -o-transition: all 1s ease-in;
   transition: all 1s ease-in;
   background-image: url("../../../assests/images/home_image/main_home_800px.jpg");
   background-repeat: no-repeat;
   background-position: top left 35%;
-  background-size: cover;
+  background-size: 100% 100%; /* Fallback */
+  background-size: cover; /* Standard */
   width: 100vw;
   position: relative;
   top: 0;
   right: 0;
   z-index: 0;
+  height: 500px; /* Fallback */
   height: calc(100vh - 0.7rem);
   width: 100%;
 }
 
 .foreground-video {
+  -webkit-transition: opacity 1s; /* Safari */
+  -o-transition: opacity 1s;
   transition: opacity 1s;
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  object-position: bottom 30% left 65%;
+  -o-object-fit: cover;
+  object-fit: cover; /* Fallback for older browsers */
+  -o-object-position: bottom 30% left 65%;
+  object-position: bottom 30% left 65%; /* Fallback for older browsers */
 }
 
 .disappear {
@@ -38,14 +53,36 @@
 }
 @media (min-width: 51rem) {
   .foreground-video {
+    -o-object-position: bottom 15% left 72%;
     object-position: bottom 15% left 72%;
   }
 }
 @media (min-width: 63rem) {
   .foreground-video {
+    -o-object-position: center;
     object-position: center;
   }
   .background {
     background-image: url("../../../assests/images/home_image/main_home_1500px.jpg");
   }
+}
+.example {
+  display: -ms-grid;
+  display: grid;
+  -webkit-transition: all 0.5s;
+  -o-transition: all 0.5s;
+  transition: all 0.5s;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  background: -webkit-gradient(
+    linear,
+    left top,
+    left bottom,
+    from(white),
+    to(black)
+  );
+  background: -o-linear-gradient(top, white, black);
+  background: linear-gradient(to bottom, white, black);
 }

@@ -1,4 +1,13 @@
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v8.4.14,
+* Autoprefixer: v10.4.7
+* Browsers: last 4 version
+*/
+
 .staff {
+  height: -webkit-min-content;
+  height: -moz-min-content;
   height: min-content;
   width: 94vw;
   max-width: 68rem;
@@ -17,19 +26,33 @@
   background-size: cover;
 }
 .staff_member {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
   flex-direction: column;
 }
 .staff_member1 {
   margin-bottom: 4rem;
 }
 .staff_member1_img {
+  -ms-flex-item-align: center;
+  -ms-grid-row-align: center;
   align-self: center;
 }
 
 .staff_member2_img {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
   flex-direction: column;
+  -ms-flex-item-align: center;
+  -ms-grid-row-align: center;
   align-self: center;
 }
 
@@ -59,17 +82,28 @@
     gap: 2rem;
   }
   .staff_member1 {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
     flex-direction: row;
   }
   .staff_member2 {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: reverse;
+    -ms-flex-direction: row-reverse;
     flex-direction: row-reverse;
   }
   .staff_member1_img {
+    -ms-flex-item-align: start;
     align-self: flex-start;
   }
   .staff_member2_img {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
     flex-direction: row;
     gap: 2rem;
+    -ms-flex-item-align: end;
     align-self: flex-end;
   }
 }
