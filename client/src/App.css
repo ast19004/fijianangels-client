@@ -93,8 +93,12 @@
   padding: 1rem 3.1rem !important;
 }
 .MuiFormControl-root {
-  width: 96%;
+  width: 100%;
 }
+.MuiOutlinedInput-root {
+  border-radius: 1rem !important;
+}
+
 .MuiFormHelperText-root {
   color: red !important;
   font-size: 1rem !important;
@@ -112,11 +116,6 @@ main {
   gap: 4rem;
   padding: 2%;
   background-color: rgba(200, 225, 225, 0.25);
-}
-input:required,
-textarea:required,
-#select_services {
-  border: 1px solid #555 !important;
 }
 body {
   width: 100%;
