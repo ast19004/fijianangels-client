@@ -1,5 +1,6 @@
 import { Box, Typography, Button, ButtonGroup } from "@mui/material";
 import { useEffect, useState } from "react";
+import CustomButton from "../Buttons/CustomButton";
 
 const Form = (props) => {
   const [formData, setFormData] = useState({});
@@ -71,16 +72,9 @@ const Form = (props) => {
       ) : null}
       {/* TODO: remove this extra submit button and consolidate it with the submit of above */}
       {props.submit && (
-        <Button
-          sx={{ display: "block", margin: "16px auto 0 auto" }}
-          disabled={props.submitDisabled}
-          type="submit"
-          variant="contained"
-          color="primary"
-          onClick={props.onSubmit}
-        >
+        <CustomButton disabled={props.submitDisabled} type="submit">
           Submit
-        </Button>
+        </CustomButton>
       )}
     </Box>
   );
