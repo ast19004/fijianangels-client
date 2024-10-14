@@ -1,12 +1,15 @@
 import { useState } from "react";
+
 import { updateInput } from "../../../util/formdata";
 
 import { getTodaysDate } from "../../../util/Date";
 import FullName from "../InputGroups/FullName";
 import Contact from "../InputGroups/Contact";
-import Form from "../Forms/Form";
+import Form from "./Form";
 import FormTextareaInput from "../Inputs/FormTextareaInput";
 import FormSelectServices from "../Inputs/FormSelectServices";
+
+import sendEmail from "../../../util/Email/send";
 
 const HomecareRequestForm = (props) => {
   const currentDate = getTodaysDate();
@@ -26,9 +29,8 @@ const HomecareRequestForm = (props) => {
     updateInput(dataName, data, setRequest);
   };
 
-  const handleFormSubmit = () => {};
   return (
-    <Form title="Homecare Request Form" submit onSubmit={handleFormSubmit}>
+    <Form title="Homecare Request Form" submit onSubmit={sendEmail}>
       <FullName
         fullName={request.fullName}
         onChange={handleInputChange}

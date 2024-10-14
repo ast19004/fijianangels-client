@@ -14,7 +14,7 @@ import { smoothScrollToTop } from "../../../util/scroll";
 
 import FullName from "../InputGroups/FullName";
 import Contact from "../InputGroups/Contact";
-import Form from "../Forms/Form";
+import Form from "./Form";
 import FormTextareaInput from "../Inputs/FormTextareaInput";
 import FormSelectServices from "../Inputs/FormSelectServices";
 import DateRange from "../InputGroups/DateRange";

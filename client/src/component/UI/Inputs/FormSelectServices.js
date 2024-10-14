@@ -65,6 +65,7 @@ const FormSelectServices = (props) => {
   return (
     <FormInput
       id="select_services"
+      name={props.name || "select_services"}
       className="services"
       label={label}
       inputProps={props.inputProps}
