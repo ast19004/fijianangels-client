@@ -9,7 +9,7 @@ const Staff = (props) => {
     <Box className={styles.staff}>
       <Box className={styles.staff_header}>
         <Typography
-          align="center"
+          align="left"
           sx={{
             position: "absolute",
             bottom: "2%",
@@ -18,6 +18,7 @@ const Staff = (props) => {
             color: "white",
             background: "rgba(100,100,100,0.1)",
             borderRadius: "5rem",
+            width: "96%",
             padding: "2%",
             fontSize: "1.3rem",
             letterSpacing: "0.1rem",

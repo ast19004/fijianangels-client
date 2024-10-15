@@ -74,6 +74,7 @@
 @media (min-width: 30rem) {
   .staff_header {
     height: 15rem;
+    background-position: top 10% left;
     background-image: url("../../assests/images//love_hand_gesture/love_hand_gesture_800px.jpg");
   }
 }
@@ -110,7 +111,7 @@
 
 @media (min-width: 49rem) {
   .staff_header {
-    height: 17rem;
+    height: 19rem;
   }
   .staff_header {
     background-image: url("../../assests/images//love_hand_gesture/love_hand_gesture_1024px.jpg");
@@ -118,7 +119,7 @@
 }
 @media (min-width: 63rem) {
   .staff_header {
-    height: 20rem;
+    height: 23rem;
   }
   .staff_header {
     background-image: url("../../assests/images//love_hand_gesture/love_hand_gesture-1500px.jpg");

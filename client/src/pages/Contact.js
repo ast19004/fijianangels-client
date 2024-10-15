@@ -30,7 +30,7 @@ function Contact() {
         "@media(min-width: 62rem)": {
           // border: "3px solid rgba(100, 150, 255, 0.25)",
           borderRadius: "2.2rem",
-          gap: "2rem",
+          gap: "0.5rem",
         },
       }}
     >
