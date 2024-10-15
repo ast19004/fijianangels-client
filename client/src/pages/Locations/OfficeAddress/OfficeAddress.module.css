@@ -16,7 +16,7 @@
 }
 .office_title {
   color: rgba(202, 71, 101, 0.75);
-  font-size: 1.5rem;
+  font-size: 1.3rem;
 }
 .office_coverage {
   color: rgba(6, 70, 151, 255);
@@ -24,11 +24,7 @@
 
 .office_address {
   color: rgba(96, 125, 173, 255);
-  font-size: 1.2rem;
-}
-
-.office_title-main {
-  font-size: 2rem;
+  font-size: 1rem;
 }
 
 @media (min-width: 60rem) {
@@ -36,6 +32,7 @@
     width: -webkit-fit-content;
     width: -moz-fit-content;
     width: fit-content;
+    height: -webkit-fill-available;
     min-width: 24rem;
     border-radius: 0 1rem 1rem 0;
   }

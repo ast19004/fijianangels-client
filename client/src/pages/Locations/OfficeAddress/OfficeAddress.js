@@ -9,12 +9,7 @@ const OfficeAddress = (props) => {
       className={`${styles.office} ${props.className}`}
       sx={{ ...props.sx }}
     >
-      <Typography
-        className={`${styles.office_title} ${
-          props.mainOffice && styles["office_title-main"]
-        }`}
-        component={"h3"}
-      >
+      <Typography className={styles.office_title} component={"h3"}>
         {props.officeTitle}
       </Typography>
       <Typography className={styles.office_coverage} color="#555">

@@ -58,11 +58,11 @@ function Contact() {
           sx={{
             display: "block",
             fontSize: "0.85rem",
-            color: "rgba(150,150,150, 1)",
+            color: "rgba(150,150,150, 0.7)",
+            lineHeight: "0.5",
             "@media(min-width: 62rem)": {
-              fontSize: "1.8rem",
+              fontSize: "1.75rem",
               letterSpacing: "0.1rem",
-              lineHeight: "0.5",
             },
           }}
         >
@@ -176,7 +176,7 @@ function Contact() {
             <PhoneLink tel="5106127595">(510) 612-7595</PhoneLink> /{" "}
             <PhoneLink tel="6505180532">(650) 518-0532</PhoneLink>
           </Typography>
-          <Typography
+          {/* <Typography
             color="#111"
             lineHeight={2}
             sx={{
@@ -189,7 +189,7 @@ function Contact() {
           >
             <PhoneLink tel="5108129475">(510) 812-9475</PhoneLink>{" "}
             <PhoneLink tel="7244344646">(724) 434-4646</PhoneLink>
-          </Typography>
+          </Typography> */}
         </Box>
       </Box>
     </Box>
