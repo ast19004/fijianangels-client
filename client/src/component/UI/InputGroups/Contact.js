@@ -26,21 +26,22 @@ const Contact = (props) => {
 
   return (
     <CustomFieldset id={props.id} resetStyles={props.resetStyles}>
-      <legend>Contact</legend>
-      <FormPhoneInput
-        id="contact_phone"
-        label="Phone"
-        value={contactData.contact_phone}
-        helperText={helperPhoneText}
+      {props.legend && <legend>Contact</legend>}
+
+      <FormEmailInput
+        id="contact_email"
+        label="EMAIL"
+        value={contactData.contact_email}
+        helperText={helperEmailText}
         onChange={handleChange}
         onBlur={props.onBlur}
         inputProps={{ required: true }}
       />
-      <FormEmailInput
-        id="contact_email"
-        label="Email"
-        value={contactData.contact_email}
-        helperText={helperEmailText}
+      <FormPhoneInput
+        id="contact_phone"
+        label="PHONE"
+        value={contactData.contact_phone}
+        helperText={helperPhoneText}
         onChange={handleChange}
         onBlur={props.onBlur}
         inputProps={{ required: true }}

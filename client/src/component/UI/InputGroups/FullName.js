@@ -28,11 +28,11 @@ const FullName = (props) => {
 
   return (
     <CustomFieldset id={props.id} resetStyles={props.resetStyles}>
-      <legend>{legend}</legend>
+      {props.legend && <legend>{legend}</legend>}
       <FormTextInput
         id={first}
         name={first}
-        label="First:"
+        label="FIRST NAME:"
         onChange={handleChange}
         onFocus={props.onFocus}
         onBlur={props.onBlur}
@@ -42,7 +42,7 @@ const FullName = (props) => {
         }
         inputProps={{ required: true }}
       />
-      <FormTextInput
+      {/* <FormTextInput
         id={middle}
         name={middle}
         label="M.I."
@@ -55,11 +55,11 @@ const FullName = (props) => {
             ? nameData[`${props.abr}_middle_name`]
             : nameData.middle_name
         }
-      />
+      /> */}
       <FormTextInput
         id={last}
         name={last}
-        label="Last:"
+        label="LAST NAME:"
         onChange={handleChange}
         onFocus={props.onFocus}
         onBlur={props.onBlur}

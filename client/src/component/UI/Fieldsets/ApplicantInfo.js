@@ -44,17 +44,17 @@ const ApplicantInfo = (props) => {
 
   return (
     <Box component="fieldset" id={props.id} sx={props.sx}>
-      <legend>Applicant Information</legend>
-      <FormDateInput
+      {/* <legend>Applicant Information</legend> */}
+      {/* <FormDateInput
         id="application_date"
         htmlFor="application_date"
         label="Application Date:"
         onChange={handleInputChange}
         value={applicant.application_date}
         inputProps={{ readOnly: true }}
-      />
+      /> */}
       <FullName fullName={applicant.fullName} onChange={handleInputChange} />
-      <Address address={applicant.address} onChange={handleInputChange} />
+      {/* <Address address={applicant.address} onChange={handleInputChange} /> */}
       <Contact
         name="contact"
         resetStyles
@@ -66,10 +66,10 @@ const ApplicantInfo = (props) => {
         // }}
         // onBlur={handleContactValidation}
       />
-      <EmploymentEligibility
+      {/* <EmploymentEligibility
         eligibility={applicant.eligibility}
         onChange={handleInputChange}
-      />
+      /> */}
     </Box>
   );
 };

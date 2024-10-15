@@ -1,92 +1,45 @@
 import { useState } from "react";
-
-import { convertFormToPDF } from "../../../util/formdata";
-
+import Form from "./Form.js";
+import ApplicantInfo from "../Fieldsets/ApplicantInfo.js";
 import { EmploymentFormContextProvider } from "../../../store/EmploymentForm/employment-form-context.js";
-import ApplicantInfo from "../Fieldsets/ApplicantInfo";
-import EducationInfo from "../Fieldsets/EducationInfo.js";
-import ReferencesInfo from "../Fieldsets/ReferencesInfo";
-import PreviousEmploymentInfo from "../Fieldsets/PreviousEmploymentInfo";
-import MilitaryServiceInfo from "../Fieldsets/MilitaryServiceInfo";
-import SigningInfo from "../Fieldsets/SigningInfo";
-import MultiStepForm from "./MultiStepForm";
-
-import { smoothScrollToTop } from "../../../util/scroll";
-
-import FormStep from "./FormStep.js";
+import FormStep from "./FormStep.js.js";
+import FormTextInput from "../Inputs/FormTextInput.js";
+import FormFileInput from "../Inputs/FormFileInput.js";
 
 const EmploymentForm = (props) => {
   const formId = "employmentForm";
-  //Get steps by calling this function in multiform child component
-  const steps = 6;
-  const [progress, setProgress] = useState(1);
-  const hasPrevStep = progress !== 1;
-  const hasNextStep = progress !== steps;
+  const [position, setPosition] = useState("");
 
-  const handleNext = () => {
-    //If not last step set progress to next step
-    if (progress !== steps) {
-      //Set progress to next formStep
-      setProgress((prev) => prev + 1);
-    }
-    smoothScrollToTop();
-  };
-  const handleBack = () => {
-    if (progress !== 1) {
-      // Save the state of the current step
-      setProgress((prev) => prev - 1);
-    }
-    smoothScrollToTop();
+  const handlePositionInputChange = (e) => {
+    // setPosition(e.target.value);
   };
 
-  // const isStateSaved = (bool) => {
-  //   bool === true && setSaveState(false);
-  // };
-
-  const handleSubmit = (event, getFormData) => {
+  const handleSubmit = (event) => {
     event.preventDefault();
-    console.log(getFormData());
-    // console.log(JSON.stringify(formData));
-    // Handle form submission data here
+    console.log(event.target);
   };
 
   return (
-    <MultiStepForm
+    <Form
       title="Employment Application"
       id={formId}
-      steps={steps}
-      progress={progress}
-      hasPrevStep={hasPrevStep}
-      hasNextStep={hasNextStep}
-      onNext={handleNext}
-      onBack={handleBack}
       onSubmit={handleSubmit}
+      submit
     >
+      {/* <FormTextInput
+        id="employment_position"
+        name="employment_position"
+        label="POSITION APPLYING FOR"
+        value={position}
+        onChange={handlePositionInputChange}
+        inputProps={{ required: true }}
+      /> */}
       <FormStep
         parentComponent={EmploymentFormContextProvider}
         childComponent={ApplicantInfo}
       />
-      <FormStep
-        parentComponent={EmploymentFormContextProvider}
-        childComponent={EducationInfo}
-      />
-      <FormStep
-        parentComponent={EmploymentFormContextProvider}
-        childComponent={ReferencesInfo}
-      />
-      <FormStep
-        parentComponent={EmploymentFormContextProvider}
-        childComponent={PreviousEmploymentInfo}
-      />
-      <FormStep
-        parentComponent={EmploymentFormContextProvider}
-        childComponent={MilitaryServiceInfo}
-      />
-      <FormStep
-        parentComponent={EmploymentFormContextProvider}
-        childComponent={SigningInfo}
-      />
-    </MultiStepForm>
+      <FormFileInput label="ATTACH RESUME" />
+    </Form>
   );
 };
 

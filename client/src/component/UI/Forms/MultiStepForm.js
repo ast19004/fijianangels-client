@@ -26,6 +26,7 @@ const MultiStepForm = (props) => {
       multiStep={true}
       hasPrevStep={props.hasPrevStep}
       hasNextStep={props.hasNextStep}
+      onSubmit={props.onSubmit}
       onNext={props.onNext}
       onPrev={props.onBack}
       errors={stepErrors}

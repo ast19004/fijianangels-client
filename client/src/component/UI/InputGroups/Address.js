@@ -31,7 +31,7 @@ const Address = (props) => {
 
   return (
     <CustomFieldset id={props.id}>
-      <legend>Address:</legend>
+      {props.legend && <legend>Address</legend>}
       <FormTextInput
         id={abbreviation ? `${abbreviation}_street` : "street"}
         label="Street Address"
