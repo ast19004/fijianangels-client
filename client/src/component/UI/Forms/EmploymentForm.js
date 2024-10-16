@@ -1,8 +1,6 @@
 import { useState } from "react";
 import Form from "./Form.js";
 import ApplicantInfo from "../Fieldsets/ApplicantInfo.js";
-import { EmploymentFormContextProvider } from "../../../store/EmploymentForm/employment-form-context.js";
-import FormStep from "./FormStep.js.js";
 import FormFileInput from "../Inputs/FormFileInput.js";
 
 import { validatePDFFile } from "../../../util/validation.js";
@@ -12,7 +10,18 @@ const EmploymentForm = (props) => {
   const MAX_FILE_SIZE_MB = 25;
 
   const [file, setFile] = useState(null);
+  const [applicant, setApplicant] = useState({
+    fullName: {
+      first_name: "",
+      last_name: "",
+    },
+    contact: { contact_phone: "", contact_email: "" },
+  });
   const [error, setError] = useState({ file: "" });
+
+  const handleApplicantInput = (applicant) => {
+    setApplicant(applicant);
+  };
 
   const handleFileInput = (selectedFile) => {
     if (!selectedFile) {
@@ -38,7 +47,6 @@ const EmploymentForm = (props) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log(event.target);
   };
 
   return (
@@ -48,10 +56,7 @@ const EmploymentForm = (props) => {
       onSubmit={handleSubmit}
       submit
     >
-      <FormStep
-        parentComponent={EmploymentFormContextProvider}
-        childComponent={ApplicantInfo}
-      />
+      <ApplicantInfo applicant={applicant} onChange={handleApplicantInput} />
       <FormFileInput
         id="resume_file"
         name="resume_file"

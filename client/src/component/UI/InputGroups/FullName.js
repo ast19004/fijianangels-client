@@ -15,12 +15,11 @@ const FullName = (props) => {
   }, []);
 
   const first = props.abr ? props.abr + "_first_name" : "first_name";
-  const middle = props.abr ? props.abr + "_middle_name" : "middle_name";
   const last = props.abr ? props.abr + "_last_name" : "last_name";
 
   //As input values change save them in nameData state
-  const handleChange = (name, value) => {
-    updateInput(name, value, setNameData);
+  const handleChange = (inputName, inputValue) => {
+    updateInput(inputName, inputValue, setNameData);
   };
   //Send input value changes to parent component
   // to be saved in a state for this input group
@@ -36,26 +35,12 @@ const FullName = (props) => {
         onChange={handleChange}
         onFocus={props.onFocus}
         onBlur={props.onBlur}
-        helperText={props.helperText ? props.helperText.firstName : ""}
+        helperText={props.helperText.first_name}
         value={
           props.abr ? nameData[`${props.abr}_first_name`] : nameData.first_name
         }
         inputProps={{ required: true }}
       />
-      {/* <FormTextInput
-        id={middle}
-        name={middle}
-        label="M.I."
-        onChange={handleChange}
-        onFocus={props.onFocus}
-        // onBlur={props.onBlur}
-        // helperText={props.helperText.middleName || ""}
-        value={
-          props.abr
-            ? nameData[`${props.abr}_middle_name`]
-            : nameData.middle_name
-        }
-      /> */}
       <FormTextInput
         id={last}
         name={last}
@@ -63,7 +48,7 @@ const FullName = (props) => {
         onChange={handleChange}
         onFocus={props.onFocus}
         onBlur={props.onBlur}
-        helperText={props.helperText ? props.helperText.lastName : ""}
+        helperText={props.helperText.last_name}
         value={
           props.abr ? nameData[`${props.abr}_last_name`] : nameData.last_name
         }

@@ -1,75 +1,73 @@
-import { useContext, useEffect, useState } from "react";
+import { useState } from "react";
 import { updateInput } from "../../../util/formdata";
-import Address from "../InputGroups/Address";
+// import Address from "../InputGroups/Address";
 import FullName from "../InputGroups/FullName";
 import Contact from "../InputGroups/Contact";
-import EmploymentEligibility from "../Fieldsets/EmploymentEligibilty";
-import FormDateInput from "../Inputs/FormDateInput";
-import EmploymentFormContext from "../../../store/EmploymentForm/employment-form-context";
+// import EmploymentFormContext from "../../../store/EmploymentForm/employment-form-context";
 import { Box } from "@mui/material";
+import {
+  validateEmail,
+  validateName,
+  validatePhone,
+} from "../../../util/validation";
 
 const ApplicantInfo = (props) => {
-  const applicantCtx = useContext(EmploymentFormContext);
-  const [applicant, setApplicant] = useState(applicantCtx.applicant);
-  const [isInputValid, setIsInputValid] = useState(true);
-  const [errors, setErrors] = useState("");
+  // const applicantCtx = useContext(EmploymentFormContext);
+  const [applicant, setApplicant] = useState(props.applicant);
+  const [nameError, setNameError] = useState({
+    first_name: "",
+    last_name: "",
+  });
+  const [contactError, setContactError] = useState({
+    contact_phone: "",
+    contact_email: "",
+  });
 
-  const checkIsEmpty = (inputs, name) => {
-    if (!inputs[name]) {
-      setIsInputValid(false);
-      setErrors((prev) => {
-        return { [name]: "Cannot be empty" };
-      });
-      return isInputValid;
+  const handleInputChange = (dataName, data) => {
+    //Update the applicant in child & parent components
+    updateInput(dataName, data, setApplicant);
+    props.onChange(applicant);
+  };
+
+  const handleNameInputBlur = (e) => {
+    //validate data on blur
+    validateName(e.target.value, e.target.name, setNameError);
+  };
+
+  const handleContantInputBlur = (e) => {
+    //validate data on blur
+    switch (e.target.type) {
+      case "email":
+        validateEmail(e.target.value, e.target.name, setContactError);
+        break;
+      case "tel":
+        validatePhone(e.target.value, e.target.name, setContactError);
+        break;
+      default:
+        break;
     }
   };
 
-  //Any eligibility data passed over from parent component
-  //is used to set values initially for eligibility inputs
-  //and as the parent changes
-  useEffect(() => {
-    setApplicant(applicantCtx.applicant);
-  }, [applicantCtx.applicant]);
-
-  const handleInputChange = (dataName, data) => {
-    // handleValidation();
-    updateInput(dataName, data, setApplicant);
-  };
-
-  // If used in a MultiStepForm this component will be
-  // wrapped in a FormStep that takes a context and this component.
-  // The FormStep component provides the useSaveStep to save the current step's state before moving onto the next formStep
-  props.useSaveState &&
-    props.useSaveState(applicant, applicantCtx.updateApplicant, errors);
-
   return (
     <Box component="fieldset" id={props.id} sx={props.sx}>
-      {/* <legend>Applicant Information</legend> */}
-      {/* <FormDateInput
-        id="application_date"
-        htmlFor="application_date"
-        label="Application Date:"
+      <FullName
+        fullName={applicant.fullName}
         onChange={handleInputChange}
-        value={applicant.application_date}
-        inputProps={{ readOnly: true }}
-      /> */}
-      <FullName fullName={applicant.fullName} onChange={handleInputChange} />
+        onBlur={handleNameInputBlur}
+        helperText={{
+          first_name: [nameError.first_name],
+          last_name: [nameError.last_name],
+        }}
+      />
       {/* <Address address={applicant.address} onChange={handleInputChange} /> */}
       <Contact
         name="contact"
         resetStyles
         contact={applicant.contact}
         onChange={handleInputChange}
-        // helperText={{
-        //   contact_phone: reviewerContactErrors.contact_phone[0] || "",
-        //   contact_email: reviewerContactErrors.contact_email[0] || "",
-        // }}
-        // onBlur={handleContactValidation}
+        onBlur={handleContantInputBlur}
+        helperText={contactError}
       />
-      {/* <EmploymentEligibility
-        eligibility={applicant.eligibility}
-        onChange={handleInputChange}
-      /> */}
     </Box>
   );
 };

@@ -6,8 +6,6 @@ import { updateInput, useUpdateFormData } from "../../../util/formdata";
 import CustomFieldset from "../Fieldsets/styles/CustomFieldset";
 
 const Contact = (props) => {
-  const { helperText = {} } = props; // Default to an empty object if helperText is undefined
-  const { helperPhoneText = "", helperEmailText = "" } = helperText;
   const [contactData, setContactData] = useState(props.contact);
 
   //Any address data passed over from parent component
@@ -32,7 +30,7 @@ const Contact = (props) => {
         id="contact_email"
         label="EMAIL"
         value={contactData.contact_email}
-        helperText={helperEmailText}
+        helperText={props.helperText.contact_email}
         onChange={handleChange}
         onBlur={props.onBlur}
         inputProps={{ required: true }}
@@ -41,7 +39,7 @@ const Contact = (props) => {
         id="contact_phone"
         label="PHONE"
         value={contactData.contact_phone}
-        helperText={helperPhoneText}
+        helperText={props.helperText.contact_phone}
         onChange={handleChange}
         onBlur={props.onBlur}
         inputProps={{ required: true }}
