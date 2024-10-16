@@ -3,15 +3,37 @@ import Form from "./Form.js";
 import ApplicantInfo from "../Fieldsets/ApplicantInfo.js";
 import { EmploymentFormContextProvider } from "../../../store/EmploymentForm/employment-form-context.js";
 import FormStep from "./FormStep.js.js";
-import FormTextInput from "../Inputs/FormTextInput.js";
 import FormFileInput from "../Inputs/FormFileInput.js";
+
+import { validatePDFFile } from "../../../util/validation.js";
 
 const EmploymentForm = (props) => {
   const formId = "employmentForm";
-  const [position, setPosition] = useState("");
+  const MAX_FILE_SIZE_MB = 25;
 
-  const handlePositionInputChange = (e) => {
-    // setPosition(e.target.value);
+  const [file, setFile] = useState(null);
+  const [error, setError] = useState({ file: "" });
+
+  const handleFileInput = (selectedFile) => {
+    if (!selectedFile) {
+      setFile(null);
+      return;
+    }
+    //Validate file type
+    const fileIsValid = validatePDFFile(
+      selectedFile,
+      MAX_FILE_SIZE_MB,
+      setError,
+      "file"
+    );
+
+    //If file is invalid set back to null
+    !fileIsValid && setFile(null);
+
+    //If file is valid clear errors and set the file
+    fileIsValid &&
+      setFile(selectedFile) &&
+      setError((prevErr) => ({ ...prevErr, file: "" }));
   };
 
   const handleSubmit = (event) => {
@@ -26,19 +48,19 @@ const EmploymentForm = (props) => {
       onSubmit={handleSubmit}
       submit
     >
-      {/* <FormTextInput
-        id="employment_position"
-        name="employment_position"
-        label="POSITION APPLYING FOR"
-        value={position}
-        onChange={handlePositionInputChange}
-        inputProps={{ required: true }}
-      /> */}
       <FormStep
         parentComponent={EmploymentFormContextProvider}
         childComponent={ApplicantInfo}
       />
-      <FormFileInput label="ATTACH RESUME" />
+      <FormFileInput
+        id="resume_file"
+        name="resume_file"
+        label="ATTACH RESUME"
+        onChange={handleFileInput}
+        helperText={error.file}
+        accept=".pdf"
+        error={error.file}
+      />
     </Form>
   );
 };

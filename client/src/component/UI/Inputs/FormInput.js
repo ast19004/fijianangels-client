@@ -7,14 +7,18 @@ const FormInput = (props) => {
   const [inputValue, setInputValue] = useState(props.value || "");
 
   const handleInputChange = (event) => {
-    setInputValue(event.target.value);
+    props.type === "file"
+      ? setInputValue(event.target.files[0])
+      : setInputValue(event.target.value);
   };
   useEffect(() => {
     if (!props.onChange) {
       return;
     }
-    props.onChange(props.name, inputValue);
-  }, [inputValue]);
+    props.type === "file"
+      ? props.onChange(inputValue)
+      : props.onChange(props.name, inputValue);
+  }, [inputValue, props.type]);
 
   return (
     <FormControl

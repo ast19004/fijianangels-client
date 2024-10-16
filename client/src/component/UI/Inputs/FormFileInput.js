@@ -6,15 +6,16 @@ const FormFileInput = (props) => {
   return (
     <FormInput
       helperText={props.helperText}
-      id="resume_file"
-      name="resume_file"
+      id={props.id}
+      name={props.name || props.id}
       label={props.label}
       type="file"
       value={props.value}
+      error={props.error}
       onFocus={props.onFocus}
       onBlur={props.onBlur}
       onChange={props.onChange}
-      inputProps={props.inputProps}
+      inputProps={{ accept: props.accept, ...props.inputProps }}
     />
   );
 };
