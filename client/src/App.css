@@ -140,12 +140,14 @@ header {
 .Picture_picture__q5wOi {
   border-radius: 2rem;
 }
-
-.carousel-indicators button {
-  height: 0.3rem !important;
+.carousel-indicators {
   margin-bottom: 0 !important;
   bottom: -2rem !important;
+}
+.carousel-indicators button {
+  height: 0.3rem !important;
   background-color: #ca4766 !important;
+  border: 1px solid white !important;
 }
 .carousel-control-prev,
 .carousel-control-next {

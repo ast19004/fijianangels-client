@@ -14,6 +14,7 @@ import HomecareRequestForm from "./component/UI/Forms/HomecareRequestForm";
 
 import { Routes, Route, BrowserRouter } from "react-router-dom";
 import CaregiverReviewForm from "./component/UI/Forms/CaregiverReviewForm";
+import Groups from "./pages/Groups/Groups";
 
 function App() {
   return (
@@ -60,6 +61,7 @@ function App() {
                   <Staff />
                   {/* <Pricing /> */}
                   <Contact />
+                  <Groups />
                 </main>
               </Box>
             }
