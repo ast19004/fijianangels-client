@@ -38,6 +38,8 @@ const HomecareRequestForm = (props) => {
     contact_email: "",
   });
 
+  const [servicesInputError, setServiceInputError] = useState("");
+
   const handleInputChange = (dataName, data) => {
     updateInput(dataName, data, setRequest);
   };
@@ -59,6 +61,12 @@ const HomecareRequestForm = (props) => {
       default:
         break;
     }
+  };
+
+  const handleSelectServicesBlur = (isEmpty) => {
+    //If err already set, reset to default values before new validation cycle
+    servicesInputError && setServiceInputError("");
+    isEmpty && setServiceInputError("Please select at least one service");
   };
 
   return (
@@ -84,8 +92,9 @@ const HomecareRequestForm = (props) => {
           name="requestedServices"
           services={request.requestedServices}
           onChange={handleInputChange}
+          onBlur={handleSelectServicesBlur}
           onMenuClose={() => {}}
-          // helperText={servicesErrors}
+          helperText={servicesInputError}
           inputProps={{ required: true }}
         />
         <FormTextareaInput

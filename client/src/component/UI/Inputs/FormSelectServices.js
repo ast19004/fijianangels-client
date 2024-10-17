@@ -43,11 +43,14 @@ const FormSelectServices = (props) => {
     props.onChange(props.name || "requestedServices", selectedOptions);
   }, [selectedOptions]);
 
-  const handleSelectionChange = (event) => {
+  const handleSelectionChange = (selected) => {
     // Handle selected options
-    setSelectedOptions(
-      event.filter((obj) => Object.keys(obj).includes("value"))
-    );
+    setSelectedOptions(selected || []);
+  };
+  const handleSelectionBlur = (event) => {
+    // On blur check options selected, send boolean back to parent component
+    // for validation based on if selection empty
+    props.onBlur(selectedOptions.length === 0);
   };
 
   const handleSelectionClose = () => {
@@ -69,6 +72,7 @@ const FormSelectServices = (props) => {
       className="services"
       label={label}
       inputProps={props.inputProps}
+      helperText={props.helperText}
     >
       <Select
         isMulti
@@ -78,6 +82,7 @@ const FormSelectServices = (props) => {
         options={options}
         value={selectedOptions}
         onChange={handleSelectionChange}
+        onBlur={handleSelectionBlur}
         onMenuClose={handleSelectionClose}
       />
       <FormHelperText>
