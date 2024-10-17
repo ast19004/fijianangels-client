@@ -35,7 +35,7 @@ const FullName = (props) => {
         onChange={handleChange}
         onFocus={props.onFocus}
         onBlur={props.onBlur}
-        helperText={props.helperText.first_name}
+        helperText={props.helperText && props.helperText.first_name}
         value={
           props.abr ? nameData[`${props.abr}_first_name`] : nameData.first_name
         }
@@ -48,7 +48,7 @@ const FullName = (props) => {
         onChange={handleChange}
         onFocus={props.onFocus}
         onBlur={props.onBlur}
-        helperText={props.helperText.last_name}
+        helperText={props.helperText && props.helperText.last_name}
         value={
           props.abr ? nameData[`${props.abr}_last_name`] : nameData.last_name
         }

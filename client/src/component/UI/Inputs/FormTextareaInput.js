@@ -4,13 +4,10 @@ import { useUpdateFormData } from "../../../util/formdata";
 import { FormHelperText } from "@mui/material";
 
 const FormTextareaInput = (props) => {
-  const exampleText =
-    props.exampleText || "My experience with this caregiver was...";
-
   const { inputProps = {} } = props; // Default to an empty object if inputProps is undefined
   const { required = false } = inputProps; // Default to false if required is undefined
 
-  const [inputValue, setInputValue] = useState(exampleText);
+  const [inputValue, setInputValue] = useState("");
 
   //Any name data passed over from parent component
   //is used to set values initially for fullName inputs
@@ -34,6 +31,7 @@ const FormTextareaInput = (props) => {
         value={inputValue}
         onChange={handleInputChange}
         onBlur={props.onBlur}
+        placeholder="What I am looking for is..."
         required={required}
       />
       <FormHelperText>{props.helperText}</FormHelperText>

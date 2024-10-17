@@ -30,7 +30,7 @@ const Contact = (props) => {
         id="contact_email"
         label="EMAIL"
         value={contactData.contact_email}
-        helperText={props.helperText.contact_email}
+        helperText={props.helperText && props.helperText.contact_email}
         onChange={handleChange}
         onBlur={props.onBlur}
         inputProps={{ required: true }}
@@ -39,7 +39,7 @@ const Contact = (props) => {
         id="contact_phone"
         label="PHONE"
         value={contactData.contact_phone}
-        helperText={props.helperText.contact_phone}
+        helperText={props.helperText && props.helperText.contact_phone}
         onChange={handleChange}
         onBlur={props.onBlur}
         inputProps={{ required: true }}

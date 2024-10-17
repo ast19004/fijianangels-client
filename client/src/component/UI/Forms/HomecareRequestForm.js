@@ -10,6 +10,11 @@ import FormTextareaInput from "../Inputs/FormTextareaInput";
 import FormSelectServices from "../Inputs/FormSelectServices";
 
 import sendEmail from "../../../util/Email/send";
+import {
+  validateEmail,
+  validateName,
+  validatePhone,
+} from "../../../util/validation";
 
 const HomecareRequestForm = (props) => {
   const currentDate = getTodaysDate();
@@ -17,7 +22,6 @@ const HomecareRequestForm = (props) => {
     todaysDate: currentDate,
     fullName: {
       first_name: "",
-      middle_name: "",
       last_name: "",
     },
     contact: { contact_phone: "", contact_email: "" },
@@ -25,8 +29,36 @@ const HomecareRequestForm = (props) => {
     additionalInfo: "",
   });
 
+  const [nameError, setNameError] = useState({
+    first_name: "",
+    last_name: "",
+  });
+  const [contactError, setContactError] = useState({
+    contact_phone: "",
+    contact_email: "",
+  });
+
   const handleInputChange = (dataName, data) => {
     updateInput(dataName, data, setRequest);
+  };
+
+  const handleNameInputBlur = (e) => {
+    //validate data on blur
+    validateName(e.target.value, e.target.name, setNameError);
+  };
+
+  const handleContantInputBlur = (e) => {
+    //validate data on blur
+    switch (e.target.type) {
+      case "email":
+        validateEmail(e.target.value, e.target.name, setContactError);
+        break;
+      case "tel":
+        validatePhone(e.target.value, e.target.name, setContactError);
+        break;
+      default:
+        break;
+    }
   };
 
   return (
@@ -34,16 +66,16 @@ const HomecareRequestForm = (props) => {
       <FullName
         fullName={request.fullName}
         onChange={handleInputChange}
+        onBlur={handleNameInputBlur}
+        helperText={nameError}
         resetStyles
       />
       <Contact
         contact={request.contact}
         onChange={handleInputChange}
+        onBlur={handleContantInputBlur}
         resetStyles
-        helperText={{
-          contact_phone: "",
-          contact_email: "",
-        }}
+        helperText={contactError}
       />
       <fieldset>
         <legend>Services</legend>
@@ -60,7 +92,6 @@ const HomecareRequestForm = (props) => {
           id="extra_info"
           label="Comments/ Additional Information"
           name="additionalInfo"
-          exampleText="comments..."
           value={props.additional_info}
           onChange={handleInputChange}
         />
