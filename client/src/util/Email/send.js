@@ -23,7 +23,7 @@ export const sendEmail = (
 };
 
 export const sendCareRequestEmail = (e) => {
-  e.preventDefaul();
+  e.preventDefault();
   // Collect other form data
   const formData = new FormData(e.target);
 
