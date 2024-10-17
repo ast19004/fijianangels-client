@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.2c0fc173.css",
-    "main.js": "/static/js/main.ad35748d.js",
+    "main.css": "/static/css/main.291bf3b8.css",
+    "main.js": "/static/js/main.ccc4c846.js",
     "static/js/592.599f76a2.chunk.js": "/static/js/592.599f76a2.chunk.js",
     "static/media/elderly_assistance.mp4": "/static/media/elderly_assistance.c5c10b4fa0ab0ed76711.mp4",
     "static/media/main_home_1500px.jpg": "/static/media/main_home_1500px.903e6d72eae8897d5606.jpg",
@@ -33,12 +33,12 @@
     "static/media/contact.svg": "/static/media/contact.6474b0bf73867cf09adb5584d8a49b02.svg",
     "static/media/fijian-angels-logo.svg": "/static/media/fijian-angels-logo.ec44a1f02df0abeeda0b1ba5cc40942b.svg",
     "index.html": "/index.html",
-    "main.2c0fc173.css.map": "/static/css/main.2c0fc173.css.map",
-    "main.ad35748d.js.map": "/static/js/main.ad35748d.js.map",
+    "main.291bf3b8.css.map": "/static/css/main.291bf3b8.css.map",
+    "main.ccc4c846.js.map": "/static/js/main.ccc4c846.js.map",
     "592.599f76a2.chunk.js.map": "/static/js/592.599f76a2.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.2c0fc173.css",
-    "static/js/main.ad35748d.js"
+    "static/css/main.291bf3b8.css",
+    "static/js/main.ccc4c846.js"
   ]
 }
