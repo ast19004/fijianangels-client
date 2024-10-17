@@ -90,9 +90,9 @@ header {
   justify-content: end !important;
 }
 
-.MuiFormLabel-root,
-.spacingBlock {
-  background-color: rgba(200, 225, 225, 0.25);
+#extra_info {
+  border-radius: 1rem;
+  padding: 1rem;
 }
 
 /* Transitions & Animations */
@@ -122,8 +122,14 @@ header {
 }
 
 /* --- Overridden Component Classes --- */
+
 .css-1fdsijx-ValueContainer {
   padding: 1rem 3.1rem !important;
+}
+
+.MuiFormLabel-root,
+.spacingBlock {
+  background-color: rgba(200, 225, 225, 0.25);
 }
 .MuiFormControl-root {
   width: 100%;
@@ -164,7 +170,13 @@ header {
 .carousel-control-next {
   right: -1.4rem !important;
 }
+.MuiFormControl-root {
+  border-radius: 3rem 3rem 1rem 1rem;
+}
 
+.MuiFormHelperText-root {
+  text-align: center !important;
+}
 /* --- Media Queries --- */
 
 @media (min-width: 600px) {

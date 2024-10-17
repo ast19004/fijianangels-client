@@ -11,6 +11,8 @@ import FormSelectServices from "../Inputs/FormSelectServices";
 
 import sendEmail from "../../../util/Email/send";
 import {
+  checkIsFormEmpty,
+  checkIsFormValid,
   validateEmail,
   validateName,
   validatePhone,
@@ -69,8 +71,28 @@ const HomecareRequestForm = (props) => {
     isEmpty && setServiceInputError("Please select at least one service");
   };
 
+  const handleSubmit = (e) => {
+    //Prevent form reload
+    e.preventDefault();
+    const formIsValid = checkIsFormValid([
+      nameError,
+      contactError,
+      servicesInputError,
+    ]);
+    const formHadEmptyValues = checkIsFormEmpty([
+      request.fullName.first_name,
+      request.fullName.last_name,
+      request.contact.contact_email,
+      request.contact.contact_phone,
+      request.requestedServices,
+    ]);
+
+    //If form is valid and required inputs are not empty send email
+    formIsValid && !formHadEmptyValues && sendEmail(e);
+  };
+
   return (
-    <Form title="Homecare Request Form" submit onSubmit={sendEmail}>
+    <Form title="Homecare Request Form" submit onSubmit={handleSubmit}>
       <FullName
         fullName={request.fullName}
         onChange={handleInputChange}

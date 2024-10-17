@@ -3,8 +3,6 @@ import emailjs from "@emailjs/browser";
 import capitalize from "../String/capitalize";
 
 const sendEmail = (e) => {
-  //Prevent form reload
-  e.preventDefault();
   // Collect other form data
   const formData = new FormData(e.target);
 

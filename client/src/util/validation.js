@@ -45,14 +45,10 @@ export const setErrors = (name, errors, setFunction) => {
 };
 
 export const checkIsFormEmpty = (valuesArray) => {
-  return valuesArray.filter((value) => value === "").length;
+  return !!valuesArray.filter((value) => value === "").length;
 };
 
-export const checkIsFormValid = (
-  inputErrors,
-  formHasErrors,
-  setFormHasErrors
-) => {
+export const checkIsFormValid = (inputErrors) => {
   let formInvalid = false;
   for (let input of inputErrors) {
     if (formInvalid) {
@@ -64,9 +60,7 @@ export const checkIsFormValid = (
     } else {
       formInvalid = input !== "";
     }
-
-    !formHasErrors && formInvalid && setFormHasErrors(true);
-    formHasErrors && !formInvalid && setFormHasErrors(false);
+    return !formInvalid;
   }
 };
 
