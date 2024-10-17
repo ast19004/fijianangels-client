@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Form from "./Form.js";
 import FormFileInput from "../Inputs/FormFileInput.js";
 
@@ -14,6 +14,25 @@ import { sendApplicationEmail } from "../../../util/Email/send.js";
 import FullName from "../InputGroups/FullName.js";
 import Contact from "../InputGroups/Contact.js";
 import { updateInput } from "../../../util/formdata.js";
+
+import { initializeApp } from "firebase/app";
+import { getStorage } from "firebase/storage";
+const firebaseConfig = {
+  apiKey: "AIzaSyA5nOEM2K-Y8wmgeQubTSc2ul8cLE5QqUs",
+  authDomain: "resume-d23f7.firebaseapp.com",
+  projectId: "resume-d23f7",
+  storageBucket: "resume-d23f7.appspot.com",
+  messagingSenderId: "1080852758987",
+  appId: "1:1080852758987:web:4d3a03a74777d17ed1b64e",
+  measurementId: "G-E92ZPQ05E0",
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+// const analytics = getAnalytics(app);
+
+// Initialize Firebase Storage
+const resume_storage = getStorage(app);
 
 const EmploymentForm = (props) => {
   const formId = "employmentForm";
@@ -36,10 +55,6 @@ const EmploymentForm = (props) => {
     contact_phone: "",
     contact_email: "",
   });
-
-  useEffect(() => {
-    console.log(file);
-  }, [file]);
 
   const handleFileInput = (selectedFile) => {
     setFile(selectedFile);
@@ -93,7 +108,11 @@ const EmploymentForm = (props) => {
       file,
     ]);
     //If form is valid and required inputs are not empty send email
-    formIsValid && !formHasEmptyValues && sendApplicationEmail(e);
+    if (formIsValid && !formHasEmptyValues) {
+      const formData = new FormData(e.target);
+      formData.append("reply_to", applicant.contact.contact_email);
+      sendApplicationEmail(formData);
+    }
   };
 
   return (
@@ -102,6 +121,7 @@ const EmploymentForm = (props) => {
       id={formId}
       onSubmit={handleSubmit}
       submit
+      encType="multipart/form-data"
     >
       <FullName
         fullName={applicant.fullName}

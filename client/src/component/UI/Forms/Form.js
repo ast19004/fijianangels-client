@@ -19,8 +19,9 @@ const Form = (props) => {
   return (
     <Box
       component="form"
-      sx={{ maxWidth: "350px", margin: "0 auto", ...props.sx }}
+      style={{ maxWidth: "350px", margin: "0 auto", ...props.sx }}
       onSubmit={props.onSubmit}
+      encType={props.encType}
     >
       <Typography
         component="h2"
