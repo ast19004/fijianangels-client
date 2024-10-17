@@ -27,7 +27,6 @@ const CaregiverReviewForm = (props) => {
   //Error state initial values
   const nameErrFreeState = {
     first_name: "",
-    middle_name: "",
     last_name: "",
   };
   const contactErrFreeState = {

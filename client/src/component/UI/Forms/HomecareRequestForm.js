@@ -79,7 +79,7 @@ const HomecareRequestForm = (props) => {
       contactError,
       servicesInputError,
     ]);
-    const formHadEmptyValues = checkIsFormEmpty([
+    const formHasEmptyValues = checkIsFormEmpty([
       request.fullName.first_name,
       request.fullName.last_name,
       request.contact.contact_email,
@@ -88,7 +88,7 @@ const HomecareRequestForm = (props) => {
     ]);
 
     //If form is valid and required inputs are not empty send email
-    formIsValid && !formHadEmptyValues && sendEmail(e);
+    formIsValid && !formHasEmptyValues && sendEmail(e);
   };
 
   return (

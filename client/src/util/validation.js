@@ -103,21 +103,17 @@ export const validateName = (inputValue, inputName, errFunc) => {
   }
 };
 
-export const validatePDFFile = (file, MAX_SIZE_MB, errFunc, errName) => {
+export const validatePDFFile = (file, MAX_SIZE_MB, errFunc, errName = "") => {
   const MAX_SIZE_BYTES = MAX_SIZE_MB * 1024 * 1024;
   if (!file) {
-    console.log("No file");
     return false;
   }
   //Ensure the file is less than MAX_SIZE_BYTES
   const isCorrectSize = file.size <= MAX_SIZE_BYTES;
   const isPDF = isMimeType(file.type) && file.type === "application/pdf";
   if (!isCorrectSize) {
-    setErrors(
-      errName,
-      errFunc,
-      `File is too large. Maximum size is ${MAX_SIZE_MB}MB.`
-    );
+    const errMsg = `File is too large. Maximum size is ${MAX_SIZE_MB}MB.`;
+    errName ? setErrors(errName, errFunc, errMsg) : errFunc(errMsg);
     //return false if validation fails
     return false;
   }
