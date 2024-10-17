@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { updateInput } from "../../../util/formdata";
 // import Address from "../InputGroups/Address";
 import FullName from "../InputGroups/FullName";
@@ -9,6 +9,11 @@ import { Box } from "@mui/material";
 const ApplicantInfo = (props) => {
   // const applicantCtx = useContext(EmploymentFormContext);
   const [applicant, setApplicant] = useState(props.applicant);
+
+  //Update based on parent values
+  useEffect(() => {
+    setApplicant(props.applicant);
+  }, [props.applicant]);
 
   const handleInputChange = (dataName, data) => {
     //Update the applicant in child & parent components

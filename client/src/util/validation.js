@@ -45,7 +45,7 @@ export const setErrors = (name, errors, setFunction) => {
 };
 
 export const checkIsFormEmpty = (valuesArray) => {
-  return !!valuesArray.filter((value) => value === "").length;
+  return !!valuesArray.filter((value) => value === "" || value === null).length;
 };
 
 export const checkIsFormValid = (inputErrors) => {

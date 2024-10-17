@@ -2,7 +2,7 @@ import emailjs from "@emailjs/browser";
 
 import capitalize from "../String/capitalize";
 
-const sendEmail = (e) => {
+export const sendCareRequestEmail = (e) => {
   // Collect other form data
   const formData = new FormData(e.target);
 
@@ -41,4 +41,27 @@ const sendEmail = (e) => {
     );
 };
 
-export default sendEmail;
+export const sendApplicationEmail = (e) => {
+  // Collect other form data
+  const formData = new FormData(e.target);
+
+  // Convert FormData to an object for easier use with emailjs.send()
+  const formObject = Object.fromEntries(formData.entries());
+
+  formObject.reply_to = formObject.contact_email;
+  // emailjs
+  //   .send(
+  //     process.env.REACT_APP_EMAILJS_SERVICE_ID,
+  //     process.env.REACT_APP_EMAILJS_TEMPLATE_ID,
+  //     formObject,
+  //     process.env.REACT_APP_EMAILJS_PUBLIC_ID
+  //   )
+  //   .then(
+  //     () => {
+  //       console.log("SUCCESS!");
+  //     },
+  //     (error) => {
+  //       console.log("FAILED...", error);
+  //     }
+  //   );
+};

@@ -1,6 +1,5 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Form from "./Form.js";
-import ApplicantInfo from "../Fieldsets/ApplicantInfo.js";
 import FormFileInput from "../Inputs/FormFileInput.js";
 
 import {
@@ -11,6 +10,10 @@ import {
   validatePDFFile,
   validatePhone,
 } from "../../../util/validation.js";
+import { sendApplicationEmail } from "../../../util/Email/send.js";
+import FullName from "../InputGroups/FullName.js";
+import Contact from "../InputGroups/Contact.js";
+import { updateInput } from "../../../util/formdata.js";
 
 const EmploymentForm = (props) => {
   const formId = "employmentForm";
@@ -34,20 +37,20 @@ const EmploymentForm = (props) => {
     contact_email: "",
   });
 
-  const handleApplicantInput = (applicant) => {
-    setApplicant(applicant);
-  };
+  useEffect(() => {
+    console.log(file);
+  }, [file]);
 
   const handleFileInput = (selectedFile) => {
     setFile(selectedFile);
   };
+  const handleInputChange = (dataName, data) => {
+    updateInput(dataName, data, setApplicant);
+  };
 
-  const handleFileInputBlur = () => {
-    //Reset err value before validating
-    setFileError("");
-    console.log(file);
-
-    if (!file) {
+  const handleFileInputBlur = (selectedFile) => {
+    selectedFile && setFileError("");
+    if (!selectedFile) {
       setFileError((prevErr) => "Please attach your resume");
       return;
     }
@@ -78,8 +81,8 @@ const EmploymentForm = (props) => {
     }
   };
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
+  const handleSubmit = (e) => {
+    e.preventDefault();
     handleFileInputBlur();
     const formIsValid = checkIsFormValid([nameError, contactError, fileError]);
     const formHasEmptyValues = checkIsFormEmpty([
@@ -89,10 +92,8 @@ const EmploymentForm = (props) => {
       applicant.contact.contact_phone,
       file,
     ]);
-
     //If form is valid and required inputs are not empty send email
-    console.log(`formIsValid: ${formIsValid}`);
-    console.log(`formHasEmptyValues: ${formHasEmptyValues}`);
+    formIsValid && !formHasEmptyValues && sendApplicationEmail(e);
   };
 
   return (
@@ -102,18 +103,28 @@ const EmploymentForm = (props) => {
       onSubmit={handleSubmit}
       submit
     >
-      <ApplicantInfo
-        applicant={applicant}
-        onChange={handleApplicantInput}
-        onNameBlur={handleNameInputBlur}
-        onContactBlur={handleContantInputBlur}
-        helperText={{ nameError: nameError, contactError: contactError }}
+      <FullName
+        fullName={applicant.fullName}
+        onChange={handleInputChange}
+        onBlur={handleNameInputBlur}
+        helperText={nameError}
+        resetStyles
+      />
+      <Contact
+        contact={applicant.contact}
+        onChange={handleInputChange}
+        onBlur={handleContantInputBlur}
+        resetStyles
+        helperText={contactError}
       />
       <FormFileInput
         id="resume_file"
         name="resume_file"
         label="ATTACH RESUME"
         onChange={handleFileInput}
+        onBlur={(selectedFile) => {
+          selectedFile && setFileError("");
+        }}
         helperText={fileError}
         accept=".pdf"
       />

@@ -9,7 +9,7 @@ import Form from "./Form";
 import FormTextareaInput from "../Inputs/FormTextareaInput";
 import FormSelectServices from "../Inputs/FormSelectServices";
 
-import sendEmail from "../../../util/Email/send";
+import { sendCareRequestEmail } from "../../../util/Email/send";
 import {
   checkIsFormEmpty,
   checkIsFormValid,
@@ -88,7 +88,7 @@ const HomecareRequestForm = (props) => {
     ]);
 
     //If form is valid and required inputs are not empty send email
-    formIsValid && !formHasEmptyValues && sendEmail(e);
+    formIsValid && !formHasEmptyValues && sendCareRequestEmail(e);
   };
 
   return (
