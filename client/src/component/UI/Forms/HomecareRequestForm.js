@@ -88,7 +88,9 @@ const HomecareRequestForm = (props) => {
     ]);
 
     //If form is valid and required inputs are not empty send email
-    formIsValid && !formHasEmptyValues && sendCareRequestEmail(e);
+    if (formIsValid && !formHasEmptyValues) {
+      sendCareRequestEmail(e);
+    }
   };
 
   return (

@@ -1,28 +1,28 @@
 import emailjs from "@emailjs/browser";
 import capitalize from "../String/capitalize";
 
-export const sendEmail = (
+export const sendEmail = async (
   formContent,
   templateId = process.env.REACT_APP_EMAILJS_TEMPLATE_ID_1
 ) => {
-  emailjs
-    .send(
+  try {
+    const emailResponse = await emailjs.send(
       process.env.REACT_APP_EMAILJS_SERVICE_ID,
       templateId,
       formContent,
       process.env.REACT_APP_EMAILJS_PUBLIC_ID
-    )
-    .then(
-      () => {
-        console.log("SUCCESS!");
-      },
-      (error) => {
-        console.log("FAILED...", error);
-      }
     );
+    console.log(
+      "Email sent successfully!",
+      emailResponse.status,
+      emailResponse.text
+    );
+  } catch (error) {
+    console.error("Error during email sending:", error);
+  }
 };
 
-export const sendCareRequestEmail = async (e) => {
+export const sendCareRequestEmail = (e) => {
   e.preventDefault();
   // Collect other form data
   const formData = new FormData(e.target);
@@ -43,16 +43,7 @@ export const sendCareRequestEmail = async (e) => {
   formObject.services = services;
   formObject.reply_to = formObject.contact_email;
 
-  try {
-    const emailResponse = await sendEmail(formObject);
-    console.log(
-      "Email sent successfully!",
-      emailResponse.status,
-      emailResponse.text
-    );
-  } catch (error) {
-    console.error("Error during email sending:", error);
-  }
+  sendEmail(formObject);
 };
 
 export const sendApplicationEmail = async (formData) => {
