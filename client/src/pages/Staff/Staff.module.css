@@ -9,6 +9,9 @@
   height: -webkit-min-content;
   height: -moz-min-content;
   height: min-content;
+  background-color: white;
+  padding: 1rem 1rem 2rem 1rem;
+  border-radius: 2rem;
   width: 94vw;
   max-width: 68rem;
   margin: 0 auto;
