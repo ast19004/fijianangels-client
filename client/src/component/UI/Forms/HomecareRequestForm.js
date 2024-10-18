@@ -18,7 +18,13 @@ import {
   validatePhone,
 } from "../../../util/validation";
 
+import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
+import HomecareRequestToastContent from "../CustomToastContent/HomecareRequestToastContent";
+
 const HomecareRequestForm = (props) => {
+  const navigate = useNavigate();
+
   const currentDate = getTodaysDate();
   const [request, setRequest] = useState({
     todaysDate: currentDate,
@@ -71,7 +77,7 @@ const HomecareRequestForm = (props) => {
     isEmpty && setServiceInputError("Please select at least one service");
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     //Prevent form reload
     e.preventDefault();
     const formIsValid = checkIsFormValid([
@@ -89,7 +95,16 @@ const HomecareRequestForm = (props) => {
 
     //If form is valid and required inputs are not empty send email
     if (formIsValid && !formHasEmptyValues) {
-      sendCareRequestEmail(e);
+      const emailStatus = await sendCareRequestEmail(e);
+      if (emailStatus === 200) {
+        navigate("/");
+        window.scrollTo({ top: 0, behavior: "instant" });
+        toast.success(
+          <HomecareRequestToastContent
+            name={`${request.fullName.first_name} ${request.fullName.last_name}`}
+          />
+        );
+      }
     }
   };
 

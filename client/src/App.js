@@ -5,7 +5,6 @@ import Footer from "./component/Layout/Footer/Footer";
 import Contact from "./pages/Contact";
 import CoreValues from "./pages/CoreValues/CoreValues";
 import Staff from "./pages/Staff/Staff";
-import Pricing from "./pages/Pricing";
 import Services from "./pages/Services/Services";
 import Header from "./component/Layout/Header";
 import Home from "./pages/Home/Home";
@@ -13,14 +12,25 @@ import EmploymentForm from "./component/UI/Forms/EmploymentForm";
 import HomecareRequestForm from "./component/UI/Forms/HomecareRequestForm";
 
 import { Routes, Route, BrowserRouter } from "react-router-dom";
-import CaregiverReviewForm from "./component/UI/Forms/CaregiverReviewForm";
 import Groups from "./pages/Groups/Groups";
+
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function App() {
   return (
     <div className="App">
       <BrowserRouter basename="/">
         <Header />
+        <ToastContainer
+          style={{
+            top: "50%",
+            width: "400px",
+            backgroundColor: "rgba(202, 71, 101, 0.8)",
+            borderRadius: "0.5rem",
+            color: "#fff",
+          }}
+        />
         <Routes>
           <Route
             exact
@@ -42,15 +52,6 @@ function App() {
           />
           <Route
             exact
-            path="/caregiver-review-form"
-            element={
-              <main>
-                <CaregiverReviewForm />
-              </main>
-            }
-          />
-          <Route
-            exact
             path="/"
             element={
               <Box className="body-container">
@@ -59,7 +60,6 @@ function App() {
                   <Services />
                   <CoreValues />
                   <Staff />
-                  {/* <Pricing /> */}
                   <Contact />
                   <Groups />
                 </main>

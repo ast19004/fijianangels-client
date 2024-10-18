@@ -17,12 +17,14 @@ export const sendEmail = async (
       emailResponse.status,
       emailResponse.text
     );
+    return emailResponse.status;
   } catch (error) {
     console.error("Error during email sending:", error);
+    return error.status;
   }
 };
 
-export const sendCareRequestEmail = (e) => {
+export const sendCareRequestEmail = async (e) => {
   e.preventDefault();
   // Collect other form data
   const formData = new FormData(e.target);
@@ -43,38 +45,20 @@ export const sendCareRequestEmail = (e) => {
   formObject.services = services;
   formObject.reply_to = formObject.contact_email;
 
-  sendEmail(formObject);
+  const emailStatus = await sendEmail(formObject);
+  return emailStatus;
 };
 
-export const sendApplicationEmail = async (formData) => {
+export const sendApplicationEmail = async (e) => {
+  e.preventDefault();
+  const formData = new FormData(e.target);
+  // const fileURL = await uploadFileToFirebase(file);
+  formData.append("reply_to", formData.get("contact_email"));
+  // formData.append("resume_link", fileURL);
   const formObject = Object.fromEntries(formData.entries());
-  console.log(formObject);
-  // try {
-  //   const emailParams = {
-  //     first_name: formData.get("first_name"),
-  //     last_name: formData.get("last_name"),
-  //     contact_phone: formData.get("contact_phone"),
-  //     contact_email: formData.get("contact_email"),
-  //     // file_link: fileUrl, // Pass file URL to email template
-  //   };
-
-  //   const emailResponse = await emailjs.send(
-  //     process.env.REACT_APP_EMAILJS_SERVICE_ID,
-  //     process.env.REACT_APP_EMAILJS_TEMPLATE_ID_2,
-  //     emailParams,
-  //     process.env.REACT_APP_EMAILJS_PUBLIC_ID
-  //   );
-
-  //   console.log(
-  //     "Email sent successfully!",
-  //     emailResponse.status,
-  //     emailResponse.text
-  //   );
-  // } catch (error) {
-  //   console.error("Error during email sending:", error);
-  //   // console.error(
-  //   //   "Error during file upload, email sending, or file deletion:",
-  //   //   error
-  //   // );
-  // }
+  const emailStatus = await sendEmail(
+    formObject,
+    process.env.REACT_APP_EMAILJS_TEMPLATE_ID_2
+  );
+  return emailStatus;
 };

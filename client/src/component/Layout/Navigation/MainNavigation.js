@@ -14,11 +14,7 @@ import MenuIcon from "@mui/icons-material/Menu";
 import AnchorLink from "../../UI/Links/AnchorLink";
 // import FormsSubNavigation from "./FormsSubNavigation";
 
-import {
-  handleEmployeeForm,
-  handleRequestForm,
-  handleReviewForm,
-} from "../../../util/event";
+import { handleEmployeeForm, handleRequestForm } from "../../../util/event";
 
 const MainNavigation = (props) => {
   const [open, setOpen] = React.useState(false);

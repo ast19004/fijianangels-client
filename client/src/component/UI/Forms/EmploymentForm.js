@@ -15,8 +15,13 @@ import FullName from "../InputGroups/FullName.js";
 import Contact from "../InputGroups/Contact.js";
 import { updateInput } from "../../../util/formdata.js";
 import uploadFileToFirebase from "../../../util/Firebase/upload.js";
+import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
+import EmploymentApplicationToastContent from "../CustomToastContent/EmploymentApplicantionToastContent.js";
 
 const EmploymentForm = (props) => {
+  const navigate = useNavigate();
+
   const formId = "employmentForm";
   const MAX_FILE_SIZE_MB = 25;
 
@@ -91,11 +96,16 @@ const EmploymentForm = (props) => {
     ]);
     //If form is valid and required inputs are not empty send email
     if (formIsValid && !formHasEmptyValues) {
-      const formData = new FormData(e.target);
-      // const fileURL = await uploadFileToFirebase(file);
-      formData.append("reply_to", applicant.contact.contact_email);
-      // formData.append("resume_link", fileURL);
-      sendApplicationEmail(formData);
+      const emailStatus = await sendApplicationEmail(e);
+      if (emailStatus === 200) {
+        navigate("/");
+        window.scrollTo({ top: 0, behavior: "instant" });
+        toast.success(
+          <EmploymentApplicationToastContent
+            name={`${applicant.fullName.first_name} ${applicant.fullName.last_name}`}
+          />
+        );
+      }
     }
   };
 
