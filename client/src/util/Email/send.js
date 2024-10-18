@@ -22,7 +22,7 @@ export const sendEmail = (
     );
 };
 
-export const sendCareRequestEmail = (e) => {
+export const sendCareRequestEmail = async (e) => {
   e.preventDefault();
   // Collect other form data
   const formData = new FormData(e.target);
@@ -42,7 +42,17 @@ export const sendCareRequestEmail = (e) => {
   // Add selected services
   formObject.services = services;
   formObject.reply_to = formObject.contact_email;
-  sendEmail(formObject);
+
+  try {
+    const emailResponse = await sendEmail(formObject);
+    console.log(
+      "Email sent successfully!",
+      emailResponse.status,
+      emailResponse.text
+    );
+  } catch (error) {
+    console.error("Error during email sending:", error);
+  }
 };
 
 export const sendApplicationEmail = async (formData) => {
