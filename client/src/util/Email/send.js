@@ -46,34 +46,34 @@ export const sendCareRequestEmail = (e) => {
 };
 
 export const sendApplicationEmail = async (formData) => {
-  const resume_file = formData.get("resume_file");
+  const formObject = Object.fromEntries(formData.entries());
+  console.log(formObject);
+  // try {
+  //   const emailParams = {
+  //     first_name: formData.get("first_name"),
+  //     last_name: formData.get("last_name"),
+  //     contact_phone: formData.get("contact_phone"),
+  //     contact_email: formData.get("contact_email"),
+  //     // file_link: fileUrl, // Pass file URL to email template
+  //   };
 
-  try {
-    const emailParams = {
-      first_name: formData.get("first_name"),
-      last_name: formData.get("last_name"),
-      contact_phone: formData.get("contact_phone"),
-      contact_email: formData.get("contact_email"),
-      // file_link: fileUrl, // Pass file URL to email template
-    };
+  //   const emailResponse = await emailjs.send(
+  //     process.env.REACT_APP_EMAILJS_SERVICE_ID,
+  //     process.env.REACT_APP_EMAILJS_TEMPLATE_ID_2,
+  //     emailParams,
+  //     process.env.REACT_APP_EMAILJS_PUBLIC_ID
+  //   );
 
-    const emailResponse = await emailjs.send(
-      process.env.REACT_APP_EMAILJS_SERVICE_ID,
-      process.env.REACT_APP_EMAILJS_TEMPLATE_ID_2,
-      emailParams,
-      process.env.REACT_APP_EMAILJS_PUBLIC_ID
-    );
-
-    console.log(
-      "Email sent successfully!",
-      emailResponse.status,
-      emailResponse.text
-    );
-  } catch (error) {
-    console.error("Error during email sending:", error);
-    // console.error(
-    //   "Error during file upload, email sending, or file deletion:",
-    //   error
-    // );
-  }
+  //   console.log(
+  //     "Email sent successfully!",
+  //     emailResponse.status,
+  //     emailResponse.text
+  //   );
+  // } catch (error) {
+  //   console.error("Error during email sending:", error);
+  //   // console.error(
+  //   //   "Error during file upload, email sending, or file deletion:",
+  //   //   error
+  //   // );
+  // }
 };
