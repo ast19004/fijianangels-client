@@ -12,7 +12,7 @@ import EmploymentForm from "./component/UI/Forms/EmploymentForm";
 import HomecareRequestForm from "./component/UI/Forms/HomecareRequestForm";
 
 import { Routes, Route, BrowserRouter } from "react-router-dom";
-import Groups from "./pages/Groups/Groups";
+import AssociatedGroups from "./pages/AssociatedGroups/AssociatedGroups";
 
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -61,7 +61,7 @@ function App() {
                   <CoreValues />
                   <Staff />
                   <Contact />
-                  <Groups />
+                  <AssociatedGroups />
                 </main>
               </Box>
             }

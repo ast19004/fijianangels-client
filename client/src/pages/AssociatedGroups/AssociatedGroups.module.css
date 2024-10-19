@@ -1,3 +1,10 @@
+.groups {
+  margin-top: 0;
+  margin-bottom: 3rem;
+  background-color: rgba(255, 255, 255, 0.75);
+  border-radius: 2rem;
+  padding: 2rem 0;
+}
 .groups_list {
   max-width: 60rem;
   list-style: none;

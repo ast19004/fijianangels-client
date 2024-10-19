@@ -1,14 +1,14 @@
 import { Box, Typography } from "@mui/material";
-import styles from "./Groups.module.css";
+import styles from "./AssociatedGroups.module.css";
 
-const Groups = (props) => {
+const AssociatedGroups = (props) => {
   return (
-    <Box sx={{ marginTop: "-3rem" }}>
+    <Box className={styles.groups}>
       <Typography
         textAlign="center"
         fontStyle="italic"
         fontSize="1.5rem"
-        color="rgba(128,128,128, 1)"
+        color="rgba(202, 71, 101, 0.7)"
       >
         Thank you to these groups
       </Typography>
@@ -46,4 +46,4 @@ const Groups = (props) => {
   );
 };
 
-export default Groups;
+export default AssociatedGroups;
