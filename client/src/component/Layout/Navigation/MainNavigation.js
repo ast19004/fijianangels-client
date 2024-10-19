@@ -125,9 +125,9 @@ const MainNavigation = (props) => {
                   <MenuItem className="menuItem" onClick={handleClose}>
                     <AnchorLink
                       href="#services"
-                      offsetSm="55"
-                      offsetMd="190"
-                      offsetLg="190"
+                      offsetSm="130"
+                      offsetMd="135"
+                      offsetLg="105"
                     >
                       SERVICES
                     </AnchorLink>
@@ -136,8 +136,8 @@ const MainNavigation = (props) => {
                     <AnchorLink
                       href="#corevalues"
                       offsetSm="70"
-                      offsetMd="70"
-                      offsetLg="197"
+                      offsetMd="75"
+                      offsetLg="80"
                     >
                       ABOUT US
                     </AnchorLink>
@@ -148,8 +148,8 @@ const MainNavigation = (props) => {
                   <MenuItem className="menuItem" onClick={handleClose}>
                     <AnchorLink
                       href="#contact"
-                      offsetSm="45"
-                      offsetMd="220"
+                      offsetSm="75"
+                      offsetMd="100"
                       offsetLg="110"
                     >
                       CONTACT
