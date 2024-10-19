@@ -49,16 +49,16 @@ export const sendCareRequestEmail = async (e) => {
   return emailStatus;
 };
 
-export const sendApplicationEmail = async (e) => {
+export const sendApplicationEmail = async (e, fileURL) => {
   e.preventDefault();
   const formData = new FormData(e.target);
-  // const fileURL = await uploadFileToFirebase(file);
+
   formData.append("reply_to", formData.get("contact_email"));
   // formData.append("resume_link", fileURL);
-  const formObject = Object.fromEntries(formData.entries());
-  const emailStatus = await sendEmail(
-    formObject,
-    process.env.REACT_APP_EMAILJS_TEMPLATE_ID_2
-  );
-  return emailStatus;
+
+  // const emailStatus = await sendEmail(
+  //   formObject,
+  //   process.env.REACT_APP_EMAILJS_TEMPLATE_ID_2
+  // );
+  // return emailStatus;
 };

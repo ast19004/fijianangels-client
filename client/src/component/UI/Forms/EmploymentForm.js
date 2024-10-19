@@ -18,6 +18,8 @@ import uploadFileToFirebase from "../../../util/Firebase/upload.js";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import EmploymentApplicationToastContent from "../CustomToastContent/EmploymentApplicantionToastContent.js";
+import { getPDFDataUrl } from "../../../util/formdata.js";
+import { Box } from "@mui/material";
 
 const EmploymentForm = (props) => {
   const navigate = useNavigate();
@@ -26,6 +28,7 @@ const EmploymentForm = (props) => {
   const MAX_FILE_SIZE_MB = 25;
 
   const [file, setFile] = useState(null);
+  const [dataUrl, setDataUrl] = useState("");
   const [applicant, setApplicant] = useState({
     fullName: {
       first_name: "",
@@ -45,6 +48,7 @@ const EmploymentForm = (props) => {
 
   const handleFileInput = (selectedFile) => {
     setFile(selectedFile);
+    selectedFile && getPDFDataUrl(selectedFile, setDataUrl);
   };
   const handleInputChange = (dataName, data) => {
     updateInput(dataName, data, setApplicant);
@@ -53,7 +57,7 @@ const EmploymentForm = (props) => {
   const handleFileInputBlur = (selectedFile) => {
     selectedFile && setFileError("");
     if (!selectedFile) {
-      setFileError((prevErr) => "Please attach your resume");
+      setFileError((prevErr) => "Please attach your resume as a pdf");
       return;
     }
 
@@ -96,7 +100,7 @@ const EmploymentForm = (props) => {
     ]);
     //If form is valid and required inputs are not empty send email
     if (formIsValid && !formHasEmptyValues) {
-      const emailStatus = await sendApplicationEmail(e);
+      const emailStatus = await sendApplicationEmail(e, dataUrl);
       if (emailStatus === 200) {
         navigate("/");
         window.scrollTo({ top: 0, behavior: "instant" });
@@ -110,39 +114,42 @@ const EmploymentForm = (props) => {
   };
 
   return (
-    <Form
-      title="Employment Application"
-      id={formId}
-      onSubmit={handleSubmit}
-      submit
-      encType="multipart/form-data"
-    >
-      <FullName
-        fullName={applicant.fullName}
-        onChange={handleInputChange}
-        onBlur={handleNameInputBlur}
-        helperText={nameError}
-        resetStyles
-      />
-      <Contact
-        contact={applicant.contact}
-        onChange={handleInputChange}
-        onBlur={handleContantInputBlur}
-        resetStyles
-        helperText={contactError}
-      />
-      <FormFileInput
-        id="resume_file"
-        name="resume_file"
-        label="ATTACH RESUME"
-        onChange={handleFileInput}
-        onBlur={(selectedFile) => {
-          selectedFile && setFileError("");
-        }}
-        helperText={fileError}
-        accept=".pdf"
-      />
-    </Form>
+    <Box>
+      <Form
+        title="Employment Application"
+        id={formId}
+        onSubmit={handleSubmit}
+        submit
+        encType="multipart/form-data"
+      >
+        <FullName
+          fullName={applicant.fullName}
+          onChange={handleInputChange}
+          onBlur={handleNameInputBlur}
+          helperText={nameError}
+          resetStyles
+        />
+        <Contact
+          contact={applicant.contact}
+          onChange={handleInputChange}
+          onBlur={handleContantInputBlur}
+          resetStyles
+          helperText={contactError}
+        />
+        <FormFileInput
+          id="resume_file"
+          name="resume_file"
+          label="ATTACH RESUME"
+          onChange={handleFileInput}
+          onBlur={(selectedFile) => {
+            selectedFile && setFileError("");
+          }}
+          helperText={fileError}
+          accept=".pdf"
+        />
+      </Form>
+      {dataUrl && <Box component="img" src={dataUrl} />}
+    </Box>
   );
 };
 
