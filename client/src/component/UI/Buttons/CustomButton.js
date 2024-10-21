@@ -15,7 +15,7 @@ const CustomButton = (props) => {
           transform: "scale(1.1)",
         },
       }}
-      disabled={props.submitDisabled}
+      disabled={props.disabled}
       type="submit"
       variant="contained"
     >

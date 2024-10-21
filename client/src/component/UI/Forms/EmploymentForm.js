@@ -43,6 +43,7 @@ const EmploymentForm = (props) => {
     contact_phone: "",
     contact_email: "",
   });
+  const [submitDisabled, setSubmitDisabled] = useState(false);
 
   const handleFileInput = (selectedFile) => {
     setFile(selectedFile);
@@ -97,6 +98,8 @@ const EmploymentForm = (props) => {
     ]);
     //If form is valid and required inputs are not empty send email
     if (formIsValid && !formHasEmptyValues) {
+      //Disable submit so application can only be sent once
+      setSubmitDisabled(true);
       const emailStatus = await sendApplicationEmail(e);
       if (emailStatus === 200) {
         navigate("/");
@@ -118,6 +121,7 @@ const EmploymentForm = (props) => {
         onSubmit={handleSubmit}
         submit
         encType="multipart/form-data"
+        submitDisabled={submitDisabled}
       >
         <FullName
           fullName={applicant.fullName}

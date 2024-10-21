@@ -47,6 +47,7 @@ const HomecareRequestForm = (props) => {
   });
 
   const [servicesInputError, setServiceInputError] = useState("");
+  const [submitDisabled, setSubmitDisabled] = useState(false);
 
   const handleInputChange = (dataName, data) => {
     updateInput(dataName, data, setRequest);
@@ -95,6 +96,8 @@ const HomecareRequestForm = (props) => {
 
     //If form is valid and required inputs are not empty send email
     if (formIsValid && !formHasEmptyValues) {
+      //Set Submit to disabled so form is sent only once.
+      setSubmitDisabled(true);
       const emailStatus = await sendCareRequestEmail(e);
       if (emailStatus === 200) {
         navigate("/");
