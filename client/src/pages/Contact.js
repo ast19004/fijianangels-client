@@ -28,7 +28,6 @@ function Contact() {
         alignSelf: "center",
         margin: "0 auto",
         "@media(min-width: 62rem)": {
-          // border: "3px solid rgba(100, 150, 255, 0.25)",
           borderRadius: "2.2rem",
           gap: "0.5rem",
         },
@@ -109,21 +108,25 @@ function Contact() {
 
       <Box
         sx={{
+          position: "relative",
           display: "grid",
           justifyContent: "center",
           marginTop: "2rem",
           padding: "1rem 0",
           borderRadius: "2rem",
           backgroundColor: "rgba(255, 255, 255, 0.7)",
+          backgroundImage: `url(${contact2_800px})`,
+          backgroundPosition: "top 25% left 0%",
+          backgroundSize: "contain",
+          backgroundRepeat: "no-repeat",
 
           "@media(min-width: 37rem)": {
             padding: "2% 12% 2% 2%",
             justifyContent: "end",
             marginTop: "1rem",
             opacity: "0.9",
-            backgroundImage: `url(${contact2_800px})`,
-            backgroundPosition: "top left 35%",
             backgroundSize: "cover",
+            backgroundPosition: "top left 35%",
           },
           "@media(min-width: 42rem)": {
             backgroundPosition: "top left 35%",
@@ -138,6 +141,23 @@ function Contact() {
       >
         <Box
           sx={{
+            position: "absolute",
+            top: "0",
+            left: "0",
+            height: "100%",
+            width: "100%",
+            background: "rgb(255,255,255)",
+            zIndex: "0",
+            borderRadius: "2rem",
+            opacity: 0.75,
+            "@media(min-width: 42rem)": {
+              opacity: 0,
+            },
+          }}
+        />
+        <Box
+          sx={{
+            position: "relative",
             display: "block",
             margin: "0 auto",
             height: "9.5rem",
@@ -155,6 +175,7 @@ function Contact() {
         <ContactLink
           href="admin@fijianangelshomecare.info"
           sx={{
+            position: "relative",
             color: "#111",
             letterSpacing: "0.1rem",
           }}
@@ -166,6 +187,7 @@ function Contact() {
             color="#111"
             lineHeight={2}
             sx={{
+              position: "relative",
               textAlign: "center",
               opacity: 0.5,
               "@media(min-width(42rem))": {
@@ -176,20 +198,6 @@ function Contact() {
             <PhoneLink tel="5106127595">(510) 612-7595</PhoneLink> /{" "}
             <PhoneLink tel="6505180532">(650) 518-0532</PhoneLink>
           </Typography>
-          {/* <Typography
-            color="#111"
-            lineHeight={2}
-            sx={{
-              textAlign: "center",
-              opacity: 0.5,
-              "@media(min-width(42rem))": {
-                textAlign: "right",
-              },
-            }}
-          >
-            <PhoneLink tel="5108129475">(510) 812-9475</PhoneLink>{" "}
-            <PhoneLink tel="7244344646">(724) 434-4646</PhoneLink>
-          </Typography> */}
         </Box>
       </Box>
     </Box>
