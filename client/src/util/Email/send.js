@@ -1,5 +1,6 @@
 import emailjs from "@emailjs/browser";
 import capitalize from "../String/capitalize";
+import uploadFileToFirebase from "../../util/Firebase/upload";
 
 export const sendEmail = async (
   formContent,
@@ -49,16 +50,22 @@ export const sendCareRequestEmail = async (e) => {
   return emailStatus;
 };
 
-export const sendApplicationEmail = async (e, fileURL) => {
+export const sendApplicationEmail = async (e) => {
   e.preventDefault();
+  //Get all data from form
   const formData = new FormData(e.target);
+  const file = formData.get("resume_file");
+  const fileUrl = await uploadFileToFirebase(file);
+  // Convert FormData to an object for easier use with emailjs.send()
+  const formObject = Object.fromEntries(formData.entries());
 
-  formData.append("reply_to", formData.get("contact_email"));
-  // formData.append("resume_link", fileURL);
+  //fileUrl is created from the form file outside this function
+  formObject.reply_to = formObject.contact_email;
+  formObject.resume_link = fileUrl;
 
-  // const emailStatus = await sendEmail(
-  //   formObject,
-  //   process.env.REACT_APP_EMAILJS_TEMPLATE_ID_2
-  // );
-  // return emailStatus;
+  const emailStatus = await sendEmail(
+    formObject,
+    process.env.REACT_APP_EMAILJS_TEMPLATE_ID_2
+  );
+  return emailStatus;
 };

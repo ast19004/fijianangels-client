@@ -14,7 +14,6 @@ import { sendApplicationEmail } from "../../../util/Email/send.js";
 import FullName from "../InputGroups/FullName.js";
 import Contact from "../InputGroups/Contact.js";
 import { updateInput } from "../../../util/formdata.js";
-import uploadFileToFirebase from "../../../util/Firebase/upload.js";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import EmploymentApplicationToastContent from "../CustomToastContent/EmploymentApplicantionToastContent.js";
@@ -25,10 +24,9 @@ const EmploymentForm = (props) => {
   const navigate = useNavigate();
 
   const formId = "employmentForm";
-  const MAX_FILE_SIZE_MB = 25;
-
+  const MAX_FILE_SIZE_MB = 2;
   const [file, setFile] = useState(null);
-  const [dataUrl, setDataUrl] = useState("");
+  const [base64DataUrl, setBase64DataUrl] = useState("");
   const [applicant, setApplicant] = useState({
     fullName: {
       first_name: "",
@@ -48,7 +46,7 @@ const EmploymentForm = (props) => {
 
   const handleFileInput = (selectedFile) => {
     setFile(selectedFile);
-    selectedFile && getPDFDataUrl(selectedFile, setDataUrl);
+    selectedFile && getPDFDataUrl(selectedFile, setBase64DataUrl);
   };
   const handleInputChange = (dataName, data) => {
     updateInput(dataName, data, setApplicant);
@@ -89,7 +87,6 @@ const EmploymentForm = (props) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    handleFileInputBlur();
     const formIsValid = checkIsFormValid([nameError, contactError, fileError]);
     const formHasEmptyValues = checkIsFormEmpty([
       applicant.fullName.first_name,
@@ -100,7 +97,7 @@ const EmploymentForm = (props) => {
     ]);
     //If form is valid and required inputs are not empty send email
     if (formIsValid && !formHasEmptyValues) {
-      const emailStatus = await sendApplicationEmail(e, dataUrl);
+      const emailStatus = await sendApplicationEmail(e);
       if (emailStatus === 200) {
         navigate("/");
         window.scrollTo({ top: 0, behavior: "instant" });
@@ -141,14 +138,28 @@ const EmploymentForm = (props) => {
           name="resume_file"
           label="ATTACH RESUME"
           onChange={handleFileInput}
-          onBlur={(selectedFile) => {
-            selectedFile && setFileError("");
-          }}
+          onBlur={handleFileInputBlur}
           helperText={fileError}
           accept=".pdf"
         />
+        {base64DataUrl && !fileError && (
+          <Box
+            sx={{
+              width: "10rem",
+              height: "auto",
+              margin: "0 auto",
+              padding: "1rem",
+            }}
+          >
+            <Box
+              component="img"
+              src={base64DataUrl}
+              alt="File preview"
+              sx={{ display: "block", maxWidth: "100%" }}
+            />
+          </Box>
+        )}
       </Form>
-      {dataUrl && <Box component="img" src={dataUrl} />}
     </Box>
   );
 };

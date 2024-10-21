@@ -50,7 +50,7 @@ export const renderPDF = async (pdfData) => {
   const pdfDoc = await pdfjsLib.getDocument({ data: pdfData }).promise;
   const page = await pdfDoc.getPage(1); // Get the first page
 
-  const scale = 1.5;
+  const scale = 1;
   const viewport = page.getViewport({ scale });
 
   // Dynamically create an offscreen canvas
