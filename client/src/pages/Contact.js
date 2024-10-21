@@ -22,7 +22,7 @@ function Contact() {
       id="contact"
       sx={{
         width: "96%",
-        maxWidth: "67.5rem",
+        maxWidth: "69rem",
         display: "grid",
         justifySelf: "center",
         alignSelf: "center",

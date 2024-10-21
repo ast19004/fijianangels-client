@@ -1,16 +1,15 @@
 .groups {
-  margin-top: 0;
-  margin-bottom: 3rem;
+  margin: 0 2%;
   background-color: rgba(255, 255, 255, 0.75);
   border-radius: 2rem;
-  padding: 3rem 2rem;
+  padding: 2rem;
+  margin-bottom: 6rem;
 }
 .groups_list {
   max-width: 60rem;
   list-style: none;
   padding: 0;
   margin: 0 auto;
-  margin-bottom: 1rem;
 }
 .group_list_item {
   padding: 0;
@@ -27,13 +26,22 @@
 }
 
 @media (min-width: 32rem) {
+  .groups {
+    padding: 3rem 2rem;
+  }
   .groups_list {
     display: grid;
-    grid-template-columns: 1fr 2fr;
+    grid-template-columns: 1fr 1.5fr;
     justify-content: end;
     align-items: center;
   }
   .group_list_item {
     justify-self: end;
+  }
+}
+
+@media (min-width: 48rem) {
+  .thanks {
+    font-size: 1.5rem !important;
   }
 }

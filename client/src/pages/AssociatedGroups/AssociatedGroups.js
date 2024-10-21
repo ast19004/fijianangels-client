@@ -5,9 +5,10 @@ const AssociatedGroups = (props) => {
   return (
     <Box className={styles.groups}>
       <Typography
+        className={styles.thanks}
         textAlign="center"
         fontStyle="italic"
-        fontSize="1.5rem"
+        fontSize="1.15rem"
         color="rgba(202, 71, 101, 0.7)"
       >
         Thank you to these groups
