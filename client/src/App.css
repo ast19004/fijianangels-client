@@ -132,15 +132,28 @@ header {
 }
 /* .MuiBox-root {
 } */
+.MuiFormLabel-root {
+  border-radius: 1rem 1rem 0 0;
+  padding: 0.5rem !important;
+}
 .MuiFormLabel-root,
 .spacingBlock {
   background-color: rgba(200, 225, 225, 0.25);
 }
 .MuiFormControl-root {
   width: 100%;
-}
-.MuiOutlinedInput-root {
   border-radius: 1rem !important;
+}
+.css-1y3w0gu-MuiFormControl-root {
+  margin: 1rem 0 !important;
+  background-color: rgba(200, 225, 225, 0.25) !important;
+}
+.MuiOutlinedInput-root,
+.MuiInputBase-input {
+  border-radius: 1rem !important;
+}
+.MuiInputBase-input {
+  background-color: white !important;
 }
 
 .MuiFormHelperText-root {
@@ -174,9 +187,6 @@ header {
 }
 .carousel-control-next {
   right: -1.4rem !important;
-}
-.MuiFormControl-root {
-  border-radius: 3rem 3rem 1rem 1rem;
 }
 
 .MuiFormHelperText-root {
