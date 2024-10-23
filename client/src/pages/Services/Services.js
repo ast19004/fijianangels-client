@@ -119,7 +119,9 @@ function Services() {
           fade={true}
         >
           {services.map((service, index) => (
-            <Carousel.Item key={service.src}>
+            <Carousel.Item
+              key={`${service.src}${Math.floor(Math.random() * 100)}`}
+            >
               <Picture
                 key={`${service.src}${Math.floor(Math.random() * 100)}`}
                 src={service.src}
@@ -141,7 +143,7 @@ function Services() {
           fade={true}
         >
           {[0, 1, 2, 3, 4].map((slice, index) => (
-            <Carousel.Item key={index}>
+            <Carousel.Item key={`${index}${Math.floor(Math.random() * 100)}`}>
               <Box
                 sx={{
                   display: "flex",
@@ -175,7 +177,7 @@ function Services() {
           fade={true}
         >
           {[0, 1, 2].map((num) => (
-            <Carousel.Item key={num}>
+            <Carousel.Item key={`${num}${Math.floor(Math.random() * 100)}`}>
               <Box
                 sx={{ display: "flex", gap: "15px", justifyContent: "center" }}
               >

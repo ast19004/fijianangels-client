@@ -38,7 +38,7 @@ function Background(props) {
 
   return (
     <Box className={styles.background_container} sx={{ ...props.sx }}>
-      <Transition in={entry} timeout={500}>
+      <Transition in={inView} timeout={500}>
         {(state) => (
           <>
             <Box ref={ref} className={styles.background}>

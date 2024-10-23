@@ -52,6 +52,10 @@
   border-bottom: 10px dotted pink;
   padding-bottom: 10px;
 }
+.corevalue_title {
+  color: rgba(100, 150, 255, 1);
+  font-size: 1.5rem;
+}
 
 @media (min-width: 50rem) {
   .corevalues {
