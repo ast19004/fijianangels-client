@@ -13,7 +13,7 @@
   -webkit-transition: all 1s ease-in; /* Safari */
   -o-transition: all 1s ease-in;
   transition: all 1s ease-in;
-  background-image: url("../../../assests/images/home_image/main_home_800px.jpg");
+  background-image: url("../../../assests/images/home_image/main_home_1024px.jpg");
   background-repeat: no-repeat;
   background-position: top left 35%;
   background-size: 100% 100%; /* Fallback */
