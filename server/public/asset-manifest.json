@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/static/css/main.6653aa96.css",
+    "main.css": "/static/css/main.8eca2e37.css",
     "main.js": "/static/js/main.8bd683d7.js",
     "static/js/592.599f76a2.chunk.js": "/static/js/592.599f76a2.chunk.js",
     "static/media/elderly_assistance.mp4": "/static/media/elderly_assistance.c5c10b4fa0ab0ed76711.mp4",
@@ -8,7 +8,6 @@
     "static/media/love_hand_gesture-1500px.jpg": "/static/media/love_hand_gesture-1500px.104c1b02a820d58bf649.jpg",
     "static/media/main_home_1024px.jpg": "/static/media/main_home_1024px.43641f53784221534142.jpg",
     "static/media/love_hand_gesture_1024px.jpg": "/static/media/love_hand_gesture_1024px.981e9272cf20c7d7ce93.jpg",
-    "static/media/main_home_800px.jpg": "/static/media/main_home_800px.053b528f23da84a528aa.jpg",
     "static/media/love_hand_gesture_800px.jpg": "/static/media/love_hand_gesture_800px.4bbc0cdab7cc19ac02a0.jpg",
     "static/media/love_hand_gesture_500px.jpg": "/static/media/love_hand_gesture_500px.d35767b381a36430f225.jpg",
     "static/media/service-medreminder.jpg": "/static/media/service-medreminder.4c2db03ebfa6388d67cb.jpg",
@@ -33,12 +32,12 @@
     "static/media/contact.svg": "/static/media/contact.6474b0bf73867cf09adb5584d8a49b02.svg",
     "static/media/fijian-angels-logo.svg": "/static/media/fijian-angels-logo.ec44a1f02df0abeeda0b1ba5cc40942b.svg",
     "index.html": "/index.html",
-    "main.6653aa96.css.map": "/static/css/main.6653aa96.css.map",
+    "main.8eca2e37.css.map": "/static/css/main.8eca2e37.css.map",
     "main.8bd683d7.js.map": "/static/js/main.8bd683d7.js.map",
     "592.599f76a2.chunk.js.map": "/static/js/592.599f76a2.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.6653aa96.css",
+    "static/css/main.8eca2e37.css",
     "static/js/main.8bd683d7.js"
   ]
 }
