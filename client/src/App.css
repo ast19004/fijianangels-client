@@ -6,6 +6,10 @@
 */
 
 /* --- Html Elements--- */
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
 main {
   width: 100%;
   display: -ms-grid;
@@ -126,7 +130,8 @@ header {
 .css-1fdsijx-ValueContainer {
   padding: 1rem 3.1rem !important;
 }
-
+/* .MuiBox-root {
+} */
 .MuiFormLabel-root,
 .spacingBlock {
   background-color: rgba(200, 225, 225, 0.25);
