@@ -13,7 +13,7 @@
   -webkit-transition: all 1s ease-in; /* Safari */
   -o-transition: all 1s ease-in;
   transition: all 1s ease-in;
-  background-image: url("../../../assests/images/home_image/main_home_1024px.jpg");
+  background-image: url("../../../assests/images/home_image/main_home_800px.jpg");
   background-repeat: no-repeat;
   background-position: top left 35%;
   background-size: 100% 100%; /* Fallback */
@@ -46,7 +46,11 @@
 .disappear {
   opacity: 0;
 }
-@media (min-width: 49rem) {
+
+/* Applying styles for screens wider than 49rem or devices with a DPR of 2 (retina) */
+@media (min-width: 49rem),
+  (-webkit-min-device-pixel-ratio: 2),
+  (min-resolution: 192dpi) {
   .background {
     background-image: url("../../../assests/images/home_image/main_home_1024px.jpg");
   }
@@ -57,13 +61,17 @@
     object-position: bottom 15% left 72%;
   }
 }
+@media (min-width: 63rem),
+  (-webkit-min-device-pixel-ratio: 3),
+  (min-resolution: 288dpi) {
+  .background {
+    background-image: url("../../../assests/images/home_image/main_home_1500px.jpg");
+  }
+}
 @media (min-width: 63rem) {
   .foreground-video {
     -o-object-position: center;
     object-position: center;
-  }
-  .background {
-    background-image: url("../../../assests/images/home_image/main_home_1500px.jpg");
   }
 }
 .example {

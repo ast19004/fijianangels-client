@@ -74,13 +74,20 @@
   color: #999;
 }
 
+@media (min-width: 30rem),
+  (-webkit-min-device-pixel-ratio: 2),
+  (min-resolution: 192dpi) {
+  .staff_header {
+    background-image: url("../../assests/images//love_hand_gesture/love_hand_gesture_800px.jpg");
+  }
+}
 @media (min-width: 30rem) {
   .staff_header {
     height: 15rem;
     background-position: top 10% left;
-    background-image: url("../../assests/images//love_hand_gesture/love_hand_gesture_800px.jpg");
   }
 }
+
 @media (min-width: 40rem) {
   .staff_member {
     gap: 2rem;
@@ -112,19 +119,21 @@
   }
 }
 
+@media (min-width: 49rem),
+  (-webkit-min-device-pixel-ratio: 3),
+  (min-resolution: 288dpi) {
+  .staff_header {
+    background-image: url("../../assests/images//love_hand_gesture/love_hand_gesture_1024px.jpg");
+  }
+}
+
 @media (min-width: 49rem) {
   .staff_header {
     height: 19rem;
-  }
-  .staff_header {
-    background-image: url("../../assests/images//love_hand_gesture/love_hand_gesture_1024px.jpg");
   }
 }
 @media (min-width: 63rem) {
   .staff_header {
     height: 23rem;
-  }
-  .staff_header {
-    background-image: url("../../assests/images//love_hand_gesture/love_hand_gesture-1500px.jpg");
   }
 }
