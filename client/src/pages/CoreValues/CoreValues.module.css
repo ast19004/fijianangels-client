@@ -45,12 +45,14 @@
   width: auto;
   max-height: auto;
   max-width: 40%;
+  flex-shrink: 2;
 }
 .corevalue_section {
   width: 60%;
   margin: 0 auto;
   border-bottom: 10px dotted pink;
   padding-bottom: 10px;
+  flex-shrink: 1;
 }
 .corevalue_title {
   color: rgba(100, 150, 255, 1);

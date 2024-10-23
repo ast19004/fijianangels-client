@@ -164,6 +164,9 @@ header {
 .Picture_picture__q5wOi {
   border-radius: 2rem;
 }
+.MuiBox-root.css-15ull9x {
+  border-radius: 2rem !important;
+}
 .carousel-indicators {
   margin-bottom: 0 !important;
   bottom: -2rem !important;
