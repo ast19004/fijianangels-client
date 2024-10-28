@@ -58,7 +58,7 @@ const Staff = (props) => {
                 "@media(min-width: 40rem)": { textAlign: "left" },
               }}
             >
-              Founder & Chief Executive Officer, CEO
+              Co-Founder & Chief Executive Officer, CEO
             </Typography>
           </ContactLink>
           <Typography className={styles.staff_member_desciption}>
@@ -106,7 +106,7 @@ const Staff = (props) => {
                   "@media(min-width: 40rem)": { textAlign: "right" },
                 }}
               >
-                Chief Operations Officer (COO)
+                Co-Founder & Chief Operations Officer (COO)
               </Typography>
             </Typography>
           </ContactLink>
@@ -128,7 +128,7 @@ const Staff = (props) => {
             delivering high-quality care, fostering strong relationships with my
             team, the community, and healthcare professionals. Tava's passion
             lies in working with seniors, enriching their lives, and creating a
-            positive, lasting impact through her work. Personally, she is am
+            positive, lasting impact through her work. Personally, she is a
             married and the proud mother of three wonderful children. In her
             free time, she enjoys journaling, cooking with her family, and
             listening to music.
