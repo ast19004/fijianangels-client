@@ -8,7 +8,7 @@ const AssociatedGroups = (props) => {
         className={styles.thanks}
         textAlign="center"
         fontStyle="italic"
-        fontSize="1.15rem"
+        fontSize="1rem"
         color="rgba(202, 71, 101, 0.7)"
       >
         Thank you to these groups

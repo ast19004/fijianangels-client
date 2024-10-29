@@ -1,5 +1,5 @@
 .thanks {
-  font-size: 1.8rem !important;
+  font-size: 1.2rem !important;
   opacity: 0.8;
 }
 .groups {
@@ -46,6 +46,6 @@
 
 @media (min-width: 48rem) {
   .thanks {
-    font-size: 2.8rem !important;
+    font-size: 1.5rem !important;
   }
 }

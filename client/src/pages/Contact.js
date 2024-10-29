@@ -36,7 +36,7 @@ function Contact() {
       <Box
         component="section"
         sx={{
-          padding: "2rem 2rem 0 2% ",
+          padding: "2rem 2rem 2% 2% ",
           marginBottom: "1rem",
           borderRadius: "2rem 2rem 4rem 0",
           backgroundImage: `url(${contact1_800px})`,
@@ -50,9 +50,25 @@ function Contact() {
           },
           "@media(min-width: 63rem)": {
             backgroundImage: `url(${contact1_1500px})`,
+            backgroundPosition: "top 10% left",
           },
         }}
       >
+        <Typography
+          id="section-hours"
+          color="white"
+          sx={{
+            textShadow: "0px 0px 3px rgb(96, 125, 173)",
+            fontSize: "2rem",
+            maxWidth: "20rem",
+            "@media(min-width: 42rem)": {
+              fontSize: "2.3rem",
+              maxWidth: "100%",
+            },
+          }}
+        >
+          <b>Monday-Friday 9:00am-7:00pm</b>
+        </Typography>
         <StyledHeader
           className="font_decorative"
           sx={{
@@ -71,23 +87,6 @@ function Contact() {
         >
           We look forward to hearing from you
         </StyledHeader>
-        <Typography
-          id="section-hours"
-          color="white"
-          sx={{
-            textShadow: "0px 0px 3px rgb(96, 125, 173)",
-            marginBottom: "2rem",
-            fontSize: "2rem",
-            maxWidth: "20rem",
-            marginTop: "-0.7rem",
-            "@media(min-width: 42rem)": {
-              fontSize: "2.3rem",
-              maxWidth: "100%",
-            },
-          }}
-        >
-          <b>Monday-Friday 9:00am-7:00pm</b>
-        </Typography>
       </Box>
       <Box
         sx={{
@@ -155,7 +154,7 @@ function Contact() {
             width: "100%",
             background: "rgb(255,255,255)",
             zIndex: "0",
-            borderRadius: "2rem",
+            borderRadius: "0 0 2rem 2rem",
             opacity: 0.75,
             "@media(min-width: 42rem)": {
               opacity: 0,

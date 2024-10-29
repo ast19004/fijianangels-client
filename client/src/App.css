@@ -58,8 +58,8 @@ header {
 
 .App-logo {
   position: fixed;
-  top: -0.2%;
-  right: -0.2%;
+  top: 1%;
+  right: -0.5%;
   height: 5rem;
   width: auto;
   border-radius: 50%;
