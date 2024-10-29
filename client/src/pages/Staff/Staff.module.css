@@ -17,7 +17,7 @@
   margin: 0 auto;
 }
 
-.staff_header {
+.staff_head {
   position: relative;
   margin: 0 auto;
   height: 12rem;
@@ -27,6 +27,20 @@
   background-image: url("../../assests/images//love_hand_gesture/love_hand_gesture_500px.jpg");
   background-position: top 20% left;
   background-size: cover;
+}
+.staff_head_text {
+  font-family: cursive;
+  position: absolute;
+  bottom: 2%;
+  left: 2%;
+  text-shadow: 0px 0px 4px #000;
+  color: white;
+  background: rgba(100, 100, 100, 0.3);
+  border-radius: 5rem;
+  width: 96%;
+  padding: 2%;
+  font-size: 1.3rem;
+  letter-spacing: 0.1rem;
 }
 .staff_member {
   display: -webkit-box;
@@ -96,12 +110,12 @@
 @media (min-width: 30rem),
   (-webkit-min-device-pixel-ratio: 2),
   (min-resolution: 192dpi) {
-  .staff_header {
+  .staff_head {
     background-image: url("../../assests/images//love_hand_gesture/love_hand_gesture_800px.jpg");
   }
 }
 @media (min-width: 30rem) {
-  .staff_header {
+  .staff_head {
     height: 15rem;
     background-position: top 10% left;
   }
@@ -121,13 +135,16 @@
 @media (min-width: 49rem),
   (-webkit-min-device-pixel-ratio: 3),
   (min-resolution: 288dpi) {
-  .staff_header {
+  .staff_head {
     background-image: url("../../assests/images//love_hand_gesture/love_hand_gesture_1024px.jpg");
+  }
+  .staff_head_text {
+    font-size: 1.5rem;
   }
 }
 
 @media (min-width: 49rem) {
-  .staff_header {
+  .staff_head {
     height: 19rem;
   }
 }
@@ -161,7 +178,10 @@
   }
 }
 @media (min-width: 63rem) {
-  .staff_header {
+  .staff_head {
     height: 23rem;
+  }
+  .staff_head_text {
+    font-size: 2rem;
   }
 }

@@ -7,25 +7,8 @@ import styles from "./Staff.module.css";
 const Staff = (props) => {
   return (
     <Box className={styles.staff}>
-      <Box className={styles.staff_header}>
-        <Typography
-          align="center"
-          sx={{
-            position: "absolute",
-            bottom: "2%",
-            left: "2%",
-            textShadow: "0px 0px 2px #111",
-            color: "white",
-            background: "rgba(100,100,100,0.1)",
-            borderRadius: "5rem",
-            width: "96%",
-            padding: "2%",
-            fontSize: "1.3rem",
-            letterSpacing: "0.1rem",
-            "@media(min-width: 49rem)": { fontSize: "1.5rem" },
-            "@media(min-width: 63rem)": { fontSize: "2rem" },
-          }}
-        >
+      <Box className={styles.staff_head}>
+        <Typography className={styles.staff_head_text} align="center">
           <b>Providing compassionate care for your loved ones</b>
         </Typography>
       </Box>

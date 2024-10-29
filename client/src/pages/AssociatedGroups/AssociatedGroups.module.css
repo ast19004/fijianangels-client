@@ -1,3 +1,7 @@
+.thanks {
+  font-family: cursive !important;
+  font-size: 1.8rem !important;
+}
 .groups {
   margin: 0 2%;
   background-color: rgba(255, 255, 255, 0.75);
@@ -42,6 +46,6 @@
 
 @media (min-width: 48rem) {
   .thanks {
-    font-size: 1.5rem !important;
+    font-size: 2.8rem !important;
   }
 }

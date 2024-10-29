@@ -57,6 +57,7 @@ function Contact() {
           sx={{
             display: "block",
             fontSize: "0.85rem",
+            fontFamily: "cursive",
             color: "rgba(150,150,150, 0.7)",
             lineHeight: "0.5",
             "@media(min-width: 62rem)": {
