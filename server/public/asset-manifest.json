@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.a9cc75f6.css",
-    "main.js": "/static/js/main.260891a2.js",
+    "main.css": "/static/css/main.2765a136.css",
+    "main.js": "/static/js/main.15250d36.js",
     "static/js/453.258b012d.chunk.js": "/static/js/453.258b012d.chunk.js",
     "static/media/elderly_assistance.mp4": "/static/media/elderly_assistance.c5c10b4fa0ab0ed76711.mp4",
     "static/media/main_home_1500px.jpg": "/static/media/main_home_1500px.903e6d72eae8897d5606.jpg",
@@ -26,18 +26,20 @@
     "static/media/contact1_800px.jpg": "/static/media/contact1_800px.e3060597a7268fe10c44.jpg",
     "static/media/service-respite.jpg": "/static/media/service-respite.299ee55f498b5f5fe2d6.jpg",
     "static/media/contact2_1500px.jpg": "/static/media/contact2_1500px.6ffaa00e06b160b33d4c.jpg",
+    "static/media/ana.png": "/static/media/ana.a081c07dfc31a1dadf3f.png",
     "static/media/contact2_1024px.jpg": "/static/media/contact2_1024px.f39f36f92454218e0486.jpg",
     "static/media/service-housecleaning.jpg": "/static/media/service-housecleaning.1f903ab3c30ec1ef9172.jpg",
     "static/media/contact2_800px.jpg": "/static/media/contact2_800px.26f686b8b72b487f8880.jpg",
+    "static/media/tava.png": "/static/media/tava.2dcec28b60833aa26828.png",
     "static/media/contact.svg": "/static/media/contact.6474b0bf73867cf09adb5584d8a49b02.svg",
     "static/media/fijian-angels-logo.svg": "/static/media/fijian-angels-logo.ec44a1f02df0abeeda0b1ba5cc40942b.svg",
     "index.html": "/index.html",
-    "main.a9cc75f6.css.map": "/static/css/main.a9cc75f6.css.map",
-    "main.260891a2.js.map": "/static/js/main.260891a2.js.map",
+    "main.2765a136.css.map": "/static/css/main.2765a136.css.map",
+    "main.15250d36.js.map": "/static/js/main.15250d36.js.map",
     "453.258b012d.chunk.js.map": "/static/js/453.258b012d.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.a9cc75f6.css",
-    "static/js/main.260891a2.js"
+    "static/css/main.2765a136.css",
+    "static/js/main.15250d36.js"
   ]
 }
