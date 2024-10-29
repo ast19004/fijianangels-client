@@ -8,10 +8,7 @@ const Staff = (props) => {
   return (
     <Box className={styles.staff}>
       <Box className={styles.staff_head}>
-        <Typography
-          className={`font_decorative ${styles.staff_head_text}`}
-          align="center"
-        >
+        <Typography className={styles.staff_head_text} align="center">
           <b>Providing compassionate care for your loved ones</b>
         </Typography>
       </Box>
@@ -25,6 +22,7 @@ const Staff = (props) => {
         <Box component="section" className={styles.staff_member_text}>
           <ContactLink href="anaseini@fijianangelshomecare.info">
             <Typography
+              className="font_logo"
               component="h3"
               variant="p"
               sx={{
@@ -75,6 +73,7 @@ const Staff = (props) => {
         <Box component="section">
           <ContactLink href="tava@fijianangelshomecare.info">
             <Typography
+              className="font_logo"
               component="h3"
               variant="p"
               color="rgba(100, 150, 255, 1)"

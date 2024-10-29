@@ -16,7 +16,7 @@ function Footer() {
     <footer className={styles.footer} onClick={handleRequestForm}>
       <Box className={styles.footer_text}>
         <Typography
-          className={styles["footer_text-header"]}
+          className={`font_logo ${styles["footer_text-header"]}`}
           component="h3"
           color="rgba(202, 71, 101)"
           align="right"

@@ -5,12 +5,12 @@
 * Browsers: last 4 version
 */
 
-@import url("https://fonts.googleapis.com/css2?family=Oleo+Script+Swash+Caps:wght@400;700&display=swap");
-
+@import url("https://fonts.googleapis.com/css2?family=Cantata+One&family=Jost:ital,wght@0,100..900;1,100..900&family=Oleo+Script+Swash+Caps:wght@400;700&display=swap");
 /* --- Html Elements--- */
 * {
   box-sizing: border-box;
   margin: 0;
+  font-family: "Jost", sans-serif;
 }
 main {
   width: 100%;
@@ -95,6 +95,10 @@ header {
   -ms-flex-pack: end !important;
   justify-content: end !important;
 }
+.menuItem a,
+.menuItemLink {
+  font-family: "Cantata One", serif !important;
+}
 
 #extra_info {
   border-radius: 1rem;
@@ -169,6 +173,9 @@ header {
 .MuiBox-root.css-15ull9x {
   border-radius: 2rem !important;
 }
+.MuiBox-root.css-15ull9x h3 {
+  font-family: "Cantata One", serif !important;
+}
 .carousel-indicators {
   margin-bottom: 0 !important;
   bottom: -2rem !important;
@@ -199,9 +206,8 @@ header {
 }
 
 /* ----Font Classes  --- */
-.font_decorative {
-  font-family: "Oleo Script Swash Caps", system-ui !important;
-  letter-spacing: 0.15rem !important;
+.font_logo {
+  font-family: "Cantata One", serif !important;
 }
 /* --- Media Queries --- */
 
