@@ -6,7 +6,9 @@ const OfficeAddress = (props) => {
   return (
     <Box
       component="section"
-      className={`${styles.office} ${props.className}`}
+      className={`${styles.office} ${props.mainOffice && styles.office_main} ${
+        props.className
+      }`}
       sx={{ ...props.sx }}
     >
       <Typography className={styles.office_title} component={"h3"}>

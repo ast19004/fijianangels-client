@@ -18,6 +18,9 @@
   color: rgba(202, 71, 101, 0.75);
   font-size: 1.3rem;
 }
+/* .office_main .office_title {
+  font-size: 1.6rem !important;
+} */
 .office_coverage {
   color: rgba(6, 70, 151, 255);
 }

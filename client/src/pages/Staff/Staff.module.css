@@ -29,7 +29,7 @@
   background-size: cover;
 }
 .staff_head_text {
-  font-family: cursive;
+  font-family: cursive !important;
   position: absolute;
   bottom: 2%;
   left: 2%;
@@ -39,8 +39,8 @@
   border-radius: 5rem;
   width: 96%;
   padding: 2%;
-  font-size: 1.3rem;
-  letter-spacing: 0.1rem;
+  font-size: 1.5rem !important;
+  letter-spacing: 0.15rem !important;
 }
 .staff_member {
   display: -webkit-box;
@@ -139,7 +139,7 @@
     background-image: url("../../assests/images//love_hand_gesture/love_hand_gesture_1024px.jpg");
   }
   .staff_head_text {
-    font-size: 1.5rem;
+    font-size: 1.7rem !important;
   }
 }
 
@@ -178,6 +178,9 @@
   }
 }
 @media (min-width: 63rem) {
+  .staff_head_text {
+    font-size: 2.5rem !important;
+  }
   .staff_head {
     height: 23rem;
   }
