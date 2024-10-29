@@ -9,7 +9,7 @@ const Staff = (props) => {
     <Box className={styles.staff}>
       <Box className={styles.staff_header}>
         <Typography
-          align="left"
+          align="center"
           sx={{
             position: "absolute",
             bottom: "2%",
@@ -30,8 +30,11 @@ const Staff = (props) => {
         </Typography>
       </Box>
       <Box className={`${styles.staff_member} ${styles.staff_member1}`}>
-        <Box className={styles.staff_member1_img}>
+        <Box className={styles.staff_member1_thumbail}>
           <Box className={styles.staff_img_background} />
+          <Box
+            className={`${styles.staff_member_img} ${styles.staff_member1_img}`}
+          />
         </Box>
         <Box component="section" className={styles.staff_member_text}>
           <ContactLink href="anaseini@fijianangelshomecare.info">
@@ -77,8 +80,11 @@ const Staff = (props) => {
       </Box>
 
       <Box className={`${styles.staff_member} ${styles.staff_member2}`}>
-        <Box className={styles.staff_member2_img}>
+        <Box className={styles.staff_member2_thumbnail}>
           <Box className={styles.staff_img_background} />
+          <Box
+            className={`${styles.staff_member_img} ${styles.staff_member2_img}`}
+          />
         </Box>
         <Box component="section">
           <ContactLink href="tava@fijianangelshomecare.info">
