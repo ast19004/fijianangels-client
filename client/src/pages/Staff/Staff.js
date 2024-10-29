@@ -8,7 +8,10 @@ const Staff = (props) => {
   return (
     <Box className={styles.staff}>
       <Box className={styles.staff_head}>
-        <Typography className={styles.staff_head_text} align="center">
+        <Typography
+          className={`font_decorative ${styles.staff_head_text}`}
+          align="center"
+        >
           <b>Providing compassionate care for your loved ones</b>
         </Typography>
       </Box>

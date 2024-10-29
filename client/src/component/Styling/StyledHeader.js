@@ -3,6 +3,7 @@ import { Box } from "@mui/material";
 const StyledHeader = (props) => {
   return (
     <Box
+      className={props.className}
       component="h3"
       sx={{
         color: props.headerColor || "#ca4766",

@@ -29,7 +29,6 @@
   background-size: cover;
 }
 .staff_head_text {
-  font-family: cursive !important;
   position: absolute;
   bottom: 2%;
   left: 2%;
@@ -40,7 +39,6 @@
   width: 96%;
   padding: 2%;
   font-size: 1.5rem !important;
-  letter-spacing: 0.15rem !important;
 }
 .staff_member {
   display: -webkit-box;

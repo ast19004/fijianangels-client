@@ -54,15 +54,18 @@ function Contact() {
         }}
       >
         <StyledHeader
+          className="font_decorative"
           sx={{
             display: "block",
-            fontSize: "0.85rem",
-            fontFamily: "cursive",
-            color: "rgba(150,150,150, 0.7)",
-            lineHeight: "0.5",
+            fontSize: "1.3rem",
+            color: "rgba(200, 200, 200, 1)",
+            maxWidth: "20rem",
+            "@media(min-width: 42rem)": {
+              maxWidth: "100%",
+              fontSize: "1.4rem",
+            },
             "@media(min-width: 62rem)": {
               fontSize: "1.75rem",
-              letterSpacing: "0.1rem",
             },
           }}
         >
@@ -72,11 +75,14 @@ function Contact() {
           id="section-hours"
           color="white"
           sx={{
-            textShadow: "0px 0px 2px #111",
+            textShadow: "0px 0px 3px rgb(96, 125, 173)",
             marginBottom: "2rem",
             fontSize: "2rem",
+            maxWidth: "20rem",
+            marginTop: "-0.7rem",
             "@media(min-width: 42rem)": {
               fontSize: "2.3rem",
+              maxWidth: "100%",
             },
           }}
         >

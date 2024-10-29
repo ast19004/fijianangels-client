@@ -3,6 +3,7 @@ import { Box } from "@mui/material";
 const StyledParagraph = (props) => {
   return (
     <Box
+      className={props.className}
       component="p"
       sx={{
         lineHeight: props.lineHeight || 1.7,

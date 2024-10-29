@@ -5,6 +5,8 @@
 * Browsers: last 4 version
 */
 
+@import url("https://fonts.googleapis.com/css2?family=Oleo+Script+Swash+Caps:wght@400;700&display=swap");
+
 /* --- Html Elements--- */
 * {
   box-sizing: border-box;
@@ -194,6 +196,12 @@ header {
 
 .MuiFormHelperText-root {
   text-align: center !important;
+}
+
+/* ----Font Classes  --- */
+.font_decorative {
+  font-family: "Oleo Script Swash Caps", system-ui !important;
+  letter-spacing: 0.15rem !important;
 }
 /* --- Media Queries --- */
 
