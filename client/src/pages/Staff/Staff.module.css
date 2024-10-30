@@ -23,6 +23,7 @@
   height: 12rem;
   width: 100%;
   margin-bottom: 1rem;
+  margin-left: 0;
   border-radius: 2rem 2rem 4rem 0;
   background-image: url("../../assests/images//love_hand_gesture/love_hand_gesture_500px.jpg");
   background-position: top 20% left;
@@ -30,13 +31,12 @@
 }
 .staff_head_text {
   position: absolute;
-  bottom: 2%;
-  left: 2%;
+  bottom: 0%;
+  left: 0%;
   text-shadow: 0px 0px 4px #000;
   color: white;
-  background: rgba(100, 100, 100, 0.3);
-  border-radius: 5rem;
-  width: 96%;
+  background: rgba(62, 60, 118, 0.2);
+  width: 100%;
   padding: 2%;
   font-size: 1.5rem !important;
 }
@@ -94,7 +94,7 @@
   height: 12rem;
   width: 15rem;
   background-color: rgba(70, 150, 255, 0.3);
-  border: 3px solid rgba(202, 71, 101, 0.9);
+  border: 1px solid rgba(202, 71, 101, 0.9);
   border-radius: 6rem;
   opacity: 0.5;
 }

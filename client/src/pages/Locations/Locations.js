@@ -8,6 +8,7 @@ const Locations = (props) => {
         display: "flex",
         flexDirection: "column",
         gap: "1rem",
+
         "@media(min-width: 60rem)": {
           display: "grid",
           gridTemplateColumns: "1fr",

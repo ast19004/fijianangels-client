@@ -3,6 +3,7 @@ import { Box } from "@mui/material";
 const ContactLink = (props) => {
   return (
     <Box
+      className={props.className}
       component="a"
       href={`mailto:${props.href}`}
       sx={{

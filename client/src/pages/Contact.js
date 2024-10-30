@@ -42,6 +42,7 @@ function Contact() {
           backgroundImage: `url(${contact1_800px})`,
           backgroundPosition: "top left 65%",
           backgroundSize: "cover",
+          border: "1px solid rgba(100,100,100,0.2)",
           "@media(min-width: 41rem)": {
             backgroundPosition: "top left 35%",
           },
@@ -58,30 +59,36 @@ function Contact() {
           id="section-hours"
           color="white"
           sx={{
-            textShadow: "0px 0px 3px rgb(96, 125, 173)",
-            fontSize: "2rem",
-            maxWidth: "20rem",
-            "@media(min-width: 42rem)": {
-              fontSize: "2.3rem",
+            textShadow: "0px 0px 3px rgba(100,100,100,0.9)",
+            fontSize: "1.5rem",
+            maxWidth: "15rem",
+            lineHeight: "2rem",
+            marginBottom: "0.5rem",
+            "@media(min-width: 34rem)": {
               maxWidth: "100%",
+            },
+            "@media(min-width: 42rem)": {
+              fontSize: "1.7rem",
             },
           }}
         >
           <b>Monday-Friday 9:00am-7:00pm</b>
         </Typography>
         <StyledHeader
-          className="font_decorative"
+          className="font_logo"
           sx={{
             display: "block",
-            fontSize: "1.3rem",
+            fontSize: "1rem",
             color: "rgba(200, 200, 200, 1)",
-            maxWidth: "20rem",
-            "@media(min-width: 42rem)": {
+            maxWidth: "15rem",
+            "@media(min-width: 34rem)": {
               maxWidth: "100%",
-              fontSize: "1.4rem",
+            },
+            "@media(min-width: 42rem)": {
+              fontSize: "1.2rem",
             },
             "@media(min-width: 62rem)": {
-              fontSize: "1.75rem",
+              fontSize: "1.3rem",
             },
           }}
         >
@@ -119,7 +126,8 @@ function Contact() {
           justifyContent: "center",
           marginTop: "2rem",
           padding: "1rem 0",
-          borderRadius: "2rem",
+          borderRadius: " 0 0 2rem 2rem",
+          border: "1px solid rgba(100,100,100,0.2)",
           backgroundColor: "rgba(255, 255, 255, 0.7)",
           backgroundImage: `url(${contact2_800px})`,
           backgroundPosition: "top 25% left 0%",
