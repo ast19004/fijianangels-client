@@ -17,7 +17,7 @@ import AnchorLink from "../../UI/Links/AnchorLink";
 import { handleEmployeeForm, handleRequestForm } from "../../../util/event";
 
 const MainNavigation = (props) => {
-  const [open, setOpen] = React.useState(true);
+  const [open, setOpen] = React.useState(false);
   // const [subMenuOpen, setSubMenuOpen] = React.useState(false);
   const anchorRef = React.useRef(null);
 
