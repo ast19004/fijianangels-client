@@ -101,7 +101,17 @@
     transform: translate(0%, 10%);
   }
 }
-
+@media( min-width:650px) and (max-width:1019px){
+   .textContainer {
+    top: 48%;
+  }
+ .textHeader {
+  font-size: 1.2rem !important;
+  -webkit-transform: translate(-2%, 0%);
+  -ms-transform: translate(-2%, 0%);
+  transform: translate(-2%, 0%); 
+} 
+}
 @media (min-width: 725px) {
   .textContainer {
     top: 50%;

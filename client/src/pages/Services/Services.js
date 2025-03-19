@@ -2,6 +2,7 @@ import Carousel from "react-bootstrap/Carousel";
 import Picture from "../../component/UI/Picture/Picture";
 
 import MediaQuery from "react-responsive";
+import ServiceCarousel from "./ServiceCarousel";
 
 import serviceMobilitySrc from "../../assests/images/services/service-mobility350px.jpg";
 import serviceCompanionSrc from "../../assests/images/services/service-companion350px.jpg";
@@ -12,16 +13,17 @@ import serviceCleaningSrc from "../../assests/images/services/service-houseclean
 import serviceMedRemindSrc from "../../assests/images/services/service-medreminder.jpg";
 import serviceRespiteSrc from "../../assests/images/services/service-respite.jpg";
 import serviceStrokeSrc from "../../assests/images/services/service-strokecare.jpg";
+import servicesVeteranSrc from "../../assests/images/services/service-veteran350px.jpg";
 import { useState } from "react";
 import { Box } from "@mui/material";
 
-import styles from "./Services.module.css";
+import { getArraySegment } from "../../util/Array/getArraySegment";
 
 function Services() {
   const [index, setIndex] = useState(0);
 
-  const handleSelect = (selectedIndex) => {
-    setIndex(selectedIndex);
+  const handleSelect = (selectedIndex, increment = 1) => {
+    setIndex(selectedIndex * 1);
   };
 
   const services = [
@@ -97,27 +99,22 @@ function Services() {
         body: "When someone has a stroke, they need time to readjust to a new normal with new abilities. Our CareGivers provide relief for caregivers who understand the chronic care needs of those who have experienced a stroke. Our compassionate caregivers patiently work through your loved ones comunication difficulties to promote their dignity, preferences, and lifestyle choices.",
       },
     },
-    {
-      src: serviceMobilitySrc,
-      alt: "mobility assistance",
+
+        {
+      src: servicesVeteranSrc,
+      alt: "veteran care",
       overlayText: {
-        header: "Mobility Assist",
-        body: "Our clients benefit from regular movement which results in improvements physically and mentally. This movement helps with digestion and circulation, and stimulates the mind with new sights and sounds of different rooms or the fresh air of outdoors. Our caregivers carefully consider the physical limitations and comfort of each individual's ability to walk, climb stairs, get in and out of vehicles, chairs, beds, bathrooms and other routine movements. We also make sure each client maintains proper posture for eating or while sitting and reading or watching television.",
+        header: "Veteran Care",
+        body: "Description of what veteran's care will consist of....",
       },
     },
   ];
 
   return (
     <>
-      <MediaQuery maxWidth={724}>
-        <Carousel
-          id="services"
-          className={`${styles["carousel_services"]} ${styles["carousel_services-sm"]}`}
-          activeIndex={index}
-          onSelect={handleSelect}
-          interval={3000}
-          fade={true}
-        >
+      <MediaQuery maxWidth={649}>
+        <ServiceCarousel services={ services} activeIndex={index} onSelect={ handleSelect}>
+  
           {services.map((service, index) => (
             <Carousel.Item
               key={`${service.src}${Math.floor(Math.random() * 100)}`}
@@ -130,19 +127,17 @@ function Services() {
               />
             </Carousel.Item>
           ))}
-        </Carousel>
+        </ServiceCarousel>
       </MediaQuery>
 
-      <MediaQuery minWidth={725} maxWidth={1019}>
-        <Carousel
-          id="services"
-          className={styles["carousel_services"]}
+      <MediaQuery minWidth={650} maxWidth={1019}>
+        {/* TODO fix sizing update that disrupts text sizes */}
+        <ServiceCarousel
+          services={services}
           activeIndex={index}
           onSelect={handleSelect}
-          interval={5000}
-          fade={true}
-        >
-          {[0, 1, 2, 3, 4].map((slice, index) => (
+          interval={5000}>
+        {services.map((service, index) => (
             <Carousel.Item key={`${index}${Math.floor(Math.random() * 100)}`}>
               <Box
                 sx={{
@@ -151,9 +146,9 @@ function Services() {
                   justifyContent: "center",
                 }}
               >
-                {services
-                  .slice(index * 2, index * 2 + 2)
-                  .map((service, index) => (
+                
+                {getArraySegment(services, index, 2)
+                  .map((service) => (
                     <Picture
                       key={`${service.src}${Math.floor(Math.random() * 100)}`}
                       src={service.src}
@@ -164,24 +159,22 @@ function Services() {
               </Box>
             </Carousel.Item>
           ))}
-        </Carousel>
+        </ServiceCarousel>
       </MediaQuery>
 
       <MediaQuery minWidth={1020}>
-        <Carousel
-          id="services"
-          className={styles["carousel_services"]}
+     <ServiceCarousel
+          services={services}
           activeIndex={index}
           onSelect={handleSelect}
           interval={5000}
-          fade={true}
         >
-          {[0, 1, 2].map((num) => (
-            <Carousel.Item key={`${num}${Math.floor(Math.random() * 100)}`}>
+          {services.map((service, index) => (
+            <Carousel.Item key={`${index}${Math.floor(Math.random() * 100)}`}>
               <Box
                 sx={{ display: "flex", gap: "15px", justifyContent: "center" }}
               >
-                {services.slice(num * 3, num * 3 + 3).map((service, index) => (
+                {getArraySegment(services, index, 3).map((service, index) => (
                   <Picture
                     key={`${service.src}${Math.floor(Math.random() * 100)}`}
                     src={service.src}
@@ -192,7 +185,7 @@ function Services() {
               </Box>
             </Carousel.Item>
           ))}
-        </Carousel>
+        </ServiceCarousel>
       </MediaQuery>
     </>
   );
