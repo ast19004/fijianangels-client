@@ -12,6 +12,7 @@ import EmploymentForm from "./component/UI/Forms/EmploymentForm";
 import HomecareRequestForm from "./component/UI/Forms/HomecareRequestForm";
 
 import { Routes, Route, BrowserRouter } from "react-router-dom";
+import Reviews from "../src/component/UI/Reviews";
 import AssociatedGroups from "./pages/AssociatedGroups/AssociatedGroups";
 
 import { ToastContainer } from "react-toastify";
@@ -61,6 +62,7 @@ function App() {
                   <CoreValues />
                   <Staff />
                   <Contact />
+                  <Reviews/>
                   <AssociatedGroups />
                 </main>
               </Box>

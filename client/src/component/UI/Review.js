@@ -3,7 +3,7 @@ import AccountCircleIcon from "@mui/icons-material/AccountCircleTwoTone";
 
 const Review = (props) => {
   return (
-    <Box>
+    <Box sx={{padding: "0.2rem 0"}}>
       <Box
         sx={{
           display: "flex",
@@ -33,7 +33,7 @@ const Review = (props) => {
         >
           In Home Hospice, Light Housekeeping, Meal Planning
         </Typography>
-        <Typography component="p" sx={{ width: "325px" }}>
+        <Typography component="p" sx={{/*{width: "325px"}*/}}>
           onec molestie erat quis porta scelerisque. Duis mattis enim nec
           sollicitudin egestas. In id lectus a erat mollis finibus. Curabitur at
           molestie justo. Pellentesque euismod dolor vitae leo vehicula

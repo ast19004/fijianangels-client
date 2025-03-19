@@ -14,20 +14,23 @@ const Reviews = (props) => {
     <List
       sx={{
         width: "100%",
+        maxWidth: "69rem",
+        margin: "0 auto",
         position: "relative",
         overflow: "auto",
         maxHeight: 300,
         border: "1px solid rgba(62, 152, 180, 0.4)",
-        borderRadius: "5px",
+        borderRadius: "15px",
         paddingTop: "0",
       }}
       subheader={<li />}
     >
       <ListSubheader
         sx={{
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "space-between",
+          // display: "flex",
+          // alignItems: "center",
+          // justifyContent: "space-between",
+          padding: '0.5rem'
         }}
       >
         <Typography
@@ -38,9 +41,9 @@ const Reviews = (props) => {
         >
           <b>REVIEWS</b>
         </Typography>
-        <Button onClick={props.onClose}>
+        {/* <Button onClick={props.onClose}>
           <CloseRoundedIcon sx={{ color: "gray" }} />
-        </Button>
+        </Button> */}
       </ListSubheader>
       <ListItem>
         <Review />
