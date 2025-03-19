@@ -31,7 +31,7 @@ const FormTextareaInput = (props) => {
         value={inputValue}
         onChange={handleInputChange}
         onBlur={props.onBlur}
-        placeholder="What I am looking for is..."
+        placeholder={props.placeholder || "What I am looking for is..."}
         required={required}
       />
       <FormHelperText>{props.helperText}</FormHelperText>

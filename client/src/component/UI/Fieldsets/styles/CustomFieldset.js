@@ -7,7 +7,9 @@ const CustomFieldset = (props) => {
       id={props.id}
       sx={
         props.resetStyles
-          ? {}
+          ? {
+            ...props.sx
+          }
           : {
               borderWidth: 0,
               margin: 0,

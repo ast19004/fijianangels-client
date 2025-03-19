@@ -27,12 +27,12 @@ const Review = (props) => {
         >
           <i>Reviewed on July 10, 2024</i>
         </Typography>
-        <Typography
+        {/* <Typography
           component="span"
           sx={{ fontSize: ".9rem", display: "block", color: "#888" }}
         >
           In Home Hospice, Light Housekeeping, Meal Planning
-        </Typography>
+        </Typography> */}
         <Typography component="p" sx={{/*{width: "325px"}*/}}>
           onec molestie erat quis porta scelerisque. Duis mattis enim nec
           sollicitudin egestas. In id lectus a erat mollis finibus. Curabitur at

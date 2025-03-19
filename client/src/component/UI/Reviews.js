@@ -1,4 +1,5 @@
 import {
+  Box,
   Button,
   List,
   ListItem,
@@ -8,8 +9,16 @@ import {
 import Review from "./Review";
 import Divider from "@mui/material/Divider";
 import CloseRoundedIcon from "@mui/icons-material/CloseRounded";
+import FormInput from "./Inputs/FormInput";
+import FormTextInput from "./Inputs/FormTextInput";
+import ReviewForm from "./Forms/ReviewForm";
+import { useState } from "react";
 
 const Reviews = (props) => {
+  const [openForm, setOpenForm] = useState(false);
+
+  const submitReview = () => { }
+
   return (
     <List
       sx={{
@@ -18,7 +27,7 @@ const Reviews = (props) => {
         margin: "0 auto",
         position: "relative",
         overflow: "auto",
-        maxHeight: 300,
+        maxHeight: 435,
         border: "1px solid rgba(62, 152, 180, 0.4)",
         borderRadius: "15px",
         paddingTop: "0",
@@ -27,10 +36,12 @@ const Reviews = (props) => {
     >
       <ListSubheader
         sx={{
-          // display: "flex",
-          // alignItems: "center",
-          // justifyContent: "space-between",
-          padding: '0.5rem'
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "space-between",
+          padding: '0.5rem',
+          background: !openForm ? 'white' : 'pink',
+          marginBottom: !openForm ?'0.5rem' : '-0.4rem' 
         }}
       >
         <Typography
@@ -41,10 +52,29 @@ const Reviews = (props) => {
         >
           <b>REVIEWS</b>
         </Typography>
-        {/* <Button onClick={props.onClose}>
+        {openForm && <Button onClick={() => openForm && setOpenForm(false)}>
           <CloseRoundedIcon sx={{ color: "gray" }} />
-        </Button> */}
+        </Button>}
       </ListSubheader>
+      {/* <ListItem> */}
+      <Box>
+        {openForm && <ReviewForm />}
+        <Button
+          onClick={() => { openForm ? submitReview() : setOpenForm(true)} }
+          sx={{
+          margin: "0 1%",
+          backgroundColor: 'rgb(202, 71, 101)',
+          color: 'white',
+          letterSpacing: '3px',
+          padding: '0.7rem',
+          "&:hover": {
+            backgroundColor: 'rgb(202, 71, 101)',
+            transform: "scale(1.05)"
+          }
+        }}><b>{openForm ? "Submit Review" : "+ Your Review"}</b></Button>
+        </Box>
+
+      {/* </ListItem> */}
       <ListItem>
         <Review />
       </ListItem>
