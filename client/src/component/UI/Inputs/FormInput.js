@@ -29,6 +29,7 @@ const FormInput = (props) => {
       {props.children || (
         <CustomTextField
           helperText={props.helperText}
+          placeholder={ props.placeholder}
           id={props.id}
           name={props.name || props.id}
           type={props.type}

@@ -5,6 +5,7 @@ const CustomTextField = (props) => {
   return (
     <TextField
       helperText={props.helperText}
+      placeholder={props.placeholder}
       id={props.id}
       label={props.label}
       variant={props.variant}

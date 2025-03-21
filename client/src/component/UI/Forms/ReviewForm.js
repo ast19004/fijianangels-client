@@ -3,16 +3,14 @@ import FullName from "../InputGroups/FullName";
 import FormTextareaInput from "../Inputs/FormTextareaInput";
 import { getTodaysDate } from "../../../util/Date";
 import { updateInput } from "../../../util/formdata";
-import { validateIsEmpty, validateName } from "../../../util/validation";
+import { validateIsEmpty } from "../../../util/validation";
 import { Box } from "@mui/material";
+import CustomButton2 from "../Buttons/CustomButton2";
 
 const ReviewForm = (props) => {
     const currentDate = getTodaysDate();
     
-    const [fullName, setFullName] = useState({
-        first_name: "Anonymous",
-        last_name: "Reviewer",
-    });
+    const [fullName, setFullName] = useState("");
     const [review, setReview] = useState("");
     const [reviewError, setReviewError] = useState("");
     
@@ -38,7 +36,13 @@ const ReviewForm = (props) => {
                     display: "flex",
                     alignItems: "space-between",
                     gap: '1rem'
-                }}
+        }}
+                placeholder={
+                  {
+                  first_name: "Anonymous",
+                  last_name: "Reviewer",
+                  }
+                }
                 fullName={fullName}
                 onChange={handleNameInputChange}
                 onBlur={() => {}}
@@ -51,7 +55,11 @@ const ReviewForm = (props) => {
               value={review}
               onChange={handleReviewInputChange}
               onBlur={handleReviewValidation}
-            />
+      />
+      <CustomButton2
+        sx={{
+          margin: '0 0 2rem 0'
+        }}><b>Submit Review</b></CustomButton2>
         </Box>
     );
 };
