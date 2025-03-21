@@ -22,7 +22,7 @@ const FormTextareaInput = (props) => {
   useUpdateFormData(props.name, inputValue, props.onChange);
 
   return (
-    <FormInput id={props.id} label={props.label} inputProps={props.inputProps}>
+    <FormInput id={props.id} label={props.label} inputProps={props.inputProps} helperText={ props.helperText}>
       <textarea
         id={props.id}
         name={props.name || props.id}
@@ -32,7 +32,7 @@ const FormTextareaInput = (props) => {
         onChange={handleInputChange}
         onBlur={props.onBlur}
         placeholder={props.placeholder || "What I am looking for is..."}
-        required={required}
+        required={ true}
       />
       <FormHelperText>{props.helperText}</FormHelperText>
     </FormInput>

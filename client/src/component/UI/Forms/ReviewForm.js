@@ -29,13 +29,14 @@ const ReviewForm = (props) => {
   const handleReviewValidation = (event) => {
     const errors = validateIsEmpty(
       event.target.value,
-      "Review needed, tell us about your experience"
+      "Please tell us about your experience before submitting"
     );
     setReviewError(errors);
   };
 
   const handleSubmit = async (event) => { 
     event.preventDefault();
+    if (reviewError) { return; }
     const submitedName = fullName.first_name || fullName.last_name ?
       (fullName.first_name + " " + fullName.last_name).trim() :
       "Anonymous Reviewer";
@@ -45,7 +46,7 @@ const ReviewForm = (props) => {
                 headers: { "Content-Type": "application/json" },
               body: JSON.stringify({
                 fullName: submitedName,
-                review
+                review: review.trim()
               }),
             });
 
@@ -81,19 +82,22 @@ const ReviewForm = (props) => {
         resetStyles
         required={false}
       />
-    <FormTextareaInput
-      id="review"
-      label="Share your review:"
-      placeholder="My experience with Fijian Angels Homecare..."
-      name="review"
-      value={review}
-      onChange={handleReviewInputChange}
-      onBlur={handleReviewValidation}
+      <FormTextareaInput
+        id="review"
+        label="Share your review:"
+        placeholder="My experience with Fijian Angels Homecare..."
+        helperText={reviewError}
+        name="review"
+        value={review}
+        onChange={handleReviewInputChange}
+        onBlur={handleReviewValidation}
+        inputProps={props.required ? { required: props.required } : {}}
+        required={true}
       />
       <CustomButton2
         type="submit"
         sx={{
-          margin: '0 0 2rem 0'
+          margin: reviewError ? '-2.5rem 0 2rem 0' : '-1rem 0 2rem 0'
         }}><b>Submit Review</b></CustomButton2>
         </Box>
     );
