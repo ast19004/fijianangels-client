@@ -3,6 +3,7 @@ import { Button } from "@mui/material";
 const CustomButton2 = (props) => { 
     return (
         <Button
+              type={ props.type}
               onClick={props.onClick}
               sx={{
               margin: "0 1%",

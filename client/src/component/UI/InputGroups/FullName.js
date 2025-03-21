@@ -11,7 +11,7 @@ const FullName = (props) => {
   //Any name data passed over from parent component
   //is used to set values initially for fullName inputs
   useEffect(() => {
-    setNameData(props.fullName);
+    props.fullName && setNameData(props.fullName);
   }, []);
 
   const first = props.abr ? props.abr + "_first_name" : "first_name";
@@ -40,7 +40,7 @@ const FullName = (props) => {
         value={
           props.abr ? nameData[`${props.abr}_first_name`] : nameData.first_name
         }
-        inputProps={{ required: true }}
+        inputProps={props.required === false ? {} : {required: true}}
       />
       <FormTextInput
         id={last}
@@ -54,7 +54,7 @@ const FullName = (props) => {
         value={
           props.abr ? nameData[`${props.abr}_last_name`] : nameData.last_name
         }
-        inputProps={{ required: true }}
+        inputProps={props.required === false ? {} : {required: true}}
       />
     </CustomFieldset>
   );

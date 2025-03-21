@@ -15,8 +15,10 @@ const cors = require("cors");
 
 const path = require("path");
 
+const reviewRoutes = require("./routes/forms/carereview");
+
 const PORT = process.env.PORT || 5000;
-const uri = process.env.MONGODB_URI;
+const uri = `${ process.env.MONGODB_URI }`;
 
 const app = express();
 
@@ -38,7 +40,7 @@ app.use((req, res, next) => {
   res.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization,");
   next();
 });
-
+app.use(reviewRoutes);
 app.post("/send-email", uploadFile, sendEmail);
 
 mongoose

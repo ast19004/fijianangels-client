@@ -1,22 +1,27 @@
 import { useState } from "react";
 import FullName from "../InputGroups/FullName";
 import FormTextareaInput from "../Inputs/FormTextareaInput";
-import { getTodaysDate } from "../../../util/Date";
-import { updateInput } from "../../../util/formdata";
 import { validateIsEmpty } from "../../../util/validation";
 import { Box } from "@mui/material";
 import CustomButton2 from "../Buttons/CustomButton2";
 
 const ReviewForm = (props) => {
-    const currentDate = getTodaysDate();
     
-    const [fullName, setFullName] = useState("");
+  const [fullName, setFullName] = useState({
+          first_name: "",
+          last_name: "",
+          });
     const [review, setReview] = useState("");
     const [reviewError, setReviewError] = useState("");
-    
-  const handleNameInputChange = (dataName, data) => {
-    updateInput(dataName, data, setFullName);
+  
+  const anonymous = {
+    first_name: "Anonymous",
+    last_name: "Reviewer",
   };
+  
+  const handleNameInputChange = (dataName, data) => {
+    setFullName(data);
+  }
   const handleReviewInputChange = (dataName, data) => {
     setReview(data);
     };
@@ -28,35 +33,65 @@ const ReviewForm = (props) => {
     );
     setReviewError(errors);
   };
+
+  const handleSubmit = async (event) => { 
+    event.preventDefault();
+    const submitedName = fullName.first_name || fullName.last_name ?
+      (fullName.first_name + " " + fullName.last_name).trim() :
+      "Anonymous Reviewer";
+            try {
+            const response = await fetch("http://localhost:5000/review", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({
+                fullName: submitedName,
+                review
+              }),
+            });
+
+            const result = await response.json();
+
+              if (response.ok) {
+                //Reset form
+                setFullName({
+                  first_name: "",
+                  last_name: "",
+                  });
+                setReview("")
+                console.log(result.review);
+            }
+        } catch (error) {
+            console.error("Error submitting review:", error);
+        }
+    };
     
   return (
-      <Box component="form" sx={{ ...props.sx }}>
-            <FullName
-                sx={{
-                    display: "flex",
-                    alignItems: "space-between",
-                    gap: '1rem'
+    <Box component="form" method="POST" sx={{ ...props.sx }} onSubmit={ handleSubmit}>
+      <FullName
+        value={fullName}
+        sx={{
+            display: "flex",
+            alignItems: "space-between",
+            gap: '1rem'
         }}
-                placeholder={
-                  {
-                  first_name: "Anonymous",
-                  last_name: "Reviewer",
-                  }
-                }
-                fullName={fullName}
-                onChange={handleNameInputChange}
-                onBlur={() => {}}
-                resetStyles/>
-            <FormTextareaInput
-              id="review"
-              label="Share your review:"
-              placeholder="My experience with Fijian Angels Homecare..."
-              name="review"
-              value={review}
-              onChange={handleReviewInputChange}
-              onBlur={handleReviewValidation}
+        placeholder={anonymous}
+        fullName={fullName}
+        onChange={handleNameInputChange}
+        onBlur={() => {}}
+        resetStyles
+        required={false}
+      />
+    <FormTextareaInput
+      id="review"
+      label="Share your review:"
+      placeholder="My experience with Fijian Angels Homecare..."
+      name="review"
+      value={review}
+      onChange={handleReviewInputChange}
+      onBlur={handleReviewValidation}
       />
       <CustomButton2
+        type="submit"
         sx={{
           margin: '0 0 2rem 0'
         }}><b>Submit Review</b></CustomButton2>
