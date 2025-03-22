@@ -17,7 +17,7 @@ const Review = (props) => {
           component="span"
           sx={{ fontSize: "1rem", display: "block" }}
         >
-          Reviewer's Name
+          { props.reviewerName}
         </Typography>
       </Box>
       <Box>
@@ -25,7 +25,7 @@ const Review = (props) => {
           component="span"
           sx={{ fontSize: ".9rem", display: "block", color: "#888" }}
         >
-          <i>Reviewed on July 10, 2024</i>
+          <i>Reviewed on {props.reviewDate}</i>
         </Typography>
         {/* <Typography
           component="span"
@@ -33,13 +33,8 @@ const Review = (props) => {
         >
           In Home Hospice, Light Housekeeping, Meal Planning
         </Typography> */}
-        <Typography component="p" sx={{/*{width: "325px"}*/}}>
-          onec molestie erat quis porta scelerisque. Duis mattis enim nec
-          sollicitudin egestas. In id lectus a erat mollis finibus. Curabitur at
-          molestie justo. Pellentesque euismod dolor vitae leo vehicula
-          accumsan. Integer sit amet consectetur nisi. Proin maximus nisi dolor,
-          at pellentesque elit bibendum nec. Donec suscipit rutrum urna, eget
-          sagittis odio consectetur eget.
+        <Typography component="p">
+          { props.review} 
         </Typography>
       </Box>
     </Box>

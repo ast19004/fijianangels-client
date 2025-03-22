@@ -9,11 +9,43 @@ import Review from "./Review";
 import Divider from "@mui/material/Divider";
 import CloseRoundedIcon from "@mui/icons-material/CloseRounded";
 import ReviewForm from "./Forms/ReviewForm";
-import { useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import CustomButton2 from "./Buttons/CustomButton2";
+
+import { serverPath } from "../../domainpath"; 
 
 const Reviews = (props) => {
   const [openForm, setOpenForm] = useState(false);
+  const [reviews, setReviews] = useState([]);
+  const [loading, setIsLoading] = useState(true);
+  const [error, setError] = useState("");
+
+  const fetchReviews = useCallback(async () => { 
+          try {
+        const response = await fetch(`${serverPath}/reviews`, {
+          method: "GET",
+          headers: { "Accepts": "application/json" },
+        });
+        const result = await response.json();
+            if (result.reviews.length !== 0) {
+              setReviews(result.reviews);
+              openForm && setOpenForm(false);
+            } else { 
+              setReviews([]);
+              !openForm && setOpenForm(true);
+            }
+        if (response.ok) {
+          //Reset form
+        }
+
+      } catch (error) {
+        console.error("Error retrieveing reviews:", error);
+      }
+    }
+  , []);
+
+  useEffect(() => {fetchReviews()}, [])
+
 
   return (
     <List
@@ -59,19 +91,21 @@ const Reviews = (props) => {
       </ListSubheader>
       {/* <ListItem> */}
 
-      {openForm && <><ReviewForm sx={{ padding: '0 1%' }} /> <hr /></>}
+      {openForm && <><ReviewForm sx={{ padding: '0 1%' }} onAddReview={() => { fetchReviews(); setOpenForm(false); }} /> <hr /></>}
       {/* </ListItem> */}
-      <ListItem>
-        <Review />
-      </ListItem>
-      <Divider component="li" />
-      <ListItem>
-        <Review />
-      </ListItem>
-      <Divider component="li" />
-      <ListItem>
-        <Review />
-      </ListItem>
+      {reviews.length > 0 &&
+        reviews.map(reviewItem => (  
+        <>
+        <ListItem>
+            <Review
+              reviewDate={reviewItem.reviewDate}
+              reviewerName={reviewItem.reviewerName }
+              review={ reviewItem.review}
+            />
+        </ListItem>
+        <Divider component="li" />
+        </>
+      ))}
     </List>
   );
 };

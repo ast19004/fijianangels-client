@@ -4,6 +4,7 @@ import FormTextareaInput from "../Inputs/FormTextareaInput";
 import { validateIsEmpty } from "../../../util/validation";
 import { Box } from "@mui/material";
 import CustomButton2 from "../Buttons/CustomButton2";
+import { serverPath } from "../../../domainpath";
 
 const ReviewForm = (props) => {
     
@@ -41,7 +42,7 @@ const ReviewForm = (props) => {
       (fullName.first_name + " " + fullName.last_name).trim() :
       "Anonymous Reviewer";
             try {
-            const response = await fetch("http://localhost:5000/review", {
+            const response = await fetch(`${serverPath}/review`, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
               body: JSON.stringify({
@@ -59,7 +60,7 @@ const ReviewForm = (props) => {
                   last_name: "",
                   });
                 setReview("")
-                console.log(result.review);
+                props.onAddReview && props.onAddReview()
             }
         } catch (error) {
             console.error("Error submitting review:", error);

@@ -3,14 +3,16 @@ const { validationResult } = require("express-validator");
 const Review = require("../models/review");
 
 exports.postReview = async (req, res, next) => {
-  const todaysDate = new Date().toLocaleDateString();
-  const userFullName = req.body.fullName;
-  const reviewText = req.body.review;
-
+  const today = new Date();
+  const todaysDate = today.toLocaleDateString("en-US", {
+    month: "long",
+    day: "numeric",
+    year: "numeric"
+  });
   const post = new Review({
     reviewDate: todaysDate,
-    reviewerName: userFullName,
-    review: reviewText,
+    reviewerName: req.body.fullName,
+    review: req.body.review,
   })
   return post.save()
     .then((savedReviewData) => {
@@ -25,4 +27,12 @@ exports.postReview = async (req, res, next) => {
       }
       return next(error);
     });
+};
+
+exports.getReviews = async (req, res, next) => {
+  const allReviews = await Review.find().sort({ createdAt: -1 }); //Sort by createdAt DESCENDING (-1)
+  res.status(200).json({
+    message: "Fetched Reviews",
+    reviews: allReviews,
+  });
 };
