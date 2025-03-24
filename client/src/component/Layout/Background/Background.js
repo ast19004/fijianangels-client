@@ -11,12 +11,17 @@ import styles from "./Background.module.css";
 function Background(props) {
   const [displayVideo, setDisplayVideo] = useState(false);
   const [toggleVideoDisplay, setToggleVideoDisplay] = useState(null);
+  const [showImage, setShowImage] = useState(false);
   const { ref, inView, entry } = useInView({
     threshold: 0.5,
   });
+  useEffect(() => { 
+    const timer = setTimeout(() => setShowImage(true), 2000); // Delay by 2s
 
+    return () => clearTimeout(timer); // Cleanup on unmount
+  }, []);
   useEffect(() => {
-    if (inView) {
+    if (inView & showImage) {
       !toggleVideoDisplay &&
         setToggleVideoDisplay(toggleStateByInterval(3000, setDisplayVideo));
     } else {
@@ -41,7 +46,7 @@ function Background(props) {
       <Transition in={inView} timeout={500}>
         {(state) => (
           <>
-            <Box ref={ref} className={styles.background}>
+            <Box ref={ref} className={styles.background} sx={{opacity: showImage ? 1 : 0 }}>
               <video
                 className={`${styles["foreground-video"]} ${
                   displayVideo ? "" : styles.disappear
