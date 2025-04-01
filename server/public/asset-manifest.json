@@ -1,9 +1,10 @@
 {
   "files": {
-    "main.css": "/static/css/main.4970211c.css",
-    "main.js": "/static/js/main.123556d1.js",
+    "main.css": "/static/css/main.abe71d98.css",
+    "main.js": "/static/js/main.05f7286e.js",
     "static/js/453.258b012d.chunk.js": "/static/js/453.258b012d.chunk.js",
     "static/media/elderly_assistance.mp4": "/static/media/elderly_assistance.c5c10b4fa0ab0ed76711.mp4",
+    "static/media/AdobeStock_916204201.jpeg": "/static/media/AdobeStock_916204201.f8f80eefdd1f188c662d.jpeg",
     "static/media/main_home_1500px.jpg": "/static/media/main_home_1500px.903e6d72eae8897d5606.jpg",
     "static/media/main_home_1024px.jpg": "/static/media/main_home_1024px.43641f53784221534142.jpg",
     "static/media/love_hand_gesture_1024px.jpg": "/static/media/love_hand_gesture_1024px.981e9272cf20c7d7ce93.jpg",
@@ -13,6 +14,7 @@
     "static/media/service-medreminder.jpg": "/static/media/service-medreminder.4c2db03ebfa6388d67cb.jpg",
     "static/media/service-cooking350px.jpg": "/static/media/service-cooking350px.944a87606fba33dc7926.jpg",
     "static/media/quality.svg": "/static/media/quality.5a1bbaac8ca631c22baae1b0cf4becf9.svg",
+    "static/media/service-veteran350px.jpg": "/static/media/service-veteran350px.fd69fef791108bb952fd.jpg",
     "static/media/service-hospice350px.jpg": "/static/media/service-hospice350px.156fb354d208807e1c45.jpg",
     "static/media/flexibility.svg": "/static/media/flexibility.673dd5c5b00e6acc82103cf3c65906f5.svg",
     "static/media/service-companion350px.jpg": "/static/media/service-companion350px.d61761a7ade5ce11bc11.jpg",
@@ -34,12 +36,12 @@
     "static/media/contact.svg": "/static/media/contact.6474b0bf73867cf09adb5584d8a49b02.svg",
     "static/media/fijian-angels-logo.svg": "/static/media/fijian-angels-logo.ec44a1f02df0abeeda0b1ba5cc40942b.svg",
     "index.html": "/index.html",
-    "main.4970211c.css.map": "/static/css/main.4970211c.css.map",
-    "main.123556d1.js.map": "/static/js/main.123556d1.js.map",
+    "main.abe71d98.css.map": "/static/css/main.abe71d98.css.map",
+    "main.05f7286e.js.map": "/static/js/main.05f7286e.js.map",
     "453.258b012d.chunk.js.map": "/static/js/453.258b012d.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.4970211c.css",
-    "static/js/main.123556d1.js"
+    "static/css/main.abe71d98.css",
+    "static/js/main.05f7286e.js"
   ]
 }
