@@ -105,7 +105,7 @@ function Services() {
       alt: "veteran care",
       overlayText: {
         header: "Veteran Care",
-        body: "Description of what veteran's care will consist of....",
+        body: "At Fijian Angels, we take pride in providing compassionate and dedicated care to those who have served our country. As a veteran-owned in-home care provider, we understand the unique challenges veterans face and are committed to delivering personalized support that honors their service.",
       },
     },
   ];
