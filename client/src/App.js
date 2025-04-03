@@ -47,7 +47,8 @@ function App() {
             exact
             path="/homecare-request-form"
             element={
-              <main className="requestBg">
+              // <main className="requestBg">
+              <main>
                 <HomecareRequestForm />
               </main>
             }

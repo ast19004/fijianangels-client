@@ -114,7 +114,7 @@ const HomecareRequestForm = (props) => {
   return (
     <Form
       title="Homecare Request Form"
-      titleColor="white"
+      titleColor="rgb(6, 105, 136)"
       submit
       onSubmit={handleSubmit}
     >
