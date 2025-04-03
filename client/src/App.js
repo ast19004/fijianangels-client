@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Box } from "@mui/material";
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -46,7 +47,7 @@ function App() {
             exact
             path="/homecare-request-form"
             element={
-              <main>
+              <main className="requestBg">
                 <HomecareRequestForm />
               </main>
             }

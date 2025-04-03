@@ -112,7 +112,12 @@ const HomecareRequestForm = (props) => {
   };
 
   return (
-    <Form title="Homecare Request Form" submit onSubmit={handleSubmit}>
+    <Form
+      title="Homecare Request Form"
+      titleColor="white"
+      submit
+      onSubmit={handleSubmit}
+    >
       <FullName
         fullName={request.fullName}
         onChange={handleInputChange}

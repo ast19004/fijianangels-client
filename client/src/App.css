@@ -49,13 +49,14 @@ header {
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
 }
+
+
 .App {
   width: 100%;
   position: relative;
   top: 0;
   left: 0;
 }
-
 .App-logo {
   position: fixed;
   top: 1%;
@@ -79,6 +80,13 @@ header {
   -webkit-transform: translate(-1vh, 1vh);
   -ms-transform: translate(-1vh, 1vh);
   transform: translate(-1vh, 1vh);
+}
+
+.requestBg{
+      background-image: url(./assests/images/layout/AdobeStock_916204201.jpeg);
+      background-size: top left ;
+      background-position: right;
+      height: 170vh; 
 }
 
 .anchorLink {
