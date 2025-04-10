@@ -7,8 +7,8 @@ const { uploadFile, sendEmail } = require("./middleware/upload");
 
 
 const path = require("path");
-const swaggerUi = require("swagger-ui-express"),
-  swaggerDocument = require("./swagger.json");
+// const swaggerUi = require("swagger-ui-express"),
+//   swaggerDocument = require("./swagger.json");
 
 const PORT = process.env.PORT || 5000;
 const uri = `${ process.env.MONGODB_URI }`;
@@ -53,7 +53,7 @@ mongoose
     dbName: 'main'  // Ensures the "main" database is used
   })
   .then((result) => {
-    app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+    // app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
     app.listen(PORT);
   })
   .catch((err) => {
