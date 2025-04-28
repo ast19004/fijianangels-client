@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import ProgressBar from "../ProgressBar";
-import Form from "./Form";
+import Form from "./Form/Form";
 
 import EnhanceChildren from "../../../util/EnhanceChildren";
 
@@ -30,6 +30,8 @@ const MultiStepForm = (props) => {
       onNext={props.onNext}
       onPrev={props.onBack}
       errors={stepErrors}
+      loading={false}
+      loadingText={ ""}
     >
       <ProgressBar steps={props.steps} currentStep={props.progress} />
       <EnhanceChildren progress={props.progress} context={props.context}>

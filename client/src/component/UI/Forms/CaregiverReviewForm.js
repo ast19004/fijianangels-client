@@ -14,7 +14,7 @@ import { smoothScrollToTop } from "../../../util/scroll";
 
 import FullName from "../InputGroups/FullName";
 import Contact from "../InputGroups/Contact";
-import Form from "./Form";
+import Form from "./Form/Form";
 import FormTextareaInput from "../Inputs/FormTextareaInput";
 import FormSelectServices from "../Inputs/FormSelectServices";
 import DateRange from "../InputGroups/DateRange";
@@ -23,6 +23,11 @@ import { Typography } from "@mui/material";
 
 const CaregiverReviewForm = (props) => {
   const currentDate = getTodaysDate();
+  //Set isLoading after form submit
+  const [isLoading, setIsLoading] = useState(false);
+
+  //Text to be displayed under loading icon
+  const [loadingText, setLoadingText] = useState("");
 
   //Error state initial values
   const nameErrFreeState = {
@@ -208,11 +213,13 @@ const CaregiverReviewForm = (props) => {
 
   //Generate pdf and send to company email
   const generateAndSendPDF = async (reviewInfo) => {
+  try {
     // Generate PDF and get its Blob
     const blob = await pdf(
       <CaregiverReviewPDF reviewInfo={reviewInfo} />
     ).toBlob();
-    // Send the Blob and form data to the backend
+
+    // Prepare form data
     const formData = new FormData();
     formData.append(
       "file",
@@ -226,28 +233,47 @@ const CaregiverReviewForm = (props) => {
     formData.append("email", reviewInfo.reviewerContact.contact_email);
     formData.append("message", "Please view the attached PDF");
 
-    await fetch("http://localhost:5000/send-email", {
-      Authorization: process.env.REACT_APP_SENDGRID_API_KEY,
-      "Content-Type": "application/json",
+    // Make the request
+    const response = await fetch("http://localhost:5000/send-email", {
       method: "POST",
       body: formData,
-    })
-      .then((response) => response.json())
-      .then((data) => console.log("Success", data))
-      .catch((err) => console.log(err));
-  };
+      headers: {
+        Authorization: process.env.REACT_APP_SENDGRID_API_KEY,
+      },
+    });
+
+    // Check if the response is OK (status code 200–299)
+    if (!response.ok) {
+      const errorText = await response.text();
+      throw new Error(`HTTP error! Status: ${response.status}. Message: ${errorText}`);
+    }
+
+    const data = await response.json();
+    return { success: true, data }; // success
+
+  } catch (error) {
+    return { success: false, error: error.message }; // failure
+  }
+};
+
 
   //Form submit function
-  const handleOnSubmit = (e) => {
+  const handleOnSubmit = async(e) => {
     e.preventDefault();
+    setIsLoading(true);
+    setLoadingText("Checking form completeness");
     const isIncomplete = hasEmptyRequiredInputs(reviewInfo);
+    isIncomplete && setLoadingText("Please complete the form");
     setFormIncomplete(isIncomplete);
     checkIsFormValid(inputErrors, formHasErrors, setFormHasErrors);
     if (!formHasErrors && !isIncomplete) {
-      generateAndSendPDF(reviewInfo);
+      setLoadingText("Sending");
+      const result = await generateAndSendPDF(reviewInfo);
+      result.success ? setLoadingText("Sent!") : setLoadingText("Server Error. Please c ontact Fijian Angels Homecare");
     } else {
       smoothScrollToTop();
     }
+    setIsLoading(false);
   };
 
   return (
@@ -255,7 +281,13 @@ const CaregiverReviewForm = (props) => {
       {/* <PDFViewer height="1200" width="100%">
         <CaregiverReviewPDF reviewInfo={reviewInfo} />
       </PDFViewer> */}
-      <Form title="Caregiver Review" submit onSubmit={handleOnSubmit}>
+      <Form
+        title="Caregiver Review"
+        submit
+        onSubmit={handleOnSubmit}
+        loading={false}
+        loadingText={""}
+      >
         {formIncomplete && (
           <Typography
             component="span"

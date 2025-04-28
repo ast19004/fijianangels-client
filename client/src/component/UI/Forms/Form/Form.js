@@ -1,10 +1,15 @@
 import { Box, Typography, Button, ButtonGroup } from "@mui/material";
 import { useEffect, useState } from "react";
-import CustomButton from "../Buttons/CustomButton";
+import CustomButton from "../../Buttons/CustomButton";
+
+import LoadingDove from "../../LoadingAnimation/LoadingDove";
+
+import styles from './Form.module.css';
 
 const Form = (props) => {
   const [formData, setFormData] = useState({});
   const [formErrors, setFormErrors] = useState(null);
+  
 
   //If a multiStep Form, receive data obtained by higher level parent
   useEffect(() => {
@@ -18,8 +23,9 @@ const Form = (props) => {
 
   return (
     <Box
+      className={styles.form}
+      sx={ props.sx}
       component="form"
-      sx={{ maxWidth: "375px", margin: "0 auto", ...props.sx }}
       onSubmit={props.onSubmit}
       encType={props.encType}
     >
@@ -46,7 +52,7 @@ const Form = (props) => {
               Back
             </Button>
           )}
-          {props.hasNextStep && (
+          {props.hasNextStep && !props.loading && (
             <Button
               type="button"
               disabled={props.submitDisabled}
@@ -72,11 +78,12 @@ const Form = (props) => {
         </ButtonGroup>
       ) : null}
       {/* TODO: remove this extra submit button and consolidate it with the submit of above */}
-      {props.submit && (
+      {props.submit && !(props.loading) ? (
         <CustomButton disabled={props.submitDisabled} type="submit">
           Submit
         </CustomButton>
-      )}
+      ):
+        (<LoadingDove text={props.loadingText } />)}
     </Box>
   );
 };

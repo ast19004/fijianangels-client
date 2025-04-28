@@ -5,7 +5,7 @@ import { updateInput } from "../../../util/formdata";
 import { getTodaysDate } from "../../../util/Date";
 import FullName from "../InputGroups/FullName";
 import Contact from "../InputGroups/Contact";
-import Form from "./Form";
+import Form from "./Form/Form";
 import FormTextareaInput from "../Inputs/FormTextareaInput";
 import FormSelectServices from "../Inputs/FormSelectServices";
 
@@ -21,11 +21,16 @@ import {
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 import HomecareRequestToastContent from "../CustomToastContent/HomecareRequestToastContent";
+import { set } from "mongoose";
 
 const HomecareRequestForm = (props) => {
   const navigate = useNavigate();
 
   const currentDate = getTodaysDate();
+
+  const [loading, setLoading] = useState(false);
+  const [loadingText, setLoadingText] = useState("");
+
   const [request, setRequest] = useState({
     todaysDate: currentDate,
     fullName: {
@@ -98,16 +103,26 @@ const HomecareRequestForm = (props) => {
     if (formIsValid && !formHasEmptyValues) {
       //Set Submit to disabled so form is sent only once.
       setSubmitDisabled(true);
+      setLoading(true);
+      setLoadingText("Saving form...");
+      
       const emailStatus = await sendCareRequestEmail(e);
       if (emailStatus === 200) {
-        navigate("/");
-        window.scrollTo({ top: 0, behavior: "instant" });
-        toast.success(
-          <HomecareRequestToastContent
-            name={`${request.fullName.first_name} ${request.fullName.last_name}`}
-          />
-        );
-      }
+        setTimeout(() => { setLoadingText("Form Sent!") }, 3000);
+        setTimeout(() => {
+          navigate("/");
+          window.scrollTo({ top: 0, behavior: "instant" });
+          toast.success(
+            <HomecareRequestToastContent
+              name={`${request.fullName.first_name} ${request.fullName.last_name}`}
+            />
+          );
+        }, 6000);
+      } else {
+        setTimeout(() => setLoadingText("Server error..."), 2500);
+        setTimeout(() => { setLoadingText("Please try again later...");}, 5000);
+        setTimeout(() => { setLoading(false); setLoadingText("") }, 7500);
+    }
     }
   };
 
@@ -117,6 +132,8 @@ const HomecareRequestForm = (props) => {
       titleColor="rgb(6, 105, 136)"
       submit
       onSubmit={handleSubmit}
+      loading={loading}
+      loadingText={ loadingText}
     >
       <FullName
         fullName={request.fullName}

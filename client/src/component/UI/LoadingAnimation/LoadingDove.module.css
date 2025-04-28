@@ -1,0 +1,21 @@
+.bird_loader{
+  width: max-content;
+  height: 7rem;
+  position: relative;
+  margin-bottom: 2rem;
+}
+.bird{
+  position: absolute;
+  width: 4.5rem;
+  height: 4.5rem;
+  top: 0rem;
+  left: calc(50% + 8rem);
+}
+.text{
+  width: max-content;
+ text-align: center;
+ position: absolute;
+ top: 4.5rem; 
+ left: calc(50% + 8rem);
+ color: rgb(6, 105, 136);
+}

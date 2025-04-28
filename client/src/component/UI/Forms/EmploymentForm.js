@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Form from "./Form.js";
+import Form from "./Form/Form.js";
 import FormFileInput from "../Inputs/FormFileInput.js";
 
 import {
@@ -122,6 +122,8 @@ const EmploymentForm = (props) => {
         submit
         encType="multipart/form-data"
         submitDisabled={submitDisabled}
+        loading={false}
+        loadingText={ ""}
       >
         <FullName
           fullName={applicant.fullName}

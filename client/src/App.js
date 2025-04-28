@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { Box } from "@mui/material";
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -18,6 +17,8 @@ import AssociatedGroups from "./pages/AssociatedGroups/AssociatedGroups";
 
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+
+import LoadingDove from "./component/UI/LoadingAnimation/LoadingDove";
 
 function App() {
   return (

@@ -10,7 +10,7 @@ const path = require("path");
 // const swaggerUi = require("swagger-ui-express"),
 //   swaggerDocument = require("./swagger.json");
 
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 5001;
 const uri = `${ process.env.MONGODB_URI }`;
 
 const mongoose = require("mongoose");
