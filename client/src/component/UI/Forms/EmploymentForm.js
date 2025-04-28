@@ -25,6 +25,10 @@ const EmploymentForm = (props) => {
 
   const formId = "employmentForm";
   const MAX_FILE_SIZE_MB = 2;
+
+  const [loading, setLoading] = useState(false);
+  const [loadingText, setLoadingText] = useState("");
+  
   const [file, setFile] = useState(null);
   const [base64DataUrl, setBase64DataUrl] = useState("");
   const [applicant, setApplicant] = useState({
@@ -88,6 +92,7 @@ const EmploymentForm = (props) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
     const formIsValid = checkIsFormValid([nameError, contactError, fileError]);
     const formHasEmptyValues = checkIsFormEmpty([
       applicant.fullName.first_name,
@@ -98,17 +103,29 @@ const EmploymentForm = (props) => {
     ]);
     //If form is valid and required inputs are not empty send email
     if (formIsValid && !formHasEmptyValues) {
+      window.scrollTo({ top: 10000, behavior: "instant" });
       //Disable submit so application can only be sent once
       setSubmitDisabled(true);
+      setLoading(true);
+      setLoadingText("Saving form...");
+      
       const emailStatus = await sendApplicationEmail(e);
+      
       if (emailStatus === 200) {
-        navigate("/");
-        window.scrollTo({ top: 0, behavior: "instant" });
-        toast.success(
-          <EmploymentApplicationToastContent
-            name={`${applicant.fullName.first_name} ${applicant.fullName.last_name}`}
-          />
-        );
+        setTimeout(() => { setLoadingText("Form Sent!") }, 3000);
+        setTimeout(() => {
+          navigate("/");
+          window.scrollTo({ top: 0, behavior: "instant" });
+          toast.success(
+            <EmploymentApplicationToastContent
+              name={`${applicant.fullName.first_name} ${applicant.fullName.last_name}`}
+            />
+          );
+        }, 6000);
+      } else { 
+        setTimeout(() => setLoadingText("Server error..."), 2500);
+        setTimeout(() => { setLoadingText("Please try again later...");}, 5000);
+        setTimeout(() => { setSubmitDisabled(false); setLoading(false); setLoadingText("") }, 7500);
       }
     }
   };
@@ -122,8 +139,8 @@ const EmploymentForm = (props) => {
         submit
         encType="multipart/form-data"
         submitDisabled={submitDisabled}
-        loading={false}
-        loadingText={ ""}
+        loading={loading}
+        loadingText={ loadingText}
       >
         <FullName
           fullName={applicant.fullName}

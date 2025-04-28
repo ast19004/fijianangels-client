@@ -21,7 +21,6 @@ import {
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 import HomecareRequestToastContent from "../CustomToastContent/HomecareRequestToastContent";
-import { set } from "mongoose";
 
 const HomecareRequestForm = (props) => {
   const navigate = useNavigate();
@@ -101,11 +100,13 @@ const HomecareRequestForm = (props) => {
 
     //If form is valid and required inputs are not empty send email
     if (formIsValid && !formHasEmptyValues) {
+      window.scrollTo({ top: 10000, behavior: "instant" });
+      
       //Set Submit to disabled so form is sent only once.
       setSubmitDisabled(true);
       setLoading(true);
       setLoadingText("Saving form...");
-      
+
       const emailStatus = await sendCareRequestEmail(e);
       if (emailStatus === 200) {
         setTimeout(() => { setLoadingText("Form Sent!") }, 3000);
