@@ -1,7 +1,9 @@
 import { useState } from "react";
-import Form from "./Form/Form.js";
-import FormFileInput from "../Inputs/FormFileInput.js";
+import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
+import { Box, Button, Typography } from "@mui/material";
 
+//Utility functions
 import {
   checkIsFormEmpty,
   checkIsFormValid,
@@ -11,14 +13,17 @@ import {
   validatePhone,
 } from "../../../util/validation.js";
 import { sendApplicationEmail } from "../../../util/Email/send.js";
+import { updateInput } from "../../../util/formdata.js";
+import { getPDFDataUrl } from "../../../util/formdata.js";
+
+//Child Components
+import Form from "./Form/Form.js";
+import FormFileInput from "../Inputs/FormFileInput.js";
+import EmploymentApplicationToastContent from "../CustomToastContent/EmploymentApplicantionToastContent.js";
 import FullName from "../InputGroups/FullName.js";
 import Contact from "../InputGroups/Contact.js";
-import { updateInput } from "../../../util/formdata.js";
-import { useNavigate } from "react-router-dom";
-import { toast } from "react-toastify";
-import EmploymentApplicationToastContent from "../CustomToastContent/EmploymentApplicantionToastContent.js";
-import { getPDFDataUrl } from "../../../util/formdata.js";
-import { Box } from "@mui/material";
+import Reference from "../InputGroups/Reference.js";
+
 
 const EmploymentForm = (props) => {
   const navigate = useNavigate();
@@ -26,11 +31,15 @@ const EmploymentForm = (props) => {
   const formId = "employmentForm";
   const MAX_FILE_SIZE_MB = 2;
 
+  //Loading states
   const [loading, setLoading] = useState(false);
   const [loadingText, setLoadingText] = useState("");
   
+  //File states
   const [file, setFile] = useState(null);
   const [base64DataUrl, setBase64DataUrl] = useState("");
+
+  //Input states
   const [applicant, setApplicant] = useState({
     fullName: {
       first_name: "",
@@ -38,6 +47,37 @@ const EmploymentForm = (props) => {
     },
     contact: { contact_phone: "", contact_email: "" },
   });
+
+  //References
+  const [references, setReferences] = useState([]);
+
+  const addReference = () => { 
+    setReferences(prev => [
+      ...prev,
+      {
+        id: Date.now(), //unique ID,
+        name: "",
+        relationship: "",
+        phone: "",
+        email: ""
+      }
+    ]);
+  }
+
+  const updateReference = (id, updatedData) => { 
+    setReferences(prev =>
+      prev.map(ref => (ref.id === id ? {...ref, ...updatedData} : ref))
+    )
+  }
+
+  const removeReference = (id) => { 
+    setReferences(prev => prev.filter(ref => ref.id !== id));
+  }
+
+
+
+
+  //Error states
   const [fileError, setFileError] = useState("");
   const [nameError, setNameError] = useState({
     first_name: "",
@@ -47,6 +87,7 @@ const EmploymentForm = (props) => {
     contact_phone: "",
     contact_email: "",
   });
+  
   const [submitDisabled, setSubmitDisabled] = useState(false);
 
   const handleFileInput = (selectedFile) => {
@@ -156,6 +197,36 @@ const EmploymentForm = (props) => {
           resetStyles
           helperText={contactError}
         />
+        <Box sx={{
+          marginLeft: '0.5rem',
+          color: 'rgb(6,105,136)'
+        }}>
+          <Typography component="h3" variant="h5"  sx={{display: "inline-block"}}>References:&nbsp;</Typography>
+          <Typography sx={{display: "inline-block"}}><i>Please add at least 2</i></Typography>
+          </Box>
+        {references.map((ref, index) => (
+          <Reference
+            key={ref.id}
+            id={ref.id}
+            index={ index + 1}
+            data={ref}
+            onChange={updateReference}
+            onRemove={removeReference}
+          /> 
+        ))}
+        <Button
+          sx={{
+            marginLeft: '0.5rem',
+            background: 'rgba(6,105,136, 0.8)',
+            color: 'white',
+            cursor: 'pointer',
+            '&:hover:': {
+              background: 'rgba(6,105,136, 0.8) !important'
+            }
+          }}
+          onClick={addReference}
+        >+ Reference</Button>
+
         <FormFileInput
           id="resume_file"
           name="resume_file"
