@@ -5,8 +5,21 @@ import { useInView } from "react-intersection-observer";
 import { Transition } from "react-transition-group";
 import { toggleStateByInterval } from "../../../util/toggle";
 
+import ResponsiveVideo from '../../UI/Video/ResponsiveVideo';
+
+import video480 from '../../../assests/videos/elderly_assistance-480p.mp4';
+import video720 from '../../../assests/videos/elderly_assistance-720p.mp4';
+import video1080 from '../../../assests/videos/elderly_assistance-1080p.mp4';
 import mainVideo from "../../../assests/videos/elderly_assistance.mp4";
+
 import styles from "./Background.module.css";
+
+const sources = [
+  {minWidth: 0, src: video480},
+  {minWidth: 480, src: video720},
+  {minWidth: 720, src: video1080},
+  {minWidth: 1080, src: mainVideo}
+];
 
 function Background(props) {
   const [displayVideo, setDisplayVideo] = useState(false);
@@ -46,18 +59,13 @@ function Background(props) {
       <Transition in={inView} timeout={500}>
         {(state) => (
           <>
-            <Box ref={ref} className={styles.background} sx={{opacity: showImage ? 1 : 0 }}>
-              <video
+            <Box ref={ref} className={styles.background} sx={{ opacity: showImage ? 1 : 0 }}>
+              <ResponsiveVideo
+                sources={sources}
                 className={`${styles["foreground-video"]} ${
                   displayVideo ? "" : styles.disappear
                 }`}
-                name="Mobility Assistance"
-                autoPlay
-                muted
-                loop
-              >
-                <source src={mainVideo} type="video/mp4" />
-              </video>
+                name="Mobility Assistance"/>
             </Box>
           </>
         )}
