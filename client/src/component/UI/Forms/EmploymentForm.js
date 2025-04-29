@@ -22,7 +22,7 @@ import FormFileInput from "../Inputs/FormFileInput.js";
 import EmploymentApplicationToastContent from "../CustomToastContent/EmploymentApplicantionToastContent.js";
 import FullName from "../InputGroups/FullName.js";
 import Contact from "../InputGroups/Contact.js";
-import Reference from "../InputGroups/Reference.js";
+import Reference from "../Fieldsets/Reference.js";
 
 
 const EmploymentForm = (props) => {
@@ -212,19 +212,20 @@ const EmploymentForm = (props) => {
             onRemove={removeReference}
           /> 
         ))}
-        <Button
-          sx={{
-            margin: '0.5rem',
-            background: 'rgba(6,105,136, 0.8)',
-            color: 'white',
-            cursor: 'pointer',
-            '&:hover:': {
-              background: 'rgba(6,105,136, 0.8) !important'
-            }
-          }}
-          onClick={addReference}
-        >+ Reference</Button>
-
+        {references.length < 3 &&
+          (<Button
+            sx={{
+              margin: '0.5rem',
+              background: 'rgba(6,105,136, 0.8)',
+              color: 'white',
+              cursor: 'pointer',
+              '&:hover:': {
+                background: 'rgba(6,105,136, 0.8) !important'
+              }
+            }}
+            onClick={addReference}
+          >+ Reference</Button>)
+        }
         <FormFileInput
           id="resume_file"
           name="resume_file"
