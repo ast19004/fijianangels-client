@@ -12,14 +12,14 @@ const Reference = ({ id, data, onChange, onRemove, index}) => {
     <Box component="fieldset" sx={{ border: '2px solid pink', borderRadius: '1rem', padding: '0.5rem', margin: '1rem 0'}}>
       <legend style={{color: '#066988'}}>{`Reference #0${index}`}</legend>
       <FormTextInput
-        id={`name_${id}`}
+        id="name"
         label={`Reference Name`}
-        value={data.reference}
+        value={data.name}
         onChange={handleInputChange}
       />
 
       <FormTextInput
-        id={`relationship_${id}`}
+        id="relationship"
         label="Relationship:"
         value={data.relationship}
         onChange={handleInputChange}
@@ -40,13 +40,13 @@ const Reference = ({ id, data, onChange, onRemove, index}) => {
       /> */}
 
       <FormEmailInput
-        id={`email_${id}`}
-        label={"Email"}
+        id="email"
+        label="Email"
         value={data.email}
         onChange={ handleInputChange}
       />
       <FormTextInput
-        id={`phone_${id}`}
+        id="phone"
         label="Phone:"
         value={ data.phone}
         onChange={handleInputChange}
