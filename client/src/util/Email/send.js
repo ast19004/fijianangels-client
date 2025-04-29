@@ -50,7 +50,7 @@ export const sendCareRequestEmail = async (e) => {
   return emailStatus;
 };
 
-export const sendApplicationEmail = async (e) => {
+export const sendApplicationEmail = async (e, references) => {
   e.preventDefault();
   //Get all data from form
   const formData = new FormData(e.target);
@@ -62,6 +62,9 @@ export const sendApplicationEmail = async (e) => {
   //fileUrl is created from the form file outside this function
   formObject.reply_to = formObject.contact_email;
   formObject.resume_link = fileUrl;
+
+ // Add references list as JSON
+  formObject.references_json = JSON.stringify(references);
 
   const emailStatus = await sendEmail(
     formObject,

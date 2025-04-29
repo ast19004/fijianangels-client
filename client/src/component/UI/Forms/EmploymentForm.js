@@ -51,7 +51,7 @@ const EmploymentForm = (props) => {
   //References
   const [references, setReferences] = useState([]);
 
-  const addReference = () => { 
+  const addReference = () => {
     setReferences(prev => [
       ...prev,
       {
@@ -64,18 +64,15 @@ const EmploymentForm = (props) => {
     ]);
   }
 
-  const updateReference = (id, updatedData) => { 
+  const updateReference = (id, updatedData) => {
     setReferences(prev =>
-      prev.map(ref => (ref.id === id ? {...ref, ...updatedData} : ref))
+      prev.map(ref => (ref.id === id ? { ...ref, ...updatedData } : ref))
     )
   }
 
-  const removeReference = (id) => { 
+  const removeReference = (id) => {
     setReferences(prev => prev.filter(ref => ref.id !== id));
   }
-
-
-
 
   //Error states
   const [fileError, setFileError] = useState("");
@@ -150,7 +147,7 @@ const EmploymentForm = (props) => {
       setLoading(true);
       setLoadingText("Saving form...");
       
-      const emailStatus = await sendApplicationEmail(e);
+      const emailStatus = await sendApplicationEmail(e, references);
       
       if (emailStatus === 200) {
         setTimeout(() => { setLoadingText("Form Sent!") }, 3000);
@@ -202,8 +199,9 @@ const EmploymentForm = (props) => {
           color: 'rgb(6,105,136)'
         }}>
           <Typography component="h3" variant="h5"  sx={{display: "inline-block"}}>References:&nbsp;</Typography>
-          <Typography sx={{display: "inline-block"}}><i>Please add at least 2</i></Typography>
-          </Box>
+          <Typography sx={{display: "inline-block"}}><i>Please list at least 2 professional references</i></Typography>
+        </Box>
+        
         {references.map((ref, index) => (
           <Reference
             key={ref.id}
@@ -216,7 +214,7 @@ const EmploymentForm = (props) => {
         ))}
         <Button
           sx={{
-            marginLeft: '0.5rem',
+            margin: '0.5rem',
             background: 'rgba(6,105,136, 0.8)',
             color: 'white',
             cursor: 'pointer',
