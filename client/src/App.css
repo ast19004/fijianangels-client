@@ -83,7 +83,7 @@ header {
 }
 
 .requestBg{
-      background-image: url(./assests/images/layout/AdobeStock_916204201.jpeg);
+      /* background-image: url(./assests/images/layout/AdobeStock_916204201.jpeg); */
       background-size: top left ;
       background-position: right;
       height: 170vh; 

@@ -32,7 +32,7 @@ const Form = (props) => {
       <Typography
         component="h2"
         textAlign="center"
-        sx={{ color: props.titleColor ? props.titleColor : "#066988", marginBottom: "1rem", fontSize: "1.6rem" }}
+        sx={{ color: props.titleColor ? props.titleColor : "#066988", marginBottom: "1rem", fontSize: "1.6rem",}}
       >
         {props.title.toUpperCase()}
       </Typography>

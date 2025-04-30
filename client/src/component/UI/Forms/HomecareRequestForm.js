@@ -134,7 +134,8 @@ const HomecareRequestForm = (props) => {
       submit
       onSubmit={handleSubmit}
       loading={loading}
-      loadingText={ loadingText}
+      loadingText={loadingText}
+      sx={props.sx}
     >
       <FullName
         fullName={request.fullName}

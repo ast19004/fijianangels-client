@@ -8,8 +8,8 @@ import Staff from "./pages/Staff/Staff";
 import Services from "./pages/Services/Services";
 import Header from "./component/Layout/Header";
 import Home from "./pages/Home/Home";
-import EmploymentForm from "./component/UI/Forms/EmploymentForm";
-import HomecareRequestForm from "./component/UI/Forms/HomecareRequestForm";
+import HomecareRequest from './pages/HomecareRequest/HomecareRequest'
+import Employment from "./pages/Employment/Employment";
 
 import { Routes, Route, BrowserRouter } from "react-router-dom";
 import Reviews from "../src/component/UI/Reviews";
@@ -17,8 +17,6 @@ import AssociatedGroups from "./pages/AssociatedGroups/AssociatedGroups";
 
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-
-import LoadingDove from "./component/UI/LoadingAnimation/LoadingDove";
 
 function App() {
   return (
@@ -39,19 +37,14 @@ function App() {
             exact
             path="/employment-form"
             element={
-              <main>
-                <EmploymentForm />
-              </main>
+              <Employment/>
             }
           />
           <Route
             exact
             path="/homecare-request-form"
             element={
-              // <main className="requestBg">
-              <main>
-                <HomecareRequestForm />
-              </main>
+              <HomecareRequest/>
             }
           />
           <Route

@@ -1,0 +1,54 @@
+.image{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 4rem;
+    background: url('../../assests//images//dove_background/dove_main.jpeg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: bottom left;
+    opacity: 0.5;
+}
+/* Styles for long display */
+@media(min-width: 0px), (min-aspect-ratio : 2/3) {
+    .image{
+        background-image: url('../../assests/images/dove_background/dove_main_long603p.jpg');
+    }
+}
+
+/* Styles for wide display */
+@media(min-width: 0px), (min-aspect-ratio: 3/2) {
+    .image{
+         background-image: url('../../assests//images//dove_background/wide/dove_main_wide500p.jpg');
+    }
+}
+
+@media(min-width: 500px), (min-aspect-ratio: 3/2) {
+    .image{
+         background-image: url('../../assests//images//dove_background/wide/dove_main_wide800p.jpg');
+    }
+}
+
+@media(min-width: 800px), (min-aspect-ratio: 3/2) {
+    .image{
+         background-image: url('../../assests//images//dove_background/wide/dove_main_wide1280p.jpg');
+    }
+}
+
+/* Styles for long or squared display */
+
+@media(min-width: 500px), (min-aspect-ratio : 2/3){
+   .image{
+     background-image: url('../../assests//images//dove_background/dove_main800p.jpg');
+   }
+}
+@media(min-width: 800px), (min-aspect-ratio : 2/3){
+   .image{
+     background-image: url('../../assests//images//dove_background/dove_main1280p.jpg');
+   }
+}
+@media(min-width: 1280px), (min-aspect-ratio : 2/3){
+   .image{
+     background-image: url('../../assests//images//dove_background/dove_main.jpeg');
+   }
+}
