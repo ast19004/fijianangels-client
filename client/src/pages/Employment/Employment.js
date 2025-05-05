@@ -1,5 +1,5 @@
 import { Box } from "@mui/material";
-import EmploymentForm from "../../component/UI/Forms/EmploymentForm";
+import EmploymentForm from "../../component/UI/Forms/EmploymentForm/EmploymentForm";
 
 import styles from './Employment.module.css';
 
