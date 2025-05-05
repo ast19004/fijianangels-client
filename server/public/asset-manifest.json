@@ -1,10 +1,14 @@
 {
   "files": {
-    "main.css": "/static/css/main.abe71d98.css",
-    "main.js": "/static/js/main.093794cb.js",
+    "main.css": "/static/css/main.76a38219.css",
+    "main.js": "/static/js/main.c88a3889.js",
     "static/js/453.258b012d.chunk.js": "/static/js/453.258b012d.chunk.js",
     "static/media/elderly_assistance.mp4": "/static/media/elderly_assistance.c5c10b4fa0ab0ed76711.mp4",
-    "static/media/AdobeStock_916204201.jpeg": "/static/media/AdobeStock_916204201.f8f80eefdd1f188c662d.jpeg",
+    "static/media/elderly_assistance-1080p.mp4": "/static/media/elderly_assistance-1080p.6edfdbe48fe53da7df0a.mp4",
+    "static/media/elderly_assistance-720p.mp4": "/static/media/elderly_assistance-720p.05a80850af33b9e1cca3.mp4",
+    "static/media/white_dove.svg": "/static/media/white_dove.2bce9230dd5c66fd9d2e55fee299e6fd.svg",
+    "static/media/dove_main.jpeg": "/static/media/dove_main.bee2290ed962165c2c55.jpeg",
+    "static/media/elderly_assistance-480p.mp4": "/static/media/elderly_assistance-480p.51b5be3887bac26fea9f.mp4",
     "static/media/main_home_1500px.jpg": "/static/media/main_home_1500px.903e6d72eae8897d5606.jpg",
     "static/media/main_home_1024px.jpg": "/static/media/main_home_1024px.43641f53784221534142.jpg",
     "static/media/love_hand_gesture_1024px.jpg": "/static/media/love_hand_gesture_1024px.981e9272cf20c7d7ce93.jpg",
@@ -17,14 +21,21 @@
     "static/media/service-veteran350px.jpg": "/static/media/service-veteran350px.fd69fef791108bb952fd.jpg",
     "static/media/service-hospice350px.jpg": "/static/media/service-hospice350px.156fb354d208807e1c45.jpg",
     "static/media/flexibility.svg": "/static/media/flexibility.673dd5c5b00e6acc82103cf3c65906f5.svg",
+    "static/media/dove_main1280p.jpg": "/static/media/dove_main1280p.d182c72a5ba128f0e4f9.jpg",
     "static/media/service-companion350px.jpg": "/static/media/service-companion350px.d61761a7ade5ce11bc11.jpg",
     "static/media/service-strokecare.jpg": "/static/media/service-strokecare.fa1106a69946a98a5480.jpg",
+    "static/media/dove_main_wide1280p.jpg": "/static/media/dove_main_wide1280p.15c63e429a96b7e71644.jpg",
     "static/media/contact1_1500px.jpg": "/static/media/contact1_1500px.27d0baf47e07a51ef79d.jpg",
+    "static/media/dove_main_long603p.jpg": "/static/media/dove_main_long603p.7f95dc1b25c4dbf14b98.jpg",
     "static/media/service-mobility350px.jpg": "/static/media/service-mobility350px.e8566cc8c839e3296cfb.jpg",
+    "static/media/dove_main800p.jpg": "/static/media/dove_main800p.a811f651d6b605974dfd.jpg",
     "static/media/fijian_angels_logo-+name.svg": "/static/media/fijian_angels_logo-+name.f890f4e72cb0fbda9576a8c8eaa2dfeb.svg",
+    "static/media/dove_main_wide800p.jpg": "/static/media/dove_main_wide800p.ac1234b1d7e55d37348a.jpg",
     "static/media/contact1_1024px.jpg": "/static/media/contact1_1024px.c127b3be72cb430cdc7e.jpg",
     "static/media/service-personal350px.jpg": "/static/media/service-personal350px.a07884724adefd8a54dd.jpg",
+    "static/media/dove_main500p.jpg": "/static/media/dove_main500p.d6ebb42089cb16af391e.jpg",
     "static/media/integrity.svg": "/static/media/integrity.462d9e13dc536bdd7f47e9945fdd424e.svg",
+    "static/media/dove_main_wide500p.jpg": "/static/media/dove_main_wide500p.b4e8dd65d1ed11520885.jpg",
     "static/media/contact1_800px.jpg": "/static/media/contact1_800px.e3060597a7268fe10c44.jpg",
     "static/media/service-respite.jpg": "/static/media/service-respite.299ee55f498b5f5fe2d6.jpg",
     "static/media/contact2_1500px.jpg": "/static/media/contact2_1500px.6ffaa00e06b160b33d4c.jpg",
@@ -36,12 +47,12 @@
     "static/media/contact.svg": "/static/media/contact.6474b0bf73867cf09adb5584d8a49b02.svg",
     "static/media/fijian-angels-logo.svg": "/static/media/fijian-angels-logo.ec44a1f02df0abeeda0b1ba5cc40942b.svg",
     "index.html": "/index.html",
-    "main.abe71d98.css.map": "/static/css/main.abe71d98.css.map",
-    "main.093794cb.js.map": "/static/js/main.093794cb.js.map",
+    "main.76a38219.css.map": "/static/css/main.76a38219.css.map",
+    "main.c88a3889.js.map": "/static/js/main.c88a3889.js.map",
     "453.258b012d.chunk.js.map": "/static/js/453.258b012d.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.abe71d98.css",
-    "static/js/main.093794cb.js"
+    "static/css/main.76a38219.css",
+    "static/js/main.c88a3889.js"
   ]
 }
