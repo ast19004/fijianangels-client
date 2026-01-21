@@ -209,7 +209,7 @@ function Contact() {
               },
             }}
           >
-            <PhoneLink tel="5106127595">(510) 612-7595</PhoneLink> /{" "}
+            <PhoneLink tel="5106127595">(510) 612-7595</PhoneLink>{" "}
           </Typography>
         </Box>
       </Box>
