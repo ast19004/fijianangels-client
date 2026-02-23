@@ -1,74 +1,53 @@
-import emailjs from "@emailjs/browser";
 import capitalize from "../String/capitalize";
-import uploadFileToFirebase from "../../util/Firebase/upload";
 
-export const sendEmail = async (
-  formContent,
-  templateId = process.env.REACT_APP_EMAILJS_TEMPLATE_ID_1
-) => {
+/**
+ * HELPER: Sends FormData to a specific route on the server.
+ */
+const sendToBackend = async (formData, route) => {
   try {
-    const emailResponse = await emailjs.send(
-      process.env.REACT_APP_EMAILJS_SERVICE_ID,
-      templateId,
-      formContent,
-      process.env.REACT_APP_EMAILJS_PUBLIC_ID
-    );
-    console.log(
-      "Email sent successfully!",
-      emailResponse.status,
-      emailResponse.text
-    );
-    return emailResponse.status;
+    const response = await fetch(route, {
+      method: "POST",
+      body: formData,
+    });
+
+    if (!response.ok) {
+      throw new Error(`Server error: ${response.status}`);
+    }
+
+    const data = await response.json();
+    return response.status;
   } catch (error) {
-    console.error("Error during email sending:", error);
-    return error.status;
+    console.error(`Error connecting to ${route}:`, error);
+    return 500;
   }
 };
 
 export const sendCareRequestEmail = async (e) => {
   e.preventDefault();
-  // Collect other form data
   const formData = new FormData(e.target);
 
-  // Get services from options nodelist of selected values
-  // and capitalize each service value
-  const services =
-    e.target.services.length > 1
-      ? [...e.target.services]
-          .map((service) => capitalize(service.value))
-          .join(", ")
-      : capitalize(e.target.services.value);
+  // Formatting the services
+  const servicesInput = e.target.services;
+  const servicesString = servicesInput.length > 1
+      ? [...servicesInput].map((s) => capitalize(s.value)).join(", ")
+      : capitalize(servicesInput.value);
 
-  // Convert FormData to an object for easier use with emailjs.send()
-  const formObject = Object.fromEntries(formData.entries());
-
-  // Add selected services
-  formObject.services = services;
-  formObject.reply_to = formObject.contact_email;
-
-  const emailStatus = await sendEmail(formObject);
-  return emailStatus;
+  formData.set("services", servicesString);
+  
+  // Hitting care request route
+  return await sendToBackend(formData, "/form/carerequest");
 };
 
 export const sendApplicationEmail = async (e, references) => {
   e.preventDefault();
-  //Get all data from form
   const formData = new FormData(e.target);
+  
   const file = formData.get("resume_file");
-  const fileUrl = await uploadFileToFirebase(file);
-  // Convert FormData to an object for easier use with emailjs.send()
-  const formObject = Object.fromEntries(formData.entries());
+  formData.append("file", file); // Must match backend upload.single("file")
 
-  //fileUrl is created from the form file outside this function
-  formObject.reply_to = formObject.contact_email;
-  formObject.resume_link = fileUrl;
+  // Attach references as a string
+  formData.append("references", JSON.stringify(references));
 
- // Add references list as JSON
-  formObject.references_json = JSON.stringify(references);
-
-  const emailStatus = await sendEmail(
-    formObject,
-    process.env.REACT_APP_EMAILJS_TEMPLATE_ID_2
-  );
-  return emailStatus;
+  // Hitting employment route
+  return await sendToBackend(formData, "/form/employment");
 };
