@@ -3,7 +3,9 @@ if (process.env.NODE_ENV !== "production") {
 }
 
 const { uploadFile, sendEmail } = require("./middleware/upload");
- const reviewRoutes = require("./routes/forms/carereview");
+const reviewRoutes = require("./routes/forms/carereview");
+const employmentRoutes = require('./routes/forms/employment');
+const careRequestRoutes = require('./routes/forms/homecarerequest');
 
 
 const path = require("path");
@@ -40,7 +42,9 @@ app.use((req, res, next) => {
     console.log(`${req.method} request made to: ${req.url}`);
     next();
 });
-app.use(reviewRoutes);
+app.use(uploadFile, reviewRoutes);
+app.use(uploadFile, employmentRoutes);
+app.use(uploadFile, careRequestRoutes);
 app.post("/send-email", uploadFile, sendEmail)
 
 app.get("*", (req, res) => {

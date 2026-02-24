@@ -211,50 +211,52 @@ const CaregiverReviewForm = (props) => {
     return hasEmpty;
   };
 
-  //Generate pdf and send to company email
+  // Generate pdf and send to company email via Nodemailer
   const generateAndSendPDF = async (reviewInfo) => {
-  try {
-    // Generate PDF and get its Blob
-    const blob = await pdf(
-      <CaregiverReviewPDF reviewInfo={reviewInfo} />
-    ).toBlob();
+    try {
+      // Generate PDF and get its Blob
+      const blob = await pdf(
+        <CaregiverReviewPDF reviewInfo={reviewInfo} />
+      ).toBlob();
 
-    // Prepare form data
-    const formData = new FormData();
-    formData.append(
-      "file",
-      blob,
-      `Review_${reviewInfo.reviewerName.last_name},${reviewInfo.reviewerName.first_name}.pdf`
-    );
-    formData.append(
-      "name",
-      `${reviewInfo.reviewerName.first_name} ${reviewInfo.reviewerName.last_name}`
-    );
-    formData.append("email", reviewInfo.reviewerContact.contact_email);
-    formData.append("message", "Please view the attached PDF");
+      // Prepare form data
+      const formData = new FormData();
+      
+      // 'file' must match your backend upload.single("file")
+      formData.append(
+        "file",
+        blob,
+        `Review_${reviewInfo.reviewerName.last_name}_${reviewInfo.reviewerName.first_name}.pdf`
+      );
+      
+      formData.append(
+        "name",
+        `${reviewInfo.reviewerName.first_name} ${reviewInfo.reviewerName.last_name}`
+      );
+      formData.append("email", reviewInfo.reviewerContact.contact_email);
+      formData.append("message", `New Caregiver Review for: ${reviewInfo.caregiverName.first_name} ${reviewInfo.caregiverName.last_name}`);
 
-    // Make the request
-    const response = await fetch("http://localhost:5000/send-email", {
-      method: "POST",
-      body: formData,
-      headers: {
-        Authorization: process.env.REACT_APP_SENDGRID_API_KEY,
-      },
-    });
+      // Make the request to your local Node.js server
+      const response = await fetch("/send-email", {
+        method: "POST",
+        body: formData,
+        // No headers needed: Browser sets multipart boundary automatically
+        // and Authorization is now handled backend-side via Zoho.
+      });
 
-    // Check if the response is OK (status code 200–299)
-    if (!response.ok) {
-      const errorText = await response.text();
-      throw new Error(`HTTP error! Status: ${response.status}. Message: ${errorText}`);
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.error || `Server responded with ${response.status}`);
+      }
+
+      const data = await response.json();
+      return { success: true, data };
+
+    } catch (error) {
+      console.error("PDF Send Error:", error);
+      return { success: false, error: error.message };
     }
-
-    const data = await response.json();
-    return { success: true, data }; // success
-
-  } catch (error) {
-    return { success: false, error: error.message }; // failure
-  }
-};
+  };
 
 
   //Form submit function
@@ -269,7 +271,7 @@ const CaregiverReviewForm = (props) => {
     if (!formHasErrors && !isIncomplete) {
       setLoadingText("Sending");
       const result = await generateAndSendPDF(reviewInfo);
-      result.success ? setLoadingText("Sent!") : setLoadingText("Server Error. Please c ontact Fijian Angels Homecare");
+      result.success ? setLoadingText("Sent!") : setLoadingText("Server Error. Please contact Fijian Angels Homecare");
     } else {
       smoothScrollToTop();
     }

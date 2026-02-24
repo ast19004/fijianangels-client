@@ -19,33 +19,78 @@ const transporter = nodemailer.createTransport({
 exports.uploadFile = upload.single("file");
 
 exports.sendEmail = async (req, res, next) => {
-  try {
-    // Access the file and other form data
-    const { file } = req;
-    const { originalname, buffer } = file;
-    const { name, email, message} = req.body;
+const nodemailer = require("nodemailer");
 
-    const mailOptions = {
-      // MUST be your Zoho email or a verified alias
-      from: `"Website Form" <office@fijianangelshomecare.info>`, 
-      to: "office@fijianangelshomecare.info", // Send it to yourself
-      replyTo: email, // This allows you to hit 'Reply' to talk to the sender
-      subject: `New Message from ${name}`,
-      text: `Name: ${name}\nEmail: ${email}\nMessage: ${message}`,
-      attachments: file ? [
-        {
-          filename: file.originalname,
-          content: file.buffer, // Nodemailer handles buffers directly!
-        },
-      ] : [],
-    };
-    // Send email
-   await transporter.sendMail(mailOptions);
-    res.json({ message: "Email sent successfully via Zoho" });
-  } catch (error) {
-    console.error("Zoho Mail Error:", error);
-    if (!res.headersSent) {
-      res.status(500).json({ error: "Failed to send email" });
+// Transporter stays outside for better performance
+const transporter = nodemailer.createTransport({
+  host: "smtppro.zoho.com",
+  port: 465,
+  secure: true, 
+  auth: {
+    user: "office@fijianangelshomecare.info",
+    pass: process.env.ZOHO_APP_PASSWORD,
+  },
+});
+
+exports.sendEmail = async (req, res) => {
+  try {
+    const { name, email, message, ...otherFields } = req.body;
+    const file = req.file; // From Multer
+
+    // 1. Dynamically build table rows for "otherFields" (services, references, etc.)
+    let extraDataRows = "";
+    for (const [key, value] of Object.entries(otherFields)) {
+      if (value) {
+        // Formats keys like 'caregiver_name' to 'Caregiver Name'
+        const label = key.replace(/_/g, " ").replace(/\b\w/g, (l) => l.toUpperCase());
+        extraDataRows += `
+          <tr>
+            <td style="padding: 8px; border: 1px solid #ddd; font-weight: bold;">${label}:</td>
+            <td style="padding: 8px; border: 1px solid #ddd;">${value}</td>
+          </tr>`;
+      }
     }
+
+    // 2. Create the Universal HTML Template
+    const htmlTemplate = `
+      <div style="font-family: Arial, sans-serif; max-width: 600px; border: 1px solid #eee; padding: 20px;">
+        <h2 style="color: #2e5a88;">New Website Submission</h2>
+        <p><strong>From:</strong> ${name} (<a href="mailto:${email}">${email}</a>)</p>
+        
+        <table style="width: 100%; border-collapse: collapse; margin: 20px 0;">
+          ${extraDataRows}
+        </table>
+
+        <div style="background: #f4f4f4; padding: 15px; border-radius: 4px;">
+          <p style="margin-top: 0; font-weight: bold;">Message/Review:</p>
+          <p style="white-space: pre-wrap;">${message || "No message provided."}</p>
+        </div>
+        
+        <p style="font-size: 11px; color: #999; margin-top: 20px;">
+          Sent from fijianangelshomecare.info
+        </p>
+      </div>
+    `;
+
+    // 3. Mail Options
+    const mailOptions = {
+      from: `"Fijian Angels Website" <office@fijianangelshomecare.info>`,
+      to: "office@fijianangelshomecare.info",
+      replyTo: email, 
+      subject: `New Form Submission: ${name}`,
+      html: htmlTemplate,
+      attachments: file ? [{
+        filename: file.originalname,
+        content: file.buffer // Directly handles the resume/PDF buffer
+      }] : []
+    };
+
+    await transporter.sendMail(mailOptions);
+    res.status(200).json({ success: true, message: "Email delivered successfully" });
+
+  } catch (error) {
+    console.error("Nodemailer Universal Error:", error);
+    res.status(500).json({ success: false, error: error.message });
   }
+};
 };

@@ -12,7 +12,7 @@ import {
   validatePDFFile,
   validatePhone,
 } from "../../../../util/validation.js";
-import { sendApplicationEmail } from "../../../../util/Email/send.js";
+import { sendApplicationEmailData } from "../../../../util/Email/send.js";
 import { updateInput } from "../../../../util/formdata.js";
 import { getPDFDataUrl } from "../../../../util/formdata.js";
 
@@ -149,9 +149,9 @@ const EmploymentForm = (props) => {
       setSubmitDisabled(true);
       setLoading(true);
       setLoadingText("Saving form...");
-      
-      const emailStatus = await sendApplicationEmail(e, references);
-      
+     
+      const emailStatus = await sendApplicationEmailData(e, references);
+      console.log(`emailStatus: ${emailStatus}`); 
       if (emailStatus === 200) {
         setTimeout(() => { setLoadingText("Form Sent!") }, 3000);
         setTimeout(() => {

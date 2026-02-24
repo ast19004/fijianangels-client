@@ -9,7 +9,7 @@ import Form from "./Form/Form";
 import FormTextareaInput from "../Inputs/FormTextareaInput";
 import FormSelectServices from "../Inputs/FormSelectServices";
 
-import { sendCareRequestEmail } from "../../../util/Email/send";
+import { sendCareRequestEmailData } from "../../../util/Email/send";
 import {
   checkIsFormEmpty,
   checkIsFormValid,
@@ -106,8 +106,8 @@ const HomecareRequestForm = (props) => {
       setSubmitDisabled(true);
       setLoading(true);
       setLoadingText("Saving form...");
-
-      const emailStatus = await sendCareRequestEmail(e);
+      console.log("about to send request data");
+      const emailStatus = await sendCareRequestEmailData(e);
       if (emailStatus === 200) {
         setTimeout(() => { setLoadingText("Form Sent!") }, 3000);
         setTimeout(() => {

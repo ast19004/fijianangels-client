@@ -7,6 +7,6 @@ const formController = require("../../controllers/employment");
 
 const formValidation = [];
 
-router.post("form/employment", formController.postEmploymentRequest);
+router.post("/form/employment", formController.postEmploymentRequest);
 
 module.exports = router;
