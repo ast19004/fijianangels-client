@@ -11,7 +11,7 @@ exports.uploadNone = upload.none();
 
 exports.sendEmail = async (req, res) => {
   console.log("Checking credentials...");
-console.log("User:", "office@fijianangelshomecare.info");
+console.log("User:", "admin@fijianangels.com");
 console.log("Pass exists:", !!process.env.ZOHO_APP_PASSWORD); 
   try {
     const { name, email, message, ...otherFields } = req.body;

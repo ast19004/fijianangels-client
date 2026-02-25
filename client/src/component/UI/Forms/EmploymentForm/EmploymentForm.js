@@ -151,8 +151,8 @@ const EmploymentForm = (props) => {
       setLoadingText("Saving form...");
      
       const emailStatus = await sendApplicationEmailData(e, references);
-      console.log(`emailStatus: ${emailStatus}`); 
-      if (emailStatus === 200) {
+
+      if (emailStatus && emailStatus.success) {
         setTimeout(() => { setLoadingText("Form Sent!") }, 3000);
         setTimeout(() => {
           navigate("/");

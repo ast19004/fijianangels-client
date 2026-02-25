@@ -24,3 +24,5 @@ transporter.verify((error, success) => {
     console.log("✅ Email Server is ready to take messages");
   }
 });
+
+module.exports = { nodemailer, transporter };

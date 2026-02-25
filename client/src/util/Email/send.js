@@ -4,7 +4,6 @@ import capitalize from "../String/capitalize";
  * HELPER: Sends FormData to a specific route on the server.
  */
 export const sendToBackend = async (route, formData) => {
-  console.log("In sendToBackend..."); // This should work now
   try {
     const response = await fetch(route, {
       method: "POST",
@@ -14,7 +13,6 @@ export const sendToBackend = async (route, formData) => {
     if (!response.ok) {
       throw new Error(`Server error: ${response.status}`);
     }
-
     return await response.json(); 
   } catch (error) {
     console.error(`Error connecting to ${route}:`, error);
@@ -27,7 +25,7 @@ export const sendCareRequestEmailData = async (e) => {
   e.preventDefault();
 
   const formData = new FormData(e.target);
-    console.log("In sendCareRequestEmailData")
+
   // Formatting the services
   const servicesInput = e.target.services;
   const servicesString = servicesInput.length > 1
@@ -35,11 +33,9 @@ export const sendCareRequestEmailData = async (e) => {
       : capitalize(servicesInput.value);
 
   formData.set("services", servicesString);
-  console.log(Object.fromEntries(formData)); 
+
   // Hitting care request route
-  console.log(
-  "Sending to '/form/carerequest'"
-  )
+
   return await sendToBackend("/form/carerequest", formData);
 };
 
@@ -49,6 +45,7 @@ export const sendApplicationEmailData = async (e, references) => {
   const formData = new FormData(e.target);
   
   const file = formData.get("resume_file");
+  formData.delete("resume_file"); //remove file to readd it under another filename
   formData.append("file", file); // Must match backend upload.single("file")
 
   // Attach references as a string

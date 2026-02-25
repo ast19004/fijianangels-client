@@ -1,73 +1,82 @@
-const { validationResult } = require("express-validator");
+const { transporter } = require('../middleware/transporter');
 
-exports.postEmploymentRequest = async (req, res, next) => {
-  //*****   Applicant info   *****
-  //Applicant name
-  const firstName = req.body.first_name;
-  const middleName = req.body.middle_initial;
-  const lastName = req.body.last_name;
+exports.postEmploymentRequest = async (req, res) => {
+  try {
+    // 1. Log visibility immediately
+    console.log("Check - req.body exists:", !!req.body);
+    console.log("Check - req.file exists:", !!req.file);
 
-  //Applicant address info
-  const street = req.body.street;
-  const unitNum = req.body.unit_apt;
-  const city = req.body.city;
-  const state = req.body.state;
-  const zipcode = req.body.zipcode;
+    // 2. Transporter check
+    if (!transporter || typeof transporter.sendMail !== 'function') {
+      throw new Error("Transporter is not initialized correctly");
+    }
 
-  //*****     Education info     *****
-  //High School
-  const highSchoolName = req.body.high_school;
-  //High School Address
-  const highSchoolStreet = req.body.high_school_street;
-  const highSchoolUnitNum = req.body.high_school_unit_apt;
-  const highSchoolCity = req.body.high_school_city;
-  const highSchoolState = req.body.high_school_state;
-  const highSchoolZipcode = req.body.high_school_zipcode;
+    // Mail logic ...
+       const data = req.body;
+    const file = req.file; // Provided by your uploadFile middleware
 
-  //High School Attendance
-  const highSchoolStartDate = req.body.high_school_start_date;
-  const highSchoolEndDate = req.body.high_school_end_date;
-  const isHighSchoolGraduate = req.is_high_school_graduate;
+    // Parse references back into an array/object
+    const references = data.references ? JSON.parse(data.references) : [];
 
-  //College
-  const collegeName = req.body.college;
-  //College Address
-  const collegeStreet = req.body.college_street;
-  const collegeUnitNum = req.body.college_unit_apt;
-  const collegeCity = req.body.college_city;
-  const collegeState = req.body.college_state;
-  const collegeZipcode = req.body.college_zipcode;
+    // 1. Create a professional HTML template for the application
+    const htmlContent = `
+      <div style="font-family: 'Segoe UI', sans-serif; max-width: 600px; margin: auto; border: 1px solid #e0e0e0; border-radius: 8px;">
+        <div style="background-color: #2e5a88; color: white; padding: 20px; text-align: center;">
+          <h2 style="margin: 0;">New Employment Application</h2>
+          <p style="margin: 5px 0 0 0;">Fijian Angels Home Care Recruitment</p>
+        </div>
+        
+        <div style="padding: 25px;">
+          <h3 style="color: #2e5a88; border-bottom: 2px solid #f0f0f0; padding-bottom: 5px;">Applicant Information</h3>
+          <p><strong>Name:</strong> ${data.first_name} ${data.last_name}</p>
+          <p><strong>Email:</strong> <a href="mailto:${data.contact_email}">${data.contact_email}</a></p>
+          <p><strong>Phone:</strong> ${data.contact_phone}</p>
 
-  //College Attendance
-  const collegeStartDate = req.body.college_start_date;
-  const collegeEndDate = req.body.college_end_date;
-  const isCollegeGraduate = req.is_college_graduate;
+          <h3 style="color: #2e5a88; border-bottom: 2px solid #f0f0f0; padding-bottom: 5px; margin-top: 25px;">References</h3>
+          <ul style="list-style: none; padding: 0;">
+            ${references.map(ref => `
+              <li style="background: #f9fbfd; padding: 10px; margin-bottom: 10px; border-radius: 5px; border-left: 3px solid #2e5a88;">
+                <strong>${ref.name}</strong> (${ref.relationship})<br/>
+                <span style="font-size: 0.9em; color: #666;">Phone: ${ref.phone}</span>
+              </li>
+            `).join('')}
+          </ul>
 
-  //Other Education
-  const otherName = req.body.other;
-  //Other Education Address
-  const otherStreet = req.body.other_street;
-  const otherUnitNum = req.body.other_unit_apt;
-  const otherCity = req.body.other_city;
-  const otherState = req.body.other_state;
-  const otherZipcode = req.body.other_zipcode;
+          <div style="margin-top: 25px; padding: 15px; background: #fff8e1; border: 1px solid #ffe082; border-radius: 5px;">
+            <strong>Note:</strong> The applicant's resume is attached to this email as <em>${file ? file.originalname : 'No file provided'}</em>.
+          </div>
+        </div>
+      </div>
+    `;
 
-  //Other Education Attendance
-  const otherStartDate = req.body.college_start_date;
-  const otherEndDate = req.body.college_end_date;
-  const isOtherGraduate = req.is_college_graduate;
+    // 2. Configure Mail Options with Attachment
+    const mailOptions = {
+      from: '"Recruitment Portal" <admin@fijianangels.com>',
+      to: "admin@fijianangels.com",
+      replyTo: data.contact_email,
+      subject: `Job Application: ${data.first_name} ${data.last_name}`,
+      html: htmlContent,
+      attachments: file ? [
+        {
+          filename: file.originalname,
+          content: file.buffer, // Use buffer if using MemoryStorage, or 'path' if using DiskStorage
+        }
+      ] : []
+    };
 
-  //*****   References info   *****
+    // 3. Send via Zoho
+    await transporter.sendMail(mailOptions);
 
-  //*****   Previous Employment info   *****
+    res.status(200).json({ success: true, message: "Application sent successfully!" });
 
-  //*****   Miliary Service   *****
-
-  //*****   Form Signature   *****
-
-  const phone = req.body.phone;
-  const email = req.body.email;
-
-  const services = req.body.services;
-  const reviewText = req.body.extra_info;
+  } catch (error) {
+    // This will print the EXACT error message in your VS Code terminal
+    console.error("CRITICAL SERVER ERROR:", error.name, "->", error.message);
+    
+    res.status(500).json({ 
+      success: false, 
+      error: error.message,
+      stack: process.env.NODE_ENV === 'development' ? error.stack : undefined 
+    });
+  }
 };

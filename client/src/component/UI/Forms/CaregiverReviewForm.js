@@ -260,23 +260,55 @@ const CaregiverReviewForm = (props) => {
 
 
   //Form submit function
-  const handleOnSubmit = async(e) => {
-    e.preventDefault();
-    setIsLoading(true);
-    setLoadingText("Checking form completeness");
-    const isIncomplete = hasEmptyRequiredInputs(reviewInfo);
-    isIncomplete && setLoadingText("Please complete the form");
-    setFormIncomplete(isIncomplete);
-    checkIsFormValid(inputErrors, formHasErrors, setFormHasErrors);
-    if (!formHasErrors && !isIncomplete) {
-      setLoadingText("Sending");
+  const handleOnSubmit = async (e) => {
+  e.preventDefault();
+  setIsLoading(true);
+  setLoadingText("Checking form completeness...");
+
+  const isIncomplete = hasEmptyRequiredInputs(reviewInfo);
+  setFormIncomplete(isIncomplete);
+  
+  // Ensure we check for validation errors
+  const hasErrors = checkIsFormValid(inputErrors, formHasErrors, setFormHasErrors);
+
+  if (!hasErrors && !isIncomplete) {
+    setLoadingText("Sending review...");
+
+    try {
       const result = await generateAndSendPDF(reviewInfo);
-      result.success ? setLoadingText("Sent!") : setLoadingText("Server Error. Please contact Fijian Angels Homecare");
-    } else {
-      smoothScrollToTop();
+
+      if (result && result.success) {
+        // Success Sequence
+        setLoadingText("Sent!");
+        
+        // Wait 3 seconds so they can read "Sent!" before the modal/loading screen closes
+        setTimeout(() => {
+          setIsLoading(false);
+          setLoadingText("");
+          // Optional: navigate("/") or resetForm()
+        }, 3000);
+        
+      } else {
+        // Error Sequence
+        setLoadingText("Server Error. Please contact Fijian Angels Homecare");
+        
+        // Allow them to see the error for 5 seconds before letting them try again
+        setTimeout(() => {
+          setIsLoading(false);
+          setLoadingText("");
+        }, 5000);
+      }
+    } catch (err) {
+      setLoadingText("Connection error. Please try again.");
+      setTimeout(() => setIsLoading(false), 3000);
     }
-    setIsLoading(false);
-  };
+  } else {
+    setLoadingText("Please fix the errors above.");
+    smoothScrollToTop();
+    // Close the loading overlay quickly if it's just a validation error
+    setTimeout(() => setIsLoading(false), 2000);
+  }
+};
 
   return (
     <>
