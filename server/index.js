@@ -35,6 +35,10 @@ app.use(cors());
 // const bodyParser = require("body-parser");
 
 
+app.use(uploadFile, reviewRoutes);
+app.use(uploadFile, employmentRoutes);
+app.use(uploadFile, careRequestRoutes);
+app.post("/send-email", uploadFile, sendEmail)
 
 app.use(express.static(path.join(__dirname, "public")));
 // Debugging: Log all incoming requests
@@ -42,10 +46,6 @@ app.use((req, res, next) => {
     console.log(`${req.method} request made to: ${req.url}`);
     next();
 });
-app.use(uploadFile, reviewRoutes);
-app.use(uploadFile, employmentRoutes);
-app.use(uploadFile, careRequestRoutes);
-app.post("/send-email", uploadFile, sendEmail)
 
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "public", "index.html"));

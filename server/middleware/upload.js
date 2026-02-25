@@ -1,38 +1,18 @@
-const nodemailer = require("nodemailer");
+const transporter = require( "./transporter");
 const multer = require("multer");
 
 // Set up storage for multer
 const storage = multer.memoryStorage();
 const upload = multer({ storage: storage });
 
-// Set up Zoho Transporter
-const transporter = nodemailer.createTransport({
-  host: "smtppro.zoho.com", // 'pro' is for Workplace Standard
-  port: 465,
-  secure: true, // Use SSL
-  auth: {
-    user: "admin@fijianangelshomecare.info", // Your Zoho address
-    pass: process.env.ZOHO_APP_PASSWORD,      // Your 16-char App Password
-  },
-});
 
 exports.uploadFile = upload.single("file");
-
-exports.sendEmail = async (req, res, next) => {
-const nodemailer = require("nodemailer");
-
-// Transporter stays outside for better performance
-const transporter = nodemailer.createTransport({
-  host: "smtppro.zoho.com",
-  port: 465,
-  secure: true, 
-  auth: {
-    user: "office@fijianangelshomecare.info",
-    pass: process.env.ZOHO_APP_PASSWORD,
-  },
-});
+exports.uploadNone = upload.none();
 
 exports.sendEmail = async (req, res) => {
+  console.log("Checking credentials...");
+console.log("User:", "office@fijianangelshomecare.info");
+console.log("Pass exists:", !!process.env.ZOHO_APP_PASSWORD); 
   try {
     const { name, email, message, ...otherFields } = req.body;
     const file = req.file; // From Multer
@@ -92,5 +72,4 @@ exports.sendEmail = async (req, res) => {
     console.error("Nodemailer Universal Error:", error);
     res.status(500).json({ success: false, error: error.message });
   }
-};
 };

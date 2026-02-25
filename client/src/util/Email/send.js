@@ -1,11 +1,10 @@
-import { response } from "express";
 import capitalize from "../String/capitalize";
 
 /**
  * HELPER: Sends FormData to a specific route on the server.
  */
 export const sendToBackend = async (route, formData) => {
-  console.log("In sendToBackend...");
+  console.log("In sendToBackend..."); // This should work now
   try {
     const response = await fetch(route, {
       method: "POST",
@@ -16,16 +15,11 @@ export const sendToBackend = async (route, formData) => {
       throw new Error(`Server error: ${response.status}`);
     }
 
-    const data = await response.json();
-    console.log(response.status);
-    return response.status;
+    return await response.json(); 
   } catch (error) {
     console.error(`Error connecting to ${route}:`, error);
-    response.status(500).json({ 
-      success: false, 
-      error: error.message, // This sends the specific error to the BROWSER
-      stack: error.stack 
-    });
+    // REMOVE the res.status(500) line. Just return the error.
+    return { success: false, error: error.message };
   }
 };
 

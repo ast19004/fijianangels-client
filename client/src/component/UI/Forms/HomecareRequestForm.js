@@ -107,7 +107,9 @@ const HomecareRequestForm = (props) => {
       setLoading(true);
       setLoadingText("Saving form...");
       console.log("about to send request data");
+
       const emailStatus = await sendCareRequestEmailData(e);
+      
       if (emailStatus === 200) {
         setTimeout(() => { setLoadingText("Form Sent!") }, 3000);
         setTimeout(() => {
