@@ -20,7 +20,11 @@ const Review = (props) => {
           { props.reviewerName}
         </Typography>
       </Box>
-      <Box sx={{background: 'white'}}>
+      <Box sx={{
+        background: 'white',
+        padding: "0.2rem 1rem 1rem 1rem",
+        border: "1px solid #ca4765e6",
+        borderRadius: "0 3rem 4rem 3rem"}}>
         <Typography
           component="span"
           sx={{ fontSize: ".9rem", display: "block", color: "#888" }}
