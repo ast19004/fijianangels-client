@@ -12,31 +12,43 @@ const Review = (props) => {
           gap: ".2rem",
         }}
       >
-        <AccountCircleIcon fontSize="small" />
+        <AccountCircleIcon fontSize="small" sx={{color: "rgba(202, 71, 101, 0.9)"}} />
         <Typography
           component="span"
-          sx={{ fontSize: "1rem", display: "block" }}
+          sx={{ fontSize: "1rem", display: "block", background: 'rgba(255,255,255,0.9)', color: 'rgb(96, 125, 173)' }}
         >
           { props.reviewerName}
         </Typography>
       </Box>
       <Box sx={{
+        position: 'relative',
         background: 'white',
+        marginTop: '0.5rem',
         padding: "0.2rem 1rem 1rem 1rem",
         border: "1px solid #ca4765e6",
-        borderRadius: "0 3rem 4rem 3rem"}}>
+        borderRadius: "4px 3rem 4.5rem 3rem",
+        // Target the ::before (The Border of the tail)
+        '&::before': {
+          content: '""',
+          position: 'absolute',
+          top: '-6px',
+          left: '4px',
+          width: '10px',
+          height: '10px',
+          backgroundColor: 'white',
+          borderLeft: '1px solid #ca4765e6',
+          borderTop: '1px solid #ca4765e6',
+          transform: 'rotate(45deg)',
+    },
+
+      
+      }}>
         <Typography
           component="span"
           sx={{ fontSize: ".9rem", display: "block", color: "#888" }}
         >
           <i>Reviewed on {props.reviewDate}</i>
         </Typography>
-        {/* <Typography
-          component="span"
-          sx={{ fontSize: ".9rem", display: "block", color: "#888" }}
-        >
-          In Home Hospice, Light Housekeeping, Meal Planning
-        </Typography> */}
         <Typography component="p">
           { props.review} 
         </Typography>
