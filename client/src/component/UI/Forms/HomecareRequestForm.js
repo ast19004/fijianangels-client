@@ -109,7 +109,7 @@ const HomecareRequestForm = (props) => {
 
       const emailStatus = await sendCareRequestEmailData(e);
       
-      if (emailStatus & emailStatus.success) {
+      if (emailStatus.success || emailStatus.ok) {
         setTimeout(() => { setLoadingText("Form Sent!") }, 3000);
         setTimeout(() => {
           navigate("/");
