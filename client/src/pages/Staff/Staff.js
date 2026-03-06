@@ -48,7 +48,7 @@ const Staff = (props) => {
                 "@media(min-width: 40rem)": { textAlign: "left" },
               }}
             >
-              Co-Founder & Chief Executive Officer, CEO
+              Chief Executive Officer, CEO
             </Typography>
           </ContactLink>
           <Typography className={styles.staff_member_desciption}>
