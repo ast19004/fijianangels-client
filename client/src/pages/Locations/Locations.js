@@ -20,7 +20,7 @@ const Locations = (props) => {
       <OfficeAddress
         mainOffice
         officeTitle="Main Office"
-        officeAddress="8784 Twinberry Way, Elk Grove CA"
+        officeAddress="2627 Benvenue Ave, Berkeley, CA 94704"
       />
       <OfficeAddress
         officeTitle="Golden Gate Regional Center"
